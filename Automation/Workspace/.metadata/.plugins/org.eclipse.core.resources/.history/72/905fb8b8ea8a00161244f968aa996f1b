@@ -1,0 +1,124 @@
+package Implementation;
+
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import lib.ExcelDataConfig;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.Reporter;
+
+
+public class LoginTest
+{
+
+	 Login lgnpge;
+	 CruiseBookingpgeobjct crsbk;
+	 static WebDriver driver;
+     Reporter report = new Reporter();
+	   
+  public static boolean implicitwait(long time)
+  {
+      try {
+	               driver.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
+                   System.out.println("Waited for"+time+"sec implicitly.");
+	
+          } catch (Exception e) 
+            {
+      	         System.out.println(e.getMessage());
+            }
+                   return true;
+  } 
+
+  @Parameters({ "browser" })
+  @BeforeTest
+  public void openBroswer(String browser) throws InterruptedException  
+  {
+      try {
+	                 if (browser.equalsIgnoreCase("Firefox"))
+	                 {
+	                	   driver = new FirefoxDriver();
+      	   
+	                 } 
+	                 else if (browser.equalsIgnoreCase("chrome")) 
+	                 {
+		                    System.setProperty("webdriver.chrome.driver", "D:\\Ajit\\Driver\\chromedriver_win32\\chromedriver.exe");
+		               //   driver = new ChromeDriver();
+		                   
+	                 }  
+	                 else if (browser.equalsIgnoreCase("IE")) 
+	                 {
+		                   System.setProperty("webdriver.ie.driver", "D:\\Ajit\\Driver\\IEDriverServer_Win32_2.53.0\\IEDriverServer.exe");
+		                // driver = new InternetExplorerDriver();
+		                   
+	                 } 
+
+          } catch (WebDriverException e) 
+            {
+	                   System.out.println(e.getMessage());
+            }
+  }
+	
+
+  @BeforeClass()
+  public void baseClass() throws InterruptedException  
+  {
+	     driver.manage().window().maximize();
+         driver.navigate().to("https://localhost/odyssey/admin/");
+         Thread.sleep(4000);
+         lgnpge = PageFactory.initElements(driver, Login.class);
+         crsbk = PageFactory.initElements(driver, CruiseBookingpgeobjct.class);
+         
+  }    
+  
+  @DataProvider
+  public Object[][] dp() throws IOException {
+     //login1.fileName = "Data//Login.xls";
+     //login1.sheetName = "Sheet1";
+     FileInputStream fis = new FileInputStream("D:\\Ajit\\Automation\\Workspace\\Odysseus_Product\\TestData\\InputData.xlsx");
+     String sheetName = "Login";
+     login1.loadFromSpreadsheet(fis,sheetName);
+     return login1.getData();        
+ }
+  
+  @Test(dataProvider="Authentication")
+  public void logintest1(String Usrname, String Password) throws Exception
+  {
+	   
+       String Credentials = "Login Successfully..!";
+       Reporter.log("Login with valid credentials :- " + Credentials);
+
+       System.out.println("Usrname: " + Usrname);
+       System.out.println("Password: " + Password);
+            
+       lgnpge.LoginToTittle(Usrname, Password);
+       crsbk.BookingToTittle();
+       
+       Thread.sleep(500);
+     
+   //    Assert.assertEquals("Username is:-" +Uname+"Should be ajithn@odysol.com",Uname,"ajithn@odysol.com");
+       
+       System.out.println("Page title verified:- User login successfully");
+  }
+  
+  
+
+
+  @AfterClass
+  public void closeBrowser()
+  {/*
+	    if(driver!=null) 
+	    {
+		     System.out.println("Closing the browser");
+		     driver.quit();
+	    }   
+    */
+  }
+
+}

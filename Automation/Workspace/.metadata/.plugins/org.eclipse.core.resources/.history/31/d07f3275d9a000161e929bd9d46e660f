@@ -1,0 +1,193 @@
+package Implementation;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.Reporter;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+import Utility.ExcelUtils;
+
+
+public class HoldAirAlanitaTest 
+{
+	
+	   Login lgnpge;
+	   AirBookingpgeobjct airbk;
+	   AirCheckoutpageobjct chckout;
+	   public static WebDriver driver;
+       Reporter report = new Reporter();
+	   
+     public static boolean implicitwait(long time)
+     {
+       try 
+       {
+	              driver.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
+                  System.out.println("Waited for"+time+"sec implicitly.");
+	
+        } catch (Exception e) 
+          {
+    	         System.out.println(e.getMessage());
+          }
+                 return true;
+     } 
+
+     @Parameters({ "browser" })
+     @BeforeTest
+     public void openBroswer(String browser) throws InterruptedException  
+     {
+         try
+         {
+	                 if (browser.equalsIgnoreCase("Firefox"))
+	                 {
+	                      driver = new FirefoxDriver();
+    	   
+	                 } 
+	                 else if (browser.equalsIgnoreCase("chrome")) 
+	                 {
+		                    System.setProperty("webdriver.chrome.driver", "D:\\Ajit\\Driver\\chromedriver_win32\\chromedriver.exe");
+		                //    driver = new ChromeDriver();
+		                   
+	                 }  
+	                 else if (browser.equalsIgnoreCase("IE")) 
+	                 {
+		                   System.setProperty("webdriver.ie.driver", "D:\\Ajit\\Driver\\IEDriverServer_Win32_2.53.0\\IEDriverServer.exe");
+		                // driver = new InternetExplorerDriver();
+		                   
+	                 } 
+
+         } catch (WebDriverException e) 
+           {
+	                   System.out.println(e.getMessage());
+           }
+              
+               driver.manage().window().maximize();
+               driver.get("https://localhost/odyssey/admin/login.aspx");
+               //driver.navigate().to("https://localhost/odyssey/website/air/results.aspx?");
+               Thread.sleep(4000);
+               lgnpge = PageFactory.initElements(driver, Login.class);
+               airbk = PageFactory.initElements(driver, AirBookingpgeobjct.class);
+               chckout = PageFactory.initElements(driver, AirCheckoutpageobjct.class);
+              
+     }
+
+
+     @Test(dataProvider="Authentication")
+     public void login_data(String sUsername, String sPassword, String FromLocation, String ToLocation, String Firstname_Of_Adult1, String Lastname_Of_Adult1, String Firstname_Of_Adult2, String Lastname_Of_Adult2, String Firstname_Of_Adult3, String Lastname_Of_Adult3, String Email, String Phone_No, String CardHolderName, String CardNo, String CardCvvNo, String Address, String City, String Zipcode, String Phone_Number, String BankName) throws Exception
+     {
+    
+         String Credentials = "Flight Hold And After Booked Successfully..!";
+         Reporter.log("User Login :- " + Credentials);
+
+         System.out.println("sUsername: " + sUsername);
+         System.out.println("sPassword: " + sPassword);
+         System.out.println("FromLocation: " + FromLocation);
+         System.out.println("ToLocation: " + ToLocation);
+                 
+         lgnpge.LoginToTittle(sUsername, sPassword);
+         airbk.AirBookingToTitle(FromLocation, ToLocation);
+     
+         System.out.println("Page title verified:- User login successfully");
+     
+         Thread.sleep(12000);
+      
+        // For select dynamic flights from result page
+        for(int i = driver.getWindowHandles().size() -1 ; i > 0 ; i--)
+        {
+
+            String winHandle = driver.getWindowHandles().toArray()[i].toString();
+
+            driver.switchTo().window(winHandle);
+           
+            driver.navigate().refresh();
+         
+            driver.get("https://localhost/odyssey/website/air/results.aspx");
+     
+   	        driver.manage().window().maximize();
+       
+   	        Thread.sleep(3000);
+   	  
+  	  
+            List<WebElement> options = driver.findElements(By.className("print-select-flight"));
+  
+         
+            if(options.size()>0)
+            {
+                 options.get(1).click();  // 1 for AmadeusWS or 2 for Sabre
+            }
+            else 
+            {
+			    System.out.println("No flight Available");
+			    return;
+		    }
+         
+  
+        
+               System.out.println("Flight selected successfully..");
+                
+            Thread.sleep(1000);
+        
+            //For Checkout page
+            System.out.println("Firstname_Of_Adult1: " + Firstname_Of_Adult1);
+            System.out.println("Lastname_Of_Adult1: " + Lastname_Of_Adult1);
+            System.out.println("Firstname_Of_Adult2: " + Firstname_Of_Adult2);
+            System.out.println("Lastname_Of_Adult2: " + Lastname_Of_Adult2);
+            System.out.println("Firstname_Of_Adult3: " + Firstname_Of_Adult3);
+            System.out.println("Lastname_Of_Adult3: " + Lastname_Of_Adult3);
+            System.out.println("Email: " + Email);
+            System.out.println("Phone_No: " + Phone_No);
+            System.out.println("CardHolderName: " + CardHolderName);
+            System.out.println("CardNo: " + CardNo);
+            System.out.println("CardCvvNo: " + CardCvvNo);
+            System.out.println("Address: " + Address);
+            System.out.println("City: " + City);
+            System.out.println("Zipcode: " + Zipcode);
+            System.out.println("Phone_Number: " + Phone_Number);
+            System.out.println("BankName: " + BankName);
+         
+            chckout.HoldToTitle(Firstname_Of_Adult1, Lastname_Of_Adult1, Firstname_Of_Adult2, Lastname_Of_Adult2, Firstname_Of_Adult3, Lastname_Of_Adult3, Email, Phone_No, CardHolderName, CardNo, CardCvvNo, Address, City, Zipcode, Phone_Number, BankName);
+     
+       }
+ 
+     
+           //  Assert.assertEquals("Username is:-" +Uname+"Should be ajithn@odysol.com",Uname,"ajithn@odysol.com");
+     
+            System.out.println("Flight Booked successfully..");
+
+
+    }
+
+
+    @DataProvider
+    public String[][] Authentication() throws Exception
+    {
+
+	     String[][] testObjArray = ExcelUtils.getTableArray("D:\\Ajit\\Automation\\Workspace\\Odysseus_Product\\src\\main\\java\\testData\\TestData.xlsx","Sheet1");
+
+         return (testObjArray);
+
+    }
+
+
+    @AfterClass
+    public void closeBrowser() throws InterruptedException
+    {
+	 
+  	   /*
+	        if(driver!=null) 
+	        {
+		         System.out.println("Closing the browser");
+		         driver.quit();
+	        }   
+      */
+    }
+
+}

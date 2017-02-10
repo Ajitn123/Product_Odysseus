@@ -1,0 +1,140 @@
+package Implementation;
+
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.Reporter;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+import Utility.ExcelUtils;
+
+
+
+public class AirBookingTest 
+{
+
+	 Login lgnpge;
+	 AirBookingpgeobjct airbk;
+	 public static WebDriver driver;
+     Reporter report = new Reporter();
+	   
+ public static boolean implicitwait(long time)
+ {
+     try {
+	               driver.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
+                   System.out.println("Waited for"+time+"sec implicitly.");
+	
+         } catch (Exception e) 
+           {
+     	         System.out.println(e.getMessage());
+           }
+                  return true;
+ } 
+
+ @Parameters({ "browser" })
+ @BeforeTest
+ public void openBroswer(String browser) throws InterruptedException  
+ {
+     try {
+	                 if (browser.equalsIgnoreCase("Firefox"))
+	                 {
+	                	//   driver = new FirefoxDriver();
+     	   
+	                 } 
+	                 else if (browser.equalsIgnoreCase("chrome")) 
+	                 {
+		                    System.setProperty("webdriver.chrome.driver", "D:\\Ajit\\Driver\\chromedriver_win32\\chromedriver.exe");
+		                    driver = new ChromeDriver();
+		                   
+	                 }  
+	                 else if (browser.equalsIgnoreCase("IE")) 
+	                 {
+		                   System.setProperty("webdriver.ie.driver", "D:\\Ajit\\Driver\\IEDriverServer_Win32_2.53.0\\IEDriverServer.exe");
+		                // driver = new InternetExplorerDriver();
+		                   
+	                 } 
+
+         } catch (WebDriverException e) 
+           {
+	                   System.out.println(e.getMessage());
+           }
+               
+               
+               //driver.navigate().to("https://localhost/odyssey/website/air/results.aspx?");
+               Thread.sleep(4000);
+               lgnpge = PageFactory.initElements(driver, Login.class);
+               airbk = PageFactory.initElements(driver, AirBookingpgeobjct.class);
+               
+ }
+
+ 
+ @Test(dataProvider="Authentication")
+ public void login_data(String sUsername, String sPassword, String FromLocation, String ToLocation) throws Exception
+ {
+	 
+	 driver.manage().window().maximize();
+     driver.navigate().to("https://localhost/odyssey/admin/login.aspx");
+     
+      String Credentials = "Login Successfully..!";
+      Reporter.log("User Login :- " + Credentials);
+
+      System.out.println("sUsername: " + sUsername);
+      System.out.println("sPassword: " + sPassword);
+      System.out.println("FromLocation: " + FromLocation);
+      System.out.println("ToLocation: " + ToLocation);
+                  
+      lgnpge.LoginToTittle(sUsername, sPassword);
+      airbk.AirBookingToTitle(FromLocation, ToLocation);
+      
+      
+       driver.navigate().to("https://localhost/odyssey/website/air/results.aspx");
+ 	   driver.manage().window().maximize();
+ 	   airbk.ResultpgeToTitle();
+      
+      
+  //    Assert.assertEquals("Username is:-" +Uname+"Should be ajithn@odysol.com",Uname,"ajithn@odysol.com");
+      
+      System.out.println("Page title verified:- User login successfully");
+
+
+ }
+
+ @Test(dataProvider="Authentication")
+ public void booking_data()
+ {
+	 driver.navigate().to("https://localhost/odyssey/website/air/results.aspx");
+	 driver.manage().window().maximize();
+	 airbk.ResultpgeToTitle();
+ }
+ 
+  
+ @DataProvider
+ public Object[][] Authentication() throws Exception
+ {
+
+      Object[][] testObjArray = ExcelUtils.getTableArray("D:\\Ajit\\Automation\\Workspace\\Odysseus_Product\\src\\main\\java\\testData\\TestData.xlsx","Sheet1");
+
+      return (testObjArray);
+
+ }
+
+ 
+ @AfterClass
+ public void closeBrowser() throws InterruptedException
+ {
+	 
+   	 /*
+	    if(driver!=null) 
+	    {
+		     System.out.println("Closing the browser");
+		     driver.quit();
+	    }   
+   */
+ }
+	
+}

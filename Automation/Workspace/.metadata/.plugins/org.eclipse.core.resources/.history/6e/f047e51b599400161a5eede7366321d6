@@ -1,0 +1,32 @@
+package Implementation;
+
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeTest;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterTest;
+
+public class Air_BookingTest 
+{
+	
+ 
+  @BeforeTest
+  public void beforeTest()
+  {
+	  WebDriver driver = new FirefoxDriver();
+	  driver.get("https://localhost/odyssey/admin/login.aspx");
+  }
+  
+  @Test
+  public void f() 
+  {
+	  
+  }
+
+  @AfterTest
+  public void afterTest() 
+  {
+	  
+  }
+
+}

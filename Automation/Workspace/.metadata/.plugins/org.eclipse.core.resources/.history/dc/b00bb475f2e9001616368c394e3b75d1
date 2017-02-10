@@ -1,0 +1,486 @@
+package Implementation;
+
+import java.io.File;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
+import org.testng.AssertJUnit;
+import org.testng.Reporter;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+import com.relevantcodes.extentreports.ExtentReports;
+import Utility.ExcelUtils;
+
+
+public class HeldConfirmAndTicketedTest 
+{
+	
+		  Login lgnpge;
+	      AirBookingpgeobjct airbk;
+	      AirCheckoutpageobjct chckout;
+	      HoldAndConfirmPgeobjct hldncnfrm;
+	      public static WebDriver driver;
+          Reporter report = new Reporter();
+          static final ExtentReports extent = ExtentReports.get(HeldConfirmAndTicketedTest.class); 
+	   
+    public static boolean implicitwait(long time)
+    {
+        try 
+        {
+	              driver.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
+                  System.out.println("Waited for"+time+"sec implicitly.");
+	
+        } catch (Exception e) 
+          {
+ 	           System.out.println(e.getMessage());
+          }
+               return true;
+    } 
+
+    @Parameters({ "browser" })
+    @BeforeTest
+    public void openBroswer(String browser) throws InterruptedException  
+    {
+        try
+        {
+	                 if (browser.equalsIgnoreCase("Firefox"))
+	                 {
+	                   //   driver = new FirefoxDriver();
+ 	   
+	                 } 
+	                 else if (browser.equalsIgnoreCase("chrome")) 
+	                 {
+		                    System.setProperty("webdriver.chrome.driver", "D:\\Ajit\\Driver\\chromedriver_win32 (1)\\chromedriver.exe");
+		                    driver = new ChromeDriver();
+		                   
+	                 }  
+	                 else if (browser.equalsIgnoreCase("IE")) 
+	                 {
+		                   System.setProperty("webdriver.ie.driver", "D:\\Ajit\\Driver\\IEDriverServer_Win32_2.53.0\\IEDriverServer.exe");
+		                // driver = new InternetExplorerDriver();
+		                   
+	                 } 
+
+        } catch (WebDriverException e) 
+          {
+	                   System.out.println(e.getMessage());
+          }
+           
+               driver.manage().window().maximize();
+               driver.get("https://ui.odysol.com/admin/login.aspx");
+               //driver.navigate().to("https://localhost/odyssey/website/air/results.aspx?");
+               Thread.sleep(4000);
+               lgnpge = PageFactory.initElements(driver, Login.class);
+               airbk = PageFactory.initElements(driver, AirBookingpgeobjct.class);
+               chckout = PageFactory.initElements(driver, AirCheckoutpageobjct.class);
+               hldncnfrm = PageFactory.initElements(driver, HoldAndConfirmPgeobjct.class);
+           
+    }
+
+
+    @Test(dataProvider="Authentication")
+    public void Heldlogin_data(String sUsername, String sPassword, String FromLocation, String ToLocation, String Firstname_Of_Adult1, String Lastname_Of_Adult1, String Firstname_Of_Adult2, String Lastname_Of_Adult2, String Firstname_Of_Adult3, String Lastname_Of_Adult3, String Email, String Phone_No, String CardHolderName, String CardNo, String CardCvvNo, String Address, String City, String Zipcode, String Phone_Number, String BankName) throws Exception
+    {
+       try
+       {
+    	    extent.init("D:\\Ajit\\Automation\\Workspace\\Odysseus_Product\\test-output\\emailable-report.html", true);
+    	    extent.startTest("HeldConfirmAndTicketedTest");
+     	    System.out.println("sUsername: " + sUsername);
+            System.out.println("sPassword: " + sPassword);
+            System.out.println("FromLocation: " + FromLocation);
+            System.out.println("ToLocation: " + ToLocation);
+              
+            lgnpge.LoginToTittle(sUsername, sPassword);
+            airbk.AirBookingToTitle(FromLocation, ToLocation);
+         
+            File scr = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+            org.codehaus.plexus.util.FileUtils.copyFile(scr, new File("D:\\Ajit\\Script_SS\\HeldConfirmAndTicketed\\Searchpage.jpg"));
+      
+            System.out.println("Page title verified:- User login successfully");
+        }    
+        catch(Exception e)
+        {
+        	  File scr02 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+	          org.codehaus.plexus.util.FileUtils.copyFile(scr02, new File("D:\\Ajit\\Script_SS\\Error\\Invalidcredentials.jpg"));
+	          
+	          Assert.assertFalse(false, "FAIL");
+	          Reporter.log("Username and Password are invalid..");
+        	  AssertJUnit.assertTrue("Username Or Password are invalid...", lgnpge.isDisplayed());
+        	  AssertJUnit.assertTrue("Flight locations are invalid...", airbk.isDisplayed());
+        	  throw(e);
+          	  
+        }
+   
+             Thread.sleep(12000);
+   
+       // For select dynamic flights from result page
+       for(int i = driver.getWindowHandles().size() -1 ; i > 0 ; i--)
+       {
+
+           String winHandle = driver.getWindowHandles().toArray()[i].toString();
+
+           driver.switchTo().window(winHandle);
+        
+           driver.navigate().refresh();
+      
+           driver.get("https://ui.odysol.com/web/air/results.aspx?");
+  
+	       driver.manage().window().maximize();
+    
+	       Thread.sleep(5000);
+	  
+	  
+           List<WebElement> options = driver.findElements(By.className("print-select-flight"));
+
+      
+           if(options.size()>0)
+           {
+               options.get(2).click();  // 1 for AmadeusWS or 2 for Sabre
+           }
+           else 
+           {
+         	   System.out.println("Flight not available..");
+         	
+          	   File scr01 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+	           org.codehaus.plexus.util.FileUtils.copyFile(scr01, new File("D:\\Ajit\\Script_SS\\Error\\Flightnotavailable.jpg"));
+         	
+	           Assert.assertFalse(false, "FAIL");
+	           Reporter.log("Flights not available..");
+			   AssertJUnit.assertTrue("Flight not available...", airbk.isDisplayed());
+			   return;
+		    }
+      
+            File scr1 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+            org.codehaus.plexus.util.FileUtils.copyFile(scr1, new File("D:\\Ajit\\Script_SS\\HeldConfirmAndTicketed\\Flightdetailpage.jpg"));
+     
+            System.out.println("Flight selected successfully..");
+             
+            Thread.sleep(1000);
+     try
+     {
+         //For Hold
+         System.out.println("Firstname_Of_Adult1: " + Firstname_Of_Adult1);
+         System.out.println("Lastname_Of_Adult1: " + Lastname_Of_Adult1);
+         System.out.println("Firstname_Of_Adult2: " + Firstname_Of_Adult2);
+         System.out.println("Lastname_Of_Adult2: " + Lastname_Of_Adult2);
+         System.out.println("Firstname_Of_Adult3: " + Firstname_Of_Adult3);
+         System.out.println("Lastname_Of_Adult3: " + Lastname_Of_Adult3);
+         System.out.println("Email: " + Email);
+         System.out.println("Phone_No: " + Phone_No);
+               
+         chckout.HoldToTitle(Firstname_Of_Adult1, Lastname_Of_Adult1, Firstname_Of_Adult2, Lastname_Of_Adult2, Firstname_Of_Adult3, Lastname_Of_Adult3, Email, Phone_No);
+     }
+     catch(Exception e)
+     {
+    	 File scr07 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+         org.codehaus.plexus.util.FileUtils.copyFile(scr07, new File("D:\\Ajit\\Script_SS\\Error\\Timeouterror.jpg"));
+         
+         Assert.assertFalse(false, "FAIL");
+         Reporter.log("Timeout error...");
+   	     AssertJUnit.assertTrue("Timeout error...", chckout.isDisplayed());
+   	     throw(e);
+     }
+     
+         //Held Booking
+         driver.findElement(By.id("_ctl0_MainContentsPH__ctl0_HoldBTN")).click();
+     
+         Thread.sleep(20000);
+    
+    try
+    {
+         //For the verify held condition
+         String status = driver.findElement(By.xpath("//*[@id='conf_details']/div/div[6]/div")).getText(); 
+         //String text = driver.getTitle();  
+                   
+         if(status.toLowerCase().trim().matches("held"))
+         {
+        	    System.out.println("Status Pass..");
+        	    Assert.assertTrue(true, "PASS");
+        	    Reporter.log("Status Pass..");
+         }
+         else
+         {
+        	    System.out.println("Status Fail b'coz status are differ to expected..");
+				
+				System.out.println("Actual status is:- "+ status);
+				
+				File scr2 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+	            org.codehaus.plexus.util.FileUtils.copyFile(scr2, new File("D:\\Ajit\\Script_SS\\Error\\StatusFailed.jpg"));
+	            
+	            Reporter.log("Actual status is:-" +status);
+	            Assert.assertFalse(false, "FAIL");
+	            Reporter.log("Status Fail b'coz status are differ to expected..");
+			    AssertJUnit.assertTrue("Status Fail b'coz status are differ to expected...", chckout.isDisplayed());
+			    return;
+		 }
+        
+         System.out.println("Actual status is:- "+ status);
+         Reporter.log("Actual status is:- " + status);
+         
+         //Assert.assertEquals(status, text);
+         
+         File scr7 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+         org.codehaus.plexus.util.FileUtils.copyFile(scr7, new File("D:\\Ajit\\Script_SS\\HeldConfirmAndTicketed\\Heldflight.jpg"));
+         
+         System.out.println("Flight held Successfully..");
+         
+         Reporter.log("Flight held successfully..");  // For displaying message on report
+         
+         Thread.sleep(10000);
+         
+       }
+     catch(Exception e)
+     {
+    	    System.out.println("Time out..");
+			
+			File scr12 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+            org.codehaus.plexus.util.FileUtils.copyFile(scr12, new File("D:\\Ajit\\Script_SS\\Error\\Timeout.jpg"));
+         
+            Assert.assertFalse(false, "FAIL");
+            Reporter.log("Time out..");
+		    AssertJUnit.assertTrue("Time out...", chckout.isDisplayed());
+		    return;
+     }
+         
+     try
+     {
+         // For Payment details
+         System.out.println("CardHolderName: " + CardHolderName);
+         System.out.println("CardNo: " + CardNo);
+         System.out.println("CardCvvNo: " + CardCvvNo);
+         System.out.println("Address: " + Address);
+         System.out.println("City: " + City);
+         System.out.println("Zipcode: " + Zipcode);
+         System.out.println("Phone_Number: " + Phone_Number);
+    //   System.out.println("BankName: " + BankName);
+        
+         hldncnfrm.HoldAfterConfirmToTitle(CardHolderName, CardNo, CardCvvNo, Address, City, Zipcode, Phone_Number);
+     }
+     catch(Exception e)
+     {
+    	 File scr08 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+         org.codehaus.plexus.util.FileUtils.copyFile(scr08, new File("D:\\Ajit\\Script_SS\\Error\\Timeouterror.jpg"));
+         
+         Assert.assertFalse(false, "FAIL");
+         Reporter.log("Timeout error...");
+   	     AssertJUnit.assertTrue("Timeout error...", chckout.isDisplayed());
+   	     throw(e);
+     }
+         
+        Thread.sleep(18000);
+     
+         // For the verify confirm condition
+         String status1 = driver.findElement(By.xpath("//*[@id='conf_details']/div/div[6]/div")).getText(); 
+                           
+         if(status1.toLowerCase().trim().matches("confirmed"))
+         {
+        	    System.out.println("Status Pass..");
+        	    Assert.assertTrue(true, "PASS");
+        	    Reporter.log("Status Pass..");
+         }
+         else
+         {
+        	     System.out.println("Status Fail b'coz status are differ to expected..");
+				
+				 System.out.println("Actual status is:- "+ status1);
+				
+				 File scr8 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		         org.codehaus.plexus.util.FileUtils.copyFile(scr8, new File("D:\\Ajit\\Script_SS\\HeldConfirmAndTicketed\\FailedStatus.jpg"));
+		               
+		         Reporter.log("Actual status is:-" +status1);
+		         Assert.assertFalse(false, "FAIL");
+		         Reporter.log("Status Fail b'coz status are differ to expected..");
+		         AssertJUnit.assertTrue("Status Fail b'coz status are differ to expected...", chckout.isDisplayed());
+			     return;
+	     }
+        
+           System.out.println("Actual status is:- "+ status1);
+           Reporter.log("Actual status is:- " + status1);
+         
+           File scr3 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+           org.codehaus.plexus.util.FileUtils.copyFile(scr3, new File("D:\\Ajit\\Script_SS\\HeldConfirmAndTicketed\\Confirmflight.jpg"));
+         
+           System.out.println("Flight confirmed successfully..");
+         
+           Reporter.log("Flight confirmed successfully..");  // For displaying message on report
+           
+           Thread.sleep(10000);
+
+     }
+      
+            driver.get("https://ui.odysol.com/admin/default.aspx");
+            driver.navigate().refresh();
+            driver.manage().window().maximize();
+            
+            Thread.sleep(7000);
+            
+      try
+      {
+            //For E-Ticket from Manage(Admin)
+            driver.findElement(By.className("manage_btn")).click();
+            driver.findElement(By.className("editstat_icon")).click();
+            
+            Thread.sleep(3000);
+            driver.switchTo().frame(driver.findElement(By.tagName("iframe")));
+            WebElement elmt = driver.findElement(By.id("_ctl0_MainContent_StatusSEL"));
+            elmt.click();
+            driver.findElement(By.xpath("//*[@id='_ctl0_MainContent_StatusSEL']/option[8]")).click();
+            driver.findElement(By.id("_ctl0_MainContent_SubmitBTN")).click(); 
+            driver.switchTo().defaultContent();
+            Thread.sleep(2000);
+           // driver.navigate().refresh();
+            
+      }
+      catch(Exception e)
+      {
+    	     Reporter.log("Status Ticketed fail..");
+    	  
+    	     File scr8 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+	         org.codehaus.plexus.util.FileUtils.copyFile(scr8, new File("D:\\Ajit\\Script_SS\\Error\\FailedStatusETickets.jpg"));
+	         
+	         driver.findElement(By.xpath("/html/body/div[6]/div[1]/button/span[1]")).click();
+	         AssertJUnit.assertTrue("Status fail for E-Ticketed...", hldncnfrm.isDisplayed());
+	         
+      }
+      
+      //For Check condition E-Ticketed
+      String status3 = driver.findElement(By.xpath("//*[@id='gridOld']/div[2]/table/tbody/tr[1]/td[2]/strong")).getText(); 
+            
+      if(status3.toLowerCase().trim().matches("ticketed"))
+      {
+     	    System.out.println("Status Pass..");
+     	    Assert.assertTrue(true, "PASS");
+     	    Reporter.log("Status Pass..");
+      }
+      else
+      {
+			System.out.println("Status Fail..");
+							
+			File scr8 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		    org.codehaus.plexus.util.FileUtils.copyFile(scr8, new File("D:\\Ajit\\Script_SS\\Error\\ETicketedstatusfailed.jpg"));
+		 
+		    Assert.assertFalse(false, "FAIL");
+		    Reporter.log("Ticketed status:- FAIL");
+		    System.out.println("Booking ticketed fail..");
+		    driver.findElement(By.xpath("/html/body/div[6]/div[1]/button/span[1]")).click();
+			     
+	     }
+     
+            System.out.println("Actual status is:- "+ status3);
+            Reporter.log("Actual status is:- " + status3);
+                  
+            File scr4 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+            org.codehaus.plexus.util.FileUtils.copyFile(scr4, new File("D:\\Ajit\\Script_SS\\HeldConfirmAndTicketed\\Confirmflight.jpg"));
+                   
+            Thread.sleep(5000);
+            
+                      
+            //For Cancel booking
+            driver.get("https://ui.odysol.com/admin/default.aspx");
+            driver.navigate().refresh();
+            driver.manage().window().maximize();
+            
+            Thread.sleep(4000);
+      try
+      {
+    	    driver.findElement(By.className("manage_btn")).click();
+    	    Thread.sleep(200);
+    	    driver.findElement(By.xpath("//a[@class='cancel_icon show_True']")).click();
+    	    driver.switchTo().frame(driver.findElement(By.tagName("iframe")));
+      	    WebElement elm = driver.findElement(By.id("_ctl0_MainContent_CancelBookingBTN"));
+    	    elm.click();
+    	    Alert alert=driver.switchTo().alert();
+    	    alert.accept();
+    	    driver.switchTo().defaultContent();
+    	    Thread.sleep(6000);
+    	    driver.navigate().refresh();
+      }catch(Exception e)
+      {
+    	     File scr8 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+	         org.codehaus.plexus.util.FileUtils.copyFile(scr8, new File("D:\\Ajit\\Script_SS\\Error\\FailedCancel.jpg"));
+	               
+	         Assert.assertFalse(false, "FAIL");
+	         Reporter.log("Booking cancel failed...");
+	         AssertJUnit.assertTrue("Booking cancel failed...", hldncnfrm.isDisplayed());
+		     return;
+	         
+      }
+             Thread.sleep(7000);
+             
+             // For the verify cancel condition
+             String status2 = driver.findElement(By.xpath("//*[@id='gridOld']/div[2]/table/tbody/tr[1]/td[2]/strong")).getText(); 
+                               
+             if(status2.toLowerCase().trim().matches("cancelled"))
+             {
+            	    System.out.println("Status Pass..");
+            	    Assert.assertTrue(true, "PASS");
+            	    Reporter.log("Status Pass..");
+             }
+             else
+             {
+    				 System.out.println("Status Fail..");
+    				 System.out.println("Actual status is:- "+ status2);
+    				
+    				 File scr8 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+    		         org.codehaus.plexus.util.FileUtils.copyFile(scr8, new File("D:\\Ajit\\Script_SS\\Error\\CancelStatusFailed.jpg"));
+    		               
+    		         Reporter.log("Actual status is:- " + status2);
+    		         Assert.assertFalse(false, "FAIL");
+    		         Reporter.log("Cancel status fail..");
+    		         AssertJUnit.assertTrue("Cancel Status Fail...", hldncnfrm.isDisplayed());
+    			     return;
+    	     }
+            
+               System.out.println("Actual status is:- "+ status2);
+               Reporter.log("Actual status is:- " + status2);
+             
+               File scr3 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+               org.codehaus.plexus.util.FileUtils.copyFile(scr3, new File("D:\\Ajit\\Script_SS\\HeldConfirmAndTicketed\\Cancelbooking.jpg"));
+             
+               System.out.println("Booking cancelled successfully..");
+             
+               Reporter.log("Booking cancelled successfully..");
+            
+               Thread.sleep(4000);
+               
+               
+   }
+
+
+   @DataProvider
+   public String[][] Authentication() throws Exception
+   {
+
+	     String[][] testObjArray = ExcelUtils.getTableArray("D:\\Ajit\\Automation\\Workspace\\Odysseus_Product\\src\\main\\java\\testData\\TestData.xlsx","Sheet1");
+
+         return (testObjArray);
+
+   }
+
+
+   @AfterClass
+   public void closeBrowser() throws InterruptedException
+   {
+	 
+	   /*
+	        if(driver!=null) 
+	        {
+		         System.out.println("Closing the browser");
+		         driver.quit();
+	        }   
+      */
+    }
+	
+}
