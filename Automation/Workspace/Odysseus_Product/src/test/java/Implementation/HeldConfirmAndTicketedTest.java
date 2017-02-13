@@ -9,7 +9,6 @@ import java.sql.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
-
 import javax.imageio.ImageIO;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -42,19 +41,19 @@ import ru.yandex.qatools.ashot.screentaker.ViewportPastingStrategy;
 public class HeldConfirmAndTicketedTest 
 {
 	
-		  Login lgnpge;
+	      Login lgnpge;
 	      AirBookingpgeobjct airbk;
 	      AirCheckoutpageobjct chckout;
 	      HoldAndConfirmPgeobjct hldncnfrm;
 	      public static WebDriver driver;
-          Reporter report = new Reporter();
-          static final ExtentReports extent = ExtentReports.get(HeldConfirmAndTicketedTest.class); 
+              Reporter report = new Reporter();
+              static final ExtentReports extent = ExtentReports.get(HeldConfirmAndTicketedTest.class); 
 	   
     public static boolean implicitwait(long time)
     {
         try 
         {
-	              driver.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
+	          driver.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
                   System.out.println("Waited for"+time+"sec implicitly.");
 	
         } catch (Exception e) 
@@ -72,17 +71,17 @@ public class HeldConfirmAndTicketedTest
         {
 	                 if (browser.equalsIgnoreCase("Firefox"))
 	                 {
-	                   //   driver = new FirefoxDriver();
+	                       driver = new FirefoxDriver();
  	   
 	                 } 
 	                 else if (browser.equalsIgnoreCase("chrome")) 
 	                 {
-	                	    System.setProperty("webdriver.chrome.driver", "D:\\Ajit\\Driver\\chromedriver_win32 (1)\\chromedriver.exe");
-		                    DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-		                    LoggingPreferences loggingprefs = new LoggingPreferences();
-		                    loggingprefs.enable(LogType.BROWSER, Level.ALL);
-		                    capabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingprefs);
-		                    driver = new ChromeDriver(capabilities);
+	                	//    System.setProperty("webdriver.chrome.driver", "D:\\Ajit\\Driver\\chromedriver_win32 (1)\\chromedriver.exe");
+		                //    DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+		                //    LoggingPreferences loggingprefs = new LoggingPreferences();
+		                //    loggingprefs.enable(LogType.BROWSER, Level.ALL);
+		                //    capabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingprefs);
+		                //    driver = new ChromeDriver(capabilities);
 		                   
 	                 }  
 	                 else if (browser.equalsIgnoreCase("IE")) 
