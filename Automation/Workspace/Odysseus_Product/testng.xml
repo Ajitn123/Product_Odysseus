@@ -4,10 +4,10 @@
               <listener class-name="org.uncommons.reportng.HTMLReporter"/>
        </listeners>   
           
-       <test name="Firefox">
-                    <parameter name="browser" value="Firefox"/>
+       <test name="ChromeTest">
+                    <parameter name="browser" value="chrome"/>
                       <classes>
-                           <class name="Implementation.HeldConfirmAndTicketedTest"/>
+                           
                            <class name="Implementation.CruiseBookingTest"/>
                      </classes>
        </test> <!-- Test -->
