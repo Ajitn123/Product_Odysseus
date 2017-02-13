@@ -502,7 +502,47 @@ public class CruiseBookingTest
                                  ImageIO.write(image44, "PNG", new File("D:\\Ajit\\Script_SS\\Cruisebooking\\Confirmationpage.png"));
                                  
                                  Thread.sleep(1000);
+		
+		            try
+                            {
+                                 //For select terms and condition checkbox
+                                 driver.findElement(By.id("AgreeTermsCON")).click();
+                                 Thread.sleep(1000);
+                                 
+                                 //Click on Pay in full payment button
+                                 driver.findElement(By.id("_ctl0_MainContentsPH__ctl0_ContinueBTN")).click();
+                                 Thread.sleep(1000);
+                            }
+                            catch(Exception e)
+                            {
+                                 
+                            	 System.out.println("Page navigate on invalid page Or Displaying Error message on confirmation page...");
+                      	         System.out.println("\n");
+                      	         System.out.println("Page navigate on invalid page Or Displaying Error message on confirmation page...");
+                      	         System.out.println("\n");
+                      	         ExtractJSLogs();
+                         
+                                 final Screenshot screenshot27 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+                                 final BufferedImage image27 = screenshot27.getImage();
+                                 ImageIO.write(image27, "PNG", new File("D:\\Ajit\\Script_SS\\CruisebookingError\\PageNavigateonInvalidPageOrErrormessaage.png"));
+                         
+                                 Assert.assertFalse(false, "FAIL");
+          	                 Reporter.log("Page navigate on invalid page Or Displaying Error message on confirmation page...");
+          			 AssertJUnit.assertTrue("Page navigate on invalid page Or Displaying Error message on confirmation page....", crsbkngpge.isDisplayed());
+          			 throw(e);
                                   
+                            }  
+                                 System.out.println("\n");
+                                 System.out.println("Paymentpage Logs..");
+                                 System.out.println("\n");
+                                 ExtractJSLogs();              
+                                 Thread.sleep(1000);
+                            
+                                 final Screenshot screenshot49 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+                                 final BufferedImage image49 = screenshot49.getImage();
+                                 ImageIO.write(image49, "PNG", new File("D:\\Ajit\\Script_SS\\Cruisebooking\\Paymentpage.png"));
+                                 
+                                 Thread.sleep(1000);
                                   
            }                      
      }
