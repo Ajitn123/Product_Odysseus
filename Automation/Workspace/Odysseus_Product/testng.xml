@@ -4,8 +4,8 @@
               <listener class-name="org.uncommons.reportng.HTMLReporter"/>
        </listeners>   
           
-       <test name="ChromeTest">
-                    <parameter name="browser" value="chrome"/>
+       <test name="Firefox">
+                    <parameter name="browser" value="Firefox"/>
                       <classes>
                            <class name="Implementation.HeldConfirmAndTicketedTest"/>
                            <class name="Implementation.CruiseBookingTest"/>
