@@ -8,13 +8,7 @@
                     <parameter name="browser" value="Firefox"/>
                       <classes>
                            <class name="Implementation.FaregeekTest"/>
-                           <class name="Implementation.FaredepotTest"/>
-                           <class name="Implementation.DLCTest"/>
-                           <class name="Implementation.CDORTest"/>
-                           <class name="Implementation.VivaVoyageTest"/>
-                           <class name="Implementation.BPCCruiseBookingTest"/>
-                           <class name="Implementation.ADCMSCTest"/>
-                           <class name="Implementation.ADCRCCLTest"/>
+                           
                      </classes>
        </test> <!-- Test -->
               
