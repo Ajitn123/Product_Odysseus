@@ -67,7 +67,11 @@ public class VivaVoyageTest
         {
                 if (browser.equalsIgnoreCase("Firefox"))
                 {
-                       driver = new FirefoxDriver();
+                        DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+                        LoggingPreferences loggingprefs = new LoggingPreferences();
+                        loggingprefs.enable(LogType.BROWSER, Level.ALL);
+                        capabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingprefs);
+			driver = new FirefoxDriver(capabilities);
 	   
                 } 
                 else if (browser.equalsIgnoreCase("chrome")) 
