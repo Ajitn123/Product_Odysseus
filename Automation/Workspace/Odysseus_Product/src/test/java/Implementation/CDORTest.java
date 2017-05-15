@@ -66,17 +66,17 @@ public class CDORTest
        {
              if (browser.equalsIgnoreCase("Firefox"))
              {
-                //  driver = new FirefoxDriver();
+                   driver = new FirefoxDriver();
 	   
              } 
              else if (browser.equalsIgnoreCase("chrome")) 
              {
-            	        System.setProperty("webdriver.chrome.driver", "D:\\Ajit\\Driver\\chromedriver_win32\\chromedriver.exe");
-	                    DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-	                    LoggingPreferences loggingprefs = new LoggingPreferences();
-	                    loggingprefs.enable(LogType.BROWSER, Level.ALL);
-	                    capabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingprefs);
-	                    driver = new ChromeDriver(capabilities);
+            	     //       System.setProperty("webdriver.chrome.driver", "D:\\Ajit\\Driver\\chromedriver_win32\\chromedriver.exe");
+	             //       DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+	             //       LoggingPreferences loggingprefs = new LoggingPreferences();
+	             //       loggingprefs.enable(LogType.BROWSER, Level.ALL);
+	             //       capabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingprefs);
+	             //       driver = new ChromeDriver(capabilities);
 	                   
              }  
              else if (browser.equalsIgnoreCase("IE")) 
