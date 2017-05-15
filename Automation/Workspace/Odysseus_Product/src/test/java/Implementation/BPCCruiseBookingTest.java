@@ -67,16 +67,20 @@ public class BPCCruiseBookingTest
         {
 	                 if (browser.equalsIgnoreCase("Firefox"))
 	                 {
-	                       driver = new FirefoxDriver();
+	                       DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+                               LoggingPreferences loggingprefs = new LoggingPreferences();
+                               loggingprefs.enable(LogType.BROWSER, Level.ALL);
+                               capabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingprefs);
+			       driver = new FirefoxDriver(capabilities);
   	   
 	                 } 
 	                 else if (browser.equalsIgnoreCase("chrome")) 
 	                 {
-	                	//    System.setProperty("webdriver.chrome.driver", "D:\\Ajit\\Driver\\chromedriver_win32\\chromedriver.exe");
-		                //    DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-		                //    LoggingPreferences loggingprefs = new LoggingPreferences();
-		                //    loggingprefs.enable(LogType.BROWSER, Level.ALL);
-		                //    capabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingprefs);
+	                	    System.setProperty("webdriver.chrome.driver", "D:\\Ajit\\Driver\\chromedriver_win32\\chromedriver.exe");
+		                    DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+		                    LoggingPreferences loggingprefs = new LoggingPreferences();
+		                    loggingprefs.enable(LogType.BROWSER, Level.ALL);
+		                    capabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingprefs);
 		                //    driver = new ChromeDriver(capabilities);
 		                   
 	                 }  
