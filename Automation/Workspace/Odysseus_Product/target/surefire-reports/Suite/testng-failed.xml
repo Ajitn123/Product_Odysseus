@@ -8,12 +8,12 @@
   <test name="ChromeTest(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="Implementation.HeldConfirmAndTicketedTest">
+      <class name="Implementation.CDORTest">
         <methods>
-          <include name="Heldlogin_data"/>
+          <include name="CDOR_data"/>
           <include name="openBroswer"/>
         </methods>
-      </class> <!-- Implementation.HeldConfirmAndTicketedTest -->
+      </class> <!-- Implementation.CDORTest -->
     </classes>
   </test> <!-- ChromeTest(failed) -->
 </suite> <!-- Failed suite [Suite] -->

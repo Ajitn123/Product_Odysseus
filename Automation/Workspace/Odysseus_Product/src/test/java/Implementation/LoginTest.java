@@ -2,7 +2,7 @@ package Implementation;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
-import Utility.ExcelUtils;
+import Utility.OdysolAirUtils;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
@@ -90,7 +90,7 @@ public class LoginTest
   @DataProvider
   public String[][] Authentication() throws Exception{
 
-	  String[][] testObjArray = ExcelUtils.getTableArray("D:\\Ajit\\Automation\\Workspace\\Odysseus_Product\\src\\main\\java\\testData\\TestData.xlsx","Sheet1");
+	  String[][] testObjArray = OdysolAirUtils.getTableArray("D:\\Ajit\\Automation\\Workspace\\Odysseus_Product\\src\\main\\java\\testData\\OdysolAirData.xlsx","Sheet1");
 
        return (testObjArray);
 

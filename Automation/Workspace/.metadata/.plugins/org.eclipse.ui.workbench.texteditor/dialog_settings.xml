@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="_ctl0_MainContentsPH__ctl0__ctl4_CreditCardInfo_cardType" key="selection"/>
+		<item value="Error" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="ERROR"/>
+			<item value="_ctl0_MainContentsPH__ctl0_CruiseAdvancedSearch__ctl0_DateInput"/>
 			<item value="_ctl0_MainContentsPH__ctl0__ctl4_CreditCardInfo_cardType"/>
 			<item value="Authentication"/>
 			<item value="testObjArray"/>
 			<item value="_ctl0_MainContent_StatusSEL"/>
 			<item value="_ctl0_MainContent_CancelBookingBTN"/>
 			<item value="//*[@id=&quot;st-accordion&quot;]/ul/li[4]/div/div[6]/input"/>
-			<item value="stand"/>
-			<item value="_ctl0_MainContentsPH__ctl0_ConfirmBkgBTN"/>
 		</list>
 		<list key="replacehistory">
 		</list>

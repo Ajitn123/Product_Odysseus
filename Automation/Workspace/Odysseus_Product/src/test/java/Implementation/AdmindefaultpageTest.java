@@ -18,12 +18,13 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import Utility.ExcelUtils;
+import Utility.OdysolAirUtils;
+
 
 public class AdmindefaultpageTest 
 {
-	 Login lgnpge;
-	 private static RemoteWebDriver driver;
+	   Login lgnpge;
+	   private static RemoteWebDriver driver;
 
 	public static boolean implicitwait(long time)
 	    {
@@ -52,7 +53,7 @@ public class AdmindefaultpageTest
 		                 } 
 		                 else if (browser.equalsIgnoreCase("chrome")) 
 		                 {
-			                    System.setProperty("webdriver.chrome.driver", "D:\\Ajit\\Driver\\chromedriver_win32 (1)\\chromedriver.exe");
+			                    System.setProperty("webdriver.chrome.driver", "D:\\Ajit\\Driver\\chromedriver_win32\\chromedriver.exe");
 			                    driver = new ChromeDriver();
 			                   
 		                 }  
@@ -239,7 +240,7 @@ public class AdmindefaultpageTest
 	    public String[][] Authentication() throws Exception
 	    {
 	    	 
-		     String[][] testObjArray = ExcelUtils.getTableArray("D:\\Ajit\\Automation\\Workspace\\Odysseus_Product\\src\\main\\java\\testData\\TestData.xlsx","Sheet1");
+		     String[][] testObjArray = OdysolAirUtils.getTableArray("D:\\Ajit\\Automation\\Workspace\\Odysseus_Product\\src\\main\\java\\testData\\OdysolAirData.xlsx","Sheet1");
 		     return testObjArray;
 		     
 	    }

@@ -23,7 +23,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -37,7 +37,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-Suite">
-              <span class="suite-name border-failed">Suite</span>
+              <span class="suite-name border-passed">Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -90,21 +90,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method, 1 failed,   </span>
+                    <span class="method-stats">1 method,   1 passed</span>
                   </li>
                   <li>
-                    <span class="method-list-title failed">Failed methods</span>
-                    <span class="show-or-hide-methods failed">
-                      <a href="#" panel-name="suite-Suite" class="hide-methods failed suite-Suite"> (hide)</a> <!-- hide-methods failed suite-Suite -->
-                      <a href="#" panel-name="suite-Suite" class="show-methods failed suite-Suite"> (show)</a> <!-- show-methods failed suite-Suite -->
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-Suite" class="hide-methods passed suite-Suite"> (hide)</a> <!-- hide-methods passed suite-Suite -->
+                      <a href="#" panel-name="suite-Suite" class="show-methods passed suite-Suite"> (show)</a> <!-- show-methods passed suite-Suite -->
                     </span>
-                    <div class="method-list-content failed suite-Suite">
+                    <div class="method-list-content passed suite-Suite">
                       <span>
-                        <img width="3%" src="failed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Implementation.CruiseBookingTest" hash-for-method="SearchCruise_data(Ajit, B, Nakum, 304 White house, miami, 10245, ajit_nakum@odysseussolutions.com, 7854125478, Aakash,...)">SearchCruise_data(Ajit, B, Nakum, 304 White house, miami, 10245, ajit_nakum@odysseussolutions.com, 7854125478, Aakash,...)</a> <!-- method navigator-link -->
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Implementation.FaredepotTest" hash-for-method="Faredepot_data(nyc, singa, Monish, N, Luthra, Anna, M, Luthra, Arya, M, Luthra, ajit_nakum@odysseussolutions.com, a...)">Faredepot_data(nyc, singa, Monish, N, Luthra, Anna, M, Luthra, Arya, M, Luthra, ajit_nakum@odysseussolutions.com, a...)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content failed suite-Suite -->
+                    </div> <!-- method-list-content passed suite-Suite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -116,43 +116,22 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Suite" class="panel Suite">
-          <div class="suite-Suite-class-failed">
+          <div class="suite-Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
-              <img src="failed.png"/>
-              <span class="class-name">Implementation.CruiseBookingTest</span>
+              <img src="passed.png"/>
+              <span class="class-name">Implementation.FaredepotTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="SearchCruise_data(Ajit, B, Nakum, 304 White house, miami, 10245, ajit_nakum@odysseussolutions.com, 7854125478, Aakash,...)">
-                  </a> <!-- SearchCruise_data(Ajit, B, Nakum, 304 White house, miami, 10245, ajit_nakum@odysseussolutions.com, 7854125478, Aakash,...) -->
-                  <span class="method-name">SearchCruise_data</span>
-                  <span class="parameters">(Ajit, B, Nakum, 304 White house, miami, 10245, ajit_nakum@odysseussolutions.com, 7854125478, Aakash, C, Paliwal)</span>
-                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//input[@class=&apos;price-button buttonStatus1&apos;]&quot;}
-  (Session info: chrome=56.0.2924.87)
-  (Driver info: chromedriver=2.25.426923 (0390b88869384d6eb0d5d09729679f934aab9eed),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 42 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b&apos;, time: &apos;2016-03-15 16:57:40&apos;
-System info: host: &apos;OdySol-DTP-027&apos;, ip: &apos;192.168.1.138&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_101&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.25.426923 (0390b88869384d6eb0d5d09729679f934aab9eed), userDataDir=C:\Users\AJITNA~1\AppData\Local\Temp\scoped_dir8716_5901}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=56.0.2924.87, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 339b225e01b9848d182404cc86a37c46
-*** Element info: {Using=xpath, value=//input[@class=&apos;price-button buttonStatus1&apos;]}
-	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
-	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:500)
-	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
-	at Implementation.CruiseBookingTest.SearchCruise_data(CruiseBookingTest.java:289)
-... Removed 28 stack frames
-</div> <!-- stack-trace -->
+                  <a name="Faredepot_data(nyc, singa, Monish, N, Luthra, Anna, M, Luthra, Arya, M, Luthra, ajit_nakum@odysseussolutions.com, a...)">
+                  </a> <!-- Faredepot_data(nyc, singa, Monish, N, Luthra, Anna, M, Luthra, Arya, M, Luthra, ajit_nakum@odysseussolutions.com, a...) -->
+                  <span class="method-name">Faredepot_data</span>
+                  <span class="parameters">(nyc, singa, Monish, N, Luthra, Anna, M, Luthra, Arya, M, Luthra, ajit_nakum@odysseussolutions.com, ajit_nakum@odysseussolutions.com, 8952634785, 8754879865)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Suite-class-failed -->
+          </div> <!-- suite-Suite-class-passed -->
         </div> <!-- panel Suite -->
         <div panel-name="test-xml-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
@@ -169,7 +148,7 @@ Session ID: 339b225e01b9848d182404cc86a37c46
   &lt;test name=&quot;ChromeTest&quot;&gt;
     &lt;parameter name=&quot;browser&quot; value=&quot;chrome&quot;/&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;Implementation.CruiseBookingTest&quot;/&gt;
+      &lt;class name=&quot;Implementation.FaredepotTest&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- ChromeTest --&gt;
 &lt;/suite&gt; &lt;!-- Suite --&gt;
@@ -211,14 +190,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'SearchCruise_data')
-data.setCell(0, 2, 'Implementation.CruiseBookingTest')
-data.setCell(0, 3, 104350);
+data.setCell(0, 1, 'Faredepot_data')
+data.setCell(0, 2, 'Implementation.FaredepotTest')
+data.setCell(0, 3, 250626);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 1 minutes</span>
+              <span class="suite-total-time">Total running time: 4 minutes</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -229,6 +208,37 @@ return data;
             <span class="header-content">Reporter output for Suite</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">Faredepot_data(nyc, singa, Monish, N, Luthra, Anna, M, Luthra, Arya, M, Luthra, ajit_nakum@odysseussolutions.com, a...)</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output">Website Name :- Faredepot</span>
+                <span class="reporter-method-output">Price per person on result page: $923.93</span>
+                <span class="reporter-method-output">Total Price on result page: $2,771.79</span>
+                <span class="reporter-method-output">Departure Trip: DEPARTURE
+NEW YORK (JOHN F KENNEDY), NY, US
+SINGAPORE, SG
+SAT, 03 JUN - SUN, 04 JUN DURATION: 21H 5MIN STOPS: 1
+- View Details</span>
+                <span class="reporter-method-output">Return Trip: RETURN
+SINGAPORE, SG
+NEW YORK (JOHN F KENNEDY), NY, US
+TUE, 25 JUL - WED, 26 JUL DURATION: 23H 40MIN STOPS: 1</span>
+                <span class="reporter-method-output">Price on checkout page: $2,771.79</span>
+                <span class="reporter-method-output">API :- AmadeusWS</span>
+                <span class="reporter-method-output">Environment :- Production</span>
+                <span class="reporter-method-output">Office Id :- DTT1S2100</span>
+                <span class="reporter-method-output">Insurance Price:- + $194.03</span>
+                <span class="reporter-method-output">Insurance applied successfully..</span>
+                <span class="reporter-method-output">Prices of After applied insurance on the Payment page:- $2,965.82</span>
+                <span class="reporter-method-output">Insurance Removed successfully..</span>
+                <span class="reporter-method-output">Prices of After removed insurance on the Payment page:- $2,771.79</span>
+                <span class="reporter-method-output">Result page and Checkout page's Price matched..</span>
+                <span class="reporter-method-output">Actual price is:- $2,771.79</span>
+                <span class="reporter-method-output">Price on payment page: $2,771.79</span>
+                <span class="reporter-method-output">Checkout page and Payment page's Price matched..</span>
+                <span class="reporter-method-output">Actual price is:- $2,771.79</span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Suite" class="panel">
@@ -244,20 +254,18 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">Implementation.CruiseBookingTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">Implementation.FaredepotTest</div> <!-- chronological-class-name -->
               <div class="configuration-test before">
                 <span class="method-name">openBroswer(chrome)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-test before -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
-                <span class="method-name">SearchCruise_data(Ajit, B, Nakum, 304 White house, miami, 10245, ajit_nakum@odysseussolutions.com, 7854125478, Aakash,...)</span>
-                <span class="method-start">29529 ms</span>
+                <span class="method-name">Faredepot_data(nyc, singa, Monish, N, Luthra, Anna, M, Luthra, Arya, M, Luthra, ajit_nakum@odysseussolutions.com, a...)</span>
+                <span class="method-start">42707 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">closeBrowser</span>
-                <span class="method-start">133923 ms</span>
+                <span class="method-start">293335 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

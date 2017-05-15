@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="2" failed="0" total="2" passed="0">
+<testng-results skipped="1" failed="0" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="2156" started-at="2017-01-03T14:41:30Z" finished-at="2017-01-03T14:41:32Z">
+  <suite name="Suite" duration-ms="27538" started-at="2017-05-04T07:33:04Z" finished-at="2017-05-04T07:33:31Z">
     <groups>
     </groups>
-    <test name="ChromeTest" duration-ms="2156" started-at="2017-01-03T14:41:30Z" finished-at="2017-01-03T14:41:32Z">
-      <class name="Implementation.HeldConfirmAndTicketedTest">
-        <test-method status="FAIL" signature="openBroswer(java.lang.String)[pri:0, instance:Implementation.HeldConfirmAndTicketedTest@6adede5]" name="openBroswer" is-config="true" duration-ms="0" started-at="2017-01-03T09:41:30Z" finished-at="2017-01-03T09:41:30Z">
+    <test name="ChromeTest" duration-ms="27538" started-at="2017-05-04T07:33:04Z" finished-at="2017-05-04T07:33:31Z">
+      <class name="Implementation.CDORTest">
+        <test-method status="FAIL" signature="openBroswer(java.lang.String)[pri:0, instance:Implementation.CDORTest@1dc339b]" name="openBroswer" is-config="true" duration-ms="0" started-at="2017-05-04T13:03:04Z" finished-at="2017-05-04T13:03:04Z">
           <params>
             <param index="0">
               <value>
@@ -15,33 +15,44 @@
               </value>
             </param>
           </params>
-          <exception class="java.lang.NoClassDefFoundError">
+          <exception class="net.sf.cglib.core.CodeGenerationException">
             <message>
-              <![CDATA[com/google/gson/JsonElement]]>
+              <![CDATA[org.openqa.selenium.WebDriverException-->unknown error: cannot parse capability: chromeOptions
+from unknown error: must be a dictionary
+  (Driver info: chromedriver=2.29.461591 (62ebf098771772160f391d75e589dc567915b233),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 77 milliseconds
+Build info: version: '2.37.1', revision: 'a7c61cbd68657e133ae96672cf995890bad2ee42', time: '2013-10-21 09:08:07'
+System info: host: 'OdySol-DTP-027', ip: '192.168.1.138', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Windows\TEMP\scoped_dir21228_9286}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.81, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 905eba1b06165455e2ae50407ed2f477]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.NoClassDefFoundError: com/google/gson/JsonElement
-	at java.lang.Class.getDeclaredMethods0(Native Method)
-	at java.lang.Class.privateGetDeclaredMethods(Class.java:2701)
-	at java.lang.Class.privateGetMethodRecursive(Class.java:3048)
-	at java.lang.Class.getMethod0(Class.java:3018)
-	at java.lang.Class.getMethod(Class.java:1784)
-	at org.openqa.selenium.remote.BeanToJsonConverter.getMethod(BeanToJsonConverter.java:249)
-	at org.openqa.selenium.remote.BeanToJsonConverter.convertObject(BeanToJsonConverter.java:214)
-	at org.openqa.selenium.remote.BeanToJsonConverter.convertObject(BeanToJsonConverter.java:166)
-	at org.openqa.selenium.remote.BeanToJsonConverter.convertObject(BeanToJsonConverter.java:199)
-	at org.openqa.selenium.remote.BeanToJsonConverter.convertObject(BeanToJsonConverter.java:166)
-	at org.openqa.selenium.remote.BeanToJsonConverter.convert(BeanToJsonConverter.java:64)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:287)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:66)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:527)
-	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:216)
-	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:111)
-	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:115)
-	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:171)
-	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:160)
-	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:117)
-	at Implementation.HeldConfirmAndTicketedTest.openBroswer(HeldConfirmAndTicketedTest.java:66)
+              <![CDATA[net.sf.cglib.core.CodeGenerationException: org.openqa.selenium.WebDriverException-->unknown error: cannot parse capability: chromeOptions
+from unknown error: must be a dictionary
+  (Driver info: chromedriver=2.29.461591 (62ebf098771772160f391d75e589dc567915b233),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 77 milliseconds
+Build info: version: '2.37.1', revision: 'a7c61cbd68657e133ae96672cf995890bad2ee42', time: '2013-10-21 09:08:07'
+System info: host: 'OdySol-DTP-027', ip: '192.168.1.138', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Windows\TEMP\scoped_dir21228_9286}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.81, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 905eba1b06165455e2ae50407ed2f477
+	at net.sf.cglib.core.ReflectUtils.newInstance(ReflectUtils.java:235)
+	at net.sf.cglib.core.ReflectUtils.newInstance(ReflectUtils.java:220)
+	at net.sf.cglib.core.ReflectUtils.newInstance(ReflectUtils.java:216)
+	at net.sf.cglib.proxy.Enhancer.createUsingReflection(Enhancer.java:640)
+	at net.sf.cglib.proxy.Enhancer.firstInstance(Enhancer.java:538)
+	at net.sf.cglib.core.AbstractClassGenerator.create(AbstractClassGenerator.java:225)
+	at net.sf.cglib.proxy.Enhancer.createHelper(Enhancer.java:377)
+	at net.sf.cglib.proxy.Enhancer.create(Enhancer.java:285)
+	at org.openqa.selenium.remote.Augmenter.create(Augmenter.java:237)
+	at org.openqa.selenium.remote.Augmenter.augment(Augmenter.java:130)
+	at ru.yandex.qatools.ashot.screentaker.ShootingStrategy$1.getScreenshot(ShootingStrategy.java:25)
+	at ru.yandex.qatools.ashot.screentaker.HeadCuttingShootingStrategy.getScreenshot(HeadCuttingShootingStrategy.java:21)
+	at ru.yandex.qatools.ashot.screentaker.VerticalPastingShootingStrategy.getScreenshot(VerticalPastingShootingStrategy.java:46)
+	at ru.yandex.qatools.ashot.screentaker.ScreenTaker.take(ScreenTaker.java:23)
+	at ru.yandex.qatools.ashot.AShot.takeScreenshot(AShot.java:166)
+	at Implementation.CDORTest.openBroswer(CDORTest.java:107)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -73,235 +84,98 @@
 	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:103)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:74)
-Caused by: java.lang.ClassNotFoundException: com.google.gson.JsonElement
-	at java.net.URLClassLoader.findClass(URLClassLoader.java:381)
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
-	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331)
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
-	... 52 more
+Caused by: org.openqa.selenium.WebDriverException: unknown error: cannot parse capability: chromeOptions
+from unknown error: must be a dictionary
+  (Driver info: chromedriver=2.29.461591 (62ebf098771772160f391d75e589dc567915b233),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 77 milliseconds
+Build info: version: '2.37.1', revision: 'a7c61cbd68657e133ae96672cf995890bad2ee42', time: '2013-10-21 09:08:07'
+System info: host: 'OdySol-DTP-027', ip: '192.168.1.138', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Windows\TEMP\scoped_dir21228_9286}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.81, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 905eba1b06165455e2ae50407ed2f477
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:193)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:145)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:554)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:216)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.openqa.selenium.remote.Augmenter$CompoundHandler.intercept(Augmenter.java:280)
+	at org.openqa.selenium.chrome.ChromeDriver$$EnhancerByCGLIB$$a995bcdf.startSession(<generated>)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:111)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:115)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:171)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:160)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:117)
+	at org.openqa.selenium.chrome.ChromeDriver$$EnhancerByCGLIB$$a995bcdf.<init>(<generated>)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at net.sf.cglib.core.ReflectUtils.newInstance(ReflectUtils.java:228)
+	... 46 more
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.NoClassDefFoundError -->
+          </exception> <!-- net.sf.cglib.core.CodeGenerationException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openBroswer -->
-        <test-method status="SKIP" signature="Heldlogin_data(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:Implementation.HeldConfirmAndTicketedTest@6adede5]" name="Heldlogin_data" duration-ms="1" started-at="2017-01-03T09:41:32Z" data-provider="Authentication" finished-at="2017-01-03T09:41:32Z">
+        <test-method status="SKIP" signature="CDOR_data(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:Implementation.CDORTest@1dc339b]" name="CDOR_data" duration-ms="0" started-at="2017-05-04T13:03:31Z" data-provider="Authentications" finished-at="2017-05-04T13:03:31Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[ajit_123]]>
+                <![CDATA[Monish]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[ajitnakum]]>
+                <![CDATA[N]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[Toronto Pearson, ON, Canada]]>
+                <![CDATA[Luthra]]>
               </value>
             </param>
             <param index="3">
-              <value>
-                <![CDATA[Las Vegas, NV, United States]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[Ravi]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[Patel]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[Bhargav]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[Suthar]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[Raj]]>
-              </value>
-            </param>
-            <param index="9">
-              <value>
-                <![CDATA[Patel]]>
-              </value>
-            </param>
-            <param index="10">
-              <value>
-                <![CDATA[ajit@gmail.com]]>
-              </value>
-            </param>
-            <param index="11">
-              <value>
-                <![CDATA[7852146985]]>
-              </value>
-            </param>
-            <param index="12">
-              <value>
-                <![CDATA[Aakash Paliwal]]>
-              </value>
-            </param>
-            <param index="13">
-              <value>
-                <![CDATA[4111111111111111]]>
-              </value>
-            </param>
-            <param index="14">
-              <value>
-                <![CDATA[456]]>
-              </value>
-            </param>
-            <param index="15">
-              <value>
-                <![CDATA[201 Chroma Tower]]>
-              </value>
-            </param>
-            <param index="16">
-              <value>
-                <![CDATA[Boston]]>
-              </value>
-            </param>
-            <param index="17">
-              <value>
-                <![CDATA[74526]]>
-              </value>
-            </param>
-            <param index="18">
-              <value>
-                <![CDATA[9085263874]]>
-              </value>
-            </param>
-            <param index="19">
-              <value>
-                <![CDATA[Bank Of Baroda]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Heldlogin_data -->
-        <test-method status="SKIP" signature="Heldlogin_data(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:Implementation.HeldConfirmAndTicketedTest@6adede5]" name="Heldlogin_data" duration-ms="0" started-at="2017-01-03T09:41:32Z" data-provider="Authentication" finished-at="2017-01-03T09:41:32Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[ajithn@odysol.com]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[odysseus]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Toronto Pearson, ON, Canada]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[Las Vegas, NV, United States]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[Ajit]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[Nakum]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[Aakash]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[Paliwal]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[Eric]]>
-              </value>
-            </param>
-            <param index="9">
-              <value>
-                <![CDATA[Methews]]>
-              </value>
-            </param>
-            <param index="10">
               <value>
                 <![CDATA[ajit_nakum@odysseussolutions.com]]>
               </value>
             </param>
-            <param index="11">
+            <param index="4">
               <value>
-                <![CDATA[8952634785]]>
+                <![CDATA[7847596325]]>
               </value>
             </param>
-            <param index="12">
+            <param index="5">
               <value>
-                <![CDATA[Ajit Nakum]]>
+                <![CDATA[Anna]]>
               </value>
             </param>
-            <param index="13">
+            <param index="6">
               <value>
-                <![CDATA[4111111111111111]]>
+                <![CDATA[M]]>
               </value>
             </param>
-            <param index="14">
+            <param index="7">
               <value>
-                <![CDATA[123]]>
-              </value>
-            </param>
-            <param index="15">
-              <value>
-                <![CDATA[305 White House]]>
-              </value>
-            </param>
-            <param index="16">
-              <value>
-                <![CDATA[New York]]>
-              </value>
-            </param>
-            <param index="17">
-              <value>
-                <![CDATA[10245]]>
-              </value>
-            </param>
-            <param index="18">
-              <value>
-                <![CDATA[8952634785]]>
-              </value>
-            </param>
-            <param index="19">
-              <value>
-                <![CDATA[State Bank Of India]]>
+                <![CDATA[Luthra]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Heldlogin_data -->
-        <test-method status="SKIP" signature="closeBrowser()[pri:0, instance:Implementation.HeldConfirmAndTicketedTest@6adede5]" name="closeBrowser" is-config="true" duration-ms="0" started-at="2017-01-03T09:41:32Z" finished-at="2017-01-03T09:41:32Z">
+        </test-method> <!-- CDOR_data -->
+        <test-method status="SKIP" signature="closeBrowser()[pri:0, instance:Implementation.CDORTest@1dc339b]" name="closeBrowser" is-config="true" duration-ms="0" started-at="2017-05-04T13:03:31Z" finished-at="2017-05-04T13:03:31Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->
-      </class> <!-- Implementation.HeldConfirmAndTicketedTest -->
+      </class> <!-- Implementation.CDORTest -->
     </test> <!-- ChromeTest -->
   </suite> <!-- Suite -->
 </testng-results>
