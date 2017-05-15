@@ -142,15 +142,9 @@
                                                   <resource>
                                                       <directory>src/main/java</directory>
                                                         <excludes>
-                                                           <exclude>Implementation.LoginTest</exclude>
-                                                           <exclude>Implementation.BPCCruiseBookingTest</exclude>
-                                                           <exclude>Implementation.VivaVoyageTest</exclude>
-                                                           <exclude>Implementation.CDORTest</exclude>
-                                                           <exclude>Implementation.DLCTest</exclude>
-                                                           <exclude>Implementation.ADCRCCLTest</exclude>
-                                                           <exclude>Implementation.ADCMSCTest</exclude>
+                                                           
                                                            <exclude>Implementation.FaregeekTest</exclude>
-                                                           <exclude>Implementation.FaredepotTest</exclude>
+                                                           
                                                           
                                                         </excludes>
                                                         <filtering>true</filtering>
@@ -158,15 +152,9 @@
                                                   <resource>
                                                       <directory>src/main/resources</directory>
                                                       <includes>
-                                                          <include>Implementation.LoginTest</include>
-                                                          <include>Implementation.BPCCruiseBookingTest</include>
-                                                          <include>Implementation.VivaVoyageTest</include>
-                                                          <include>Implementation.CDORTest</include>
-                                                          <include>Implementation.DLCTest</include>
-                                                          <include>Implementation.ADCRCCLTest</include>
-                                                          <include>Implementation.ADCMSCTest</include>
+                                                          
                                                           <include>Implementation.FaregeekTest</include>
-                                                          <include>Implementation.FaredepotTest</include>
+                                                         
                                                           
                                                       </includes>
                                                   </resource>
@@ -175,15 +163,9 @@
                                                 <testResource>
                                                    <directory>src/test/java</directory>
                                                    <excludes>
-                                                       <exclude>Implementation.LoginTest</exclude>
-                                                       <exclude>Implementation.BPCCruiseBookingTest</exclude>
-                                                       <exclude>Implementation.VivaVoyageTest</exclude>
-                                                       <exclude>Implementation.CDORTest</exclude>
-                                                       <exclude>Implementation.DLCTest</exclude>
-                                                       <exclude>Implementation.ADCRCCLTest</exclude>
-                                                       <exclude>Implementation.ADCMSCTest</exclude>
+                                                      
                                                        <exclude>Implementation.FaregeekTest</exclude>
-                                                       <exclude>Implementation.FaredepotTest</exclude>
+                                                      
                                                        
                                                    </excludes>
                                                        <filtering>true</filtering>
@@ -247,15 +229,9 @@
                                                               <filSet>
                                                                     <directory>D:\\Ajit\\Automation\\Workspace\\Odysseus_Product\\test-output\\emailable-report.html</directory>
                                                                     <includes>
-                                                                        <include>LoginTest.java</include>
-                                                                        <include>BPCCruiseBookingTest.java</include>
-                                                                        <include>VivaVoyageTest.java</include>
-                                                                        <include>CDORTest.java</include>
-                                                                        <include>DLCTest.java</include>
-                                                                        <include>ADCRCCLTest.java</include>
-                                                                        <include>ADCMSCTest.java</include>
+                                                                        
                                                                         <include>FaregeekTest.java</include>
-                                                                        <include>FaredepotTest.java</include>
+                                                                       
                                                                       
                                                                     </includes>
                                                               </filSet>
@@ -265,50 +241,9 @@
                                                            <suiteXmlFile>testng.xml</suiteXmlFile>
                                                        </suiteXmlFiles>
                                                        <includes>   
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\test\java\Implementation\LoginTest.java</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\Implementation\Login.java</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\test\java\Implementation\BPCCruiseBookingTest.java</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\Implementation\BPCCruiseBookingpgeobjct.java</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\Implementation\BPCCruisePurchasepageobjct.java</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\Utility\BPCUtils.java</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\Utility\CDORtils.java</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\Utility\DLCUtils.java</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\Utility\LocalAirUtils.java</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\Utility\ADCUtils.java</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\Utility\OdysolAirUtils.java</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\Utility\VivaVoyageUtils.java</include>
+                                                              
                                                               <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\Utility\FaregeekUtils.java</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\Utility\FaredepotUtils.java</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\testData\\BPCData.xlsx</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\testData\\CDORData.xlsx</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\testData\\ADCData.xlsx</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\testData\\LocalAirData.xlsx</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\testData\\FaregeekData.xlsx</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\testData\\FaredepotData.xlsx</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\testData\\DLCData.xlsx</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\testData\\OdysolAirData.xlsx</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\testData\\VivaVoyageData.xlsx</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\test\java\Implementation\VivaVoyageTest.java</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\Implementation\VivaVoyageBookingpgeobjct.java</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\Implementation\\VivaVoyagePurchasepageobjct.java</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\test\java\Implementation\CDORTest.java</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\Implementation\\CDORBookingpgeobjct.java</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\Implementation\\CDORPurchasepageobjct.java</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\test\java\Implementation\DLCTest.java</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\Implementation\\DLCBookingpgeobjct.java</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\Implementation\\DLCPurchasepgeobjct.java</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\test\java\Implementation\ADCRCCLTest.java</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\Implementation\\ADCBookingpgeobjct.java</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\Implementation\\ADCRCCLPurchasepgeobjct.java</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\test\java\Implementation\ADCMSCTest.java</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\Implementation\\ADCMSCPurchasepgeobjct.java</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\test\java\Implementation\FaregeekTest.java</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\Implementation\\FaregeekBookingpgeobjct.java</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\Implementation\\FaregeekPurchasepgeobjct.java</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\test\java\Implementation\FaredepotTest.java</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\Implementation\\FaredepotBookingpgeobjct.java</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\Implementation\\FaredepotPurchasepgeobjct.java</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\Implementation\\ADCMSCBookingpgeobjct.java</include>
+                                                              
                                                        </includes>
                                                       
                                                   <mainClass>Implementation.Login</mainClass>  
