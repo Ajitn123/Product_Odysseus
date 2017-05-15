@@ -543,7 +543,7 @@ public class CDORTest
     public String[][] Authentications() throws Exception
     {
     	 
-	     String[][] testObjArray = CDORUtils.getTableArray("D:\\Ajit\\Automation\\Workspace\\Odysseus_Product\\src\\main\\java\\testData\\CDORData.xlsx","Sheet1");
+	     String[][] testObjArray = CDORUtils.getTableArray("E:\\Ajit\\Automation\\Workspace\\Odysseus_Product\\src\\main\\java\\testData\\CDORData.xlsx","Sheet1");
 	     return testObjArray;
 	     
     }
