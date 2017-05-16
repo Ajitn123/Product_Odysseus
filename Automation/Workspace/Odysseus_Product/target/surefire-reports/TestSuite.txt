@@ -1,17 +1,17 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 1, Errors: 0, Skipped: 2, Time elapsed: 29.418 sec <<< FAILURE!
-openBroswer(Implementation.CDORTest)  Time elapsed: 27.379 sec  <<< FAILURE!
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 138.614 sec <<< FAILURE!
+Faredepot_data(Implementation.FaredepotTest)  Time elapsed: 93.258 sec  <<< FAILURE!
 net.sf.cglib.core.CodeGenerationException: org.openqa.selenium.WebDriverException-->unknown error: cannot parse capability: chromeOptions
 from unknown error: must be a dictionary
   (Driver info: chromedriver=2.29.461591 (62ebf098771772160f391d75e589dc567915b233),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 77 milliseconds
+Command duration or timeout: 40 milliseconds
 Build info: version: '2.37.1', revision: 'a7c61cbd68657e133ae96672cf995890bad2ee42', time: '2013-10-21 09:08:07'
-System info: host: 'OdySol-DTP-027', ip: '192.168.1.138', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.8.0_121'
+System info: host: 'OdySol-DTP-027', ip: '192.168.1.138', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_101'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Windows\TEMP\scoped_dir21228_9286}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.81, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
-Session ID: 905eba1b06165455e2ae50407ed2f477
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Users\AJITNA~1\AppData\Local\Temp\scoped_dir28048_6554}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.96, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 362106569299e08e7ba56916ff616567
 	at net.sf.cglib.core.ReflectUtils.newInstance(ReflectUtils.java:235)
 	at net.sf.cglib.core.ReflectUtils.newInstance(ReflectUtils.java:220)
 	at net.sf.cglib.core.ReflectUtils.newInstance(ReflectUtils.java:216)
@@ -27,16 +27,16 @@ Session ID: 905eba1b06165455e2ae50407ed2f477
 	at ru.yandex.qatools.ashot.screentaker.VerticalPastingShootingStrategy.getScreenshot(VerticalPastingShootingStrategy.java:46)
 	at ru.yandex.qatools.ashot.screentaker.ScreenTaker.take(ScreenTaker.java:23)
 	at ru.yandex.qatools.ashot.AShot.takeScreenshot(AShot.java:166)
-	at Implementation.CDORTest.openBroswer(CDORTest.java:107)
+	at Implementation.FaredepotTest.Faredepot_data(FaredepotTest.java:207)
 Caused by: org.openqa.selenium.WebDriverException: unknown error: cannot parse capability: chromeOptions
 from unknown error: must be a dictionary
   (Driver info: chromedriver=2.29.461591 (62ebf098771772160f391d75e589dc567915b233),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 77 milliseconds
+Command duration or timeout: 40 milliseconds
 Build info: version: '2.37.1', revision: 'a7c61cbd68657e133ae96672cf995890bad2ee42', time: '2013-10-21 09:08:07'
-System info: host: 'OdySol-DTP-027', ip: '192.168.1.138', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.8.0_121'
+System info: host: 'OdySol-DTP-027', ip: '192.168.1.138', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_101'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Windows\TEMP\scoped_dir21228_9286}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.81, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
-Session ID: 905eba1b06165455e2ae50407ed2f477
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Users\AJITNA~1\AppData\Local\Temp\scoped_dir28048_6554}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.96, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 362106569299e08e7ba56916ff616567
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -50,16 +50,16 @@ Session ID: 905eba1b06165455e2ae50407ed2f477
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:498)
 	at org.openqa.selenium.remote.Augmenter$CompoundHandler.intercept(Augmenter.java:280)
-	at org.openqa.selenium.chrome.ChromeDriver$$EnhancerByCGLIB$$a995bcdf.startSession(<generated>)
+	at org.openqa.selenium.chrome.ChromeDriver$$EnhancerByCGLIB$$5182d02.startSession(<generated>)
 	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:111)
 	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:115)
 	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:171)
 	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:160)
 	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:117)
-	at org.openqa.selenium.chrome.ChromeDriver$$EnhancerByCGLIB$$a995bcdf.<init>(<generated>)
+	at org.openqa.selenium.chrome.ChromeDriver$$EnhancerByCGLIB$$5182d02.<init>(<generated>)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
 	at net.sf.cglib.core.ReflectUtils.newInstance(ReflectUtils.java:228)
-	... 46 more
+	... 48 more

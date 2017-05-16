@@ -212,7 +212,7 @@
                                                        <exclude>Implementation.FaredepotTest</exclude>
                                                        <exclude>Implementation.LocalAlanitaConfirmTest</exclude>
                                                        <exclude>Implementation.LocalOdysolDemoTest</exclude>
-                                                   </excludes>
+                                                    </excludes>
                                                        <filtering>true</filtering>
                                                 </testResource>
                                             <testResource>
@@ -293,7 +293,7 @@
                                                                         <include>FaredepotTest.java</include>
                                                                         <include>LocalAlanitaConfirmTest.java</include>
                                                                         <include>LocalOdysolDemoTest.java</include>
-                                                                    </includes>
+                                                                     </includes>
                                                               </filSet>
                                                           </fileSets>
                                                   

@@ -8,13 +8,13 @@
   <test name="ChromeTest(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="Implementation.BPCCruiseBookingTest">
+      <class name="Implementation.FaredepotTest">
         <methods>
-          <include name="BPC_data" invocation-numbers="0"/>
-          <include name="openBroswer"/>
           <include name="closeBrowser"/>
+          <include name="openBroswer"/>
+          <include name="Faredepot_data" invocation-numbers="0"/>
         </methods>
-      </class> <!-- Implementation.BPCCruiseBookingTest -->
+      </class> <!-- Implementation.FaredepotTest -->
     </classes>
   </test> <!-- ChromeTest(failed) -->
 </suite> <!-- Failed suite [Suite] -->

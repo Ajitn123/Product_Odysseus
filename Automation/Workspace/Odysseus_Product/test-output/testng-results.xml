@@ -5,10 +5,10 @@
       <![CDATA[Website Name :- Faredepot]]>
     </line>
     <line>
-      <![CDATA[Price per person on result page: $923.93]]>
+      <![CDATA[Price per person on result page: $922.03]]>
     </line>
     <line>
-      <![CDATA[Total Price on result page: $2,771.79]]>
+      <![CDATA[Total Price on result page: $2,766.09]]>
     </line>
     <line>
       <![CDATA[Departure Trip: DEPARTURE
@@ -24,7 +24,7 @@ NEW YORK (JOHN F KENNEDY), NY, US
 TUE, 25 JUL - WED, 26 JUL DURATION: 23H 40MIN STOPS: 1]]>
     </line>
     <line>
-      <![CDATA[Price on checkout page: $2,771.79]]>
+      <![CDATA[Price on checkout page: $2,766.09]]>
     </line>
     <line>
       <![CDATA[API :- AmadeusWS]]>
@@ -36,42 +36,42 @@ TUE, 25 JUL - WED, 26 JUL DURATION: 23H 40MIN STOPS: 1]]>
       <![CDATA[Office Id :- DTT1S2100]]>
     </line>
     <line>
-      <![CDATA[Insurance Price:- + $194.03]]>
+      <![CDATA[Insurance Price:- + $193.63]]>
     </line>
     <line>
       <![CDATA[Insurance applied successfully..]]>
     </line>
     <line>
-      <![CDATA[Prices of After applied insurance on the Payment page:- $2,965.82]]>
+      <![CDATA[Prices of After applied insurance on the Payment page:- $2,959.72]]>
     </line>
     <line>
       <![CDATA[Insurance Removed successfully..]]>
     </line>
     <line>
-      <![CDATA[Prices of After removed insurance on the Payment page:- $2,771.79]]>
+      <![CDATA[Prices of After removed insurance on the Payment page:- $2,766.09]]>
     </line>
     <line>
       <![CDATA[Result page and Checkout page's Price matched..]]>
     </line>
     <line>
-      <![CDATA[Actual price is:- $2,771.79]]>
+      <![CDATA[Actual price is:- $2,766.09]]>
     </line>
     <line>
-      <![CDATA[Price on payment page: $2,771.79]]>
+      <![CDATA[Price on payment page: $2,766.09]]>
     </line>
     <line>
       <![CDATA[Checkout page and Payment page's Price matched..]]>
     </line>
     <line>
-      <![CDATA[Actual price is:- $2,771.79]]>
+      <![CDATA[Actual price is:- $2,766.09]]>
     </line>
   </reporter-output>
-  <suite name="Suite" duration-ms="293340" started-at="2017-05-15T08:11:57Z" finished-at="2017-05-15T08:16:50Z">
+  <suite name="Suite" duration-ms="308400" started-at="2017-05-16T07:59:56Z" finished-at="2017-05-16T08:05:05Z">
     <groups>
     </groups>
-    <test name="ChromeTest" duration-ms="293340" started-at="2017-05-15T08:11:57Z" finished-at="2017-05-15T08:16:50Z">
+    <test name="ChromeTest" duration-ms="308400" started-at="2017-05-16T07:59:56Z" finished-at="2017-05-16T08:05:05Z">
       <class name="Implementation.FaredepotTest">
-        <test-method status="PASS" signature="openBroswer(java.lang.String)[pri:0, instance:Implementation.FaredepotTest@5f3a4b84]" name="openBroswer" is-config="true" duration-ms="42071" started-at="2017-05-15T13:41:57Z" finished-at="2017-05-15T13:42:39Z">
+        <test-method status="PASS" signature="openBroswer(java.lang.String)[pri:0, instance:Implementation.FaredepotTest@5f3a4b84]" name="openBroswer" is-config="true" duration-ms="41804" started-at="2017-05-16T13:29:56Z" finished-at="2017-05-16T13:30:38Z">
           <params>
             <param index="0">
               <value>
@@ -82,7 +82,7 @@ TUE, 25 JUL - WED, 26 JUL DURATION: 23H 40MIN STOPS: 1]]>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openBroswer -->
-        <test-method status="PASS" signature="Faredepot_data(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:Implementation.FaredepotTest@5f3a4b84]" name="Faredepot_data" duration-ms="250626" started-at="2017-05-15T13:42:39Z" data-provider="Authentication" finished-at="2017-05-15T13:46:50Z">
+        <test-method status="PASS" signature="Faredepot_data(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:Implementation.FaredepotTest@5f3a4b84]" name="Faredepot_data" duration-ms="266062" started-at="2017-05-16T13:30:39Z" data-provider="Authentication" finished-at="2017-05-16T13:35:05Z">
           <params>
             <param index="0">
               <value>
@@ -165,10 +165,10 @@ TUE, 25 JUL - WED, 26 JUL DURATION: 23H 40MIN STOPS: 1]]>
               <![CDATA[Website Name :- Faredepot]]>
             </line>
             <line>
-              <![CDATA[Price per person on result page: $923.93]]>
+              <![CDATA[Price per person on result page: $922.03]]>
             </line>
             <line>
-              <![CDATA[Total Price on result page: $2,771.79]]>
+              <![CDATA[Total Price on result page: $2,766.09]]>
             </line>
             <line>
               <![CDATA[Departure Trip: DEPARTURE
@@ -184,7 +184,7 @@ NEW YORK (JOHN F KENNEDY), NY, US
 TUE, 25 JUL - WED, 26 JUL DURATION: 23H 40MIN STOPS: 1]]>
             </line>
             <line>
-              <![CDATA[Price on checkout page: $2,771.79]]>
+              <![CDATA[Price on checkout page: $2,766.09]]>
             </line>
             <line>
               <![CDATA[API :- AmadeusWS]]>
@@ -196,38 +196,38 @@ TUE, 25 JUL - WED, 26 JUL DURATION: 23H 40MIN STOPS: 1]]>
               <![CDATA[Office Id :- DTT1S2100]]>
             </line>
             <line>
-              <![CDATA[Insurance Price:- + $194.03]]>
+              <![CDATA[Insurance Price:- + $193.63]]>
             </line>
             <line>
               <![CDATA[Insurance applied successfully..]]>
             </line>
             <line>
-              <![CDATA[Prices of After applied insurance on the Payment page:- $2,965.82]]>
+              <![CDATA[Prices of After applied insurance on the Payment page:- $2,959.72]]>
             </line>
             <line>
               <![CDATA[Insurance Removed successfully..]]>
             </line>
             <line>
-              <![CDATA[Prices of After removed insurance on the Payment page:- $2,771.79]]>
+              <![CDATA[Prices of After removed insurance on the Payment page:- $2,766.09]]>
             </line>
             <line>
               <![CDATA[Result page and Checkout page's Price matched..]]>
             </line>
             <line>
-              <![CDATA[Actual price is:- $2,771.79]]>
+              <![CDATA[Actual price is:- $2,766.09]]>
             </line>
             <line>
-              <![CDATA[Price on payment page: $2,771.79]]>
+              <![CDATA[Price on payment page: $2,766.09]]>
             </line>
             <line>
               <![CDATA[Checkout page and Payment page's Price matched..]]>
             </line>
             <line>
-              <![CDATA[Actual price is:- $2,771.79]]>
+              <![CDATA[Actual price is:- $2,766.09]]>
             </line>
           </reporter-output>
         </test-method> <!-- Faredepot_data -->
-        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:Implementation.FaredepotTest@5f3a4b84]" name="closeBrowser" is-config="true" duration-ms="1" started-at="2017-05-15T13:46:50Z" finished-at="2017-05-15T13:46:50Z">
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:Implementation.FaredepotTest@5f3a4b84]" name="closeBrowser" is-config="true" duration-ms="0" started-at="2017-05-16T13:35:05Z" finished-at="2017-05-16T13:35:05Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->

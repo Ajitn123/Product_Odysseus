@@ -18,7 +18,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.logging.LogType;
@@ -71,11 +70,11 @@ public class FaredepotTest
       {
             if (browser.equalsIgnoreCase("Firefox"))
             {
-                        DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-                        LoggingPreferences loggingprefs = new LoggingPreferences();
-                        loggingprefs.enable(LogType.BROWSER, Level.ALL);
-                        capabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingprefs);
-			            driver = new FirefoxDriver(capabilities);
+            	 DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+                 LoggingPreferences loggingprefs = new LoggingPreferences();
+                 loggingprefs.enable(LogType.BROWSER, Level.ALL);
+                 capabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingprefs);
+          //       driver = new FirefoxDriver(capabilities);
 	   
             } 
             else if (browser.equalsIgnoreCase("chrome")) 
@@ -85,7 +84,7 @@ public class FaredepotTest
 	                    LoggingPreferences loggingprefs = new LoggingPreferences();
 	                    loggingprefs.enable(LogType.BROWSER, Level.ALL);
 	                    capabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingprefs);
-	         //           driver = new ChromeDriver(capabilities);
+	                    driver = new ChromeDriver(capabilities);
             }  
             else if (browser.equalsIgnoreCase("IE")) 
             {
@@ -107,7 +106,7 @@ public class FaredepotTest
               if(driver.findElement(By.cssSelector("#image-f4e1bb6dacbba2cca5ceef5ba601f25c")).isDisplayed()) //#norilskLoadedContent [class*='padiClose']
               {
             	 driver.findElement(By.cssSelector("#image-f4e1bb6dacbba2cca5ceef5ba601f25c")).click();  //For handle unnecessary pop up
-                 Thread.sleep(1000);
+                 Thread.sleep(3000);
               }
            }  
            catch (Exception e) {
@@ -121,9 +120,14 @@ public class FaredepotTest
             PrintStream out = new PrintStream(fis);  
             System.setOut(out); 
                  
-            Thread.sleep(1000);
+            Thread.sleep(2000);
    
-           
+            
+            final Screenshot screenshot1 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+            final BufferedImage image1 = screenshot1.getImage();
+            ImageIO.write(image1, "PNG", new File("D:\\Ajit\\Script_SS\\Faredepot\\1_Searchpage.png"));
+            Thread.sleep(2000);
+
            //driver.navigate().to("https://localhost/odyssey/website/air/results.aspx?");
            Thread.sleep(4000);
            faredeptbkpge = PageFactory.initElements(driver, FaredepotBookingpgeobjct.class);
@@ -171,6 +175,10 @@ public class FaredepotTest
   	             System.out.println("\n");
   	             ExtractJSLogs();
    	 
+	             final Screenshot screenshot33 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+	             final BufferedImage image33 = screenshot33.getImage();
+	             ImageIO.write(image33, "PNG", new File("D:\\Ajit\\Script_SS\\FaredepotError\\1_TimeoutORinvalidsearchdetails.png"));
+	          
    	            Assert.assertFalse(false, "FAIL");
    	            Reporter.log("Time out or Invalid search criteria on resultpage..");
    	            AssertJUnit.assertTrue("Time out or Invalid search criteria on resultpage...", faredeptbkpge.isDisplayed());
@@ -193,7 +201,11 @@ public class FaredepotTest
    	        
             Thread.sleep(2000);
    	 
-           ;
+            final Screenshot screenshot4 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+            final BufferedImage image4 = screenshot4.getImage();
+            ImageIO.write(image4, "PNG", new File("D:\\Ajit\\Script_SS\\Faredepot\\2_Resultpage.png"));
+       
+   	        Thread.sleep(3000);
    	        
    	        //For View Details 
    	        if(driver.findElement(By.cssSelector("[id*='flight-summary_'] > div.row.result-box-footer > div.col-lg-2.col-md-2.col-sm-3.col-xs-3.flight-details-box-right [id*='details_']")).isDisplayed())
@@ -205,7 +217,10 @@ public class FaredepotTest
    	        	      
    	        	      Thread.sleep(500);
  	    	        
-   	        	   
+   	        	      final Screenshot screenshot22 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+   	                  final BufferedImage image22 = screenshot22.getImage();
+   	                  ImageIO.write(image22, "PNG", new File("D:\\Ajit\\Script_SS\\Faredepot\\3_ViewDetails.png"));
+ 	                  Thread.sleep(1000);
  	                
  	                  driver.findElement(By.cssSelector("[id*='flight-summary_'] > div.row.result-box-footer > div.col-lg-2.col-md-2.col-sm-3.col-xs-3.flight-details-box-right [id*='details_']")).click();
  	                  Thread.sleep(3000);
@@ -248,7 +263,10 @@ public class FaredepotTest
             	System.out.println("\n");
             	ExtractJSLogs();
              	
-            	
+            	final Screenshot screenshot2 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+                final BufferedImage image2 = screenshot2.getImage();
+                ImageIO.write(image2, "PNG", new File("D:\\Ajit\\Script_SS\\FaredepotError\\2_Flightnotavailable.png"));
+               
                 Assert.assertFalse(false, "FAIL");
    	            Reporter.log("Flights not available..");
    			    AssertJUnit.assertTrue("Flight not available...", faredeptbkpge.isDisplayed());
@@ -260,7 +278,10 @@ public class FaredepotTest
                ExtractJSLogs();              
                Thread.sleep(1000);
                
-              
+               final Screenshot screenshot3 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+               final BufferedImage image3 = screenshot3.getImage();
+               ImageIO.write(image3, "PNG", new File("D:\\Ajit\\Script_SS\\Faredepot\\4_Checkoutpage.png"));
+        
                System.out.println("Flight selected successfully..");
                 
                Thread.sleep(1000);
@@ -318,6 +339,9 @@ public class FaredepotTest
      	  System.out.println("\n");
      	  ExtractJSLogs();
      	 
+          final Screenshot screenshot44 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+ 		  final BufferedImage image44 = screenshot44.getImage();
+ 		  ImageIO.write(image44, "PNG", new File("D:\\Ajit\\Script_SS\\FaredepotError\\3_InvalidGuestInfo.png"));
           
           Assert.assertFalse(false, "FAIL");
           Reporter.log("Invalid guest information on checkoutpage...");
@@ -384,7 +408,12 @@ public class FaredepotTest
                    //For check insurance price
                     String insurprice = driver.findElement(By.cssSelector("#trip_summary_package_total")).getText();
                     Reporter.log("Prices of After applied insurance on the Payment page:- " +insurprice);
+                    Thread.sleep(4000); 
                     
+                   final Screenshot screenshot64 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+                   final BufferedImage image64 = screenshot64.getImage();
+                   ImageIO.write(image64, "PNG", new File("D:\\Ajit\\Script_SS\\Faredepot\\7_AppliedInsurance.png"));
+                   
                    Thread.sleep(6000);
                    
                    //For Remove insurance
@@ -402,6 +431,11 @@ public class FaredepotTest
                    //For check insurance price
                    String insprice = driver.findElement(By.cssSelector("#trip_summary_package_total")).getText();
                    Reporter.log("Prices of After removed insurance on the Payment page:- " +insprice);
+                   Thread.sleep(3000);  
+                   
+                   final Screenshot screenshot66 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+                   final BufferedImage image66 = screenshot66.getImage();
+                   ImageIO.write(image66, "PNG", new File("D:\\Ajit\\Script_SS\\Faredepot\\8_RemovedInsurance.png"));
                    
                    Thread.sleep(4000);
                    
@@ -415,7 +449,10 @@ public class FaredepotTest
   	           System.out.println("\n");
   	           ExtractJSLogs();
      
-              
+               final Screenshot screenshot72 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+               final BufferedImage image72 = screenshot72.getImage();
+               ImageIO.write(image72, "PNG", new File("D:\\Ajit\\Script_SS\\FaredepotError\\9_InsurancenotAppliedOrRemoved.png"));
+     
                Assert.assertFalse(false, "FAIL");
                Reporter.log("Insurance not applied/removed...");
 	           AssertJUnit.assertTrue("Insurance not applied/removed....", faredptpurchse.isDisplayed());
@@ -428,7 +465,9 @@ public class FaredepotTest
         	  driver.findElement(By.cssSelector("#st-accordion > ul > li:nth-child(4) > a")).sendKeys(Keys.ENTER);
         	  Thread.sleep(1000);
         	  
-        	 
+        	  File scr03 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+              org.codehaus.plexus.util.FileUtils.copyFile(scr03, new File("D:\\Ajit\\Script_SS\\Faredepot\\9_AdditionalServiceOnCheckoutpage.png")); 
+        	  Thread.sleep(1500);
          }
          catch(Exception e)
          {
@@ -447,11 +486,17 @@ public class FaredepotTest
         	  driver.findElement(By.xpath("//*[@id='st-accordion']/ul/li[5]/a")).click();
         	  Thread.sleep(2000);
         	  
-        	  
+        	  final Screenshot screenshot76 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+              final BufferedImage image76 = screenshot76.getImage();
+              ImageIO.write(image76, "PNG", new File("D:\\Ajit\\Script_SS\\Faredepot\\11_PaymentInfoPage.png"));
+        	  Thread.sleep(2000);
          }
          catch(Exception e)
          {
-        	
+        	 final Screenshot screenshot77 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+             final BufferedImage image77 = screenshot77.getImage();
+             ImageIO.write(image77, "PNG", new File("D:\\Ajit\\Script_SS\\FaredepotError\\10_ErrorOnPaymentInfoPage.png"));
+             Thread.sleep(1000);
              
              AssertJUnit.assertTrue("Payment information tab is not working or showing error on payment page", faredptpurchse.isDisplayed());
 	         throw(e);
@@ -504,7 +549,7 @@ public class FaredepotTest
    public String[][] Authentication() throws Exception
    {
    	 
-  	     String[][] testObjArray = FaredepotUtils.getTableArray("E:\\Product_Odysseus\\Automation\\Workspace\\Odysseus_Product\\src\\main\\java\\testData\\FaredepotData.xlsx","Sheet1");
+  	     String[][] testObjArray = FaredepotUtils.getTableArray("D:\\Ajit\\Automation\\Workspace\\Odysseus_Product\\src\\main\\java\\testData\\FaredepotData.xlsx","Sheet1");
   	     return testObjArray;
   	     
    }

@@ -16,7 +16,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.logging.LogType;
@@ -68,11 +67,7 @@ public class FaregeekTest
 	       {
 	             if (browser.equalsIgnoreCase("Firefox"))
 	             {
-	                        DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-                            LoggingPreferences loggingprefs = new LoggingPreferences();
-                            loggingprefs.enable(LogType.BROWSER, Level.ALL);
-                            capabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingprefs);
-			                driver = new FirefoxDriver(capabilities);
+	                //  driver = new FirefoxDriver();
 		   
 	             } 
 	             else if (browser.equalsIgnoreCase("chrome")) 
@@ -82,7 +77,7 @@ public class FaregeekTest
 		                    LoggingPreferences loggingprefs = new LoggingPreferences();
 		                    loggingprefs.enable(LogType.BROWSER, Level.ALL);
 		                    capabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingprefs);
-		             //       driver = new ChromeDriver(capabilities);
+		                    driver = new ChromeDriver(capabilities);
 		                   
 	             }  
 	             else if (browser.equalsIgnoreCase("IE")) 
@@ -108,7 +103,11 @@ public class FaregeekTest
 	             PrintStream out = new PrintStream(fis);  
 	             System.setOut(out); 
 	                  
-	            
+	             Thread.sleep(1000);
+	    
+	             final Screenshot screenshot1 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+	             final BufferedImage image1 = screenshot1.getImage();
+	             ImageIO.write(image1, "PNG", new File("D:\\Ajit\\Script_SS\\Faregeek\\1_Searchpage.png"));
 	             Thread.sleep(3000);
 	             System.out.println("\n");
 		         System.out.println("Searchpage Logs..");
@@ -162,7 +161,10 @@ public class FaregeekTest
 	   	             System.out.println("\n");
 	   	             ExtractJSLogs();
 	    	 
-	 	            
+	 	             final Screenshot screenshot33 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+	 	             final BufferedImage image33 = screenshot33.getImage();
+	 	             ImageIO.write(image33, "PNG", new File("D:\\Ajit\\Script_SS\\FaregeekError\\1_TimeoutORinvalidsearchdetails.png"));
+	 	          
 	    	         Assert.assertFalse(false, "FAIL");
 	    	         Reporter.log("Time out or Invalid search criteria on resultpage..");
 	    	         AssertJUnit.assertTrue("Time out or Invalid search criteria on resultpage...", airbkpge.isDisplayed());
@@ -183,7 +185,12 @@ public class FaregeekTest
 	    	        System.out.println("\n");
 	    	        ExtractJSLogs();
 	    	        
-	               
+	                Thread.sleep(1000);
+	    	 
+	                final Screenshot screenshot4 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+	                final BufferedImage image4 = screenshot4.getImage();
+	                ImageIO.write(image4, "PNG", new File("D:\\Ajit\\Script_SS\\Faregeek\\2_Resultpage.png"));
+	        
 	    	        Thread.sleep(4000);
 	    	        
 	    	        //For View Details 
@@ -192,7 +199,9 @@ public class FaregeekTest
 	    	        	  driver.findElement(By.cssSelector("[id*='flight-summary_'] > div.col-md-12.links > a.details")).click();
 	    	        	  Thread.sleep(500);
 	  	    	        
-	  	                
+	  	                  File scr02 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+       	                  org.codehaus.plexus.util.FileUtils.copyFile(scr02, new File("D:\\Ajit\\Script_SS\\Faregeek\\3_ViewDetails.png")); 
+	  	                  Thread.sleep(2000);
 	  	                
 	  	                  driver.navigate().refresh();
 	  	                  Thread.sleep(3000);
@@ -236,7 +245,10 @@ public class FaregeekTest
 	             	System.out.println("\n");
 	             	ExtractJSLogs();
 	              	
-	             	
+	             	final Screenshot screenshot2 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+	                final BufferedImage image2 = screenshot2.getImage();
+	                ImageIO.write(image2, "PNG", new File("D:\\Ajit\\Script_SS\\FaregeekError\\2_Flightnotavailable.png"));
+	                
 	                Assert.assertFalse(false, "FAIL");
 	    	        Reporter.log("Flights not available..");
 	    			AssertJUnit.assertTrue("Flight not available...", airbkpge.isDisplayed());
@@ -246,7 +258,12 @@ public class FaregeekTest
 	                System.out.println("Checkoutpage Logs..");
 	                System.out.println("\n");
 	                ExtractJSLogs();              
-	               
+	                Thread.sleep(1000);
+	                
+	                final Screenshot screenshot3 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+	                final BufferedImage image3 = screenshot3.getImage();
+	                ImageIO.write(image3, "PNG", new File("D:\\Ajit\\Script_SS\\Faregeek\\4_Checkoutpage.png"));
+	                
 	                Thread.sleep(3000);
 	                
 	              //For Trip details on checkout page
@@ -311,7 +328,10 @@ public class FaregeekTest
 	      	  System.out.println("\n");
 	      	  ExtractJSLogs();
 	      	 
-	          
+	          final Screenshot screenshot44 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+	  		  final BufferedImage image44 = screenshot44.getImage();
+	  		  ImageIO.write(image44, "PNG", new File("D:\\Ajit\\Script_SS\\FaregeekError\\3_Timeouterror.png"));
+	           
 	          Assert.assertFalse(false, "FAIL");
 	          Reporter.log("Timeout error...");
 	     	  AssertJUnit.assertTrue("Timeout error...", faregkpurchse.isDisplayed());
@@ -327,8 +347,10 @@ public class FaregeekTest
 	        	driver.findElement(By.cssSelector("#MainForm > div.col-md-9.col-xs-12.col-sm-9.pull-right.pax-main-cont > div.row.booking-section.satisfaction.panel-box.pax-info-mo > div > div > div > label [id*='ex_gr_']")).click();
 	        	Thread.sleep(2000);
 	        	Reporter.log("Best Price Gaurantee Applied successfully..");
-	        	
-	        	
+	        	Thread.sleep(500);
+	        	final Screenshot screenshot37 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+                final BufferedImage image37 = screenshot37.getImage();
+                ImageIO.write(image37, "PNG", new File("D:\\Ajit\\Script_SS\\Faregeek\\05_AppliedBestPriceGaurantee.png"));
                 Thread.sleep(1000);
                 
                 //For Additional payment display in testng report
@@ -343,7 +365,10 @@ public class FaregeekTest
 	        	
 	        	// For remove Best Price Guarantee
 	        	driver.findElement(By.cssSelector("#MainForm > div.col-md-9.col-xs-12.col-sm-9.pull-right.pax-main-cont > div.row.booking-section.satisfaction.panel-box.pax-info-mo > div > div > div > label [id*='ex_gr_']")).click();
-	        	
+	        	Thread.sleep(1000);
+	        	final Screenshot screenshot39 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+                final BufferedImage image39 = screenshot39.getImage();
+                ImageIO.write(image39, "PNG", new File("D:\\Ajit\\Script_SS\\Faregeek\\5_RemovedBestPriceGaurantee.png"));
                 Thread.sleep(1500);
 	        	
 	        	Reporter.log("Best Price Gaurantee Removed successfully..");
@@ -369,7 +394,10 @@ public class FaregeekTest
 	      	  System.out.println("\n");
 	      	  ExtractJSLogs();
 	      	 
-	          
+	          final Screenshot screenshot44 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+	  		  final BufferedImage image44 = screenshot44.getImage();
+	  		  ImageIO.write(image44, "PNG", new File("D:\\Ajit\\Script_SS\\FaregeekError\\3_InvalidGuestInfo.png"));
+	           
 	          Assert.assertFalse(false, "FAIL");
 	          Reporter.log("Invalid guest information on checkoutpage...");
 	     	  AssertJUnit.assertTrue("Invalid guest information on checkoutpage...", faregkpurchse.isDisplayed());
@@ -383,8 +411,11 @@ public class FaregeekTest
 	        
               Thread.sleep(1000);
 	 
+              final Screenshot screenshot48 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+              final BufferedImage image48 = screenshot48.getImage();
+              ImageIO.write(image48, "PNG", new File("D:\\Ajit\\Script_SS\\Faregeek\\6_Paymentpage.png"));
               
-             
+              Thread.sleep(1000);
               
               //For Insurance
               try
@@ -398,6 +429,11 @@ public class FaregeekTest
                         //For check insurance price
                         String insurprice = driver.findElement(By.cssSelector("#PricesGTotal")).getText();
                         Reporter.log("Prices of After applied insurance on the Payment page:- " +insurprice);
+                        Thread.sleep(1000);  
+                        
+                        final Screenshot screenshot64 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+                        final BufferedImage image64 = screenshot64.getImage();
+                        ImageIO.write(image64, "PNG", new File("D:\\Ajit\\Script_SS\\Faregeek\\7_AppliedInsurance.png"));
                         
                         Thread.sleep(2000);
                         
@@ -418,6 +454,11 @@ public class FaregeekTest
                         //For check insurance price
                         String insprice = driver.findElement(By.cssSelector("#PricesGTotal")).getText();
                         Reporter.log("Prices of After removed insurance on the Payment page:- " +insprice);
+                        Thread.sleep(1000);  
+                        
+                        final Screenshot screenshot66 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+                        final BufferedImage image66 = screenshot66.getImage();
+                        ImageIO.write(image66, "PNG", new File("D:\\Ajit\\Script_SS\\Faregeek\\8_RemovedInsurance.png"));
                         
                         Thread.sleep(2000);
                         
@@ -431,7 +472,10 @@ public class FaregeekTest
        	           System.out.println("\n");
        	           ExtractJSLogs();
           
-                  
+                   final Screenshot screenshot72 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+                   final BufferedImage image72 = screenshot72.getImage();
+                   ImageIO.write(image72, "PNG", new File("D:\\Ajit\\Script_SS\\FaregeekError\\9_InsurancenotAppliedOrRemoved.png"));
+          
                    Assert.assertFalse(false, "FAIL");
                    Reporter.log("Insurance not applied/removed...");
 		           AssertJUnit.assertTrue("Insurance not applied/removed....", faregkpurchse.isDisplayed());

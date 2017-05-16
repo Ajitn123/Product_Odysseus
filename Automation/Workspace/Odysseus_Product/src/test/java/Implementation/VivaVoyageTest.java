@@ -16,7 +16,6 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.logging.LogType;
@@ -68,11 +67,7 @@ public class VivaVoyageTest
         {
                 if (browser.equalsIgnoreCase("Firefox"))
                 {
-                        DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-                        LoggingPreferences loggingprefs = new LoggingPreferences();
-                        loggingprefs.enable(LogType.BROWSER, Level.ALL);
-                        capabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingprefs);
-			            driver = new FirefoxDriver(capabilities);
+                   //  driver = new FirefoxDriver();
 	   
                 } 
                 else if (browser.equalsIgnoreCase("chrome")) 
@@ -82,7 +77,7 @@ public class VivaVoyageTest
 	                    LoggingPreferences loggingprefs = new LoggingPreferences();
 	                    loggingprefs.enable(LogType.BROWSER, Level.ALL);
 	                    capabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingprefs);
-	            //        driver = new ChromeDriver(capabilities);
+	                    driver = new ChromeDriver(capabilities);
 	                   
                 }  
                 else if (browser.equalsIgnoreCase("IE")) 
@@ -110,7 +105,10 @@ public class VivaVoyageTest
                      
               Thread.sleep(1000);
        
-             
+              final Screenshot screenshot1 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+              final BufferedImage image1 = screenshot1.getImage();
+              ImageIO.write(image1, "PNG", new File("D:\\Ajit\\Script_SS\\VivaVoyage\\1_Searchpage.png"));
+              Thread.sleep(1000);
               System.out.println("\n");
 	          System.out.println("Searchpage Logs..");
 	          System.out.println("\n");
@@ -152,7 +150,12 @@ public class VivaVoyageTest
    	         System.out.println("\n");
    	         ExtractJSLogs();
    	        
-             
+             Thread.sleep(1000);
+   	 
+   	        final Screenshot screenshot4 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+            final BufferedImage image4 = screenshot4.getImage();
+            ImageIO.write(image4, "PNG", new File("D:\\Ajit\\Script_SS\\VivaVoyage\\2_Resultpage.png"));
+            
             Thread.sleep(6000);
              
          }
@@ -187,7 +190,11 @@ public class VivaVoyageTest
                             {
                             	Reporter.log("Bonus Offers are available..");
                             	driver.findElement(By.xpath("//*[@id='PriceList_0']/div/ul[1]/li[2]/a[2]/img")).click();
-                               
+                                Thread.sleep(1000);
+                                
+                                File scr2 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+                  	            org.codehaus.plexus.util.FileUtils.copyFile(scr2, new File("D:\\Ajit\\Script_SS\\VivaVoyage\\3_Bonusoffers.png")); 
+                                
                                 Thread.sleep(4000);
                                 
                                 driver.navigate().refresh();
@@ -207,7 +214,10 @@ public class VivaVoyageTest
              	      System.out.println("\n");
              	      ExtractJSLogs();
                 
-                     
+                      final Screenshot screenshot5 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+                      final BufferedImage image5 = screenshot5.getImage();
+                      ImageIO.write(image5, "PNG", new File("D:\\Ajit\\Script_SS\\VivaVoyageError\\2_Cruisenotavailable.png"));
+                
                       Assert.assertFalse(false, "FAIL");
  	                  Reporter.log("Cruise not available..");
  			          AssertJUnit.assertTrue("Cruise not available...", crsbkngpge.isDisplayed());
@@ -222,7 +232,10 @@ public class VivaVoyageTest
                       ExtractJSLogs();              
                       Thread.sleep(1000);
           
-                     
+                      final Screenshot screenshot60 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+                      final BufferedImage image60 = screenshot60.getImage();
+                      ImageIO.write(image60, "PNG", new File("D:\\Ajit\\Script_SS\\VivaVoyage\\4_Cruisedetailspage.png"));
+  
                       System.out.println("Cruise selected successfully..");
                        
                       Thread.sleep(4000);
@@ -278,7 +291,10 @@ public class VivaVoyageTest
                 	        System.out.println("\n");
                 	        ExtractJSLogs();
                  	 
-            	           
+            	            final Screenshot screenshot80 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+            	            final BufferedImage image80 = screenshot80.getImage();
+            	            ImageIO.write(image80, "PNG", new File("D:\\Ajit\\Script_SS\\VivaVoyageError\\3_InvalidGuestinformation.png"));
+            	          
                  	        Assert.assertFalse(false, "FAIL");
                  	        Reporter.log("Invalid guest information's on detailspage...");
                  	        AssertJUnit.assertTrue("Invalid guest information's on detailspage...", crsbkngpge.isDisplayed());
@@ -296,7 +312,10 @@ public class VivaVoyageTest
                              Reporter.log("Error message:- " +err);
                              Thread.sleep(1000);
                              
-                           
+                             final Screenshot screenshot87 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+            	             final BufferedImage image87 = screenshot87.getImage();
+            	             ImageIO.write(image87, "PNG", new File("D:\\Ajit\\Script_SS\\VivaVoyageError\\04_Erroroncategorypage.png"));
+            	          
                  	         Assert.assertFalse(false, "FAIL");
                  	         AssertJUnit.assertTrue("Error on category page..: " +err, crsbkngpge.isDisplayed());
                  	         return;
@@ -312,7 +331,11 @@ public class VivaVoyageTest
                          if (driver.findElement(By.cssSelector("#MainForm > div:nth-child(31) > div.cattabs > ul > li:nth-child(5) > a > div > span")).isDisplayed())
                          {
                          	 driver.findElement(By.cssSelector("#MainForm > div:nth-child(31) > div.cattabs > ul > li:nth-child(5) > a > div > span")).click();
-                        	
+                        	 Thread.sleep(1000);
+                        	 
+                        	 final Screenshot screenshot62 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+                             final BufferedImage image62 = screenshot62.getImage();
+                             ImageIO.write(image62, "PNG", new File("D:\\Ajit\\Script_SS\\VivaVoyage\\5_Categorypage.png"));
                              Thread.sleep(2000);
                              
                         	 driver.findElement(By.cssSelector("#category_4 > div:nth-child(1) > div.categoryview-price-gride > ul.categoryview-price-gride-even > li.full-btn > a")).click();
@@ -324,7 +347,11 @@ public class VivaVoyageTest
                          else if(driver.findElement(By.cssSelector("#MainForm > div:nth-child(31) > div.cattabs > ul > li:nth-child(4) > a > div > span")).isDisplayed())
                          {
                         	 driver.findElement(By.cssSelector("#MainForm > div:nth-child(31) > div.cattabs > ul > li:nth-child(4) > a > div > span")).click();
-                        	
+                        	 Thread.sleep(1500);
+                        	 
+                        	 final Screenshot screenshot61 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+                             final BufferedImage image61 = screenshot61.getImage();
+                             ImageIO.write(image61, "PNG", new File("D:\\Ajit\\Script_SS\\VivaVoyage\\6_Categorypage.png"));
                              Thread.sleep(2000);
                               
                         	 driver.findElement(By.cssSelector("#category_3 > div:nth-child(1) > div.categoryview-price-gride > ul.categoryview-price-gride-even > li.full-btn > a")).click();
@@ -338,7 +365,10 @@ public class VivaVoyageTest
                          ExtractJSLogs();              
                          Thread.sleep(1000);
              
-                        
+                         final Screenshot screenshot62 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+                         final BufferedImage image62 = screenshot62.getImage();
+                         ImageIO.write(image62, "PNG", new File("D:\\Ajit\\Script_SS\\VivaVoyage\\7_Cabinselectionpage.png"));
+     
                          System.out.println("Category selected successfully..");
                           
                          Thread.sleep(5000);
@@ -379,7 +409,10 @@ public class VivaVoyageTest
                         	      System.out.println("\n");
                         	      ExtractJSLogs();
                            
-                                 
+                                  final Screenshot screenshot13 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+                                  final BufferedImage image13 = screenshot13.getImage();
+                                  ImageIO.write(image13, "PNG", new File("D:\\Ajit\\Script_SS\\VivaVoyageError\\4_Cabinnotavailable.png"));
+                           
                                   Assert.assertFalse(false, "FAIL");
             	                  Reporter.log("Cabin not available..");
             			          AssertJUnit.assertTrue("Cabin not available...", crsbkngpge.isDisplayed());
@@ -392,7 +425,10 @@ public class VivaVoyageTest
                                  ExtractJSLogs();              
                                  Thread.sleep(1000);
                        
-                                 
+                                 final Screenshot screenshot102 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+                                 final BufferedImage image102 = screenshot102.getImage();
+                                 ImageIO.write(image102, "PNG", new File("D:\\Ajit\\Script_SS\\VivaVoyage\\8_Purchasepage.png"));
+               
                                  System.out.println("Cabin selected successfully..");
                        
                                  Thread.sleep(4000);
@@ -426,7 +462,10 @@ public class VivaVoyageTest
                            	         System.out.println("\n");
                            	         ExtractJSLogs();
                               
-                                    
+                                     final Screenshot screenshot34 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+                                     final BufferedImage image34 = screenshot34.getImage();
+                                     ImageIO.write(image34, "PNG", new File("D:\\Ajit\\Script_SS\\VivaVoyageError\\5_InvalidGuestinfoonPurchasepage.png"));
+                              
                                      Assert.assertFalse(false, "FAIL");
                	                     Reporter.log("Invalid guest information on purchase page, Please enter valid details for the required fields...");
                			             AssertJUnit.assertTrue("Invalid guest information on purchase page, Please enter valid details for the required fields....", crsbkngpge.isDisplayed());
@@ -437,7 +476,12 @@ public class VivaVoyageTest
                                      System.out.println("Paymentpage Logs..");
                                      System.out.println("\n");
                                      ExtractJSLogs();              
-                                    
+                                     Thread.sleep(1000);
+                                     
+                                     final Screenshot screenshot44 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+                                     final BufferedImage image44 = screenshot44.getImage();
+                                     ImageIO.write(image44, "PNG", new File("D:\\Ajit\\Script_SS\\VivaVoyage\\9_Paymentpage.png"));
+                                     
                                      Thread.sleep(2000);
                                      
                                      String priceonpaymnt = driver.findElement(By.xpath("//*[@id='PricesGTotal']")).getText();

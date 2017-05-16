@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="Utility.VivaVoyageUtils"/>
-<fullyQualifiedTypeName name="java.text.NumberFormat"/>
-<fullyQualifiedTypeName name="java.util.Arrays"/>
-<fullyQualifiedTypeName name="testData.CDORUtils"/>
-<fullyQualifiedTypeName name="Utility.BPCUtils"/>
-<fullyQualifiedTypeName name="Utility.CDORUtils"/>
-<fullyQualifiedTypeName name="Utility.DLCUtils"/>
 <fullyQualifiedTypeName name="Utility.ADCUtils"/>
 <fullyQualifiedTypeName name="Utility.OdysolAirUtils"/>
 <fullyQualifiedTypeName name="Utility.FaredepotUtils"/>
 <fullyQualifiedTypeName name="Utility.FaregeekUtils"/>
-<fullyQualifiedTypeName name="org.openqa.selenium.firefox.FirefoxDriver"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.chrome.ChromeOptions"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.interactions.Actions"/>
 <fullyQualifiedTypeName name="com.google.inject.Key"/>
@@ -23,7 +15,6 @@
 <fullyQualifiedTypeName name="org.openqa.selenium.remote.DesiredCapabilities"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.logging.LoggingPreferences"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.logging.LogType"/>
-<fullyQualifiedTypeName name="org.openqa.selenium.chrome.ChromeDriver"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.remote.CapabilityType"/>
 <fullyQualifiedTypeName name="java.util.logging.Level"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.WebDriverException"/>
@@ -53,11 +44,20 @@
 <fullyQualifiedTypeName name="Utility.LocalAirUtils"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.support.FindBy"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
-<fullyQualifiedTypeName name="org.testng.Reporter"/>
-<fullyQualifiedTypeName name="org.openqa.selenium.WebDriver"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.JavascriptExecutor"/>
 <fullyQualifiedTypeName name="java.lang.Exception"/>
-<fullyQualifiedTypeName name="java.lang.Thread"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.Keys"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.WebElement"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="org.testng.Reporter"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.firefox.FirefoxProfile"/>
+<fullyQualifiedTypeName name="bsh.Capabilities"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.Capabilities"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.firefox.FirefoxBinary"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.WebDriver"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.firefox.FirefoxDriver"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.chrome.ChromeDriver"/>
+<fullyQualifiedTypeName name="com.sun.jna.platform.FileUtils"/>
+<fullyQualifiedTypeName name="org.codehaus.plexus.util.FileUtils"/>
 </qualifiedTypeNameHistroy>
