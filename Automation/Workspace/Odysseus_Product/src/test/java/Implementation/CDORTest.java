@@ -109,10 +109,7 @@ public class CDORTest
                   
              Thread.sleep(1000);
     
-             final Screenshot screenshot1 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-             final BufferedImage image1 = screenshot1.getImage();
-             ImageIO.write(image1, "PNG", new File("D:\\Ajit\\Script_SS\\CDOR\\1_Searchpage.png"));
-             Thread.sleep(1000);
+            
              System.out.println("\n");
 	         System.out.println("Searchpage Logs..");
 	         System.out.println("\n");
@@ -167,10 +164,7 @@ public class CDORTest
                 	   Reporter.log("Error message: " +err);
                 	   Thread.sleep(1000);
                 	 
-                	   final Screenshot screenshot87 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-      	               final BufferedImage image87 = screenshot87.getImage();
-      	               ImageIO.write(image87, "PNG", new File("D:\\Ajit\\Script_SS\\CDORError\\04_Erroronresultpage.png"));
-      	          
+                	
            	           Assert.assertFalse(false, "FAIL");
            	           AssertJUnit.assertTrue("Error on result page..: " +err, crsbkngpge.isDisplayed());
            	           return;
@@ -185,11 +179,7 @@ public class CDORTest
             	  e.getMessage();
         }      
   	 
-               Thread.sleep(300);
-  	           final Screenshot screenshot4 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-               final BufferedImage image4 = screenshot4.getImage();
-               ImageIO.write(image4, "PNG", new File("D:\\Ajit\\Script_SS\\CDOR\\2_Resultpage.png"));
-           
+              
                Thread.sleep(6000);
             
         }
@@ -199,11 +189,7 @@ public class CDORTest
   	         System.out.println("Time out or Invalid search criteria on resultpage Logs..");
   	         System.out.println("\n");
   	         ExtractJSLogs();
-   	 
-	         final Screenshot screenshot33 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-	         final BufferedImage image33 = screenshot33.getImage();
-	         ImageIO.write(image33, "PNG", new File("D:\\Ajit\\Script_SS\\CDORError\\1_TimeoutORinvalidsearchdetails.png"));
-	          
+   	  
    	         Assert.assertFalse(false, "FAIL");
    	         Reporter.log("Time out or Invalid search criteria on resultpage..");
    	         AssertJUnit.assertTrue("Time out or Invalid search criteria on resultpage...", crsbkngpge.isDisplayed());
@@ -224,11 +210,7 @@ public class CDORTest
                       {
                       	  Reporter.log("Bonus Offers are available..");
                       	  driver.findElement(By.xpath("//*[@id='ResultsContainer']/ul/li[1]/div/div/div[2]/table/tbody/tr[2]/td[2]/a/img")).click();
-                          Thread.sleep(1500);
-                          
-                          File scr22 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-            	          org.codehaus.plexus.util.FileUtils.copyFile(scr22, new File("D:\\Ajit\\Script_SS\\CDOR\\3_Bonusoffers.png")); 
-                          
+                         
                           Thread.sleep(3000);
                           
                       	  driver.navigate().refresh();
@@ -247,10 +229,7 @@ public class CDORTest
        	         System.out.println("\n");
        	         ExtractJSLogs();
           
-                 final Screenshot screenshot5 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                 final BufferedImage image5 = screenshot5.getImage();
-                 ImageIO.write(image5, "PNG", new File("D:\\Ajit\\Script_SS\\CDORError\\2_Cruisenotavailable.png"));
-          
+               
                  Assert.assertFalse(false, "FAIL");
                  Reporter.log("Cruise not available..");
 		         AssertJUnit.assertTrue("Cruise not available...", crsbkngpge.isDisplayed());
@@ -265,10 +244,6 @@ public class CDORTest
                 ExtractJSLogs();              
                 Thread.sleep(1000);
     
-                final Screenshot screenshot60 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                final BufferedImage image60 = screenshot60.getImage();
-                ImageIO.write(image60, "PNG", new File("D:\\Ajit\\Script_SS\\CDOR\\4_Cruisedetailspage.png"));
-
                 System.out.println("Cruise selected successfully..");
                  
                 Thread.sleep(4000);
@@ -324,10 +299,7 @@ public class CDORTest
           	        System.out.println("\n");
           	        ExtractJSLogs();
            	 
-      	            final Screenshot screenshot80 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-      	            final BufferedImage image80 = screenshot80.getImage();
-      	            ImageIO.write(image80, "PNG", new File("D:\\Ajit\\Script_SS\\CDORError\\3_InvalidGuestinformation.png"));
-      	          
+      	         
            	        Assert.assertFalse(false, "FAIL");
            	        Reporter.log("Invalid guest information's on detailspage...");
            	        AssertJUnit.assertTrue("Invalid guest information's on detailspage...", crsbkngpge.isDisplayed());
@@ -335,10 +307,7 @@ public class CDORTest
           }
                   driver.navigate().refresh();
                   Thread.sleep(2000);
-                  final Screenshot screenshot61 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                  final BufferedImage image61 = screenshot61.getImage();
-                  ImageIO.write(image61, "PNG", new File("D:\\Ajit\\Script_SS\\CDOR\\5_Categorypage.png"));
-                  Thread.sleep(2000);
+                 
          
          try
          {
@@ -354,11 +323,7 @@ public class CDORTest
             	    Thread.sleep(300);
             	    Reporter.log("Error on categpry page: " +err);
             	    Thread.sleep(1000);
-            	    
-            	    final Screenshot screenshot87 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-     	            final BufferedImage image87 = screenshot87.getImage();
-     	            ImageIO.write(image87, "PNG", new File("D:\\Ajit\\Script_SS\\CDORError\\04_Erroroncategorypage.png"));
-     	          
+            	
           	        Assert.assertFalse(false, "FAIL");
           	        AssertJUnit.assertTrue("Error on categpry page..: " +err, crsbkngpge.isDisplayed());
           	        return;
@@ -372,10 +337,7 @@ public class CDORTest
          }
          catch(Exception e)
          {
-          	   final Screenshot screenshot80 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-	           final BufferedImage image80 = screenshot80.getImage();
-	           ImageIO.write(image80, "PNG", new File("D:\\Ajit\\Script_SS\\CDORError\\4_Pricenotavailableoncategorypage.png"));
-	          
+          	 
      	       Assert.assertFalse(false, "FAIL");
      	       Reporter.log("Category not availabe...");
      	       AssertJUnit.assertTrue("Category not availabe...", crsbkngpge.isDisplayed());
@@ -388,10 +350,7 @@ public class CDORTest
                ExtractJSLogs();              
                Thread.sleep(1000);
 
-               final Screenshot screenshot62 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-               final BufferedImage image62 = screenshot62.getImage();
-               ImageIO.write(image62, "PNG", new File("D:\\Ajit\\Script_SS\\CDOR\\6_Cabinselectionpage.png"));
-
+             
                System.out.println("Category selected successfully..");
           
                Thread.sleep(5000);
@@ -439,10 +398,7 @@ public class CDORTest
                           	      System.out.println("\n");
                           	      ExtractJSLogs();
                              
-                                  final Screenshot screenshot13 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                                  final BufferedImage image13 = screenshot13.getImage();
-                                  ImageIO.write(image13, "PNG", new File("D:\\Ajit\\Script_SS\\VivaVoyageError\\4_Cabinnotavailable.png"));
-                             
+                                 
                                   Assert.assertFalse(false, "FAIL");
               	                  Reporter.log("Cabin not available..");
               			          AssertJUnit.assertTrue("Cabin not available...", crsbkngpge.isDisplayed());
@@ -458,10 +414,7 @@ public class CDORTest
                                    driver.navigate().refresh();
                                    Thread.sleep(2000);
                          
-                                   final Screenshot screenshot102 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                                   final BufferedImage image102 = screenshot102.getImage();
-                                   ImageIO.write(image102, "PNG", new File("D:\\Ajit\\Script_SS\\CDOR\\7_Purchasepage.png"));
-                 
+                               
                                    System.out.println("Cabin selected successfully..");
                          
                                    Thread.sleep(4000);
@@ -496,10 +449,7 @@ public class CDORTest
                                         System.out.println("\n");
                                         ExtractJSLogs();
                                                  
-                                        final Screenshot screenshot34 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                                        final BufferedImage image34 = screenshot34.getImage();
-                                        ImageIO.write(image34, "PNG", new File("D:\\Ajit\\Script_SS\\VivaVoyageError\\5_InvalidGuestinfoonPurchasepage.png"));
-                                                 
+                                             
                                         Assert.assertFalse(false, "FAIL");
                                   	    Reporter.log("Invalid guest information on purchase page, Please enter valid details for the required fields...");
                                   		AssertJUnit.assertTrue("Invalid guest information on purchase page, Please enter valid details for the required fields....", crsbkngpge.isDisplayed());
@@ -510,12 +460,7 @@ public class CDORTest
                                         System.out.println("Paymentpage Logs..");
                                         System.out.println("\n");
                                         ExtractJSLogs();              
-                                        Thread.sleep(1000);
-                                                        
-                                        final Screenshot screenshot44 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                                        final BufferedImage image44 = screenshot44.getImage();
-                                        ImageIO.write(image44, "PNG", new File("D:\\Ajit\\Script_SS\\CDOR\\9_Paymentpage.png"));
-                                                        
+                                                 
                                         Thread.sleep(2000);
                                                         
                                         String priceonpaymnt = driver.findElement(By.xpath("//*[@id='pricingBD']/tbody/tr[7]/td[3]/strong")).getText();
