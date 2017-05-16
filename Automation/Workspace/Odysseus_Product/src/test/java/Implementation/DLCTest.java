@@ -109,10 +109,7 @@ public class DLCTest
                  
             Thread.sleep(1000);
    
-            final Screenshot screenshot1 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-            final BufferedImage image1 = screenshot1.getImage();
-            ImageIO.write(image1, "PNG", new File("D:\\Ajit\\Script_SS\\DLC\\1_Searchpage.png"));
-            Thread.sleep(1000);
+           
             System.out.println("\n");
 	        System.out.println("Searchpage Logs..");
 	        System.out.println("\n");
@@ -154,12 +151,7 @@ public class DLCTest
  	         System.out.println("\n");
  	         ExtractJSLogs();
  	        
-             Thread.sleep(1000);
-              
- 	          final Screenshot screenshot4 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-              final BufferedImage image4 = screenshot4.getImage();
-              ImageIO.write(image4, "PNG", new File("D:\\Ajit\\Script_SS\\DLC\\2_Resultpage.png"));
-          
+           
               Thread.sleep(6000);
            
        }
@@ -170,10 +162,7 @@ public class DLCTest
  	         System.out.println("\n");
  	         ExtractJSLogs();
   	 
-	         final Screenshot screenshot33 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-	         final BufferedImage image33 = screenshot33.getImage();
-	         ImageIO.write(image33, "PNG", new File("D:\\Ajit\\Script_SS\\DLCError\\1_TimeoutORinvalidsearchdetails.png"));
-	          
+	    
   	         Assert.assertFalse(false, "FAIL");
   	         Reporter.log("Time out or Invalid search criteria on resultpage..");
   	         AssertJUnit.assertTrue("Time out or Invalid search criteria on resultpage...", crsbkngpge.isDisplayed());
@@ -194,11 +183,7 @@ public class DLCTest
                      {
                      	  Reporter.log("Bonus Offers are available..");
                      	  driver.findElement(By.cssSelector("#PriceList_0 > div > ul:nth-child(1) > li.grid-bonus.res_grid_bonus > a > img")).click();
-                          Thread.sleep(1500);
-                         
-                          File scr22 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-           	              org.codehaus.plexus.util.FileUtils.copyFile(scr22, new File("D:\\Ajit\\Script_SS\\DLC\\3_Bonusoffers.png")); 
-                         
+                       
                           Thread.sleep(3000);
                          
                      	  driver.navigate().refresh();
@@ -217,10 +202,6 @@ public class DLCTest
       	         System.out.println("\n");
       	         ExtractJSLogs();
          
-                final Screenshot screenshot5 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                final BufferedImage image5 = screenshot5.getImage();
-                ImageIO.write(image5, "PNG", new File("D:\\Ajit\\Script_SS\\DLCError\\2_Cruisenotavailable.png"));
-         
                 Assert.assertFalse(false, "FAIL");
                 Reporter.log("Cruise not available..");
 		        AssertJUnit.assertTrue("Cruise not available...", crsbkngpge.isDisplayed());
@@ -235,10 +216,6 @@ public class DLCTest
                ExtractJSLogs();              
                Thread.sleep(1000);
    
-               final Screenshot screenshot60 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-               final BufferedImage image60 = screenshot60.getImage();
-               ImageIO.write(image60, "PNG", new File("D:\\Ajit\\Script_SS\\DLC\\4_Cruisedetailspage.png"));
-
                System.out.println("Cruise selected successfully..");
                 
                Thread.sleep(4000);
@@ -280,11 +257,7 @@ public class DLCTest
          	        System.out.println("Invalid guest information on cruise detailspage Logs..");
          	        System.out.println("\n");
          	        ExtractJSLogs();
-          	 
-     	            final Screenshot screenshot80 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-     	            final BufferedImage image80 = screenshot80.getImage();
-     	            ImageIO.write(image80, "PNG", new File("D:\\Ajit\\Script_SS\\DLCError\\3_InvalidGuestinformation.png"));
-     	          
+          	
           	        Assert.assertFalse(false, "FAIL");
           	        Reporter.log("Invalid guest information's on detailspage...");
           	        AssertJUnit.assertTrue("Invalid guest information's on detailspage...", crsbkngpge.isDisplayed());
@@ -302,10 +275,7 @@ public class DLCTest
         	   Reporter.log("Error message: " +err);
         	   Thread.sleep(500);
         	   
-        	   final Screenshot screenshot82 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-               final BufferedImage image82 = screenshot82.getImage();
-               ImageIO.write(image82, "PNG", new File("D:\\Ajit\\Script_SS\\DLCError\\07_Error.png"));
-               Thread.sleep(1000);
+        	
                AssertJUnit.assertTrue(" " +err, crsbkngpge.isDisplayed());
                return;
            }
@@ -320,11 +290,7 @@ public class DLCTest
                  {
                 	 driver.findElement(By.cssSelector("#MainForm > div > div.category-tab-content-box > div > ul > li:nth-child(3) > a > div > span:nth-child(2)")).click();
                 	 Thread.sleep(1500);
-                	 
-                	 final Screenshot screenshot61 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                     final BufferedImage image61 = screenshot61.getImage();
-                     ImageIO.write(image61, "PNG", new File("D:\\Ajit\\Script_SS\\DLC\\5_Categorypage.png"));
-                     Thread.sleep(2000);
+                
                      
                 	 driver.findElement(By.cssSelector("#category_3 > div:nth-child(1) > div.categoryview-price-gride > ul.categoryview-price-gride-even > li:nth-child(5) > a")).click();
                 	 Thread.sleep(4000);
@@ -335,11 +301,7 @@ public class DLCTest
                  	 driver.findElement(By.cssSelector("#MainForm > div > div.category-tab-content-box > div > ul > li:nth-child(4) > a > div > span:nth-child(2)")).click();
                 	 Thread.sleep(1000);
                 	 
-                	 final Screenshot screenshot62 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                     final BufferedImage image62 = screenshot62.getImage();
-                     ImageIO.write(image62, "PNG", new File("D:\\Ajit\\Script_SS\\DLC\\6_Categorypage.png"));
-                     Thread.sleep(2000);
-                     
+                	
                 	 driver.findElement(By.cssSelector("#category_4 > div.categoryview-container > div.categoryview-price-gride > ul.categoryview-price-gride-even > li:nth-child(5) > a")).click();
                 	 Thread.sleep(4000);
 				 }
@@ -350,10 +312,7 @@ public class DLCTest
                  ExtractJSLogs();              
                  Thread.sleep(1000);
      
-                 final Screenshot screenshot62 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                 final BufferedImage image62 = screenshot62.getImage();
-                 ImageIO.write(image62, "PNG", new File("D:\\Ajit\\Script_SS\\DLC\\7_Cabinselectionpage.png"));
-
+                
                  System.out.println("Category selected successfully..");
                   
                  Thread.sleep(5000);
@@ -419,10 +378,7 @@ public class DLCTest
                     	      System.out.println("\n");
                     	      ExtractJSLogs();
                        
-                              final Screenshot screenshot13 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                              final BufferedImage image13 = screenshot13.getImage();
-                              ImageIO.write(image13, "PNG", new File("D:\\Ajit\\Script_SS\\DLCError\\4_Cabinnotavailable.png"));
-                       
+                            
                               Assert.assertFalse(false, "FAIL");
         	                  Reporter.log("Cabin not available..");
         			          AssertJUnit.assertTrue("Cabin not available...", crsbkngpge.isDisplayed());
@@ -435,10 +391,6 @@ public class DLCTest
                              ExtractJSLogs();              
                              Thread.sleep(1000);
                    
-                             final Screenshot screenshot102 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                             final BufferedImage image102 = screenshot102.getImage();
-                             ImageIO.write(image102, "PNG", new File("D:\\Ajit\\Script_SS\\DLC\\8_Purchasepage.png"));
-           
                              System.out.println("Cabin selected successfully..");
                    
                              Thread.sleep(4000);
@@ -476,10 +428,7 @@ public class DLCTest
                                     System.out.println("\n");
                                     ExtractJSLogs();
                                              
-                                    final Screenshot screenshot34 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                                    final BufferedImage image34 = screenshot34.getImage();
-                                    ImageIO.write(image34, "PNG", new File("D:\\Ajit\\Script_SS\\DLCError\\5_InvalidGuestinfoonPurchasepage.png"));
-                                             
+                                          
                                     Assert.assertFalse(false, "FAIL");
                               	    Reporter.log("Invalid guest information on purchase page, Please enter valid details for the required fields...");
                               		AssertJUnit.assertTrue("Invalid guest information on purchase page, Please enter valid details for the required fields....", crspurchpge.isDisplayed());
@@ -490,12 +439,8 @@ public class DLCTest
                                     System.out.println("Confirmationpage Logs..");
                                     System.out.println("\n");
                                     ExtractJSLogs();              
-                                    Thread.sleep(1000);
-                                                    
-                                    final Screenshot screenshot44 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                                    final BufferedImage image44 = screenshot44.getImage();
-                                    ImageIO.write(image44, "PNG", new File("D:\\Ajit\\Script_SS\\DLC\\9_Confirmationpage.png"));
-                                                    
+                                   
+                                                 
                                     Thread.sleep(2000);
                                     
              try
@@ -517,11 +462,7 @@ public class DLCTest
                                     ExtractJSLogs();              
                                     Thread.sleep(1000);
                                     
-                                    final Screenshot screenshot74 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                                    final BufferedImage image74 = screenshot74.getImage();
-                                    ImageIO.write(image74, "PNG", new File("D:\\Ajit\\Script_SS\\DLC\\9_Paymentpage.png"));
-                                    Thread.sleep(1000);
-                                                    
+                                   
                                     String priceonpaymnt = driver.findElement(By.xpath("//*[@id='PaymentAmountToPay']")).getText();
                                     Reporter.log("Price on paymentpage is:- "+ priceonpaymnt);
                                                     
@@ -565,10 +506,7 @@ public class DLCTest
               }     							 
               catch (Exception e) 
               {
-            	  final Screenshot screenshot94 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                  final BufferedImage image94 = screenshot94.getImage();
-                  ImageIO.write(image94, "PNG", new File("D:\\Ajit\\Script_SS\\DLCError\\10_Paymentpage.png"));
-                  
+            	  
                   Assert.assertFalse(false, "FAIL");
             	  Reporter.log("Something went wrong...");
             	  AssertJUnit.assertTrue("Something went wrong...", crspurchpge.isDisplayed());
