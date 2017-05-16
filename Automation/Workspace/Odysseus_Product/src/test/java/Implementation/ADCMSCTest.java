@@ -111,11 +111,7 @@ public class ADCMSCTest
             System.setOut(out); 
                  
             Thread.sleep(1000);
-   
-            final Screenshot screenshot1 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-            final BufferedImage image1 = screenshot1.getImage();
-            ImageIO.write(image1, "PNG", new File("D:\\Ajit\\Script_SS\\ADC_MSC\\1_Searchpage.png"));
-            Thread.sleep(1000);
+  
             System.out.println("\n");
 	        System.out.println("Searchpage Logs..");
 	        System.out.println("\n");
@@ -153,13 +149,7 @@ public class ADCMSCTest
  	         System.out.println("Resultpage Logs..");
  	         System.out.println("\n");
  	         ExtractJSLogs();
- 	        
-             Thread.sleep(1000);
-              
- 	          final Screenshot screenshot4 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-              final BufferedImage image4 = screenshot4.getImage();
-              ImageIO.write(image4, "PNG", new File("D:\\Ajit\\Script_SS\\ADC_MSC\\2_Resultpage.png"));
-          
+ 	               
               Thread.sleep(7000);
            
        }
@@ -170,10 +160,6 @@ public class ADCMSCTest
  	         System.out.println("\n");
  	         ExtractJSLogs();
   	 
-	         final Screenshot screenshot33 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-	         final BufferedImage image33 = screenshot33.getImage();
-	         ImageIO.write(image33, "PNG", new File("D:\\Ajit\\Script_SS\\ADC_MSC_Error\\1_TimeoutORinvalidsearchdetails.png"));
-	          
   	         Assert.assertFalse(false, "FAIL");
   	         Reporter.log("Time out or Invalid search criteria on resultpage..");
   	         AssertJUnit.assertTrue("Time out or Invalid search criteria on resultpage...", crsbkngpge.isDisplayed());
@@ -195,11 +181,7 @@ public class ADCMSCTest
                      	  Reporter.log("Bonus Offers are available..");
                      	  
                      	  driver.findElement(By.cssSelector("#ResultsContainer > div:nth-child(2) > div.resultSales > table > tbody > tr:nth-child(1) > td:nth-child(2) > table > tbody > tr:nth-child(1) > td:nth-child(2) > a")).sendKeys(Keys.ENTER);
-                          Thread.sleep(3000);
-                         
-                          File scr22 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-           	              org.codehaus.plexus.util.FileUtils.copyFile(scr22, new File("D:\\Ajit\\Script_SS\\ADC_MSC\\3_Bonusoffers.png")); 
-                         
+                                                                                                      
                           Thread.sleep(4000);
                          
                      	  driver.navigate().refresh();
@@ -210,11 +192,7 @@ public class ADCMSCTest
                         driver.findElement(By.cssSelector("#ResultsContainer > div:nth-child(2) > div.resultVendor > div.dateView [id*='PriceLink_']")).click();  // Select cruise
 	                    Thread.sleep(1000);
 	                    
-	                    final Screenshot screenshot36 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-	       	            final BufferedImage image36 = screenshot36.getImage();
-	       	            ImageIO.write(image36, "PNG", new File("D:\\Ajit\\Script_SS\\ADC_MSC\\03_ViewPricingForAllDates.png"));
-	       	            Thread.sleep(1000);
-	       	            
+	                    
 	       	            driver.findElement(By.xpath("//*[@id='PriceList_0']/table/tbody/tr[2]/td[8]/a")).click();
 	                    
                         
@@ -226,11 +204,7 @@ public class ADCMSCTest
       	         System.out.println("Cruise not available on resultpage Logs..");
       	         System.out.println("\n");
       	         ExtractJSLogs();
-         
-                final Screenshot screenshot5 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                final BufferedImage image5 = screenshot5.getImage();
-                ImageIO.write(image5, "PNG", new File("D:\\Ajit\\Script_SS\\ADC_MSC_Error\\2_Cruisenotavailable.png"));
-         
+                        
                 Assert.assertFalse(false, "FAIL");
                 Reporter.log("Cruise not available..");
 		        AssertJUnit.assertTrue("Cruise not available...", crsbkngpge.isDisplayed());
@@ -244,11 +218,7 @@ public class ADCMSCTest
                System.out.println("\n");
                ExtractJSLogs();              
                Thread.sleep(1000);
-   
-               final Screenshot screenshot60 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-               final BufferedImage image60 = screenshot60.getImage();
-               ImageIO.write(image60, "PNG", new File("D:\\Ajit\\Script_SS\\ADC_MSC\\4_Cruisedetailspage.png"));
-
+                 
                System.out.println("Cruise selected successfully..");
                 
                Thread.sleep(4000);
@@ -291,10 +261,6 @@ public class ADCMSCTest
          	        System.out.println("\n");
          	        ExtractJSLogs();
           	 
-     	            final Screenshot screenshot80 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-     	            final BufferedImage image80 = screenshot80.getImage();
-     	            ImageIO.write(image80, "PNG", new File("D:\\Ajit\\Script_SS\\ADC_MSC_Error\\3_InvalidGuestinformation.png"));
-     	          
           	        Assert.assertFalse(false, "FAIL");
           	        Reporter.log("Invalid guest information's on detailspage...");
           	        AssertJUnit.assertTrue("Invalid guest information's on detailspage...", crsbkngpge.isDisplayed());
@@ -310,11 +276,7 @@ public class ADCMSCTest
         	   String err = driver.findElement(By.cssSelector("#category_1 > div.categoryview-container")).getText();
         	   Thread.sleep(1000);
         	   Reporter.log("Error message: " +err);
-        	   Thread.sleep(500);
-        	   
-        	   final Screenshot screenshot82 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-               final BufferedImage image82 = screenshot82.getImage();
-               ImageIO.write(image82, "PNG", new File("D:\\Ajit\\Script_SS\\ADC_MSC_Error\\07_Error.png"));
+        	         	 
                Thread.sleep(1000);
            }
       }
@@ -326,12 +288,7 @@ public class ADCMSCTest
                      //For verify Suite category on category page
                      driver.findElement(By.id("suite")).click();
                  	 Thread.sleep(1000);
-                	 
-                	 final Screenshot screenshot62 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                     final BufferedImage image62 = screenshot62.getImage();
-                     ImageIO.write(image62, "PNG", new File("D:\\Ajit\\Script_SS\\ADC_MSC\\6_Categorypage.png"));
-                     Thread.sleep(2000);
-                     
+                	                     
                 	 driver.findElement(By.cssSelector("#catType4 > tbody > tr:nth-child(3) > td > div > table > tbody > tr:nth-child(2) > td:nth-child(5) > a")).click();
                 	 Thread.sleep(4000);
 				 
@@ -342,10 +299,6 @@ public class ADCMSCTest
                  ExtractJSLogs();              
                  Thread.sleep(1000);
      
-                 final Screenshot screenshot63 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                 final BufferedImage image63 = screenshot63.getImage();
-                 ImageIO.write(image63, "PNG", new File("D:\\Ajit\\Script_SS\\ADC_MSC\\7_Cabinselectionpage.png"));
-
                  System.out.println("Category selected successfully..");
                   
                  Thread.sleep(5000);
@@ -408,10 +361,6 @@ public class ADCMSCTest
                     	      System.out.println("\n");
                     	      ExtractJSLogs();
                        
-                              final Screenshot screenshot13 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                              final BufferedImage image13 = screenshot13.getImage();
-                              ImageIO.write(image13, "PNG", new File("D:\\Ajit\\Script_SS\\ADC_MSC_Error\\4_Cabinnotavailable.png"));
-                       
                               Assert.assertFalse(false, "FAIL");
         	                  Reporter.log("Cabin not available..");
         			          AssertJUnit.assertTrue("Cabin not available...", crsbkngpge.isDisplayed());
@@ -424,11 +373,6 @@ public class ADCMSCTest
                              ExtractJSLogs();              
                              Thread.sleep(1000);
                    
-                             final Screenshot screenshot102 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                             final BufferedImage image102 = screenshot102.getImage();
-                             ImageIO.write(image102, "PNG", new File("D:\\Ajit\\Script_SS\\ADC_MSC\\08_Purchasepage.png"));
-                             Thread.sleep(1000);
-                             
                              System.out.println("Cabin selected successfully..");
                    
                              Thread.sleep(4000);
@@ -446,11 +390,7 @@ public class ADCMSCTest
         	                         driver.findElement(By.cssSelector("#tabs-1 > table:nth-child(10) > tbody > tr > td > div > a > strong")).click(); //For click to enter Passenger Information
         	                         Thread.sleep(1000);
         	                         
-        	                         final Screenshot screenshot202 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                                     final BufferedImage image202 = screenshot202.getImage();
-                                     ImageIO.write(image202, "PNG", new File("D:\\Ajit\\Script_SS\\ADC_MSC\\8_GuestInfoOnPurchasepage.png"));
-                                     Thread.sleep(1000);
-        	                         
+        	                  
                                      System.out.println("FirstName_Of_Guest1: " + Firstname_GuestOne);
                                      System.out.println("MiddleName_Of_Guest1: " + Middlename_GuestOne);
                                      System.out.println("LastName_Of_Guest1: " + Lastname_GuestOne);
@@ -473,11 +413,7 @@ public class ADCMSCTest
                                      System.out.println("Invalid guest information on purchasepage Logs..");
                                      System.out.println("\n");
                                      ExtractJSLogs();
-                                              
-                                     final Screenshot screenshot34 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                                     final BufferedImage image34 = screenshot34.getImage();
-                                     ImageIO.write(image34, "PNG", new File("D:\\Ajit\\Script_SS\\ADC_MSC_Error\\5_InvalidGuestinfoonPurchasepage.png"));
-                                              
+                                  
                                      Assert.assertFalse(false, "FAIL");
                                	     Reporter.log("Invalid guest information on purchase page, Please enter valid details for the required fields...");
                                		 AssertJUnit.assertTrue("Invalid guest information on purchase page, Please enter valid details for the required fields....", crspurchpge.isDisplayed());
@@ -488,12 +424,7 @@ public class ADCMSCTest
                                      System.out.println("Confirmationpage Logs..");
                                      System.out.println("\n");
                                      ExtractJSLogs();              
-                                     Thread.sleep(1000);
-                                                     
-                                     final Screenshot screenshot44 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                                     final BufferedImage image44 = screenshot44.getImage();
-                                     ImageIO.write(image44, "PNG", new File("D:\\Ajit\\Script_SS\\ADC_MSC\\9_Confirmationpage.png"));
-                                                     
+                                    
                                      Thread.sleep(2000);
 
               // For confirmation page                       
@@ -515,12 +446,7 @@ public class ADCMSCTest
                         //For insurance price
                         String appliedinsurprice = driver.findElement(By.cssSelector("#tabs-1 > table.step5PriceBox > tbody > tr:nth-child(2) > td > table > tbody > tr:nth-child(5) > td > table:nth-child(3) > tbody > tr:nth-child(2) > td:nth-child(2) > div")).getText();
                         Reporter.log("Insurance Prices:- " +appliedinsurprice);
-                        Thread.sleep(1000);
-                        
-                        final Screenshot screenshot64 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                        final BufferedImage image64 = screenshot64.getImage();
-                        ImageIO.write(image64, "PNG", new File("D:\\Ajit\\Script_SS\\ADC_MSC\\12_AppliedInsurance.png"));
-                        
+                      
                         Thread.sleep(2000);
                         
                         //For Remove insurance
@@ -535,12 +461,7 @@ public class ADCMSCTest
                         //For check insurance price
                         String insprice = driver.findElement(By.cssSelector("#tabs-1 > table.step5PriceBox > tbody > tr:nth-child(2) > td > table > tbody > tr:nth-child(6) > td:nth-child(2)")).getText();
                         Reporter.log("Prices of After removed insurance on the passenger details page is:- " +insprice);
-                        Thread.sleep(1000);  
-                        
-                        final Screenshot screenshot66 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                        final BufferedImage image66 = screenshot66.getImage();
-                        ImageIO.write(image66, "PNG", new File("D:\\Ajit\\Script_SS\\ADC_MSC\\13_RemovedInsurance.png"));
-                        
+                      
                         Thread.sleep(2000);
                         
               	 }     
@@ -552,10 +473,6 @@ public class ADCMSCTest
        	         System.out.println("Insurance not applied/removed on confirmation page...");
        	         System.out.println("\n");
        	         ExtractJSLogs();
-          
-                 final Screenshot screenshot72 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                 final BufferedImage image72 = screenshot72.getImage();
-                 ImageIO.write(image72, "PNG", new File("D:\\Ajit\\Script_SS\\ADC_MSC_Error\\9_InsurancenotAppliedOrRemoved.png"));
           
                  Assert.assertFalse(false, "FAIL");
                  Reporter.log("Insurance not applied/removed...");
@@ -592,10 +509,7 @@ public class ADCMSCTest
                }     							 
                catch (Exception e) 
                {
-             	   final Screenshot screenshot94 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                   final BufferedImage image94 = screenshot94.getImage();
-                   ImageIO.write(image94, "PNG", new File("D:\\Ajit\\Script_SS\\ADC_MSC_Error\\10_Paymentpage.png"));
-                   
+             	  
                    Assert.assertFalse(false, "FAIL");
              	   Reporter.log("Something went wrong on confirmation page...");
              	   AssertJUnit.assertTrue("Something went wrong on confirmation page...", crspurchpge.isDisplayed());
