@@ -16,6 +16,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.logging.LogType;
@@ -67,16 +68,16 @@ public class FaregeekTest
 	       {
 	             if (browser.equalsIgnoreCase("Firefox"))
 	             {
-	                    DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+	                        DesiredCapabilities capabilities = DesiredCapabilities.firefox();
                             LoggingPreferences loggingprefs = new LoggingPreferences();
                             loggingprefs.enable(LogType.BROWSER, Level.ALL);
                             capabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingprefs);
-			    driver = new FirefoxDriver(capabilities);
+			                driver = new FirefoxDriver(capabilities);
 		   
 	             } 
 	             else if (browser.equalsIgnoreCase("chrome")) 
 	             {
-	            	            System.setProperty("webdriver.chrome.driver", "D:\\Ajit\\Driver\\chromedriver_win32\\chromedriver.exe");
+	            	        System.setProperty("webdriver.chrome.driver", "D:\\Ajit\\Driver\\chromedriver_win32\\chromedriver.exe");
 		                    DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 		                    LoggingPreferences loggingprefs = new LoggingPreferences();
 		                    loggingprefs.enable(LogType.BROWSER, Level.ALL);
@@ -533,7 +534,7 @@ public class FaregeekTest
 	    public String[][] Authentication() throws Exception
 	    {
 	    	 
-	   	     String[][] testObjArray = FaregeekUtils.getTableArray("E:\\Ajit\\Automation\\Workspace\\Odysseus_Product\\src\\main\\java\\testData\\FaregeekData.xlsx","Sheet1");
+	   	     String[][] testObjArray = FaregeekUtils.getTableArray("D:\\Ajit\\Automation\\Workspace\\Odysseus_Product\\src\\main\\java\\testData\\FaregeekData.xlsx","Sheet1");
 	   	     return testObjArray;
 	   	     
 	    }

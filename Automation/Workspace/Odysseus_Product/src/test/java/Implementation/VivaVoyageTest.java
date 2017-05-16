@@ -16,6 +16,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.logging.LogType;
@@ -71,12 +72,12 @@ public class VivaVoyageTest
                         LoggingPreferences loggingprefs = new LoggingPreferences();
                         loggingprefs.enable(LogType.BROWSER, Level.ALL);
                         capabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingprefs);
-			driver = new FirefoxDriver(capabilities);
+			            driver = new FirefoxDriver(capabilities);
 	   
                 } 
                 else if (browser.equalsIgnoreCase("chrome")) 
                 {
-               	            System.setProperty("webdriver.chrome.driver", "D:\\Ajit\\Driver\\chromedriver_win32\\chromedriver.exe");
+               	        System.setProperty("webdriver.chrome.driver", "D:\\Ajit\\Driver\\chromedriver_win32\\chromedriver.exe");
 	                    DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 	                    LoggingPreferences loggingprefs = new LoggingPreferences();
 	                    loggingprefs.enable(LogType.BROWSER, Level.ALL);
@@ -518,7 +519,7 @@ public class VivaVoyageTest
      public String[][] Authentications() throws Exception
      {
      	 
- 	     String[][] testObjArray = VivaVoyageUtils.getTableArray("E:\\Ajit\Automation\\Workspace\\Odysseus_Product\\src\\main\\java\\testData\\VivaVoyageData.xlsx","Sheet1");
+ 	     String[][] testObjArray = VivaVoyageUtils.getTableArray("D:\\Ajit\\Automation\\Workspace\\Odysseus_Product\\src\\main\\java\\testData\\VivaVoyageData.xlsx","Sheet1");
  	     return testObjArray;
  	     
      }
