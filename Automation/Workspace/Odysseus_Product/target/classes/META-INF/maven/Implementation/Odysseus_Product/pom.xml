@@ -54,6 +54,22 @@
                             <version>2.53.0</version>
                     </dependency>
                     <dependency>
+                            <groupId>com.google.code.gson</groupId>
+                            <artifactId>gson</artifactId>
+                            <version>2.3.1</version>
+                    </dependency>
+                    <dependency>
+                             <groupId>io.appium</groupId>
+                             <artifactId>java-client</artifactId>
+                             <version>2.2.0</version>
+                    </dependency>
+                    <dependency>
+                             <groupId>com.galenframework</groupId>
+                             <artifactId>galen-java-support</artifactId>
+                             <version>2.0.3</version>
+                    </dependency>
+                    
+                    <dependency>
                             <groupId>org.uncommons</groupId>
                             <artifactId>reportng</artifactId>
                             <version>1.1.4</version>
@@ -84,8 +100,9 @@
                       <directory>src/main/resources</directory>
                       <excludes>
                           <exclude>**/*.java</exclude>
+                          <exclude>**/*.xlsx</exclude>
                       </excludes>
-                 </resource>
+                  </resource>
              </resources>
    
        <plugins>
@@ -161,6 +178,11 @@
                                                            <exclude>Implementation.FaredepotTest</exclude>
                                                            <exclude>Implementation.LocalAlanitaConfirmTest</exclude>
                                                            <exclude>Implementation.LocalOdysolDemoTest</exclude>
+                                                           <exclude>Implementation.OdysolCruiseBookingTest</exclude>
+                                                           <exclude>Implementation.OdysolHotelBookingTest</exclude>
+                                                           <exclude>Implementation.LocalBPCTest</exclude>
+                                                           <exclude>Implementation.LocalCruiseBookingTest</exclude>
+                                                           <exclude>Implementation.LocalAirBookingTest</exclude>
                                                         </excludes>
                                                         <filtering>true</filtering>
                                                   </resource>
@@ -186,7 +208,12 @@
                                                           <include>Implementation.FaredepotTest</include>
                                                           <include>Implementation.LocalAlanitaConfirmTest</include>
                                                           <include>Implementation.LocalOdysolDemoTest</include>
-                                                      </includes>
+                                                          <include>Implementation.OdysolCruiseBookingTest</include>
+                                                          <include>Implementation.OdysolHotelBookingTest</include>
+                                                          <include>Implementation.LocalBPCTest</include>
+                                                          <include>Implementation.LocalCruiseBookingTest</include>
+                                                          <include>Implementation.LocalAirBookingTest</include>
+                                                       </includes>
                                                   </resource>
                                              </resources>
                                              <testResources>
@@ -212,7 +239,12 @@
                                                        <exclude>Implementation.FaredepotTest</exclude>
                                                        <exclude>Implementation.LocalAlanitaConfirmTest</exclude>
                                                        <exclude>Implementation.LocalOdysolDemoTest</exclude>
-                                                    </excludes>
+                                                       <exclude>Implementation.OdysolCruiseBookingTest</exclude>
+                                                       <exclude>Implementation.OdysolHotelBookingTest</exclude>
+                                                       <exclude>Implementation.LocalBPCTest</exclude>
+                                                       <exclude>Implementation.LocalCruiseBookingTest</exclude>
+                                                       <exclude>Implementation.LocalAirBookingTest</exclude>
+                                                     </excludes>
                                                        <filtering>true</filtering>
                                                 </testResource>
                                             <testResource>
@@ -293,6 +325,11 @@
                                                                         <include>FaredepotTest.java</include>
                                                                         <include>LocalAlanitaConfirmTest.java</include>
                                                                         <include>LocalOdysolDemoTest.java</include>
+                                                                        <include>OdysolCruiseBookingTest.java</include>
+                                                                        <include>OdysolHotelBookingTest.java</include>
+                                                                        <include>LocalBPCTest.java</include>
+                                                                        <include>LocalCruiseBookingTest.java</include>
+                                                                        <include>LocalAirBookingTest.java</include>
                                                                      </includes>
                                                               </filSet>
                                                           </fileSets>
@@ -315,15 +352,22 @@
                                                               <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\Implementation\BPCCruiseBookingpgeobjct.java</include>
                                                               <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\Implementation\BPCCruisePurchasepageobjct.java</include>
                                                               <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\Utility\BPCUtils.java</include>
-                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\Utility\CDORtils.java</include>
+                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\Utility\CDORUtils.java</include>
+                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\Utility\OdysolCruiseUtils.java</include>
                                                               <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\Utility\DLCUtils.java</include>
                                                               <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\Utility\LocalAirUtils.java</include>
+                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\Utility\OdysolCruiseUtils.java</include>
                                                               <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\Utility\ADCUtils.java</include>
                                                               <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\Utility\OdysolAirUtils.java</include>
                                                               <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\Utility\VivaVoyageUtils.java</include>
                                                               <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\Utility\FaregeekUtils.java</include>
                                                               <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\Utility\FaredepotUtils.java</include>
+                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\Utility\LocalAirBookingUtils.java</include>
+                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\Utility\LocalCruiseUtils.java</include>
+                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\Utility\OdysolHotelUtils.java</include>
                                                               <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\testData\\BPCData.xlsx</include>
+                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\testData\\LocalAirBookingData.xlsx</include>
+                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\testData\\LocalCruiseData.xlsx</include>
                                                               <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\testData\\CDORData.xlsx</include>
                                                               <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\testData\\ADCData.xlsx</include>
                                                               <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\testData\\LocalAirData.xlsx</include>
@@ -331,7 +375,9 @@
                                                               <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\testData\\FaredepotData.xlsx</include>
                                                               <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\testData\\DLCData.xlsx</include>
                                                               <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\testData\\OdysolAirData.xlsx</include>
+                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\testData\\OdysolHotelData.xlsx</include>
                                                               <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\testData\\VivaVoyageData.xlsx</include>
+                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\testData\\OdysolCruiseData.xlsx</include>
                                                               <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\test\java\Implementation\VivaVoyageTest.java</include>
                                                               <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\Implementation\VivaVoyageBookingpgeobjct.java</include>
                                                               <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\Implementation\\VivaVoyagePurchasepageobjct.java</include>
@@ -365,6 +411,20 @@
                                                               <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\Implementation\\LocalOdysolDemoBookingpgeobjct.java</include>
                                                               <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\test\java\Implementation\LocalOdysolDemoTest.java</include>
                                                               <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\Implementation\\ADCMSCBookingpgeobjct.java</include>
+                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\test\java\Implementation\OdysolCruiseBookingTest.java</include>
+                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\Implementation\\OdysolCruiseBookingpgeobjct.java</include>
+                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\test\java\Implementation\OdysolHotelBookingTest.java</include>
+                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\Implementation\\OdysolHotelBookingpgeobjct.java</include>
+                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\Implementation\\OdysolHotelBookingPurchasepgeobjct.java</include>
+                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\test\java\Implementation\LocalBPCTest.java</include>
+                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\test\java\Implementation\LocalCruiseBookingTest.java</include>
+                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\test\java\Implementation\LocalAirBookingTest.java</include>
+                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\Implementation\\LocalAirBookingpgeobjectforOdysseus.java</include>
+                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\Implementation\\LocalAirPurchasepgeobjct.java</include>
+                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\Implementation\\LocalBPCBookingpgeobjct.java</include>
+                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\Implementation\\LocalCruisebkngLoginpgobjct.java</include>
+                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\Implementation\\LocalCruisebkngpgeobjct.java</include>
+                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\Implementation\\LocalCruisePaymentpgeobjct.java</include>
                                                        </includes>
                                                       
                                                   <mainClass>Implementation.Login</mainClass>  

@@ -23,7 +23,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -37,7 +37,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-Suite">
-              <span class="suite-name border-passed">Suite</span>
+              <span class="suite-name border-failed">Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -90,21 +90,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">1 method, 1 failed,   </span>
                   </li>
                   <li>
-                    <span class="method-list-title passed">Passed methods</span>
-                    <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-Suite" class="hide-methods passed suite-Suite"> (hide)</a> <!-- hide-methods passed suite-Suite -->
-                      <a href="#" panel-name="suite-Suite" class="show-methods passed suite-Suite"> (show)</a> <!-- show-methods passed suite-Suite -->
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Suite" class="hide-methods failed suite-Suite"> (hide)</a> <!-- hide-methods failed suite-Suite -->
+                      <a href="#" panel-name="suite-Suite" class="show-methods failed suite-Suite"> (show)</a> <!-- show-methods failed suite-Suite -->
                     </span>
-                    <div class="method-list-content passed suite-Suite">
+                    <div class="method-list-content failed suite-Suite">
                       <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Implementation.FaredepotTest" hash-for-method="Faredepot_data(nyc, singa, Monish, N, Luthra, Anna, M, Luthra, Arya, M, Luthra, ajit_nakum@odysseussolutions.com, a...)">Faredepot_data(nyc, singa, Monish, N, Luthra, Anna, M, Luthra, Arya, M, Luthra, ajit_nakum@odysseussolutions.com, a...)</a> <!-- method navigator-link -->
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Implementation.LocalAlanitaConfirmTest" hash-for-method="Confirmlogin_data(ajithn@odysol.com, odysseus, nyc, bost, Ajit, B, Nakum, Aakash, M, Paliwal, Eric, C, Methews, ajit_n...)">Confirmlogin_data(ajithn@odysol.com, odysseus, nyc, bost, Ajit, B, Nakum, Aakash, M, Paliwal, Eric, C, Methews, ajit_n...)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content passed suite-Suite -->
+                    </div> <!-- method-list-content failed suite-Suite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -116,22 +116,26 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Suite" class="panel Suite">
-          <div class="suite-Suite-class-passed">
+          <div class="suite-Suite-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">Implementation.FaredepotTest</span>
+              <img src="failed.png"/>
+              <span class="class-name">Implementation.LocalAlanitaConfirmTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="Faredepot_data(nyc, singa, Monish, N, Luthra, Anna, M, Luthra, Arya, M, Luthra, ajit_nakum@odysseussolutions.com, a...)">
-                  </a> <!-- Faredepot_data(nyc, singa, Monish, N, Luthra, Anna, M, Luthra, Arya, M, Luthra, ajit_nakum@odysseussolutions.com, a...) -->
-                  <span class="method-name">Faredepot_data</span>
-                  <span class="parameters">(nyc, singa, Monish, N, Luthra, Anna, M, Luthra, Arya, M, Luthra, ajit_nakum@odysseussolutions.com, ajit_nakum@odysseussolutions.com, 8952634785, 8754879865)</span>
+                  <a name="Confirmlogin_data(ajithn@odysol.com, odysseus, nyc, bost, Ajit, B, Nakum, Aakash, M, Paliwal, Eric, C, Methews, ajit_n...)">
+                  </a> <!-- Confirmlogin_data(ajithn@odysol.com, odysseus, nyc, bost, Ajit, B, Nakum, Aakash, M, Paliwal, Eric, C, Methews, ajit_n...) -->
+                  <span class="method-name">Confirmlogin_data</span>
+                  <span class="parameters">(ajithn@odysol.com, odysseus, nyc, bost, Ajit, B, Nakum, Aakash, M, Paliwal, Eric, C, Methews, ajit_nakum@odysseussolutions.com, 8952634785, Ajit Nakum, 4111111111111111, 123, 305 White House, New York, 10245, 8952634785, State Bank Of India)</span>
+                  <div class="stack-trace">java.lang.AssertionError: Time out...
+	at Implementation.LocalAlanitaConfirmTest.Confirmlogin_data(LocalAlanitaConfirmTest.java:387)
+... Removed 26 stack frames
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Suite-class-passed -->
+          </div> <!-- suite-Suite-class-failed -->
         </div> <!-- panel Suite -->
         <div panel-name="test-xml-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
@@ -148,7 +152,7 @@
   &lt;test name=&quot;ChromeTest&quot;&gt;
     &lt;parameter name=&quot;browser&quot; value=&quot;chrome&quot;/&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;Implementation.FaredepotTest&quot;/&gt;
+      &lt;class name=&quot;Implementation.LocalAlanitaConfirmTest&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- ChromeTest --&gt;
 &lt;/suite&gt; &lt;!-- Suite --&gt;
@@ -190,9 +194,9 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'Faredepot_data')
-data.setCell(0, 2, 'Implementation.FaredepotTest')
-data.setCell(0, 3, 266062);
+data.setCell(0, 1, 'Confirmlogin_data')
+data.setCell(0, 2, 'Implementation.LocalAlanitaConfirmTest')
+data.setCell(0, 3, 254454);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
@@ -209,34 +213,14 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="reporter-method-div">
-              <span class="reporter-method-name">Faredepot_data(nyc, singa, Monish, N, Luthra, Anna, M, Luthra, Arya, M, Luthra, ajit_nakum@odysseussolutions.com, a...)</span>
+              <span class="reporter-method-name">Confirmlogin_data(ajithn@odysol.com, odysseus, nyc, bost, Ajit, B, Nakum, Aakash, M, Paliwal, Eric, C, Methews, ajit_n...)</span>
               <div class="reporter-method-output-div">
-                <span class="reporter-method-output">Website Name :- Faredepot</span>
-                <span class="reporter-method-output">Price per person on result page: $922.03</span>
-                <span class="reporter-method-output">Total Price on result page: $2,766.09</span>
-                <span class="reporter-method-output">Departure Trip: DEPARTURE
-NEW YORK (JOHN F KENNEDY), NY, US
-SINGAPORE, SG
-SAT, 03 JUN - SUN, 04 JUN DURATION: 21H 5MIN STOPS: 1
-- View Details</span>
-                <span class="reporter-method-output">Return Trip: RETURN
-SINGAPORE, SG
-NEW YORK (JOHN F KENNEDY), NY, US
-TUE, 25 JUL - WED, 26 JUL DURATION: 23H 40MIN STOPS: 1</span>
-                <span class="reporter-method-output">Price on checkout page: $2,766.09</span>
-                <span class="reporter-method-output">API :- AmadeusWS</span>
-                <span class="reporter-method-output">Environment :- Production</span>
-                <span class="reporter-method-output">Office Id :- DTT1S2100</span>
-                <span class="reporter-method-output">Insurance Price:- + $193.63</span>
-                <span class="reporter-method-output">Insurance applied successfully..</span>
-                <span class="reporter-method-output">Prices of After applied insurance on the Payment page:- $2,959.72</span>
-                <span class="reporter-method-output">Insurance Removed successfully..</span>
-                <span class="reporter-method-output">Prices of After removed insurance on the Payment page:- $2,766.09</span>
-                <span class="reporter-method-output">Result page and Checkout page's Price matched..</span>
-                <span class="reporter-method-output">Actual price is:- $2,766.09</span>
-                <span class="reporter-method-output">Price on payment page: $2,766.09</span>
-                <span class="reporter-method-output">Checkout page and Payment page's Price matched..</span>
-                <span class="reporter-method-output">Actual price is:- $2,766.09</span>
+                <span class="reporter-method-output">Website Name:- Ajit</span>
+                <span class="reporter-method-output">Affiliate Name:- Alanita-spc</span>
+                <span class="reporter-method-output">API :- Sabre</span>
+                <span class="reporter-method-output">Environment :- Test</span>
+                <span class="reporter-method-output">Office Id :- I4GB</span>
+                <span class="reporter-method-output">Time out..</span>
               </div> <!-- reporter-method-output-div -->
             </div> <!-- reporter-method-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -254,18 +238,24 @@ TUE, 25 JUL - WED, 26 JUL DURATION: 23H 40MIN STOPS: 1</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">Implementation.FaredepotTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">Implementation.LocalAlanitaConfirmTest</div> <!-- chronological-class-name -->
               <div class="configuration-test before">
                 <span class="method-name">openBroswer(chrome)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-test before -->
+              <div class="configuration-class before">
+                <span class="method-name">baseClass</span>
+                <span class="method-start">2548 ms</span>
+              </div> <!-- configuration-class before -->
               <div class="test-method">
-                <span class="method-name">Faredepot_data(nyc, singa, Monish, N, Luthra, Anna, M, Luthra, Arya, M, Luthra, ajit_nakum@odysseussolutions.com, a...)</span>
-                <span class="method-start">42332 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">Confirmlogin_data(ajithn@odysol.com, odysseus, nyc, bost, Ajit, B, Nakum, Aakash, M, Paliwal, Eric, C, Methews, ajit_n...)</span>
+                <span class="method-start">34837 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">closeBrowser</span>
-                <span class="method-start">308396 ms</span>
+                <span class="method-start">289293 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

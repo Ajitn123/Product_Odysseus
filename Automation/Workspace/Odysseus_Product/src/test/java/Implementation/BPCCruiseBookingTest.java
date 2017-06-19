@@ -27,6 +27,7 @@ import org.testng.Assert;
 import org.testng.AssertJUnit;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
@@ -91,34 +92,40 @@ public class BPCCruiseBookingTest
            {
 	                   System.out.println(e.getMessage());
            }
-            
-               driver.manage().window().maximize();
-               driver.get("https://book.bestpricecruises.com/");
-               Thread.sleep(2000);
-            
-               //Save console
-               String testResultFile="D:\\Ajit\\Script_SS\\ConsoleError\\BPCCruisebookingError.txt";
-               File file = new File(testResultFile);  
-               FileOutputStream fis = new FileOutputStream(file);  
-               PrintStream out = new PrintStream(fis);  
-               System.setOut(out); 
-                          
-               Thread.sleep(1000);
-            
-               final Screenshot screenshot1 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-               final BufferedImage image1 = screenshot1.getImage();
-               ImageIO.write(image1, "PNG", new File("D:\\Ajit\\Script_SS\\BPC\\1_Searchpage.png"));
-               Thread.sleep(1000);
-               System.out.println("\n");
-     	       System.out.println("Searchpage Logs..");
-     	       System.out.println("\n");
-     	       ExtractJSLogs();
+        
+     }
+        
+     @BeforeClass
+     public void baseClass() throws InterruptedException, IOException  
+     {
+       	              
+    	 driver.manage().window().maximize();
+         driver.get("https://book.bestpricecruises.com/");
+         Thread.sleep(2000);
+      
+         //Save console
+         String testResultFile="D:\\Ajit\\Script_SS\\ConsoleError\\BPCCruisebookingError.txt";
+         File file = new File(testResultFile);  
+         FileOutputStream fis = new FileOutputStream(file);  
+         PrintStream out = new PrintStream(fis);  
+         System.setOut(out); 
+                    
+         Thread.sleep(1000);
+      
+         final Screenshot screenshot1 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+         final BufferedImage image1 = screenshot1.getImage();
+         ImageIO.write(image1, "PNG", new File("D:\\Ajit\\Script_SS\\BPC\\1_Searchpage.png"));
+         Thread.sleep(1000);
+         System.out.println("\n");
+	     System.out.println("Searchpage Logs..");
+	     System.out.println("\n");
+	     ExtractJSLogs();
 
-               //driver.navigate().to("https://localhost/odyssey/website/air/results.aspx?");
-               Thread.sleep(4000);
-               crsbkngpge = PageFactory.initElements(driver, BPCCruiseBookingpgeobjct.class);
-               crspurchpge = PageFactory.initElements(driver, BPCCruisePurchasepageobjct.class);
-            
+         //driver.navigate().to("https://localhost/odyssey/website/air/results.aspx?");
+         Thread.sleep(4000);
+         crsbkngpge = PageFactory.initElements(driver, BPCCruiseBookingpgeobjct.class);
+         crspurchpge = PageFactory.initElements(driver, BPCCruisePurchasepageobjct.class);
+              
      }
  
      public void ExtractJSLogs()
@@ -142,12 +149,21 @@ public class BPCCruiseBookingTest
              Thread.sleep(200);
         	 
         	 crsbkngpge.BookingToTittle();
+        	 
+        	 long start = System.currentTimeMillis();
+        	 
         	 Thread.sleep(4000);
+        	 
         	 System.out.println("\n");
    	         System.out.println("Resultpage Logs..");
    	         System.out.println("\n");
    	         ExtractJSLogs();
    	        
+             Thread.sleep(1000);
+             
+             long finish = System.currentTimeMillis();
+             long totalTime = finish - start; 
+             Reporter.log("Total Time for serch page to result page load(Milisec) - "+totalTime); 
              Thread.sleep(1000);
              
          //For verify error message on result page  
@@ -210,8 +226,8 @@ public class BPCCruiseBookingTest
                //For Select cruise from result page
           	   try
           	   {
-         	       driver.findElement(By.xpath("//*[@id='sr5']/div[2]/div[3]/div[2]/button[2]")).click();
-         	       Thread.sleep(1000); 
+         	       driver.findElement(By.xpath("//*[@id='sr3']/div[2]/div[3]/div[2]/button[2]")).click();
+         	       
           	   }
           	   catch(Exception e)
           	   {
@@ -232,7 +248,15 @@ public class BPCCruiseBookingTest
        			          AssertJUnit.assertTrue("Cruise not available...", crsbkngpge.isDisplayed());
        			          throw(e);
        		   }
-          	   
+          	              long start = System.currentTimeMillis();
+          	              
+          	              Thread.sleep(1000); 
+          	              
+          	              long finish = System.currentTimeMillis();
+                          long totalTime = finish - start; 
+                          Reporter.log("Total Time for result page to details page load(Milisec) - "+totalTime); 
+                          Thread.sleep(1000);
+             
         for(int i = driver.getWindowHandles().size() -1 ; i > 0 ; i--)
         {
 
@@ -312,12 +336,19 @@ public class BPCCruiseBookingTest
                     Thread.sleep(500);
                     driver.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0__ctl2_CategoryLNK']/span[1]")).click();
                     
+                    long start12 = System.currentTimeMillis();
+                    
                     System.out.println("\n");
           	        System.out.println("Categorypage Logs..");
           	        System.out.println("\n");
           	        ExtractJSLogs();
                     
                     Thread.sleep(8000);
+                    
+                    long finish1 = System.currentTimeMillis();
+                    long totalTime1 = finish1 - start12; 
+                    Reporter.log("Total Time for details page to category page load(Milisec) - "+totalTime1); 
+                    Thread.sleep(2000);
                 }
                 catch(Exception e)
                 {
@@ -404,7 +435,7 @@ public class BPCCruiseBookingTest
                 	    try
                         {
                             //For price check on the category page
-                            String pricesoncat = driver.findElement(By.cssSelector("#IndividualCat-WG > div.col-md-8.catFCrows > div:nth-child(2) > div > div.panel-body > div.col-xs-12.catFCrvp > span.catFCfinCost")).getText();
+                            String pricesoncat = driver.findElement(By.cssSelector("#IndividualCat-RB > div.col-md-8.catFCrows > div:nth-child(2) > div > div.panel-body [class*='col-xs-12 catFCrvp']")).getText();
                             System.out.println("Prices on category page is:- " +pricesoncat);
                             Reporter.log("Prices on category page is:- " +pricesoncat);
                             Thread.sleep(4000);
@@ -433,8 +464,8 @@ public class BPCCruiseBookingTest
                             
                        }
                           
-                           Thread.sleep(3000);
-                           
+                            Thread.sleep(3000);
+                            
                    }
                    catch(Exception e)
                    {
@@ -477,6 +508,14 @@ public class BPCCruiseBookingTest
                         	if(driver.findElement(By.xpath("//button[@class='btn btn-default btn-block']")).isDisplayed())
                         	{
                         		driver.findElement(By.xpath("//button[@class='btn btn-default btn-block']")).click();
+                        		
+                        		long start13 = System.currentTimeMillis();
+                        		
+                                Thread.sleep(2000);
+                                
+                                long finish1 = System.currentTimeMillis();
+                                long totalTime1 = finish1 - start13; 
+                                Reporter.log("Total Time for category page to cabin selection page load(Milisec) - "+totalTime1); 
                                 Thread.sleep(2000);
                                 
                                 System.out.println("\n");
@@ -565,6 +604,14 @@ public class BPCCruiseBookingTest
            			             AssertJUnit.assertTrue("Continue without signing in button is not click or Not available....", crsbkngpge.isDisplayed());
            			             throw(e);
                              }
+                             
+                                 long start15 = System.currentTimeMillis();
+                                 Thread.sleep(1000);
+                                 long finish3 = System.currentTimeMillis();
+                                 long totalTime3 = finish3 - start15; 
+                                 Reporter.log("Total Time for cabin selection page to purchase page load(Milisec) - "+totalTime3); 
+                                 Thread.sleep(2000);                                 
+                                 
                                  System.out.println("\n");
                                  System.out.println("Purchasepage Logs..");
                                  System.out.println("\n");
@@ -600,7 +647,7 @@ public class BPCCruiseBookingTest
                             	 System.out.println("Lastname_of_Guest2: " + Lastname_of_Guest2);
                             	 
                             	 crspurchpge.PurchaseToTittle(FirstName_Of_Guest1, MiddleName_Of_Guest1, LastName_Of_Guest1, Address, CityName, PinCode, EmailAddress, Phone, Firstname_of_Guest2, Middlename_of_Guest2, Lastname_of_Guest2);
-                                 Thread.sleep(2000);
+                                 
                              }
                              catch(Exception e)
                              {
@@ -619,7 +666,13 @@ public class BPCCruiseBookingTest
            			             AssertJUnit.assertTrue("Invalid guest information on purchase page, Please enter valid details for the required fields....", crsbkngpge.isDisplayed());
            			             throw(e);
                              }
-                              
+                                  long start16 = System.currentTimeMillis();
+                                  Thread.sleep(2000);
+                                  long finish03 = System.currentTimeMillis();
+                                  long totalTime03 = finish03 - start16; 
+                                  Reporter.log("Total Time for purchase page to confirmation page load(Milisec) - "+totalTime03); 
+                                  Thread.sleep(2000);
+                                  
                                  System.out.println("\n");
                                  System.out.println("Confirmationpage Logs..");
                                  System.out.println("\n");
@@ -710,7 +763,13 @@ public class BPCCruiseBookingTest
                                  
                                  //Click on Pay in full payment button
                                  driver.findElement(By.id("_ctl0_MainContentsPH__ctl0_ContinueBTN")).click();
+                                 long start17 = System.currentTimeMillis();
                                  Thread.sleep(1000);
+                                 
+                                 long finish30 = System.currentTimeMillis();
+                                 long totalTime30 = finish30 - start17; 
+                                 Reporter.log("Total Time for confirmation page to payment page load(Milisec) - "+totalTime30); 
+                                 Thread.sleep(2000);
                             }
                             catch(Exception e)
                             {

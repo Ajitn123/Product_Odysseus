@@ -27,6 +27,7 @@ import org.testng.Assert;
 import org.testng.AssertJUnit;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
@@ -91,34 +92,40 @@ public class VivaVoyageTest
           {
                   System.out.println(e.getMessage());
           }
-       
-              driver.manage().window().maximize();
-              driver.get("https://res.vivavoyage.co.uk/web/cruises/search.aspx?");
-              Thread.sleep(2000);
-       
-              //Save console
-              String testResultFile="D:\\Ajit\\Script_SS\\ConsoleError\\VivaVoyagecruisebookingError.txt";
-              File file = new File(testResultFile);  
-              FileOutputStream fis = new FileOutputStream(file);  
-              PrintStream out = new PrintStream(fis);  
-              System.setOut(out); 
-                     
-              Thread.sleep(1000);
-       
-              final Screenshot screenshot1 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-              final BufferedImage image1 = screenshot1.getImage();
-              ImageIO.write(image1, "PNG", new File("D:\\Ajit\\Script_SS\\VivaVoyage\\1_Searchpage.png"));
-              Thread.sleep(1000);
-              System.out.println("\n");
-	          System.out.println("Searchpage Logs..");
-	          System.out.println("\n");
-	          ExtractJSLogs();
+        
+     }
+     
+     @BeforeClass
+     public void baseClass() throws InterruptedException, IOException  
+     {
+           	              
+    	 driver.manage().window().maximize();
+         driver.get("https://res.vivavoyage.co.uk/web/cruises/search.aspx?");
+         Thread.sleep(2000);
+  
+         //Save console
+         String testResultFile="D:\\Ajit\\Script_SS\\ConsoleError\\VivaVoyagecruisebookingError.txt";
+         File file = new File(testResultFile);  
+         FileOutputStream fis = new FileOutputStream(file);  
+         PrintStream out = new PrintStream(fis);  
+         System.setOut(out); 
+                
+         Thread.sleep(1000);
+  
+         final Screenshot screenshot1 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+         final BufferedImage image1 = screenshot1.getImage();
+         ImageIO.write(image1, "PNG", new File("D:\\Ajit\\Script_SS\\VivaVoyage\\1_Searchpage.png"));
+         Thread.sleep(1000);
+         System.out.println("\n");
+         System.out.println("Searchpage Logs..");
+         System.out.println("\n");
+         ExtractJSLogs();
 
-              //driver.navigate().to("https://localhost/odyssey/website/air/results.aspx?");
-              Thread.sleep(4000);
-              crsbkngpge = PageFactory.initElements(driver, VivaVoyageBookingpgeobjct.class);
-              crspurchpge = PageFactory.initElements(driver, VivaVoyagePurchasepageobjct.class);
-       
+         //driver.navigate().to("https://localhost/odyssey/website/air/results.aspx?");
+         Thread.sleep(4000);
+         crsbkngpge = PageFactory.initElements(driver, VivaVoyageBookingpgeobjct.class);
+         crspurchpge = PageFactory.initElements(driver, VivaVoyagePurchasepageobjct.class);
+     
      }
 
      public void ExtractJSLogs()
@@ -144,12 +151,18 @@ public class VivaVoyageTest
     		 Thread.sleep(2500);
     		 
         	 crsbkngpge.BookingToTittle();
+        	 long start = System.currentTimeMillis();
         	 Thread.sleep(4000);
           	 System.out.println("\n");
    	         System.out.println("Resultpage Logs..");
    	         System.out.println("\n");
    	         ExtractJSLogs();
    	        
+             Thread.sleep(1000);
+             
+             long finish = System.currentTimeMillis();
+             long totalTime = finish - start; 
+             Reporter.log("Total Time for serch page to result page load(Milisec) - "+totalTime); 
              Thread.sleep(1000);
    	 
    	        final Screenshot screenshot4 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
@@ -223,13 +236,18 @@ public class VivaVoyageTest
  			          AssertJUnit.assertTrue("Cruise not available...", crsbkngpge.isDisplayed());
  			          throw(e);
  		       }
-   		          
+                       long start = System.currentTimeMillis();
                        Thread.sleep(3000); 
              
                       System.out.println("\n");
                       System.out.println("Cruise detailspage Logs..");
                       System.out.println("\n");
                       ExtractJSLogs();              
+                      Thread.sleep(1000);
+                      
+                      long finish = System.currentTimeMillis();
+                      long totalTime = finish - start; 
+                      Reporter.log("Total Time for result page to details page load(Milisec) - "+totalTime); 
                       Thread.sleep(1000);
           
                       final Screenshot screenshot60 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
@@ -275,6 +293,7 @@ public class VivaVoyageTest
                           driver.findElement(By.id("_ctl0:MainContentsPH:_ctl0:_ctl0_GuestAge_2")).sendKeys("30");
                           Thread.sleep(300);
                           driver.findElement(By.id("_ctl0_MainContentsPH__ctl0__ctl0_CategoryLNK")).click();
+                          long start1 = System.currentTimeMillis();
                           Thread.sleep(500);
                           
                           System.out.println("\n");
@@ -283,6 +302,10 @@ public class VivaVoyageTest
                 	      ExtractJSLogs();
                           
                           Thread.sleep(8000);
+                          long finish1 = System.currentTimeMillis();
+                          long totalTime1 = finish1 - start1; 
+                          Reporter.log("Total Time for details page to category page load(Milisec) - "+totalTime1); 
+                          Thread.sleep(1000);
                }
                catch(Exception e)
                {
@@ -358,7 +381,7 @@ public class VivaVoyageTest
                         	 Thread.sleep(4000);
                          }  
                          
-                         
+                         long start2 = System.currentTimeMillis();
                          System.out.println("\n");
                          System.out.println("Cabin selection page Logs..");
                          System.out.println("\n");
@@ -372,6 +395,10 @@ public class VivaVoyageTest
                          System.out.println("Category selected successfully..");
                           
                          Thread.sleep(5000);
+                         long finish11 = System.currentTimeMillis();
+                         long totalTime11 = finish11 - start2; 
+                         Reporter.log("Total Time for category page to cabin selection page load(Milisec) - "+totalTime11); 
+                         Thread.sleep(1000);
               
                         //For check price on cabin page
                          String priceoncabin= driver.findElement(By.xpath("//span[@class='item-list-price']")).getText();
@@ -418,7 +445,7 @@ public class VivaVoyageTest
             			          AssertJUnit.assertTrue("Cabin not available...", crsbkngpge.isDisplayed());
             			          throw(e);
               }
-                           
+                                 long start3 = System.currentTimeMillis();
                                  System.out.println("\n");
                                  System.out.println("Purchase page Logs..");
                                  System.out.println("\n");
@@ -432,6 +459,10 @@ public class VivaVoyageTest
                                  System.out.println("Cabin selected successfully..");
                        
                                  Thread.sleep(4000);
+                                 long finish111 = System.currentTimeMillis();
+                                 long totalTime111 = finish111 - start3; 
+                                 Reporter.log("Total Time for cabin selection page to purchase page load(Milisec) - "+totalTime111); 
+                                 Thread.sleep(1000);
                                  
                                  //Check price on purchase page
                                  String priceonpurchase= driver.findElement(By.xpath("//li[@id='PricesGTotal']")).getText();
@@ -452,7 +483,12 @@ public class VivaVoyageTest
                                   	 System.out.println("Lastname_of_Guest2: " + Lastname_GuestTwo);
                                 	                                	 
                                 	 crspurchpge.PurchaseToTittle(Email, Firstname_GuestOne, Middlename_GuestOne, Lastname_GuestOne, Phone, Firstname_GuestTwo, Middlename_GuestTwo, Lastname_GuestTwo);
-                                     Thread.sleep(2000);
+                                	 long start6 = System.currentTimeMillis();
+                                	 Thread.sleep(2000);
+                                	 long finish1111 = System.currentTimeMillis();
+                                     long totalTime1111 = finish1111 - start6; 
+                                     Reporter.log("Total Time for purchase page to confirmation page load(Milisec) - "+totalTime1111); 
+                                     Thread.sleep(1000);
                 }
                 catch(Exception e)
                 {

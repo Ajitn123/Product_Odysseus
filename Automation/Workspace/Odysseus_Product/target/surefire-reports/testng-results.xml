@@ -2,15 +2,45 @@
 <testng-results skipped="0" failed="1" total="1" passed="0">
   <reporter-output>
     <line>
-      <![CDATA[Website Name :- Faredepot]]>
+      <![CDATA[Website Name :- CDOR]]>
+    </line>
+    <line>
+      <![CDATA[Cruise line :- Viking Ocean Cruises]]>
+    </line>
+    <line>
+      <![CDATA[Total Time for serch page to result page load(Milisec) - 4000]]>
+    </line>
+    <line>
+      <![CDATA[Bonus Offers are available..]]>
+    </line>
+    <line>
+      <![CDATA[Total Time for result page to details page load(Milisec) - 3017]]>
+    </line>
+    <line>
+      <![CDATA[Departure Port:- Bergen]]>
+    </line>
+    <line>
+      <![CDATA[Sailing Dates:- Sep 17, 2017]]>
+    </line>
+    <line>
+      <![CDATA[Ship:- Viking Sea]]>
+    </line>
+    <line>
+      <![CDATA[Destination:- Transatlantic]]>
+    </line>
+    <line>
+      <![CDATA[Duration:- 14 night]]>
+    </line>
+    <line>
+      <![CDATA[Total Time for details page to category page load(Milisec) - 8509]]>
     </line>
   </reporter-output>
-  <suite name="Suite" duration-ms="137711" started-at="2017-05-16T13:39:52Z" finished-at="2017-05-16T13:42:10Z">
+  <suite name="Suite" duration-ms="177216" started-at="2017-06-19T09:35:53Z" finished-at="2017-06-19T09:38:50Z">
     <groups>
     </groups>
-    <test name="ChromeTest" duration-ms="137711" started-at="2017-05-16T13:39:52Z" finished-at="2017-05-16T13:42:10Z">
-      <class name="Implementation.FaredepotTest">
-        <test-method status="PASS" signature="openBroswer(java.lang.String)[pri:0, instance:Implementation.FaredepotTest@617faa95]" name="openBroswer" is-config="true" duration-ms="44043" started-at="2017-05-16T19:09:52Z" finished-at="2017-05-16T19:10:36Z">
+    <test name="ChromeTest" duration-ms="177216" started-at="2017-06-19T09:35:53Z" finished-at="2017-06-19T09:38:50Z">
+      <class name="Implementation.CDORTest">
+        <test-method status="PASS" signature="openBroswer(java.lang.String)[pri:0, instance:Implementation.CDORTest@370736d9]" name="openBroswer" is-config="true" duration-ms="2803" started-at="2017-06-19T15:05:53Z" finished-at="2017-06-19T15:05:56Z">
           <params>
             <param index="0">
               <value>
@@ -21,31 +51,35 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openBroswer -->
-        <test-method status="FAIL" signature="Faredepot_data(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:Implementation.FaredepotTest@617faa95]" name="Faredepot_data" duration-ms="93252" started-at="2017-05-16T19:10:37Z" data-provider="Authentication" finished-at="2017-05-16T19:12:10Z">
+        <test-method status="PASS" signature="baseClass()[pri:0, instance:Implementation.CDORTest@370736d9]" name="baseClass" is-config="true" duration-ms="30669" started-at="2017-06-19T15:05:56Z" finished-at="2017-06-19T15:06:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- baseClass -->
+        <test-method status="FAIL" signature="CDOR_data(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:Implementation.CDORTest@370736d9]" name="CDOR_data" duration-ms="143306" started-at="2017-06-19T15:06:27Z" data-provider="Authentications" finished-at="2017-06-19T15:08:50Z">
           <params>
             <param index="0">
-              <value>
-                <![CDATA[nyc]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[singa]]>
-              </value>
-            </param>
-            <param index="2">
               <value>
                 <![CDATA[Monish]]>
               </value>
             </param>
-            <param index="3">
+            <param index="1">
               <value>
                 <![CDATA[N]]>
               </value>
             </param>
-            <param index="4">
+            <param index="2">
               <value>
                 <![CDATA[Luthra]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[ajit_nakum@odysseussolutions.com]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[7847596325]]>
               </value>
             </param>
             <param index="5">
@@ -63,41 +97,6 @@
                 <![CDATA[Luthra]]>
               </value>
             </param>
-            <param index="8">
-              <value>
-                <![CDATA[Arya]]>
-              </value>
-            </param>
-            <param index="9">
-              <value>
-                <![CDATA[M]]>
-              </value>
-            </param>
-            <param index="10">
-              <value>
-                <![CDATA[Luthra]]>
-              </value>
-            </param>
-            <param index="11">
-              <value>
-                <![CDATA[ajit_nakum@odysseussolutions.com]]>
-              </value>
-            </param>
-            <param index="12">
-              <value>
-                <![CDATA[ajit_nakum@odysseussolutions.com]]>
-              </value>
-            </param>
-            <param index="13">
-              <value>
-                <![CDATA[8952634785]]>
-              </value>
-            </param>
-            <param index="14">
-              <value>
-                <![CDATA[8754879865]]>
-              </value>
-            </param>
           </params>
           <exception class="net.sf.cglib.core.CodeGenerationException">
             <message>
@@ -108,8 +107,8 @@ Command duration or timeout: 40 milliseconds
 Build info: version: '2.37.1', revision: 'a7c61cbd68657e133ae96672cf995890bad2ee42', time: '2013-10-21 09:08:07'
 System info: host: 'OdySol-DTP-027', ip: '192.168.1.138', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_101'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Users\AJITNA~1\AppData\Local\Temp\scoped_dir28048_6554}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.96, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
-Session ID: 362106569299e08e7ba56916ff616567]]>
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Users\AJITNA~1\AppData\Local\Temp\scoped_dir1732_16318}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.110, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 9e94ba4a6d6c98adc1deb05584e2249b]]>
             </message>
             <full-stacktrace>
               <![CDATA[net.sf.cglib.core.CodeGenerationException: org.openqa.selenium.WebDriverException-->unknown error: cannot parse capability: chromeOptions
@@ -119,8 +118,8 @@ Command duration or timeout: 40 milliseconds
 Build info: version: '2.37.1', revision: 'a7c61cbd68657e133ae96672cf995890bad2ee42', time: '2013-10-21 09:08:07'
 System info: host: 'OdySol-DTP-027', ip: '192.168.1.138', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_101'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Users\AJITNA~1\AppData\Local\Temp\scoped_dir28048_6554}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.96, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
-Session ID: 362106569299e08e7ba56916ff616567
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Users\AJITNA~1\AppData\Local\Temp\scoped_dir1732_16318}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.110, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 9e94ba4a6d6c98adc1deb05584e2249b
 	at net.sf.cglib.core.ReflectUtils.newInstance(ReflectUtils.java:235)
 	at net.sf.cglib.core.ReflectUtils.newInstance(ReflectUtils.java:220)
 	at net.sf.cglib.core.ReflectUtils.newInstance(ReflectUtils.java:216)
@@ -136,7 +135,7 @@ Session ID: 362106569299e08e7ba56916ff616567
 	at ru.yandex.qatools.ashot.screentaker.VerticalPastingShootingStrategy.getScreenshot(VerticalPastingShootingStrategy.java:46)
 	at ru.yandex.qatools.ashot.screentaker.ScreenTaker.take(ScreenTaker.java:23)
 	at ru.yandex.qatools.ashot.AShot.takeScreenshot(AShot.java:166)
-	at Implementation.FaredepotTest.Faredepot_data(FaredepotTest.java:207)
+	at Implementation.CDORTest.CDOR_data(CDORTest.java:345)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -177,8 +176,8 @@ Command duration or timeout: 40 milliseconds
 Build info: version: '2.37.1', revision: 'a7c61cbd68657e133ae96672cf995890bad2ee42', time: '2013-10-21 09:08:07'
 System info: host: 'OdySol-DTP-027', ip: '192.168.1.138', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_101'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Users\AJITNA~1\AppData\Local\Temp\scoped_dir28048_6554}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.96, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
-Session ID: 362106569299e08e7ba56916ff616567
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Users\AJITNA~1\AppData\Local\Temp\scoped_dir1732_16318}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.110, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 9e94ba4a6d6c98adc1deb05584e2249b
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -192,13 +191,13 @@ Session ID: 362106569299e08e7ba56916ff616567
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:498)
 	at org.openqa.selenium.remote.Augmenter$CompoundHandler.intercept(Augmenter.java:280)
-	at org.openqa.selenium.chrome.ChromeDriver$$EnhancerByCGLIB$$5182d02.startSession(<generated>)
+	at org.openqa.selenium.chrome.ChromeDriver$$EnhancerByCGLIB$$babaab78.startSession(<generated>)
 	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:111)
 	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:115)
 	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:171)
 	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:160)
 	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:117)
-	at org.openqa.selenium.chrome.ChromeDriver$$EnhancerByCGLIB$$5182d02.<init>(<generated>)
+	at org.openqa.selenium.chrome.ChromeDriver$$EnhancerByCGLIB$$babaab78.<init>(<generated>)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -210,15 +209,45 @@ Session ID: 362106569299e08e7ba56916ff616567
           </exception> <!-- net.sf.cglib.core.CodeGenerationException -->
           <reporter-output>
             <line>
-              <![CDATA[Website Name :- Faredepot]]>
+              <![CDATA[Website Name :- CDOR]]>
+            </line>
+            <line>
+              <![CDATA[Cruise line :- Viking Ocean Cruises]]>
+            </line>
+            <line>
+              <![CDATA[Total Time for serch page to result page load(Milisec) - 4000]]>
+            </line>
+            <line>
+              <![CDATA[Bonus Offers are available..]]>
+            </line>
+            <line>
+              <![CDATA[Total Time for result page to details page load(Milisec) - 3017]]>
+            </line>
+            <line>
+              <![CDATA[Departure Port:- Bergen]]>
+            </line>
+            <line>
+              <![CDATA[Sailing Dates:- Sep 17, 2017]]>
+            </line>
+            <line>
+              <![CDATA[Ship:- Viking Sea]]>
+            </line>
+            <line>
+              <![CDATA[Destination:- Transatlantic]]>
+            </line>
+            <line>
+              <![CDATA[Duration:- 14 night]]>
+            </line>
+            <line>
+              <![CDATA[Total Time for details page to category page load(Milisec) - 8509]]>
             </line>
           </reporter-output>
-        </test-method> <!-- Faredepot_data -->
-        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:Implementation.FaredepotTest@617faa95]" name="closeBrowser" is-config="true" duration-ms="0" started-at="2017-05-16T19:12:10Z" finished-at="2017-05-16T19:12:10Z">
+        </test-method> <!-- CDOR_data -->
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:Implementation.CDORTest@370736d9]" name="closeBrowser" is-config="true" duration-ms="0" started-at="2017-06-19T15:08:50Z" finished-at="2017-06-19T15:08:50Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->
-      </class> <!-- Implementation.FaredepotTest -->
+      </class> <!-- Implementation.CDORTest -->
     </test> <!-- ChromeTest -->
   </suite> <!-- Suite -->
 </testng-results>

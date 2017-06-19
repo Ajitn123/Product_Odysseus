@@ -27,6 +27,7 @@ import org.testng.Assert;
 import org.testng.AssertJUnit;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
@@ -77,7 +78,7 @@ public class FaregeekTest
 		                    LoggingPreferences loggingprefs = new LoggingPreferences();
 		                    loggingprefs.enable(LogType.BROWSER, Level.ALL);
 		                    capabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingprefs);
-		                    driver = new ChromeDriver(capabilities);
+		                    driver = new ChromeDriver();
 		                   
 	             }  
 	             else if (browser.equalsIgnoreCase("IE")) 
@@ -91,33 +92,39 @@ public class FaregeekTest
 	         {
 	               System.out.println(e.getMessage());
 	         }
-	    
-	             driver.manage().window().maximize();
-	             driver.get("http://faregeek.com/");
-	             Thread.sleep(2000);
-	    
-	             //Save console
-	             String testResultFile="D:\\Ajit\\Script_SS\\ConsoleError\\FaregeekError.txt";
-	             File file = new File(testResultFile);  
-	             FileOutputStream fis = new FileOutputStream(file);  
-	             PrintStream out = new PrintStream(fis);  
-	             System.setOut(out); 
-	                  
-	             Thread.sleep(1000);
-	    
-	             final Screenshot screenshot1 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-	             final BufferedImage image1 = screenshot1.getImage();
-	             ImageIO.write(image1, "PNG", new File("D:\\Ajit\\Script_SS\\Faregeek\\1_Searchpage.png"));
-	             Thread.sleep(3000);
-	             System.out.println("\n");
-		         System.out.println("Searchpage Logs..");
-		         System.out.println("\n");
-		         ExtractJSLogs();
+	       
+	    }
+	       
+	     @BeforeClass
+	     public void baseClass() throws InterruptedException, IOException  
+	     {
+	            	              
+	    	 driver.manage().window().maximize();
+             driver.get("http://faregeek.com/");
+             Thread.sleep(2000);
+    
+             //Save console
+             String testResultFile="D:\\Ajit\\Script_SS\\ConsoleError\\FaregeekError.txt";
+             File file = new File(testResultFile);  
+             FileOutputStream fis = new FileOutputStream(file);  
+             PrintStream out = new PrintStream(fis);  
+             System.setOut(out); 
+                  
+             Thread.sleep(1000);
+   
+             final Screenshot screenshot1 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+             final BufferedImage image1 = screenshot1.getImage();
+             ImageIO.write(image1, "PNG", new File("D:\\Ajit\\Script_SS\\Faregeek\\1_Searchpage.png"));
+             Thread.sleep(3000);
+             System.out.println("\n");
+	         System.out.println("Searchpage Logs..");
+	         System.out.println("\n");
+	         ExtractJSLogs();
 
-	            //driver.navigate().to("https://localhost/odyssey/website/air/results.aspx?");
-	            Thread.sleep(4000);
-	            airbkpge = PageFactory.initElements(driver, FaregeekBookingpgeobjct.class);
-	            faregkpurchse = PageFactory.initElements(driver, FaregeekPurchasepgeobjct.class);
+            //driver.navigate().to("https://localhost/odyssey/website/air/results.aspx?");
+            Thread.sleep(4000);
+            airbkpge = PageFactory.initElements(driver, FaregeekBookingpgeobjct.class);
+            faregkpurchse = PageFactory.initElements(driver, FaregeekPurchasepgeobjct.class);
 	    
 	    }
 
@@ -145,7 +152,12 @@ public class FaregeekTest
 	                 System.out.println("ToLocation: " + ToLocation);
 	                 
 	                 airbkpge.FaregeekbookingToTitle(FromLocation, ToLocation);
+	                 long start = System.currentTimeMillis();
 	         	     Thread.sleep(4000);
+	         	     long finish = System.currentTimeMillis();
+	                 long totalTime = finish - start; 
+	                 Reporter.log("Total Time for search page to result page load(Milisec) - "+totalTime); 
+	                 Thread.sleep(1000);
 	         	     System.out.println("\n");
 	    	         System.out.println("Resultpage Logs..");
 	    	         System.out.println("\n");
@@ -243,7 +255,7 @@ public class FaregeekTest
 	             	System.out.println("\n");
 	             	System.out.println("Flight not available on resultpage Logs..");
 	             	System.out.println("\n");
-	             	ExtractJSLogs();
+	            	ExtractJSLogs();
 	              	
 	             	final Screenshot screenshot2 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
 	                final BufferedImage image2 = screenshot2.getImage();
@@ -254,6 +266,12 @@ public class FaregeekTest
 	    			AssertJUnit.assertTrue("Flight not available...", airbkpge.isDisplayed());
 	    			return;
 	    		 }
+	                long start = System.currentTimeMillis();
+	                Thread.sleep(2500);
+	                long finish = System.currentTimeMillis();
+	                long totalTime = finish - start; 
+	                Reporter.log("Total Time for result page to checkout page load(Milisec) - "+totalTime); 
+	                Thread.sleep(1000);
 	                System.out.println("\n");
 	                System.out.println("Checkoutpage Logs..");
 	                System.out.println("\n");
@@ -385,7 +403,12 @@ public class FaregeekTest
 	      {
 	           //Click on Continue to Payment Button
 	           driver.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_ContinueLNK']")).click();
+	           long start1 = System.currentTimeMillis();
 	           Thread.sleep(4000);
+	           long finish1 = System.currentTimeMillis();
+	           long totalTime1 = finish1 - start1; 
+	           Reporter.log("Total Time for checkout page to payment page load(Milisec) - "+totalTime1); 
+	           Thread.sleep(1000);
 	      }
 	      catch(Exception e)
 	      {

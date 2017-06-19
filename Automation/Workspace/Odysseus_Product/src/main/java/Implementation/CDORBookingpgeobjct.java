@@ -49,13 +49,13 @@ public class CDORBookingpgeobjct
 			Thread.sleep(1000);
 			Selectfrmdte.findElement(By.xpath("//*[@id='Calendar_StartDate_nextArrow']")).click();
 			Thread.sleep(500);
-			Selectfrmdte.findElement(By.xpath("//*[@id='Calendar_StartDate_day_0_2']")).click(); //For 02 May
+			Selectfrmdte.findElement(By.xpath("//*[@id='Calendar_StartDate_day_0_6']")).click(); //For 02 Sept
 			Thread.sleep(500);
 			selecttodte.click();
 			Thread.sleep(1000);
 			selecttodte.findElement(By.xpath("//*[@id='Calendar_EndDate_nextArrow']")).click();
 			Thread.sleep(500);
-			selecttodte.findElement(By.xpath("//*[@id='Calendar_EndDate_day_4_4']")).click(); //For 29 June
+			selecttodte.findElement(By.xpath("//*[@id='Calendar_EndDate_day_4_3']")).click(); //For 29 Nov
 			Thread.sleep(1000);
 			Select select = new Select(selectcruiseline.findElement(By.id("_ctl0_MainContentsPH__ctl0_CruiseAdvancedSearch_Suppliers")));
 			select.selectByVisibleText("Viking Ocean Cruises");  // Oceania Cruises

@@ -94,15 +94,18 @@ public class LocalAirCheckoutpageobjct
     @FindBy(xpath="//*[@id='st-accordion']/ul/li[3]/div/div[2]/input")
     private WebElement markupcontinuebtn;
     
-    @FindBy(xpath="//*[@id='st-accordion']/ul/li[4]/div/div[6]/input") 
-    private WebElement Additionalcontinuebtn;
+    @FindBy(xpath="//*[@id='st-accordion']/ul/li[4]/div/div[2]/input") 
+    private WebElement Additionalcontinuebtn; 
+    
+    @FindBy(xpath="//*[@id='st-accordion']/ul/li[5]/div/div/input") 
+    private WebElement cntnwithpayment; 
     
     //For payment details
-    @FindBy(id="_ctl0_MainContentsPH__ctl0__ctl4_CreditCardInfo_cardType")
+    @FindBy(xpath="//*[@id='_ctl0_MainContentsPH__ctl0__ctl4_CreditCardInfo_cardType']")
     private WebElement slctcarttype;
     
     @FindBy(id="_ctl0_MainContentsPH__ctl0__ctl4_CreditCardInfo_cardHolderName")
-    private WebElement cardholdernme;
+    private WebElement cardholdernme; 
     
     @FindBy(id="_ctl0_MainContentsPH__ctl0__ctl4_CreditCardInfo_cardNumber")
     private WebElement cardno;
@@ -274,9 +277,11 @@ public class LocalAirCheckoutpageobjct
 			continuebtn.click();
 			Thread.sleep(1000);
 			markupcontinuebtn.click();
-			Thread.sleep(1500);
+			Thread.sleep(2000);
 			Additionalcontinuebtn.click();
 			Thread.sleep(2000);
+	//		cntnwithpayment.click();
+	//		Thread.sleep(2000);
 			slctcarttype.click();
 			Thread.sleep(500);
 			slctcarttype.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0__ctl4_CreditCardInfo_cardType']/option[6]")).click();
@@ -330,8 +335,8 @@ public class LocalAirCheckoutpageobjct
 			banknme.sendKeys(bnknme);
 			Thread.sleep(500);
 			termsncndtn.click();
-			Thread.sleep(1000);
-			ClickonContinuebtn.click();
+	//		Thread.sleep(1000);
+	//		ClickonContinuebtn.click();
 			Thread.sleep(30000);
 			
 			

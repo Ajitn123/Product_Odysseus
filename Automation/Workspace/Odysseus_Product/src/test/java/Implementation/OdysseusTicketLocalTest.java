@@ -18,6 +18,7 @@ import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -78,17 +79,23 @@ public void openBroswer(String browser) throws InterruptedException, IOException
       {
                   System.out.println(e.getMessage());
       }
-       
-          driver.manage().window().maximize();
-          driver.get("https://localhost/odyssey/admin/login.aspx");
-          Thread.sleep(2000);
-       
-          final Screenshot screenshot1 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-          final BufferedImage image1 = screenshot1.getImage();
-          ImageIO.write(image1, "PNG", new File("D:\\Ajit\\Script_SS\\BPC\\1_Searchpage.png"));
-          
-          Thread.sleep(4000);
-      
+   
+}
+
+@BeforeClass
+public void baseClass() throws InterruptedException, IOException  
+{
+      	              
+	driver.manage().window().maximize();
+    driver.get("https://localhost/odyssey/admin/login.aspx");
+    Thread.sleep(2000);
+ 
+    final Screenshot screenshot1 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+    final BufferedImage image1 = screenshot1.getImage();
+    ImageIO.write(image1, "PNG", new File("D:\\Ajit\\Script_SS\\BPC\\1_Searchpage.png"));
+    
+    Thread.sleep(4000);
+    
 }
 
 

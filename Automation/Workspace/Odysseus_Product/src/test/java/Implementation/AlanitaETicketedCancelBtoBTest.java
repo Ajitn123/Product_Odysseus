@@ -27,6 +27,7 @@ import org.testng.Assert;
 import org.testng.AssertJUnit;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
@@ -93,30 +94,37 @@ public class AlanitaETicketedCancelBtoBTest
         {
 	                   System.out.println(e.getMessage());
         }
-        
-             driver.manage().window().maximize();
-             driver.get("https://ui.odysol.com/admin/login.aspx");
-             Thread.sleep(2000);
-         
-             //Save console
-             String testResultFile="D:\\Ajit\\Script_SS\\ConsoleError\\AlanitaETicketedCancelBookingError.txt";
-             File file = new File(testResultFile);  
-             FileOutputStream fis = new FileOutputStream(file);  
-             PrintStream out = new PrintStream(fis);  
-             System.setOut(out); 
-                       
-             Thread.sleep(1000);
-         
-             final Screenshot screenshot01 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-             final BufferedImage image01 = screenshot01.getImage();
-             ImageIO.write(image01, "PNG", new File("D:\\Ajit\\Script_SS\\AlanitaETicketedCancel\\1_Loginpage.png"));
-        
-             //driver.navigate().to("https://localhost/odyssey/website/air/results.aspx?");
-             Thread.sleep(4000);
-             lgnpge = PageFactory.initElements(driver, AlanitLoginapgeobjct.class);
-             airbk = PageFactory.initElements(driver, AlanitaBookingpgeobjct.class);
-             chckout = PageFactory.initElements(driver, OdysolAirCheckoutpageobjct.class);
-             hldncnfrm = PageFactory.initElements(driver, OdysolAirHoldAndConfirmPgeobjct.class);
+      
+    }
+      
+    @BeforeClass
+   	public void baseClass() throws InterruptedException, IOException  
+   	{
+   	              
+    	driver.manage().window().maximize();
+        driver.get("https://ui.odysol.com/admin/login.aspx");
+        Thread.sleep(2000);
+    
+        //Save console
+        String testResultFile="D:\\Ajit\\Script_SS\\ConsoleError\\AlanitaETicketedCancelBookingError.txt";
+        File file = new File(testResultFile);  
+        FileOutputStream fis = new FileOutputStream(file);  
+        PrintStream out = new PrintStream(fis);  
+        System.setOut(out); 
+                  
+        Thread.sleep(1000);
+    
+        final Screenshot screenshot01 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+        final BufferedImage image01 = screenshot01.getImage();
+        ImageIO.write(image01, "PNG", new File("D:\\Ajit\\Script_SS\\AlanitaETicketedCancel\\1_Loginpage.png"));
+   
+        //driver.navigate().to("https://localhost/odyssey/website/air/results.aspx?");
+        Thread.sleep(4000);
+        lgnpge = PageFactory.initElements(driver, AlanitLoginapgeobjct.class);
+        airbk = PageFactory.initElements(driver, AlanitaBookingpgeobjct.class);
+        chckout = PageFactory.initElements(driver, OdysolAirCheckoutpageobjct.class);
+        hldncnfrm = PageFactory.initElements(driver, OdysolAirHoldAndConfirmPgeobjct.class);
+              
     }
 
 
@@ -136,7 +144,7 @@ public class AlanitaETicketedCancelBtoBTest
        try
        {
     	   //For web site and booking details
-           Reporter.log("Website Name :- Alanita");
+           Reporter.log("Website Name :- Alanita Travel");
            Thread.sleep(200);
     	   
   	       System.out.println("sUsername: " + sUsername);
@@ -145,11 +153,17 @@ public class AlanitaETicketedCancelBtoBTest
            System.out.println("ToLocation: " + ToLocation);
        
            lgnpge.LoginToTittle(sUsername, sPassword);
+           long start = System.currentTimeMillis();
+           Thread.sleep(900);
            System.out.println("\n");
            System.out.println("Loginpage Logs..");
            System.out.println("\n");
            ExtractJSLogs();
            Thread.sleep(500);
+           long finish = System.currentTimeMillis();
+           long totalTime = finish - start; 
+           Reporter.log("Total Time for login page to search page load(Milisec) - "+totalTime); 
+           Thread.sleep(1000);
       
        }
        catch(Exception e)
@@ -173,10 +187,17 @@ public class AlanitaETicketedCancelBtoBTest
        {
         
            airbk.AlanitabookingToTitle(FromLocation, ToLocation);
+           long start = System.currentTimeMillis();
+           Thread.sleep(800);
            System.out.println("\n");
            System.out.println("Searchpage Logs..");
            System.out.println("\n");
            ExtractJSLogs();
+           Thread.sleep(700);
+           long finish = System.currentTimeMillis();
+           long totalTime = finish - start; 
+           Reporter.log("Total Time for search page to result page load(Milisec) - "+totalTime); 
+           Thread.sleep(1000);
         
            final Screenshot screenshot = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
            final BufferedImage image = screenshot.getImage();
@@ -259,10 +280,16 @@ public class AlanitaETicketedCancelBtoBTest
 			AssertJUnit.assertTrue("Flight not available...", airbk.isDisplayed());
 			return;
 	   }
+           long start = System.currentTimeMillis();
+           Thread.sleep(800);
            System.out.println("\n");
            System.out.println("Checkoutpage Logs..");
            System.out.println("\n");
            ExtractJSLogs();              
+           Thread.sleep(1000);
+           long finish = System.currentTimeMillis();
+           long totalTime = finish - start; 
+           Reporter.log("Total Time for result page to checkout page load(Milisec) - "+totalTime); 
            Thread.sleep(1000);
          
            final Screenshot screenshot3 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);

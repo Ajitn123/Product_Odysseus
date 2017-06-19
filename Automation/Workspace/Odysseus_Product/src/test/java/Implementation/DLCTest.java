@@ -26,6 +26,7 @@ import org.testng.Assert;
 import org.testng.AssertJUnit;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
@@ -90,33 +91,39 @@ public class DLCTest
         {
               System.out.println(e.getMessage());
         }
-   
-            driver.manage().window().maximize();
-            driver.get("https://book.dlcagencymenu.net/web/cruises/search.aspx?");
-            Thread.sleep(2000);
-   
-            //Save console
-            String testResultFile="D:\\Ajit\\Script_SS\\ConsoleError\\DLCBookingError.txt";
-            File file = new File(testResultFile);  
-            FileOutputStream fis = new FileOutputStream(file);  
-            PrintStream out = new PrintStream(fis);  
-            System.setOut(out); 
-                 
-            Thread.sleep(1000);
-   
-            final Screenshot screenshot1 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-            final BufferedImage image1 = screenshot1.getImage();
-            ImageIO.write(image1, "PNG", new File("D:\\Ajit\\Script_SS\\DLC\\1_Searchpage.png"));
-            Thread.sleep(1000);
-            System.out.println("\n");
-	        System.out.println("Searchpage Logs..");
-	        System.out.println("\n");
-	        ExtractJSLogs();
-           
-            Thread.sleep(4000);
-            crsbkngpge = PageFactory.initElements(driver, DLCBookingpgeobjct.class);
-            crspurchpge = PageFactory.initElements(driver, DLCPurchasepgeobjct.class);
-   
+      
+   }
+      
+    @BeforeClass
+    public void baseClass() throws InterruptedException, IOException  
+    {
+        	              
+    	driver.manage().window().maximize();
+        driver.get("https://book.dlcagencymenu.net/web/cruises/search.aspx?");
+        Thread.sleep(2000);
+
+        //Save console
+        String testResultFile="D:\\Ajit\\Script_SS\\ConsoleError\\DLCBookingError.txt";
+        File file = new File(testResultFile);  
+        FileOutputStream fis = new FileOutputStream(file);  
+        PrintStream out = new PrintStream(fis);  
+        System.setOut(out); 
+             
+        Thread.sleep(1000);
+
+        final Screenshot screenshot1 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+        final BufferedImage image1 = screenshot1.getImage();
+        ImageIO.write(image1, "PNG", new File("D:\\Ajit\\Script_SS\\DLC\\1_Searchpage.png"));
+        Thread.sleep(1000);
+        System.out.println("\n");
+        System.out.println("Searchpage Logs..");
+        System.out.println("\n");
+        ExtractJSLogs();
+       
+        Thread.sleep(4000);
+        crsbkngpge = PageFactory.initElements(driver, DLCBookingpgeobjct.class);
+        crspurchpge = PageFactory.initElements(driver, DLCPurchasepgeobjct.class);
+    
    }
 
    public void ExtractJSLogs()
@@ -143,7 +150,13 @@ public class DLCTest
   		     Thread.sleep(1500);
   		 
       	     crsbkngpge.BookingToTittle();
+      	     long start = System.currentTimeMillis();
+      	     
       	     Thread.sleep(4000);
+      	     long finish = System.currentTimeMillis();
+             long totalTime = finish - start; 
+             Reporter.log("Total Time for serch page to result page load(Milisec) - "+totalTime); 
+             Thread.sleep(1000);
       	     System.out.println("\n");
  	         System.out.println("Resultpage Logs..");
  	         System.out.println("\n");
@@ -201,7 +214,7 @@ public class DLCTest
                      }
                      
                      
-                        driver.findElement(By.cssSelector("#PriceList_1 > div > ul > li.grid-btn [class*='booknow res_Cruise_detai_mo']")).click();  // Select cruise i.e 0,1,2,3...10
+                        driver.findElement(By.cssSelector("#PriceList_5 > div > ul > li.grid-btn [class*='booknow res_Cruise_detai_mo']")).click();  // Select cruise i.e 0,1,2,3...10
                         
 	      }                                                
 	      catch(Exception e)
@@ -221,7 +234,7 @@ public class DLCTest
 		        AssertJUnit.assertTrue("Cruise not available...", crsbkngpge.isDisplayed());
 		        throw(e);
 	       }
-		          
+               long start = System.currentTimeMillis();  
                Thread.sleep(2000); 
       
                System.out.println("\n");
@@ -229,7 +242,11 @@ public class DLCTest
                System.out.println("\n");
                ExtractJSLogs();              
                Thread.sleep(1000);
-   
+               long finish = System.currentTimeMillis();
+               long totalTime = finish - start; 
+               Reporter.log("Total Time for result page to details page load(Milisec) - "+totalTime); 
+               Thread.sleep(1000);
+               
                final Screenshot screenshot60 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
                final BufferedImage image60 = screenshot60.getImage();
                ImageIO.write(image60, "PNG", new File("D:\\Ajit\\Script_SS\\DLC\\4_Cruisedetailspage.png"));
@@ -262,12 +279,7 @@ public class DLCTest
                    driver.findElement(By.id("_ctl0_MainContentsPH__ctl0__ctl0_CategoryLNK")).click();
                    Thread.sleep(500);
                    
-                   System.out.println("\n");
-         	       System.out.println("Categorypage Logs..");
-         	       System.out.println("\n");
-         	       ExtractJSLogs();
                    
-                   Thread.sleep(8000);
         }
         catch(Exception e)
         {
@@ -285,6 +297,18 @@ public class DLCTest
           	        AssertJUnit.assertTrue("Invalid guest information's on detailspage...", crsbkngpge.isDisplayed());
           	        throw(e);
          }
+                   long start1 = System.currentTimeMillis();
+                   System.out.println("\n");
+         	       System.out.println("Categorypage Logs..");
+         	       System.out.println("\n");
+         	       ExtractJSLogs();
+                   
+                   Thread.sleep(8000);
+                   
+                   long finish1 = System.currentTimeMillis();
+                   long totalTime1 = finish1 - start1; 
+                   Reporter.log("Total Time for details page to category page load(Milisec) - "+totalTime1); 
+                   Thread.sleep(1000);
         
         
       // Verify error on category page
@@ -339,10 +363,15 @@ public class DLCTest
                 	 Thread.sleep(4000);
 				 }
                  
+                 long start2 = System.currentTimeMillis();
                  System.out.println("\n");
                  System.out.println("Cabin selection page Logs..");
                  System.out.println("\n");
                  ExtractJSLogs();              
+                 Thread.sleep(1000);
+                 long finish11 = System.currentTimeMillis();
+                 long totalTime11 = finish11 - start2; 
+                 Reporter.log("Total Time for category page to cabin selection page load(Milisec) - "+totalTime11); 
                  Thread.sleep(1000);
      
                  final Screenshot screenshot62 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
@@ -423,7 +452,7 @@ public class DLCTest
         			          AssertJUnit.assertTrue("Cabin not available...", crsbkngpge.isDisplayed());
         			          throw(e);
           }
-                       
+                             long start3 = System.currentTimeMillis();
                              System.out.println("\n");
                              System.out.println("Purchase page Logs..");
                              System.out.println("\n");
@@ -437,6 +466,10 @@ public class DLCTest
                              System.out.println("Cabin selected successfully..");
                    
                              Thread.sleep(4000);
+                             long finish111 = System.currentTimeMillis();
+                             long totalTime111 = finish111 - start3; 
+                             Reporter.log("Total Time for cabin selection page to purchase page load(Milisec) - "+totalTime111); 
+                             Thread.sleep(1000);
                              
                              //Check price on purchase page
                              String priceonpurchase= driver.findElement(By.xpath("//*[@id='PricesGTotal']")).getText();
@@ -461,7 +494,7 @@ public class DLCTest
                                     System.out.println("Lastname_of_Guest2: " + Lastname_GuestTwo);
                                                	                                	 
                                     crspurchpge.DLCPurchaseToTittle(Firstname_GuestOne, Middlename_GuestOne, Lastname_GuestOne, Email, Street_Address, City, Zipcode, Phone, Firstname_GuestTwo, Middlename_GuestTwo, Lastname_GuestTwo);
-                                    Thread.sleep(2000);
+                                    
            }
            catch(Exception e)
            {
@@ -480,11 +513,17 @@ public class DLCTest
                               		AssertJUnit.assertTrue("Invalid guest information on purchase page, Please enter valid details for the required fields....", crspurchpge.isDisplayed());
                               		throw(e);
              }
-                                                 
+                                    long start6 = System.currentTimeMillis();
+                                    Thread.sleep(2000);           
                                     System.out.println("\n");
                                     System.out.println("Confirmationpage Logs..");
                                     System.out.println("\n");
                                     ExtractJSLogs();              
+                                    Thread.sleep(1000);
+                                    
+                                    long finish1111 = System.currentTimeMillis();
+                                    long totalTime1111 = finish1111 - start6; 
+                                    Reporter.log("Total Time for purchase page to confirmation page load(Milisec) - "+totalTime1111); 
                                     Thread.sleep(1000);
                                                     
                                     final Screenshot screenshot44 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);

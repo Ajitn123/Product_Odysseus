@@ -18,8 +18,8 @@ public class Login
 	private WebElement loginbtn;
 	
 	//For Select Website
-	@FindBy(xpath="//*[@id='sb-site']/div[2]/div/div[1]/div[1]/div/div/div[2]/div/div/div/div/div[1]/div/div[2]/table/tbody/tr[64]/td[3]/a[1]")
-	private WebElement Selectweb;
+	@FindBy(xpath="//*[@id='sb-site']/div[2]/div/div[1]/div[1]/div/div/div[2]/div/div/div/div/div[1]/div/div[2]/table/tbody/tr[70]/td[3]/a[1]")
+	private WebElement Selectweb; 
 		
 	
 	public void LoginToTittle(String usrnme, String paswrd)
@@ -40,7 +40,7 @@ public class Login
 			loginbtn.click();
 			Thread.sleep(1500);
 			Selectweb.click();
-			Thread.sleep(10000);
+			Thread.sleep(12000);
 						
 		}
 		catch(Exception e)

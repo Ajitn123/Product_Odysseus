@@ -26,6 +26,7 @@ import org.testng.Assert;
 import org.testng.AssertJUnit;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
@@ -93,33 +94,39 @@ public class AlanitaConfirmBtoBTest
          {
 	                   System.out.println(e.getMessage());
          }
-        
-            driver.manage().window().maximize();
-            driver.get("https://ui.odysol.com/admin/login.aspx");
-            Thread.sleep(2000);
-         
-            //Save console
-            String testResultFile="D:\\Ajit\\Script_SS\\ConsoleError\\AlanitaConfirmbookingError.txt";
-            File file = new File(testResultFile);  
-            FileOutputStream fis = new FileOutputStream(file);  
-            PrintStream out = new PrintStream(fis);  
-            System.setOut(out); 
-                       
-            Thread.sleep(1000);
-         
-            final Screenshot screenshot01 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-            final BufferedImage image01 = screenshot01.getImage();
-            ImageIO.write(image01, "PNG", new File("D:\\Ajit\\Script_SS\\AlanitaConfirm\\1_Loginpage.png"));
-        
-            //driver.navigate().to("https://localhost/odyssey/website/air/results.aspx?");
-            Thread.sleep(4000);
-            lgnpge = PageFactory.initElements(driver, AlanitLoginapgeobjct.class);
-            airbk = PageFactory.initElements(driver, AlanitaBookingpgeobjct.class);
-            chckout = PageFactory.initElements(driver, OdysolAirCheckoutpageobjct.class);
-            hldncnfrm = PageFactory.initElements(driver, OdysolAirConfirmpgeobjct.class);
-   }
-
-
+       
+     }  
+       
+     @BeforeClass
+  	 public void baseClass() throws InterruptedException, IOException  
+  	 {
+  	              
+    	 driver.manage().window().maximize();
+         driver.get("https://ui.odysol.com/admin/login.aspx");
+         Thread.sleep(2000);
+      
+         //Save console
+         String testResultFile="D:\\Ajit\\Script_SS\\ConsoleError\\AlanitaConfirmbookingError.txt";
+         File file = new File(testResultFile);  
+         FileOutputStream fis = new FileOutputStream(file);  
+         PrintStream out = new PrintStream(fis);  
+         System.setOut(out); 
+                    
+         Thread.sleep(1000);
+      
+         final Screenshot screenshot01 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+         final BufferedImage image01 = screenshot01.getImage();
+         ImageIO.write(image01, "PNG", new File("D:\\Ajit\\Script_SS\\AlanitaConfirm\\1_Loginpage.png"));
+     
+         //driver.navigate().to("https://localhost/odyssey/website/air/results.aspx?");
+         Thread.sleep(4000);
+         lgnpge = PageFactory.initElements(driver, AlanitLoginapgeobjct.class);
+         airbk = PageFactory.initElements(driver, AlanitaBookingpgeobjct.class);
+         chckout = PageFactory.initElements(driver, OdysolAirCheckoutpageobjct.class);
+         hldncnfrm = PageFactory.initElements(driver, OdysolAirConfirmpgeobjct.class);
+              
+     }
+  
      public void ExtractJSLogs()
      {
          LogEntries logEntries = driver.manage().logs().get(LogType.BROWSER);

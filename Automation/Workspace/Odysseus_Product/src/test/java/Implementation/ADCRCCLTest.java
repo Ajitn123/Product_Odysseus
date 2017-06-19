@@ -17,7 +17,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.logging.LogType;
@@ -29,6 +29,7 @@ import org.testng.Assert;
 import org.testng.AssertJUnit;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
@@ -73,7 +74,7 @@ public class ADCRCCLTest
                  LoggingPreferences loggingprefs = new LoggingPreferences();
                  loggingprefs.enable(LogType.BROWSER, Level.ALL);
                  capabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingprefs);
-                 driver = new FirefoxDriver(capabilities);
+              //   driver = new FirefoxDriver(capabilities);
 	   
             } 
             else if (browser.equalsIgnoreCase("chrome")) 
@@ -83,7 +84,7 @@ public class ADCRCCLTest
 	                    LoggingPreferences loggingprefs = new LoggingPreferences();
 	                    loggingprefs.enable(LogType.BROWSER, Level.ALL);
 	                    capabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingprefs);
-	             //       driver = new ChromeDriver(capabilities);
+	                    driver = new ChromeDriver(capabilities);
 	                   
             }  
             else if (browser.equalsIgnoreCase("IE")) 
@@ -98,6 +99,12 @@ public class ADCRCCLTest
               System.out.println(e.getMessage());
         }
    
+     }
+      
+      @BeforeClass
+      public void baseClass() throws InterruptedException, IOException  
+      {
+            
             driver.manage().window().maximize();
             driver.get("https://deals.americandiscountcruises.com/web/cruises/search.aspx?");
             Thread.sleep(2000);
@@ -123,7 +130,8 @@ public class ADCRCCLTest
             Thread.sleep(4000);
             crsbkngpge = PageFactory.initElements(driver, ADCBookingpgeobjct.class);
             crspurchpge = PageFactory.initElements(driver, ADCRCCLPurchasepgeobjct.class);
-   
+            
+  
    }
 
    public void ExtractJSLogs()
@@ -147,12 +155,20 @@ public class ADCRCCLTest
              Thread.sleep(200);
   		 
        	     crsbkngpge.BookingToTittle();
+       	     
+       	     long start = System.currentTimeMillis();
+       	  
       	     Thread.sleep(4000);
       	     System.out.println("\n");
  	         System.out.println("Resultpage Logs..");
  	         System.out.println("\n");
  	         ExtractJSLogs();
  	        
+             Thread.sleep(1000);
+             
+             long finish = System.currentTimeMillis();
+             long totalTime = finish - start; 
+             Reporter.log("Total Time for serch page to result page load(Milisec) - "+totalTime); 
              Thread.sleep(1000);
               
  	          final Screenshot screenshot4 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
@@ -234,9 +250,15 @@ public class ADCRCCLTest
 		        AssertJUnit.assertTrue("Cruise not available...", crsbkngpge.isDisplayed());
 		        throw(e);
 	       }
-		          
-               Thread.sleep(2000); 
       
+               long start = System.currentTimeMillis();  
+               Thread.sleep(2000); 
+               
+               long finish = System.currentTimeMillis();
+               long totalTime = finish - start; 
+               Reporter.log("Total Time for result page to details page load(Milisec) - "+totalTime); 
+               Thread.sleep(1000);
+               
                System.out.println("\n");
                System.out.println("Cruise detailspage Logs..");
                System.out.println("\n");
@@ -294,12 +316,19 @@ public class ADCRCCLTest
                    driver.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0__ctl1_CategoryLNK']")).sendKeys(Keys.ENTER);
                    Thread.sleep(1000);
                    
+                   long start02 = System.currentTimeMillis();
+                   
                    System.out.println("\n");
          	       System.out.println("Categorypage Logs..");
          	       System.out.println("\n");
          	       ExtractJSLogs();
                    
                    Thread.sleep(8000);
+                   
+                   long finish11 = System.currentTimeMillis();
+                   long totalTime11 = finish11 - start02; 
+                   Reporter.log("Total Time for details page to category page load(Milisec) - "+totalTime11); 
+                   Thread.sleep(1000);
         }
         catch(Exception e)
         {
@@ -350,9 +379,16 @@ public class ADCRCCLTest
                      Thread.sleep(2000);
                      
                 	 driver.findElement(By.cssSelector("#catType2 > tbody > tr:nth-child(3) > td > div > table > tbody > tr:nth-child(2) > td:nth-child(5) > a")).click();
+                	 
+                	 long start1 = System.currentTimeMillis();
+                	 
                 	 Thread.sleep(4000);
 				 
-                 
+                	 long finish2 = System.currentTimeMillis();
+                     long totalTime2 = finish2 - start1; 
+                     Reporter.log("Total Time for category page to cabin selection page load(Milisec) - "+totalTime2); 
+                     Thread.sleep(2000);
+                     
                  System.out.println("\n");
                  System.out.println("Cabin selection page Logs..");
                  System.out.println("\n");
@@ -415,7 +451,7 @@ public class ADCRCCLTest
          try
          {
         	            driver.findElement(By.cssSelector("#tabs-1 > div > table > tbody > tr:nth-child(2) > td:nth-child(1) > table.step4cabinList > tbody > tr:nth-child(5) > td.step4cabinSelect [id*='CabinBook_']")).click();
-                        Thread.sleep(1000);
+                       
          }
          catch(Exception e)
          {
@@ -434,7 +470,15 @@ public class ADCRCCLTest
         			          AssertJUnit.assertTrue("Cabin not available...", crsbkngpge.isDisplayed());
         			          throw(e);
           }
-                       
+                              long start11 = System.currentTimeMillis();
+         
+                              Thread.sleep(2000);
+         
+                              long finish3 = System.currentTimeMillis();
+                              long totalTime3 = finish3 - start11; 
+                              Reporter.log("Total Time for cabin selection page to purchase page load(Milisec) - "+totalTime3); 
+                              Thread.sleep(2000);
+                              
                              System.out.println("\n");
                              System.out.println("Purchase page Logs..");
                              System.out.println("\n");
@@ -481,7 +525,7 @@ public class ADCRCCLTest
                                      System.out.println("Lastname_of_Guest2: " + Lastname_GuestTwo);
                                                 	                                	 
                                      crspurchpge.ADCPurchaseToTittle(Firstname_GuestOne, Middlename_GuestOne, Lastname_GuestOne, Email, Phone, Street_Address, City, Zipcode, Firstname_GuestTwo, Middlename_GuestTwo, Lastname_GuestTwo);
-                                     Thread.sleep(2000);
+                                     
             }
             catch(Exception e)
             {
@@ -500,7 +544,15 @@ public class ADCRCCLTest
                                		 AssertJUnit.assertTrue("Invalid guest information on purchase page, Please enter valid details for the required fields....", crspurchpge.isDisplayed());
                                		 throw(e);
               }
-                                                  
+                                     long start111 = System.currentTimeMillis();
+          
+                                     Thread.sleep(2000);
+
+                                     long finish4 = System.currentTimeMillis();
+                                     long totalTime4 = finish4 - start111; 
+                                     Reporter.log("Total Time for purchase page to confirmation page load(Milisec) - "+totalTime4); 
+                                     Thread.sleep(2000);   
+                                     
                                      System.out.println("\n");
                                      System.out.println("Confirmationpage Logs..");
                                      System.out.println("\n");

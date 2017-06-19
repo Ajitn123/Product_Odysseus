@@ -10,10 +10,10 @@ public class CDORPurchasepageobjct
 {
 
 	//For Purchase page(Passenger details)
-	@FindBy(id="_ctl0_MainContentsPH__ctl0_TravelerAccount_1_GenderSEL")
+	@FindBy(xpath="//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_1_GenderSEL']")
 	private WebElement selectgender;
 	
-	@FindBy(id="_ctl0_MainContentsPH__ctl0_TravelerAccount_1_Title")
+	@FindBy(xpath="//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_1_Title']")
 	private WebElement selecttitle;
 	
 	@FindBy(id="_ctl0_MainContentsPH__ctl0_TravelerAccount_1_FirstName")
@@ -44,10 +44,10 @@ public class CDORPurchasepageobjct
 	private WebElement phne; 
 	
 	//For guest two
-	@FindBy(id="_ctl0_MainContentsPH__ctl0_TravelerAccount_2_GenderSEL")
+	@FindBy(xpath="//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_2_GenderSEL']")
 	private WebElement gndrofgustwo;
 	
-	@FindBy(id="_ctl0_MainContentsPH__ctl0_TravelerAccount_2_Title")
+	@FindBy(xpath="//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_2_Title']")
 	private WebElement slctitlofgustwo;
 	
 	@FindBy(id="_ctl0_MainContentsPH__ctl0_TravelerAccount_2_FirstName")
@@ -81,10 +81,10 @@ public class CDORPurchasepageobjct
      {
   	    try
 	    {
-		   Select select1 = new Select(selectgender.findElement(By.id("_ctl0_MainContentsPH__ctl0_TravelerAccount_1_GenderSEL")));
+		   Select select1 = new Select(selectgender.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_1_GenderSEL']")));
 		   select1.selectByVisibleText("Male");
 		   Thread.sleep(500);
-		   Select select = new Select(selecttitle.findElement(By.id("_ctl0_MainContentsPH__ctl0_TravelerAccount_1_Title")));
+		   Select select = new Select(selecttitle.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_1_Title']")));
 		   select.selectByVisibleText("Mr");
 		   Thread.sleep(500);
 		   firstnme.clear();
@@ -132,10 +132,10 @@ public class CDORPurchasepageobjct
 		   phne.click();
 		   Thread.sleep(500);
 		   phne.sendKeys(phn);
-		   Select select2 = new Select(gndrofgustwo.findElement(By.id("_ctl0_MainContentsPH__ctl0_TravelerAccount_2_GenderSEL")));
+		   Select select2 = new Select(gndrofgustwo.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_2_GenderSEL']")));
 		   select2.selectByVisibleText("Female");
 		   Thread.sleep(500);
-		   Select select3 = new Select(slctitlofgustwo.findElement(By.id("_ctl0_MainContentsPH__ctl0_TravelerAccount_2_Title")));
+		   Select select3 = new Select(slctitlofgustwo.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_2_Title']")));
 		   select3.selectByVisibleText("Mrs");
 		   Thread.sleep(500);
 		   frstnmeofgustwo.clear();

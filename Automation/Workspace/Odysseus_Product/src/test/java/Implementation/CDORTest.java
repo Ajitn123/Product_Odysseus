@@ -26,6 +26,7 @@ import org.testng.Assert;
 import org.testng.AssertJUnit;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
@@ -90,36 +91,39 @@ public class CDORTest
          {
                System.out.println(e.getMessage());
          }
-    
-             driver.manage().window().maximize();
-             driver.get("https://book.cruisedirect.com/web/cruises/search.aspx?");
-             Thread.sleep(2000);
-    
-             //Save console
-             String testResultFile="D:\\Ajit\\Script_SS\\ConsoleError\\CDORBookingError.txt";
-             File file = new File(testResultFile);  
-             FileOutputStream fis = new FileOutputStream(file);  
-             PrintStream out = new PrintStream(fis);  
-             System.setOut(out); 
-                  
-             Thread.sleep(1000);
-    
-             final Screenshot screenshot1 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-             final BufferedImage image1 = screenshot1.getImage();
-             ImageIO.write(image1, "PNG", new File("D:\\Ajit\\Script_SS\\CDOR\\1_Searchpage.png"));
-             Thread.sleep(1000);
-             System.out.println("\n");
-	         System.out.println("Searchpage Logs..");
-	         System.out.println("\n");
-	         ExtractJSLogs();
+    }  
+       
+      @BeforeClass
+      public void baseClass() throws InterruptedException, IOException  
+      {
+    	  driver.manage().window().maximize();
+          driver.navigate().to("https://book.cruisedirect.com/web/cruises/search.aspx?");
+          Thread.sleep(2000);
+ 
+          //Save console
+          String testResultFile="D:\\Ajit\\Script_SS\\ConsoleError\\CDORBookingError.txt";
+          File file = new File(testResultFile);  
+          FileOutputStream fis = new FileOutputStream(file);  
+          PrintStream out = new PrintStream(fis);  
+          System.setOut(out); 
+               
+          Thread.sleep(1000);
+ 
+          final Screenshot screenshot1 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+          final BufferedImage image1 = screenshot1.getImage();
+          ImageIO.write(image1, "PNG", new File("D:\\Ajit\\Script_SS\\CDOR\\1_Searchpage.png"));
+          Thread.sleep(1000);
+          System.out.println("\n");
+	      System.out.println("Searchpage Logs..");
+	      System.out.println("\n");
+	      ExtractJSLogs();
 
-            //driver.navigate().to("https://localhost/odyssey/website/air/results.aspx?");
-            Thread.sleep(4000);
-            crsbkngpge = PageFactory.initElements(driver, CDORBookingpgeobjct.class);
-            crspurchpge = PageFactory.initElements(driver, CDORPurchasepageobjct.class);
-    
-    }
-
+         //driver.navigate().to("https://localhost/odyssey/website/air/results.aspx?");
+         Thread.sleep(4000);
+         crsbkngpge = PageFactory.initElements(driver, CDORBookingpgeobjct.class);
+         crspurchpge = PageFactory.initElements(driver, CDORPurchasepageobjct.class);
+     }    
+ 
     public void ExtractJSLogs()
     {
          LogEntries logEntries = driver.manage().logs().get(LogType.BROWSER);
@@ -144,7 +148,14 @@ public class CDORTest
    		     Thread.sleep(1500);
    		 
        	     crsbkngpge.BookingToTittle();
+       	     long start = System.currentTimeMillis();
        	     Thread.sleep(4000);
+       	     
+       	     long finish = System.currentTimeMillis();
+             long totalTime = finish - start; 
+             Reporter.log("Total Time for serch page to result page load(Milisec) - "+totalTime); 
+             Thread.sleep(1000);
+          
        	     System.out.println("\n");
   	         System.out.println("Resultpage Logs..");
   	         System.out.println("\n");
@@ -215,10 +226,10 @@ public class CDORTest
                       Thread.sleep(3000);  
                              
                       // For the bonus offers
-                      if(driver.findElement(By.xpath("//*[@id='ResultsContainer']/ul/li[1]/div/div/div[2]/table/tbody/tr[2]/td[2]/a/img")).isDisplayed())
+                      if(driver.findElement(By.cssSelector("#ResultsContainer > ul > li:nth-child(1) > div > div > div.sail-item > table > tbody > tr.light > td.bo-Column > a:nth-child(4) > img")).isDisplayed())
                       {
                       	  Reporter.log("Bonus Offers are available..");
-                      	  driver.findElement(By.xpath("//*[@id='ResultsContainer']/ul/li[1]/div/div/div[2]/table/tbody/tr[2]/td[2]/a/img")).click();
+                      	  driver.findElement(By.cssSelector("#ResultsContainer > ul > li:nth-child(1) > div > div > div.sail-item > table > tbody > tr.light > td.bo-Column > a:nth-child(4) > img")).click();
                           Thread.sleep(1500);
                           
                           File scr22 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
@@ -231,7 +242,7 @@ public class CDORTest
                       }
                       
                        
-                         driver.findElement(By.cssSelector("#ResultsContainer > ul > li:nth-child(4) > div > div > div.sail-item > table > tbody > tr.light > td:nth-child(7) [class*='h22btn h22btnred']")).click();  // Select cruise
+                         driver.findElement(By.cssSelector("#ResultsContainer > ul > li:nth-child(2) > div > div > div.sail-item > table > tbody > tr.light > td:nth-child(7) [class*='h22btn h22btnred']")).click();  // Select cruise
 	                                          
 	      }
 	      catch(Exception e)
@@ -251,13 +262,19 @@ public class CDORTest
 		         AssertJUnit.assertTrue("Cruise not available...", crsbkngpge.isDisplayed());
 		         throw(e);
 	       }
-		          
+        
+                long start = System.currentTimeMillis(); 
                 Thread.sleep(2000); 
-       
+                
                 System.out.println("\n");
                 System.out.println("Cruise detailspage Logs..");
                 System.out.println("\n");
                 ExtractJSLogs();              
+                Thread.sleep(1000);
+                
+                long finish = System.currentTimeMillis();
+                long totalTime = finish - start; 
+                Reporter.log("Total Time for result page to details page load(Milisec) - "+totalTime); 
                 Thread.sleep(1000);
     
                 final Screenshot screenshot60 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
@@ -270,19 +287,19 @@ public class CDORTest
 
               //For the Cruise details print on test report
                 String depart = driver.findElement(By.cssSelector("#main-content > div.sidebar.sbw-270 > div.cruise-details > div:nth-child(3) > div.Cruise-details > ul > li:nth-child(1) > span.Cruise-details-name")).getText();
-                Reporter.log("Departing :- " +depart);
+                Reporter.log("Departure Port:- " +depart);
                 Thread.sleep(500);
                 String sailing = driver.findElement(By.cssSelector("#main-content > div.sidebar.sbw-270 > div.cruise-details > div:nth-child(3) > div.Cruise-details > ul > li:nth-child(2) > span.Cruise-details-name")).getText();
-                Reporter.log("Sailing dates : " +sailing);
+                Reporter.log("Sailing Dates:- " +sailing);
                 Thread.sleep(800);
                 String shp = driver.findElement(By.cssSelector("#main-content > div.sidebar.sbw-270 > div.cruise-details > div:nth-child(3) > div.Cruise-details > ul > li:nth-child(3) > span.Cruise-details-name")).getText();
-                Reporter.log("Ship :- " +shp);
+                Reporter.log("Ship:- " +shp);
                 Thread.sleep(500);
                 String dstntn = driver.findElement(By.cssSelector("#main-content > div.sidebar.sbw-270 > div.cruise-details > div:nth-child(3) > div.Cruise-details > ul > li:nth-child(5) > span.Cruise-details-name")).getText();
-                Reporter.log("Destination :- " +dstntn);
+                Reporter.log("Destination:- " +dstntn);
                 Thread.sleep(400);
                 String drtn = driver.findElement(By.cssSelector("#main-content > div.sidebar.sbw-270 > div.cruise-details > div:nth-child(3) > div.Cruise-details > ul > li:nth-child(6) > span.Cruise-details-name")).getText();
-                Reporter.log("Duration :- " + drtn);
+                Reporter.log("Duration:- " + drtn);
                 Thread.sleep(400);
                 
                 
@@ -302,7 +319,12 @@ public class CDORTest
                     Thread.sleep(100);
                     driver.findElement(By.id("_ctl0:MainContentsPH:_ctl0:_ctl0_GuestAge_2")).sendKeys("30");
                     Thread.sleep(300);
+                    driver.findElement(By.id("_ctl0_MainContentsPH__ctl0__ctl0_ResidentState")).click();
+                    Thread.sleep(300);
+                    driver.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0__ctl0_ResidentState']/option[3]")).click();
+                    Thread.sleep(300);
                     driver.findElement(By.id("_ctl0_MainContentsPH__ctl0__ctl0_CategoryLNK")).click();
+                    long start1 = System.currentTimeMillis();
                     Thread.sleep(500);
                     
                     System.out.println("\n");
@@ -311,6 +333,10 @@ public class CDORTest
           	        ExtractJSLogs();
                     
                     Thread.sleep(8000);
+                    long finish1 = System.currentTimeMillis();
+                    long totalTime1 = finish1 - start1; 
+                    Reporter.log("Total Time for details page to category page load(Milisec) - "+totalTime1); 
+                    Thread.sleep(1000);
          }
          catch(Exception e)
          {
@@ -338,8 +364,9 @@ public class CDORTest
          try
          {
              //For select category on the category page
-             driver.findElement(By.cssSelector("#main-item > table > tbody > tr:nth-child(2) > td:nth-child(4) > div > a > span")).click();
-             Thread.sleep(4000);
+              driver.findElement(By.cssSelector("#main-item > table > tbody > tr:nth-child(2) > td:nth-child(4) > div > a > span")).click();
+              Thread.sleep(3000);
+             
            try
            {
                 // For verify error on category page
@@ -375,12 +402,20 @@ public class CDORTest
      	       Reporter.log("Category not availabe...");
      	       AssertJUnit.assertTrue("Category not availabe...", crsbkngpge.isDisplayed());
      	       throw(e);
-          }	     
+          }	    
+                long start2 = System.currentTimeMillis();
+                Thread.sleep(4000);
+         
                Thread.sleep(500);
                System.out.println("\n");
                System.out.println("Cabin selection page Logs..");
                System.out.println("\n");
                ExtractJSLogs();              
+               Thread.sleep(1000);
+               
+               long finish1 = System.currentTimeMillis();
+               long totalTime1 = finish1 - start2; 
+               Reporter.log("Total Time for category page to cabin selection page load(Milisec) - "+totalTime1); 
                Thread.sleep(1000);
 
                final Screenshot screenshot62 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
@@ -392,19 +427,19 @@ public class CDORTest
                Thread.sleep(5000);
              
                //For check price and booking details on cabin page
-               String priceoncabin= driver.findElement(By.xpath("//*[@id='main-content']/div[1]/div[1]/div[3]/div[2]/ul[3]/li[2]/span[2]")).getText();
+               String priceoncabin= driver.findElement(By.cssSelector("#main-content > div.sidebar.sbw-270 > div.cruise-details > div:nth-child(3) > div.Cruise-details > ul:nth-child(3) > li:nth-child(2) > span.Cruise-details-name")).getText();
                System.out.println("Prices on cabin page is:- " +priceoncabin);
                Reporter.log("Prices on cabin page is:- " +priceoncabin);
                Thread.sleep(2000);
-               String pricewthtaxoncabin= driver.findElement(By.xpath("//*[@id='main-content']/div[1]/div[1]/div[3]/div[2]/ul[3]/li[3]/span[2]")).getText();
+               String pricewthtaxoncabin= driver.findElement(By.cssSelector("#main-content > div.sidebar.sbw-270 > div.cruise-details > div:nth-child(3) > div.Cruise-details > ul:nth-child(3) > li:nth-child(3) > span.Cruise-details-name.tnf")).getText();
                System.out.println("Estimates Taxes & Fees on cabin page is:- " +pricewthtaxoncabin);
                Reporter.log("Estimates Taxes & Fees on cabin page is:- " +pricewthtaxoncabin);
                Thread.sleep(2000);
-               String noofguestoncabin= driver.findElement(By.xpath("//*[@id='main-content']/div[1]/div[1]/div[3]/div[2]/ul[2]/li[2]/span[2]")).getText();
-               System.out.println("No of Guest:- " +noofguestoncabin);
+               String noofguestoncabin= driver.findElement(By.cssSelector("#main-content > div.sidebar.sbw-270 > div.cruise-details > div:nth-child(3) > div.Cruise-details > ul:nth-child(2) > li:nth-child(2) > span.Cruise-details-name")).getText();
+               System.out.println("No of Guests:- " +noofguestoncabin);
                Reporter.log("No of Guest:- " +noofguestoncabin);
                Thread.sleep(2000);
-               
+                              
                //For check API, Office id And Test environment on cabin page
                String expr = driver.findElement(By.id("TracerBlock")).getText();
                String api = expr.split("OdysseyGateway")[6].split(":")[1].trim();
@@ -421,10 +456,10 @@ public class CDORTest
           //For select cabin from the cabin selection page
           try
           {
-                              driver.findElement(By.cssSelector("div.cabin-nfo-block > table > tbody > tr:nth-child(2) > td:nth-child(4) > div.h22btn.h22btnred [id*='CabinBook_']")).click();
+                              driver.findElement(By.cssSelector("[id*='CabinBook_'] > span")).click();
                               Thread.sleep(2000);
                               driver.navigate().refresh();
-                              Thread.sleep(1000);
+                              
           }
           catch(Exception e)
           {
@@ -443,11 +478,17 @@ public class CDORTest
               			          AssertJUnit.assertTrue("Cabin not available...", crsbkngpge.isDisplayed());
               			          throw(e);
            }
-                             
+                                   long start4 = System.currentTimeMillis();
+                                   Thread.sleep(1000);
                                    System.out.println("\n");
                                    System.out.println("Purchase page Logs..");
                                    System.out.println("\n");
                                    ExtractJSLogs();              
+                                   Thread.sleep(1000);
+                                   
+                                   long finish11 = System.currentTimeMillis();
+                                   long totalTime11 = finish11 - start4; 
+                                   Reporter.log("Total Time for cabin selection page to purchase page load(Milisec) - "+totalTime11); 
                                    Thread.sleep(1000);
                                    
                                    driver.navigate().refresh();
@@ -462,7 +503,7 @@ public class CDORTest
                                    Thread.sleep(4000);
                                    
                                    //Check price on purchase page
-                                   String priceonpurchase= driver.findElement(By.xpath("//*[@id='pricingBD']/tbody/tr[7]/td[3]/strong")).getText();
+                                   String priceonpurchase= driver.findElement(By.cssSelector("#pricingBD > tbody > tr:nth-child(7) > td:nth-child(3) > strong")).getText();
                                    System.out.println("Prices on purchase page is:- " +priceonpurchase);
                                    Reporter.log("Prices on purchase page is:- " +priceonpurchase);
                                    Thread.sleep(2000);   
@@ -480,7 +521,7 @@ public class CDORTest
                                         System.out.println("Lastname_of_Guest2: " + Lastname_GuestTwo);
                                                    	                                	 
                                         crspurchpge.PurchaseToTittle(Firstname_GuestOne, Middlename_GuestOne, Lastname_GuestOne, Email, Phone, Firstname_GuestTwo, Middlename_GuestTwo, Lastname_GuestTwo);
-                                        Thread.sleep(2000);
+                                        
                                         
                }
                catch(Exception e)
@@ -500,20 +541,27 @@ public class CDORTest
                                   		AssertJUnit.assertTrue("Invalid guest information on purchase page, Please enter valid details for the required fields....", crsbkngpge.isDisplayed());
                                   		throw(e);
                  }
-                                                     
+             
+                                        long start5 = System.currentTimeMillis();
+                                        Thread.sleep(2000);           
                                         System.out.println("\n");
                                         System.out.println("Paymentpage Logs..");
                                         System.out.println("\n");
                                         ExtractJSLogs();              
                                         Thread.sleep(1000);
-                                                        
+                                        
+                                        long finish12 = System.currentTimeMillis();
+                                        long totalTime12 = finish12 - start5; 
+                                        Reporter.log("Total Time for purchase page to payment page load(Milisec) - "+totalTime12); 
+                                        Thread.sleep(1000);
+                                        
                                         final Screenshot screenshot44 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
                                         final BufferedImage image44 = screenshot44.getImage();
                                         ImageIO.write(image44, "PNG", new File("D:\\Ajit\\Script_SS\\CDOR\\9_Paymentpage.png"));
                                                         
                                         Thread.sleep(2000);
                                                         
-                                        String priceonpaymnt = driver.findElement(By.xpath("//*[@id='pricingBD']/tbody/tr[7]/td[3]/strong")).getText();
+                                        String priceonpaymnt = driver.findElement(By.cssSelector("#pricingBD > tbody > tr:nth-child(7) > td:nth-child(3) > strong")).getText();
                                         Reporter.log("Price on payment page is:- "+ priceonpaymnt);
                                                         
                                           if(priceonpaymnt.equals(priceonpurchase))

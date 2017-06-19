@@ -72,5 +72,6 @@
 	<classpathentry kind="lib" path="D:/Ajit/Jar/Jar/selenium-chrome-driver-2.44.0.jar"/>
 	<classpathentry kind="lib" path="D:/Ajit/Jar/extentreports-1.4.jar"/>
 	<classpathentry kind="lib" path="D:/Ajit/Jar/ashot-1.4.12.jar"/>
+	<classpathentry kind="lib" path="D:/Ajit/Appium/java-client-2.2.0.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

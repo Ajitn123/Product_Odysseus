@@ -1,6 +1,7 @@
 package Implementation;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -14,6 +15,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.AssertJUnit;
 import org.testng.Reporter;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
@@ -68,8 +70,13 @@ public class AdmindefaultpageTest
 	          {
 		                   System.out.println(e.getMessage());
 	          }
-	           
-	               driver.manage().window().maximize();
+	    }   
+	        
+	    @BeforeClass
+	    public void baseClass() throws InterruptedException, IOException  
+	    {
+	              
+	        	   driver.manage().window().maximize();
 	               driver.get("https://localhost/odyssey/admin/login.aspx");
 	               //driver.navigate().to("https://localhost/odyssey/website/air/results.aspx?");
 	               Thread.sleep(4000);

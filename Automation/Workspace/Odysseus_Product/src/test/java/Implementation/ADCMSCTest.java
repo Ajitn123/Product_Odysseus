@@ -28,6 +28,7 @@ import org.testng.Assert;
 import org.testng.AssertJUnit;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
@@ -46,7 +47,8 @@ public class ADCMSCTest
 	    ADCMSCBookingpgeobjct crsbkngpge;
         public static WebDriver driver;
         Reporter report = new Reporter();
-
+	
+        
    public static boolean implicitwait(long time)
    {
       try 
@@ -96,32 +98,38 @@ public class ADCMSCTest
         {
               System.out.println(e.getMessage());
         }
+   }
    
-            driver.manage().window().maximize();
-            driver.get("https://deals.americandiscountcruises.com/web/cruises/search.aspx?");
-            Thread.sleep(2000);
-   
-            //Save console
-            String testResultFile="D:\\Ajit\\Script_SS\\ConsoleError\\ADCMSCBookingError.txt";
-            File file = new File(testResultFile);  
-            FileOutputStream fis = new FileOutputStream(file);  
-            PrintStream out = new PrintStream(fis);  
-            System.setOut(out); 
-                 
-            Thread.sleep(1000);
-   
-            final Screenshot screenshot1 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-            final BufferedImage image1 = screenshot1.getImage();
-            ImageIO.write(image1, "PNG", new File("D:\\Ajit\\Script_SS\\ADC_MSC\\1_Searchpage.png"));
-            Thread.sleep(1000);
-            System.out.println("\n");
-	        System.out.println("Searchpage Logs..");
-	        System.out.println("\n");
-	        ExtractJSLogs();
-           
-            Thread.sleep(4000);
-            crsbkngpge = PageFactory.initElements(driver, ADCMSCBookingpgeobjct.class);
-            crspurchpge = PageFactory.initElements(driver, ADCMSCPurchasepgeobjct.class);
+   @BeforeClass
+   public void baseClass() throws InterruptedException, IOException  
+   {
+         
+         driver.manage().window().maximize();
+         driver.get("https://deals.americandiscountcruises.com/web/cruises/search.aspx?");
+         Thread.sleep(2000);
+
+         //Save console
+         String testResultFile="D:\\Ajit\\Script_SS\\ConsoleError\\ADCMSCBookingError.txt";
+         File file = new File(testResultFile);  
+         FileOutputStream fis = new FileOutputStream(file);  
+         PrintStream out = new PrintStream(fis);  
+         System.setOut(out); 
+              
+         Thread.sleep(1000);
+
+         final Screenshot screenshot1 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+         final BufferedImage image1 = screenshot1.getImage();
+         ImageIO.write(image1, "PNG", new File("D:\\Ajit\\Script_SS\\ADC_MSC\\1_Searchpage.png"));
+         Thread.sleep(1000);
+         System.out.println("\n");
+	     System.out.println("Searchpage Logs..");
+	     System.out.println("\n");
+	     ExtractJSLogs();
+        
+         Thread.sleep(4000);
+         crsbkngpge = PageFactory.initElements(driver, ADCMSCBookingpgeobjct.class);
+         crspurchpge = PageFactory.initElements(driver, ADCMSCPurchasepgeobjct.class);
+              
    
    }
 
@@ -146,13 +154,23 @@ public class ADCMSCTest
              Thread.sleep(200);
   		 
        	     crsbkngpge.BookingToTittle();
+       	     
+       	     long start = System.currentTimeMillis();
+       	     
       	     Thread.sleep(5000);
+      	     
       	     System.out.println("\n");
  	         System.out.println("Resultpage Logs..");
  	         System.out.println("\n");
  	         ExtractJSLogs();
  	        
              Thread.sleep(1000);
+ 
+             long finish = System.currentTimeMillis();
+             long totalTime = finish - start; 
+             Reporter.log("Total Time for serch page to result page load(Milisec) - "+totalTime); 
+             Thread.sleep(1000);
+             
               
  	          final Screenshot screenshot4 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
               final BufferedImage image4 = screenshot4.getImage();
@@ -214,8 +232,8 @@ public class ADCMSCTest
 	       	            Thread.sleep(1000);
 	       	            
 	       	            driver.findElement(By.xpath("//*[@id='PriceList_0']/table/tbody/tr[2]/td[8]/a")).click();
-	                    
-                        
+	       	            
+	                           
 	      }
 	      catch(Exception e)
 	      {
@@ -234,13 +252,20 @@ public class ADCMSCTest
 		        AssertJUnit.assertTrue("Cruise not available...", crsbkngpge.isDisplayed());
 		        throw(e);
 	       }
-		          
+              
+               long start = System.currentTimeMillis();   
+               
                Thread.sleep(2000); 
       
                System.out.println("\n");
                System.out.println("Cruise detailspage Logs..");
                System.out.println("\n");
                ExtractJSLogs();              
+               Thread.sleep(1000);
+               
+               long finish = System.currentTimeMillis();
+               long totalTime = finish - start; 
+               Reporter.log("Total Time for result page to details page load(Milisec) - "+totalTime); 
                Thread.sleep(1000);
    
                final Screenshot screenshot60 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
@@ -273,14 +298,22 @@ public class ADCMSCTest
                    driver.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0__ctl1_ResidentState']/option[3]")).click();
                    Thread.sleep(700);
                    driver.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0__ctl1_CategoryLNK']")).sendKeys(Keys.ENTER);
-                   Thread.sleep(1000);
+                   
+                   long start01 = System.currentTimeMillis();
+                   
+                   Thread.sleep(8000);
                    
                    System.out.println("\n");
          	       System.out.println("Categorypage Logs..");
          	       System.out.println("\n");
          	       ExtractJSLogs();
+         	                          
+                   Thread.sleep(1000);
                    
-                   Thread.sleep(8000);
+                   long finish1 = System.currentTimeMillis();
+                   long totalTime1 = finish1 - start01; 
+                   Reporter.log("Total Time for details page to category page load(Milisec) - "+totalTime1); 
+                   Thread.sleep(2000);
         }
         catch(Exception e)
         {
@@ -331,8 +364,15 @@ public class ADCMSCTest
                      Thread.sleep(2000);
                      
                 	 driver.findElement(By.cssSelector("#catType4 > tbody > tr:nth-child(3) > td > div > table > tbody > tr:nth-child(2) > td:nth-child(5) > a")).click();
+                	 
+                	 long start1 = System.currentTimeMillis();
+                	 
                 	 Thread.sleep(4000);
-				 
+
+                	 long finish2 = System.currentTimeMillis();
+                     long totalTime2 = finish2 - start1; 
+                     Reporter.log("Total Time for category page to cabin selection page load(Milisec) - "+totalTime2); 
+                     Thread.sleep(2000);
                  
                  System.out.println("\n");
                  System.out.println("Cabin selection page Logs..");
@@ -396,7 +436,6 @@ public class ADCMSCTest
          try
          {
         	            driver.findElement(By.cssSelector("#tabs-1 > div > table > tbody > tr:nth-child(2) > td:nth-child(1) > table.step4cabinList > tbody > tr:nth-child(5) > td.step4cabinSelect [id*='CabinBook_']")).click();
-                        Thread.sleep(1000);
          }
          catch(Exception e)
          {
@@ -415,7 +454,16 @@ public class ADCMSCTest
         			          AssertJUnit.assertTrue("Cabin not available...", crsbkngpge.isDisplayed());
         			          throw(e);
           }
-                       
+        
+                              long start11 = System.currentTimeMillis();
+         
+                              Thread.sleep(2000);
+                              
+                              long finish3 = System.currentTimeMillis();
+                              long totalTime3 = finish3 - start11; 
+                              Reporter.log("Total Time for cabin selection page to purchase page load(Milisec) - "+totalTime3); 
+                              Thread.sleep(2000);
+                              
                              System.out.println("\n");
                              System.out.println("Purchase page Logs..");
                              System.out.println("\n");
@@ -462,7 +510,7 @@ public class ADCMSCTest
                                      System.out.println("Lastname_of_Guest2: " + Lastname_GuestTwo);
                                                 	                                	 
                                      crspurchpge.ADCPurchaseToTittle(Firstname_GuestOne, Middlename_GuestOne, Lastname_GuestOne, Email, Phone, Street_Address, City, Zipcode, Firstname_GuestTwo, Middlename_GuestTwo, Lastname_GuestTwo);
-                                     Thread.sleep(2000);
+                                     
             }
             catch(Exception e)
             {
@@ -481,7 +529,16 @@ public class ADCMSCTest
                                		 AssertJUnit.assertTrue("Invalid guest information on purchase page, Please enter valid details for the required fields....", crspurchpge.isDisplayed());
                                		 throw(e);
               }
-                                                  
+          
+                                     long start111 = System.currentTimeMillis();
+                                     
+                                     Thread.sleep(2000);
+          
+                                      long finish4 = System.currentTimeMillis();
+                                      long totalTime4 = finish4 - start111; 
+                                      Reporter.log("Total Time for purchase page to confirmation page load(Milisec) - "+totalTime4); 
+                                      Thread.sleep(2000); 
+                                      
                                      System.out.println("\n");
                                      System.out.println("Confirmationpage Logs..");
                                      System.out.println("\n");

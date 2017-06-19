@@ -63,8 +63,8 @@ public class OdysolAirHoldAndConfirmPgeobjct
 	{
 	    	try
 	    	{
-	    		Confirmbookingbtn.click();
-				Thread.sleep(7000);
+	    	//	Confirmbookingbtn.click();
+			//	Thread.sleep(7000);
 				slctcarttype.click();
 				Thread.sleep(500);
 				slctcarttype.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0__ctl4_CreditCardInfo_cardType']/option[5]")).click();

@@ -8,13 +8,14 @@
   <test name="ChromeTest(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="Implementation.FaredepotTest">
+      <class name="Implementation.CDORTest">
         <methods>
-          <include name="closeBrowser"/>
+          <include name="CDOR_data" invocation-numbers="0"/>
           <include name="openBroswer"/>
-          <include name="Faredepot_data" invocation-numbers="0"/>
+          <include name="closeBrowser"/>
+          <include name="baseClass"/>
         </methods>
-      </class> <!-- Implementation.FaredepotTest -->
+      </class> <!-- Implementation.CDORTest -->
     </classes>
   </test> <!-- ChromeTest(failed) -->
 </suite> <!-- Failed suite [Suite] -->

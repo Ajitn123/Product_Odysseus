@@ -18,7 +18,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.logging.LogType;
@@ -30,6 +29,7 @@ import org.testng.Assert;
 import org.testng.AssertJUnit;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
@@ -98,42 +98,48 @@ public class FaredepotTest
         {
               System.out.println(e.getMessage());
         }
-   
-            driver.manage().window().maximize();
-            driver.get("http://faredepot.com/");
-            Thread.sleep(7000);
-           try
+      
+   }
+      
+     @BeforeClass
+     public void baseClass() throws InterruptedException, IOException  
+     {
+          	              
+    	 driver.manage().window().maximize();
+         driver.get("http://faredepot.com/");
+         Thread.sleep(7000);
+        try
+        {
+           if(driver.findElement(By.cssSelector("#image-f4e1bb6dacbba2cca5ceef5ba601f25c")).isDisplayed()) //#norilskLoadedContent [class*='padiClose']
            {
-              if(driver.findElement(By.cssSelector("#image-f4e1bb6dacbba2cca5ceef5ba601f25c")).isDisplayed()) //#norilskLoadedContent [class*='padiClose']
-              {
-            	 driver.findElement(By.cssSelector("#image-f4e1bb6dacbba2cca5ceef5ba601f25c")).click();  //For handle unnecessary pop up
-                 Thread.sleep(3000);
-              }
-           }  
-           catch (Exception e) {
+         	 driver.findElement(By.cssSelector("#image-f4e1bb6dacbba2cca5ceef5ba601f25c")).click();  //For handle unnecessary pop up
+              Thread.sleep(3000);
+           }
+        }  
+        catch (Exception e) {
 				e.getMessage();
 		   }  
-   
-            //Save console
-            String testResultFile="D:\\Ajit\\Script_SS\\ConsoleError\\FaredepotError.txt";
-            File file = new File(testResultFile);  
-            FileOutputStream fis = new FileOutputStream(file);  
-            PrintStream out = new PrintStream(fis);  
-            System.setOut(out); 
-                 
-            Thread.sleep(2000);
-   
-            
-            final Screenshot screenshot1 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-            final BufferedImage image1 = screenshot1.getImage();
-            ImageIO.write(image1, "PNG", new File("D:\\Ajit\\Script_SS\\Faredepot\\1_Searchpage.png"));
-            Thread.sleep(2000);
 
-           //driver.navigate().to("https://localhost/odyssey/website/air/results.aspx?");
-           Thread.sleep(4000);
-           faredeptbkpge = PageFactory.initElements(driver, FaredepotBookingpgeobjct.class);
-           faredptpurchse = PageFactory.initElements(driver, FaredepotPurchasepgeobjct.class);
-   
+         //Save console
+         String testResultFile="D:\\Ajit\\Script_SS\\ConsoleError\\FaredepotError.txt";
+         File file = new File(testResultFile);  
+         FileOutputStream fis = new FileOutputStream(file);  
+         PrintStream out = new PrintStream(fis);  
+         System.setOut(out); 
+              
+         Thread.sleep(2000);
+
+         
+         final Screenshot screenshot1 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+         final BufferedImage image1 = screenshot1.getImage();
+         ImageIO.write(image1, "PNG", new File("D:\\Ajit\\Script_SS\\Faredepot\\1_Searchpage.png"));
+         Thread.sleep(2000);
+
+        //driver.navigate().to("https://localhost/odyssey/website/air/results.aspx?");
+        Thread.sleep(4000);
+        faredeptbkpge = PageFactory.initElements(driver, FaredepotBookingpgeobjct.class);
+        faredptpurchse = PageFactory.initElements(driver, FaredepotPurchasepgeobjct.class);
+    
    }
 
    public void ExtractJSLogs()
@@ -160,13 +166,18 @@ public class FaredepotTest
                 System.out.println("ToLocation: " + ToLocation);
                 
                 faredeptbkpge.FaredepotBookingToTitle(FromLocation, ToLocation);
+                long start = System.currentTimeMillis();
         	    Thread.sleep(4000);
+        	    long finish = System.currentTimeMillis();
+                long totalTime = finish - start; 
+                Reporter.log("Total Time for serch page to result page load(Milisec) - "+totalTime); 
+                Thread.sleep(1000);
         	    System.out.println("\n");
    	            System.out.println("Resultpage Logs..");
    	            System.out.println("\n");
    	            ExtractJSLogs();
            
-                Thread.sleep(10000);
+                Thread.sleep(11000);
             
           }
           catch(Exception e)
@@ -273,10 +284,16 @@ public class FaredepotTest
    			    AssertJUnit.assertTrue("Flight not available...", faredeptbkpge.isDisplayed());
    			    return;
    		 }
+               long start = System.currentTimeMillis();
+               Thread.sleep(1500);
                System.out.println("\n");
                System.out.println("Checkoutpage Logs..");
                System.out.println("\n");
                ExtractJSLogs();              
+               Thread.sleep(1000);
+               long finish = System.currentTimeMillis();
+               long totalTime = finish - start; 
+               Reporter.log("Total Time for result page to checkout page load(Milisec) - "+totalTime); 
                Thread.sleep(1000);
                
                final Screenshot screenshot3 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
@@ -362,11 +379,11 @@ public class FaredepotTest
         		 driver.findElement(By.xpath("//*[@id='_ctl0__ctl0_MainContentsParentPH_MainContentsPH__ctl0_GuestResidency_CountrySel']")).click();
         		 Thread.sleep(1000);
         		 driver.findElement(By.xpath("//*[@id='_ctl0__ctl0_MainContentsParentPH_MainContentsPH__ctl0_GuestResidency_CountrySel']/option[215]")).click();
-                 Thread.sleep(5000);          
+                 Thread.sleep(10000);          
                  driver.findElement(By.xpath("//*[@id='_ctl0__ctl0_MainContentsParentPH_MainContentsPH__ctl0_GuestResidency_StateSel']")).click();
                  Thread.sleep(1000);
                  driver.findElement(By.xpath("//*[@id='_ctl0__ctl0_MainContentsParentPH_MainContentsPH__ctl0_GuestResidency_StateSel']/option[13]")).click();
-                 Thread.sleep(3000);
+                 Thread.sleep(5000);
         	 }
         	 
         	     Thread.sleep(5000);
