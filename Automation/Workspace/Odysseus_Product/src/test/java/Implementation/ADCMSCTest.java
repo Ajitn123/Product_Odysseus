@@ -103,11 +103,6 @@ public class ADCMSCTest
         {
               System.out.println(e.getMessage());
         }
-   }
-   
-   @BeforeClass
-   public void baseClass() throws InterruptedException, IOException  
-   {
          
          driver.manage().window().maximize();
          driver.get("https://deals.americandiscountcruises.com/web/cruises/search.aspx?");
