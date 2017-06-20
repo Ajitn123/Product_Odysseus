@@ -117,10 +117,7 @@ public class OdysolAirHeldConfirmAndTicketedTest
                       
         Thread.sleep(1000);
         
-        final Screenshot screenshot01 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-        final BufferedImage image01 = screenshot01.getImage();
-        ImageIO.write(image01, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolAirHeldConfirmAndTicketed\\1_Loginpage.png"));
-        
+       
         //driver.navigate().to("https://localhost/odyssey/website/air/results.aspx?");
         Thread.sleep(4000);
         lgnpge = PageFactory.initElements(driver, Login.class);
@@ -179,10 +176,7 @@ public class OdysolAirHeldConfirmAndTicketedTest
         	      System.out.println("\n");
         	      ExtractJSLogs();
         	      
-    	          final Screenshot screenshot1 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-    	          final BufferedImage image1 = screenshot1.getImage();
-    	          ImageIO.write(image1, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolAirHeldConfirmAndTicketedError\\0_Invalidcredentials.png"));
-    	          
+    	        
     	          Assert.assertFalse(false, "FAIL");
     	          Reporter.log("Username and Password are invalid..");
             	  AssertJUnit.assertTrue("Username Or Password are invalid...", lgnpge.isDisplayed());
@@ -205,10 +199,7 @@ public class OdysolAirHeldConfirmAndTicketedTest
             Reporter.log("Total Time for search page to result page load(Milisec) - "+totalTime); 
             Thread.sleep(1000);
          
-            final Screenshot screenshot = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-            final BufferedImage image = screenshot.getImage();
-            ImageIO.write(image, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolAirHeldConfirmAndTicketed\\2_Searchpage.png"));
-      
+           
         }    
        catch(Exception e)
        {
@@ -217,10 +208,7 @@ public class OdysolAirHeldConfirmAndTicketedTest
  	       System.out.println("\n");
  	       ExtractJSLogs();
  	      
- 	       final Screenshot screenshot1 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-	       final BufferedImage image1 = screenshot1.getImage();
-	       ImageIO.write(image1, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolAirHeldConfirmAndTicketedError\\1_InvaliddetailsorError.png"));
-	          
+ 	      
 	       Assert.assertFalse(false, "FAIL");
 	       Reporter.log("Invalid search details or displaying error message..");
      	   AssertJUnit.assertTrue("Invalid search details or displaying error message...", airbk.isDisplayed());
@@ -249,12 +237,7 @@ public class OdysolAirHeldConfirmAndTicketedTest
   	       System.out.println("\n");
   	       ExtractJSLogs();
 	       
-	       Thread.sleep(3000);
 	       
-	       final Screenshot screenshot003 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-		   final BufferedImage image003 = screenshot003.getImage();
-		   ImageIO.write(image003, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolAirHeldConfirmAndTicketed\\3_Resultpage.png"));
-    
 	       Thread.sleep(9000);
 	  
 	  
@@ -273,10 +256,7 @@ public class OdysolAirHeldConfirmAndTicketedTest
          	   System.out.println("\n");
          	   ExtractJSLogs();
          	
- 	           final Screenshot screenshot2 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-		       final BufferedImage image2 = screenshot2.getImage();
-		       ImageIO.write(image2, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolAirHeldConfirmAndTicketedError\\2_Invalidcredentials.png"));
-         	
+ 	          
 	           Assert.assertFalse(false, "FAIL");
 	           Reporter.log("Flights not available..");
 			   AssertJUnit.assertTrue("Flight not available...", airbk.isDisplayed());
@@ -296,10 +276,7 @@ public class OdysolAirHeldConfirmAndTicketedTest
             Reporter.log("Total Time for result page to checkout page load(Milisec) - "+totalTime); 
             Thread.sleep(1000);
       
-            final Screenshot screenshot3 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-		    final BufferedImage image3 = screenshot3.getImage();
-		    ImageIO.write(image3, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolAirHeldConfirmAndTicketed\\4_Checkoutpage.png"));
-     
+           
             System.out.println("Flight selected successfully..");
              
             Thread.sleep(1000);
@@ -359,10 +336,7 @@ public class OdysolAirHeldConfirmAndTicketedTest
     	 System.out.println("\n");
     	 ExtractJSLogs();
     	 
-         final Screenshot screenshot4 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-		 final BufferedImage image4 = screenshot4.getImage();
-		 ImageIO.write(image4, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolAirHeldConfirmAndTicketedError\\3_Timeouterror.png"));
-         
+        
          Assert.assertFalse(false, "FAIL");
          Reporter.log("Timeout error...");
    	     AssertJUnit.assertTrue("Timeout error...", chckout.isDisplayed());
@@ -390,10 +364,7 @@ public class OdysolAirHeldConfirmAndTicketedTest
     	 System.out.println("\n");
     	 ExtractJSLogs();
     	 
-    	 final Screenshot screenshot44 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-         final BufferedImage image44 = screenshot44.getImage();
-         ImageIO.write(image44, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolAirHeldConfirmAndTicketedError\\4_Statusfail.png"));
-         
+    	
          Assert.assertFalse(false, "FAIL");
    	     Reporter.log("Held button not click because Production Environment..");
       	 AssertJUnit.assertTrue("Held button not click because Production Environment...", chckout.isDisplayed());
@@ -635,10 +606,7 @@ public class OdysolAirHeldConfirmAndTicketedTest
 				
 				System.out.println("Actual status is:- "+ status);
 				
-	            final Screenshot screenshot5 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-	   		    final BufferedImage image5 = screenshot5.getImage();
-	   		    ImageIO.write(image5, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolAirHeldConfirmAndTicketedError\\5_HeldbookingFail.png"));
-	            
+	          
 	            Reporter.log("Actual status is:-" +status);
 	            Assert.assertFalse(false, "FAIL");
 	            Reporter.log("Status Fail b'coz status are differ to expected..");
@@ -649,10 +617,7 @@ public class OdysolAirHeldConfirmAndTicketedTest
               System.out.println("Actual status is:- "+ status);
               Reporter.log("Actual status is:- " + status);
          
-             final Screenshot screenshot6 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-		     final BufferedImage image6 = screenshot6.getImage();
-		     ImageIO.write(image6, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolAirHeldConfirmAndTicketed\\5_Flightheld.png"));
-         
+            
              System.out.println("Flight held Successfully..");
          
              Reporter.log("Flight held successfully..");  // For displaying message on report
@@ -664,10 +629,7 @@ public class OdysolAirHeldConfirmAndTicketedTest
        {
     	    System.out.println("Time out..");
 			
-            final Screenshot screenshot7 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-   		    final BufferedImage image7 = screenshot7.getImage();
-   		    ImageIO.write(image7, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolAirHeldConfirmAndTicketedError\\6_Timeout.png"));
-         
+           
             Assert.assertFalse(false, "FAIL");
             Reporter.log("Time out..");
 		    AssertJUnit.assertTrue("Time out...", chckout.isDisplayed());
@@ -695,10 +657,7 @@ public class OdysolAirHeldConfirmAndTicketedTest
          System.out.println("\n");
          ExtractJSLogs();
          
-         final Screenshot screenshot8 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-		 final BufferedImage image8 = screenshot8.getImage();
-		 ImageIO.write(image8, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolAirHeldConfirmAndTicketedError\\7_Timeouterror.png"));
-         
+        
          Assert.assertFalse(false, "FAIL");
          Reporter.log("Timeout error...");
    	     AssertJUnit.assertTrue("Timeout error...", chckout.isDisplayed());
@@ -726,10 +685,7 @@ public class OdysolAirHeldConfirmAndTicketedTest
         	     System.out.println("Status Fail b'coz status are differ to expected..");
 				
 				 System.out.println("Actual status is:- "+ status1);
-		         final Screenshot screenshot9 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-				 final BufferedImage image9 = screenshot9.getImage();
-				 ImageIO.write(image9, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolAirHeldConfirmAndTicketed\\6_ConfirmbookingFail.png"));
-		               
+		          
 		         Reporter.log("Actual status is:-" +status1);
 		         Assert.assertFalse(false, "FAIL");
 		         Reporter.log("Status Fail b'coz status are differ to expected..");
@@ -740,9 +696,6 @@ public class OdysolAirHeldConfirmAndTicketedTest
            System.out.println("Actual status is:- "+ status1);
            Reporter.log("Actual status is:- " + status1);
          
-           final Screenshot screenshot10 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-		   final BufferedImage image10 = screenshot10.getImage();
-		   ImageIO.write(image10, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolAirHeldConfirmAndTicketed\\7_Confirmbooking.png"));
          
            System.out.println("Flight confirmed successfully..");
          
@@ -761,11 +714,6 @@ public class OdysolAirHeldConfirmAndTicketedTest
             System.out.println("\n");
             ExtractJSLogs();
             
-            Thread.sleep(100);
-            
-            final Screenshot screenshot11 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
- 		    final BufferedImage image11 = screenshot11.getImage();
- 		    ImageIO.write(image11, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolAirHeldConfirmAndTicketed\\8_Admindefaultpage.png"));
             
             Thread.sleep(7000);
             
@@ -808,10 +756,7 @@ public class OdysolAirHeldConfirmAndTicketedTest
              System.out.println("\n");
              ExtractJSLogs();
     	  
- 	         final Screenshot screenshot12 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-	 		 final BufferedImage image12 = screenshot12.getImage();
-	 		 ImageIO.write(image12, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolAirHeldConfirmAndTicketedError\\8_ETicketedstatusFail.png"));
-	         
+ 	        
 	         driver.findElement(By.xpath("/html/body/div[6]/div[1]/button/span[1]")).click();
 	         AssertJUnit.assertTrue("Status fail for E-Ticketed...", hldncnfrm.isDisplayed());
 	         
@@ -830,10 +775,7 @@ public class OdysolAirHeldConfirmAndTicketedTest
       {
 			System.out.println("Status Fail..");
 							
-		    final Screenshot screenshot14 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-	 		final BufferedImage image14 = screenshot14.getImage();
-	 		ImageIO.write(image14, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolAirHeldConfirmAndTicketedError\\9_ETicketedStatusFail.png"));
-		 
+		   
 		    Assert.assertFalse(false, "FAIL");
 		    Reporter.log("Ticketed status:- FAIL");
 		    System.out.println("Booking ticketed fail..");
@@ -844,10 +786,7 @@ public class OdysolAirHeldConfirmAndTicketedTest
             System.out.println("Actual status is:- "+ status3);
             Reporter.log("Actual status is:- " + status3);
                   
-            final Screenshot screenshot15 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-	 		final BufferedImage image15 = screenshot15.getImage();
-	 		ImageIO.write(image15, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolAirHeldConfirmAndTicketed\\9_FlightETicketed.png"));
-                   
+                 
             Thread.sleep(5000);
             
                       
@@ -878,10 +817,7 @@ public class OdysolAirHeldConfirmAndTicketedTest
 			
 		  Thread.sleep(200);
   	    
-  	      final Screenshot screenshot16 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-	 	  final BufferedImage image16 = screenshot16.getImage();
-	 	  ImageIO.write(image16, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolAirHeldConfirmAndTicketed\\10_Cancelbookingpopup.png"));
-  	    
+  	      
   	      driver.switchTo().defaultContent();
   	      Thread.sleep(6000);
   	      driver.navigate().refresh();
@@ -893,10 +829,7 @@ public class OdysolAirHeldConfirmAndTicketedTest
              System.out.println("\n");
              ExtractJSLogs();
           
-	         final Screenshot screenshot17 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-		 	 final BufferedImage image17 = screenshot17.getImage();
-		 	 ImageIO.write(image17, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolAirHeldConfirmAndTicketedError\\10_CancelbookingFail.png"));
-	               
+	             
 	         Assert.assertFalse(false, "FAIL");
 	         Reporter.log("Booking cancel failed...");
 	         AssertJUnit.assertTrue("Booking cancel failed...", hldncnfrm.isDisplayed());
@@ -919,10 +852,7 @@ public class OdysolAirHeldConfirmAndTicketedTest
     				 System.out.println("Status Fail..");
     				 System.out.println("Actual status is:- "+ status2);
     				
-     		         final Screenshot screenshot18 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-    			 	 final BufferedImage image18 = screenshot18.getImage();
-    			 	 ImageIO.write(image18, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolAirHeldConfirmAndTicketedError\\11_CancelbookingstatusFail.png"));
-    		               
+     		            
     		         Reporter.log("Actual status is:- " + status2);
     		         Assert.assertFalse(false, "FAIL");
     		         Reporter.log("Cancel status fail..");
@@ -933,10 +863,7 @@ public class OdysolAirHeldConfirmAndTicketedTest
                System.out.println("Actual status is:- "+ status2);
                Reporter.log("Actual status is:- " + status2);
              
-               final Screenshot screenshot19 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-			   final BufferedImage image19 = screenshot19.getImage();
-			   ImageIO.write(image19, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolAirHeldConfirmAndTicketed\\11_Bookingcancelled.png"));
-             
+              
                System.out.println("Booking cancelled successfully..");
              
                Reporter.log("Booking cancelled successfully..");
