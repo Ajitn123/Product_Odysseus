@@ -77,7 +77,7 @@ public class ADCMSCTest
                     LoggingPreferences loggingprefs = new LoggingPreferences();
                     loggingprefs.enable(LogType.BROWSER, Level.ALL);
                     capabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingprefs);
-                    driver = new FirefoxDriver();
+                    driver = new FirefoxDriver(capabilities);
 	   
             } 
             else if (browser.equalsIgnoreCase("chrome")) 
