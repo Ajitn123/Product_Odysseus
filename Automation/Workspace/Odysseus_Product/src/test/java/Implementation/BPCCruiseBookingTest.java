@@ -112,10 +112,7 @@ public class BPCCruiseBookingTest
                     
          Thread.sleep(1000);
       
-         final Screenshot screenshot1 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-         final BufferedImage image1 = screenshot1.getImage();
-         ImageIO.write(image1, "PNG", new File("D:\\Ajit\\Script_SS\\BPC\\1_Searchpage.png"));
-         Thread.sleep(1000);
+         
          System.out.println("\n");
 	     System.out.println("Searchpage Logs..");
 	     System.out.println("\n");
@@ -176,10 +173,7 @@ public class BPCCruiseBookingTest
             	   Reporter.log("Error message: " +err);
             	   Thread.sleep(1000);
             	 
-            	   final Screenshot screenshot87 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-  	               final BufferedImage image87 = screenshot87.getImage();
-  	               ImageIO.write(image87, "PNG", new File("D:\\Ajit\\Script_SS\\BPCError\\04_Erroronresultpage.png"));
-  	          
+            	
        	           Assert.assertFalse(false, "FAIL");
        	           AssertJUnit.assertTrue("Error on result page..: " +err, crsbkngpge.isDisplayed());
        	           return;
@@ -194,11 +188,7 @@ public class BPCCruiseBookingTest
         	  e.getMessage();
          }
    	 
-                Thread.sleep(300);
-   	            final Screenshot screenshot4 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                final BufferedImage image4 = screenshot4.getImage();
-                ImageIO.write(image4, "PNG", new File("D:\\Ajit\\Script_SS\\BPC\\2_Resultpage.png"));
-            
+               
                 Thread.sleep(6000);
              
          }
@@ -209,9 +199,6 @@ public class BPCCruiseBookingTest
    	          System.out.println("\n");
    	          ExtractJSLogs();
     	 
-	          final Screenshot screenshot33 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-	          final BufferedImage image33 = screenshot33.getImage();
-	          ImageIO.write(image33, "PNG", new File("D:\\Ajit\\Script_SS\\BPCError\\1_TimeoutORinvalidsearchdetails.png"));
 	          
     	      Assert.assertFalse(false, "FAIL");
     	      Reporter.log("Time out or Invalid search criteria on resultpage..");
@@ -238,10 +225,6 @@ public class BPCCruiseBookingTest
                    	      System.out.println("Cruise not available on resultpage Logs..");
                    	      System.out.println("\n");
                    	      ExtractJSLogs();
-                      
-                          final Screenshot screenshot5 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                          final BufferedImage image5 = screenshot5.getImage();
-                          ImageIO.write(image5, "PNG", new File("D:\\Ajit\\Script_SS\\BPCError\\2_Cruisenotavailable.png"));
                       
                           Assert.assertFalse(false, "FAIL");
        	                  Reporter.log("Cruise not available..");
@@ -286,10 +269,7 @@ public class BPCCruiseBookingTest
                           ExtractJSLogs();              
                           Thread.sleep(1000);
                        
-                      final Screenshot screenshot6 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                      final BufferedImage image6 = screenshot6.getImage();
-                      ImageIO.write(image6, "PNG", new File("D:\\Ajit\\Script_SS\\BPC\\3_Cruisedetailspage.png"));
-               
+                     
                       System.out.println("Cruise selected successfully..");
                        
                       Thread.sleep(4000);
@@ -357,10 +337,6 @@ public class BPCCruiseBookingTest
           	        System.out.println("\n");
           	        ExtractJSLogs();
            	 
-      	            final Screenshot screenshot8 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-      	            final BufferedImage image8 = screenshot8.getImage();
-      	            ImageIO.write(image8, "PNG", new File("D:\\Ajit\\Script_SS\\BPCError\\3_InvalidGuestinformation.png"));
-      	          
            	        Assert.assertFalse(false, "FAIL");
            	        Reporter.log("Invalid guest information on detailspage...");
            	        AssertJUnit.assertTrue("Invalid guest information on detailspage...", crsbkngpge.isDisplayed());
@@ -377,9 +353,7 @@ public class BPCCruiseBookingTest
                 	   driver.findElement(By.id("showOut")).click();
                 	   Thread.sleep(3000);
                 	 */
-                 	   final Screenshot screenshot9 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                       final BufferedImage image9 = screenshot9.getImage();
-                       ImageIO.write(image9, "PNG", new File("D:\\Ajit\\Script_SS\\BPC\\4_Categorypage.png"));
+                 	  
                        Thread.sleep(4000);
                        driver.findElement(By.xpath("//a[@class='btn btn-sm btn-default active']")).click();
                 	   WebElement viewcat = driver.findElement(By.xpath("//a[@class='btn btn-default btn-block catDescBtn visible-md visible-lg']"));
@@ -389,10 +363,7 @@ public class BPCCruiseBookingTest
              	       System.out.println("View category info on categorypage Logs..");
              	       System.out.println("\n");
              	       ExtractJSLogs();
-             	       Thread.sleep(2000);
-                	   final Screenshot screenshot99 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                       final BufferedImage image99 = screenshot99.getImage();
-                       ImageIO.write(image99, "PNG", new File("D:\\Ajit\\Script_SS\\BPC\\5_Viewcategoryinfo.png"));
+             	       
                 	   Thread.sleep(5000);
                 	   driver.findElement(By.xpath("//a[@class='btn btn-default btn-block catDescBtn visible-md visible-lg']")).click();
                 	   Thread.sleep(8000);
@@ -406,9 +377,7 @@ public class BPCCruiseBookingTest
                 	    	 System.out.println("Bonus offers are available..");
                 	    	 Reporter.log("Bonus offers are available..");
                    		     Thread.sleep(3000);
-                   		     File scr02 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-            	             org.codehaus.plexus.util.FileUtils.copyFile(scr02, new File("D:\\Ajit\\Script_SS\\BPC\\6_BonusoffersAvailable.png")); 
-                    	     Thread.sleep(2000);
+                   		     
                     	     driver.findElement(By.xpath("//*[@id='full-terms_24403__ctl0_MainContentsPH_Categories_Categories__ctl0__ctl0__ctl0_BestPricesRPT__ctl1_PromotionsUC_OBCredit__ctl0']/div/div/div[1]/button/span")).click();
                     	     Thread.sleep(2000);
                     	     System.out.println("\n");
@@ -426,10 +395,7 @@ public class BPCCruiseBookingTest
 			          	      System.out.println("\n");
 			          	      ExtractJSLogs();
 			          	      Thread.sleep(1000);
-						      final Screenshot screenshot93 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-	                          final BufferedImage image93 = screenshot93.getImage();
-	                          ImageIO.write(image93, "PNG", new File("D:\\Ajit\\Script_SS\\BPC\\7_BonusoffersNotavailable.png"));
-	                    	  Thread.sleep(1000);
+						     
 						 }
                 	     
                 	    try
@@ -442,10 +408,7 @@ public class BPCCruiseBookingTest
                         }
                         catch(Exception e)
                         {
-                         	final Screenshot screenshot80 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-               	            final BufferedImage image80 = screenshot80.getImage();
-               	            ImageIO.write(image80, "PNG", new File("D:\\Ajit\\Script_SS\\BPCError\\4_Pricenotavailableoncategorypage.png"));
-               	          
+                         	
                     	    Assert.assertFalse(false, "FAIL");
                     	    Reporter.log("Price not availabe on category page...");
                     	    AssertJUnit.assertTrue("Price not availabe on category page...", crsbkngpge.isDisplayed());
@@ -475,10 +438,7 @@ public class BPCCruiseBookingTest
                  	      System.out.println("\n");
                  	      ExtractJSLogs();
                     
-                          final Screenshot screenshot10 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                          final BufferedImage image10 = screenshot10.getImage();
-                          ImageIO.write(image10, "PNG", new File("D:\\Ajit\\Script_SS\\BPCError\\5_Categorynotavailable.png"));
-                    
+                          
                           Assert.assertFalse(false, "FAIL");
      	                  Reporter.log("Category not available..");
      			          AssertJUnit.assertTrue("Category not available...", crsbkngpge.isDisplayed());
@@ -522,11 +482,7 @@ public class BPCCruiseBookingTest
                                 System.out.println("Cabin selectionpage Logs..");
                                 System.out.println("\n");
                                 ExtractJSLogs();              
-                                Thread.sleep(1000);
-                      
-                                final Screenshot screenshot11 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                                final BufferedImage image11 = screenshot11.getImage();
-                                ImageIO.write(image11, "PNG", new File("D:\\Ajit\\Script_SS\\BPC\\8_Cabinselectionpage.png"));
+                                
                                 Thread.sleep(2000);
 
                         	}
@@ -539,10 +495,7 @@ public class BPCCruiseBookingTest
                         	      System.out.println("\n");
                         	      ExtractJSLogs();
                            
-                                  final Screenshot screenshot13 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                                  final BufferedImage image13 = screenshot13.getImage();
-                                  ImageIO.write(image13, "PNG", new File("D:\\Ajit\\Script_SS\\BPCError\\6_Cabinnotavailable.png"));
-                           
+                                  
                                   Assert.assertFalse(false, "FAIL");
             	                  Reporter.log("Cabin not available..");
             			        //  AssertJUnit.assertTrue("Cabin not available...", crsbkngpge.isDisplayed());
@@ -569,10 +522,7 @@ public class BPCCruiseBookingTest
                                 	e.getMessage();
                                 }
                                     
-                                 final Screenshot screenshot12 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                                 final BufferedImage image12 = screenshot12.getImage();
-                                 ImageIO.write(image12, "PNG", new File("D:\\Ajit\\Script_SS\\BPC\\9_Continuewithoutsigningpage.png"));
-               
+                                
                                  System.out.println("Cabin selected successfully..");
                        
                                  Thread.sleep(4000);
@@ -595,10 +545,7 @@ public class BPCCruiseBookingTest
                        	         System.out.println("\n");
                        	         ExtractJSLogs();
                           
-                                 final Screenshot screenshot33 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                                 final BufferedImage image33 = screenshot33.getImage();
-                                 ImageIO.write(image33, "PNG", new File("D:\\Ajit\\Script_SS\\BPCError\\7_Continuewithoutsigningnotclickonstatementpage.png"));
-                          
+                                
                                  Assert.assertFalse(false, "FAIL");
            	                     Reporter.log("Continue without signing in button is not click or Not available...");
            			             AssertJUnit.assertTrue("Continue without signing in button is not click or Not available....", crsbkngpge.isDisplayed());
@@ -618,10 +565,7 @@ public class BPCCruiseBookingTest
                                  ExtractJSLogs();              
                                  Thread.sleep(1000);
                    
-                                 final Screenshot screenshot22 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                                 final BufferedImage image22 = screenshot22.getImage();
-                                 ImageIO.write(image22, "PNG", new File("D:\\Ajit\\Script_SS\\BPC\\10_Purchasepage.png"));
-           
+                                
                                  System.out.println("Continue without signing in successfully..");
                     
                                  Thread.sleep(4000);
@@ -657,10 +601,7 @@ public class BPCCruiseBookingTest
                        	         System.out.println("\n");
                        	         ExtractJSLogs();
                           
-                                 final Screenshot screenshot34 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                                 final BufferedImage image34 = screenshot34.getImage();
-                                 ImageIO.write(image34, "PNG", new File("D:\\Ajit\\Script_SS\\BPCError\\8_InvalidGuestinfoonPurchasepage.png"));
-                          
+                                
                                  Assert.assertFalse(false, "FAIL");
            	                     Reporter.log("Invalid guest information on purchase page, Please enter valid details for the required fields...");
            			             AssertJUnit.assertTrue("Invalid guest information on purchase page, Please enter valid details for the required fields....", crsbkngpge.isDisplayed());
@@ -679,11 +620,7 @@ public class BPCCruiseBookingTest
                                  ExtractJSLogs();              
                                  Thread.sleep(1000);
                                  
-                                 final Screenshot screenshot44 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                                 final BufferedImage image44 = screenshot44.getImage();
-                                 ImageIO.write(image44, "PNG", new File("D:\\Ajit\\Script_SS\\BPC\\11_Confirmationpage.png"));
-                                 
-                                 Thread.sleep(2000);
+                              
                                  
                                //For Price on confirmation page
                                String price = driver.findElement(By.cssSelector("#pricingBD > tbody > tr.pricingTotal.psGrTotal > td:nth-child(2) > strong")).getText();
@@ -704,11 +641,7 @@ public class BPCCruiseBookingTest
                                       Reporter.log("Prices of After applied insurance on the passenger details page is:- " +insurprice);
                                       Thread.sleep(1000);  
                                       
-                                      final Screenshot screenshot64 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                                      final BufferedImage image64 = screenshot64.getImage();
-                                      ImageIO.write(image64, "PNG", new File("D:\\Ajit\\Script_SS\\BPC\\12_AppliedInsurance.png"));
-                                      
-                                      Thread.sleep(2000);
+                                    
                                       
                                       // Applied insurance price
                                       String appliedinsurprice = driver.findElement(By.cssSelector("#paymentSched > tbody > tr:nth-child(3) > td.pmtsAmt")).getText();
@@ -729,11 +662,7 @@ public class BPCCruiseBookingTest
                                       Reporter.log("Prices of After removed insurance on the passenger details page is:- " +insprice);
                                       Thread.sleep(1000);  
                                       
-                                      final Screenshot screenshot66 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                                      final BufferedImage image66 = screenshot66.getImage();
-                                      ImageIO.write(image66, "PNG", new File("D:\\Ajit\\Script_SS\\BPC\\13_RemovedInsurance.png"));
-                                      
-                                      Thread.sleep(2000);
+                                    
                                       
                             	 }     
                             }
@@ -745,10 +674,7 @@ public class BPCCruiseBookingTest
                      	         System.out.println("\n");
                      	         ExtractJSLogs();
                         
-                                 final Screenshot screenshot72 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                                 final BufferedImage image72 = screenshot72.getImage();
-                                 ImageIO.write(image72, "PNG", new File("D:\\Ajit\\Script_SS\\BPCError\\9_InsurancenotAppliedOrRemoved.png"));
-                        
+                                
                                  Assert.assertFalse(false, "FAIL");
          	                     Reporter.log("Insurance not applied/removed...");
          			             AssertJUnit.assertTrue("Insurance not applied/removed....", crsbkngpge.isDisplayed());
@@ -780,10 +706,7 @@ public class BPCCruiseBookingTest
                       	         System.out.println("\n");
                       	         ExtractJSLogs();
                          
-                                 final Screenshot screenshot27 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                                 final BufferedImage image27 = screenshot27.getImage();
-                                 ImageIO.write(image27, "PNG", new File("D:\\Ajit\\Script_SS\\BPCError\\10_PageNavigateonInvalidPageOrErrormessaage.png"));
-                         
+                               
                                  Assert.assertFalse(false, "FAIL");
           	                     Reporter.log("Page navigate on invalid page Or Displaying Error message on confirmation page...");
           			             AssertJUnit.assertTrue("Page navigate on invalid page Or Displaying Error message on confirmation page....", crsbkngpge.isDisplayed());
@@ -796,11 +719,7 @@ public class BPCCruiseBookingTest
                                  ExtractJSLogs();              
                                  Thread.sleep(1000);
                             
-                                 final Screenshot screenshot49 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                                 final BufferedImage image49 = screenshot49.getImage();
-                                 ImageIO.write(image49, "PNG", new File("D:\\Ajit\\Script_SS\\BPC\\14_Paymentpage.png"));
-                                 
-                                 Thread.sleep(2000);
+                               
                                  
                                  String paymntprice = driver.findElement(By.xpath("//*[@id='PayPrice']")).getText();
                                  Reporter.log("Price on payment page is:- "+ paymntprice);
