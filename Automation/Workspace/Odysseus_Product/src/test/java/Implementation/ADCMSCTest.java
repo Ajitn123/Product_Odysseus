@@ -171,7 +171,7 @@ public class ADCMSCTest
              long finish = System.currentTimeMillis();
              long totalTime = finish - start; 
              Reporter.log("Total Time for serch page to result page load(Milisec) - "+totalTime); 
-                       
+            
               Thread.sleep(7000);
            
        }
@@ -181,7 +181,7 @@ public class ADCMSCTest
  	         System.out.println("Time out or Invalid search criteria on resultpage Logs..");
  	         System.out.println("\n");
  	         ExtractJSLogs();
-  	    
+  	 
   	         Assert.assertFalse(false, "FAIL");
   	         Reporter.log("Time out or Invalid search criteria on resultpage..");
   	         AssertJUnit.assertTrue("Time out or Invalid search criteria on resultpage...", crsbkngpge.isDisplayed());
@@ -203,7 +203,7 @@ public class ADCMSCTest
                      	  Reporter.log("Bonus Offers are available..");
                      	  
                      	  driver.findElement(By.cssSelector("#ResultsContainer > div:nth-child(2) > div.resultSales > table > tbody > tr:nth-child(1) > td:nth-child(2) > table > tbody > tr:nth-child(1) > td:nth-child(2) > a")).sendKeys(Keys.ENTER);
-                     
+                        
                           Thread.sleep(4000);
                          
                      	  driver.navigate().refresh();
@@ -213,7 +213,8 @@ public class ADCMSCTest
                       
                         driver.findElement(By.cssSelector("#ResultsContainer > div:nth-child(2) > div.resultVendor > div.dateView [id*='PriceLink_']")).click();  // Select cruise
 	                    Thread.sleep(1000);
-	                 
+	                    
+	                   
 	       	            driver.findElement(By.xpath("//*[@id='PriceList_0']/table/tbody/tr[2]/td[8]/a")).click();
 	       	            
 	                           
@@ -226,7 +227,7 @@ public class ADCMSCTest
       	         System.out.println("\n");
       	         ExtractJSLogs();
          
-             
+                
                 Assert.assertFalse(false, "FAIL");
                 Reporter.log("Cruise not available..");
 		        AssertJUnit.assertTrue("Cruise not available...", crsbkngpge.isDisplayed());
@@ -248,6 +249,7 @@ public class ADCMSCTest
                Reporter.log("Total Time for result page to details page load(Milisec) - "+totalTime); 
                Thread.sleep(1000);
    
+              
                System.out.println("Cruise selected successfully..");
                 
                Thread.sleep(4000);
@@ -315,7 +317,7 @@ public class ADCMSCTest
         	   Reporter.log("Error message: " +err);
         	   Thread.sleep(500);
         	   
-        	
+        	   
            }
       }
       catch(Exception e)
@@ -346,6 +348,7 @@ public class ADCMSCTest
                  ExtractJSLogs();              
                  Thread.sleep(1000);
      
+                 
                  System.out.println("Category selected successfully..");
                   
                  Thread.sleep(5000);
@@ -407,7 +410,7 @@ public class ADCMSCTest
                     	      System.out.println("\n");
                     	      ExtractJSLogs();
                        
-                            
+                             
                               Assert.assertFalse(false, "FAIL");
         	                  Reporter.log("Cabin not available..");
         			          AssertJUnit.assertTrue("Cabin not available...", crsbkngpge.isDisplayed());
@@ -429,6 +432,8 @@ public class ADCMSCTest
                              ExtractJSLogs();              
                              Thread.sleep(1000);
                    
+                            
+                             
                              System.out.println("Cabin selected successfully..");
                    
                              Thread.sleep(4000);
@@ -446,7 +451,8 @@ public class ADCMSCTest
         	                         driver.findElement(By.cssSelector("#tabs-1 > table:nth-child(10) > tbody > tr > td > div > a > strong")).click(); //For click to enter Passenger Information
         	                         Thread.sleep(1000);
         	                         
-        	                       
+        	                        
+        	                         
                                      System.out.println("FirstName_Of_Guest1: " + Firstname_GuestOne);
                                      System.out.println("MiddleName_Of_Guest1: " + Middlename_GuestOne);
                                      System.out.println("LastName_Of_Guest1: " + Lastname_GuestOne);
@@ -469,7 +475,8 @@ public class ADCMSCTest
                                      System.out.println("Invalid guest information on purchasepage Logs..");
                                      System.out.println("\n");
                                      ExtractJSLogs();
-                                          
+                                              
+                                     
                                      Assert.assertFalse(false, "FAIL");
                                	     Reporter.log("Invalid guest information on purchase page, Please enter valid details for the required fields...");
                                		 AssertJUnit.assertTrue("Invalid guest information on purchase page, Please enter valid details for the required fields....", crspurchpge.isDisplayed());
@@ -489,8 +496,9 @@ public class ADCMSCTest
                                      System.out.println("Confirmationpage Logs..");
                                      System.out.println("\n");
                                      ExtractJSLogs();              
-                                             
-                                     Thread.sleep(2000);
+                                     Thread.sleep(1000);
+                                                     
+                                    
 
               // For confirmation page                       
                                         
@@ -527,8 +535,9 @@ public class ADCMSCTest
                         //For check insurance price
                         String insprice = driver.findElement(By.cssSelector("#tabs-1 > table.step5PriceBox > tbody > tr:nth-child(2) > td > table > tbody > tr:nth-child(6) > td:nth-child(2)")).getText();
                         Reporter.log("Prices of After removed insurance on the passenger details page is:- " +insprice);
+                        Thread.sleep(1000);  
                         
-                        Thread.sleep(2000);
+                       
                         
               	 }     
               }
@@ -540,7 +549,6 @@ public class ADCMSCTest
        	         System.out.println("\n");
        	         ExtractJSLogs();
           
-                
                  Assert.assertFalse(false, "FAIL");
                  Reporter.log("Insurance not applied/removed...");
 		         AssertJUnit.assertTrue("Insurance not applied/removed....", crsbkngpge.isDisplayed());
@@ -577,7 +585,6 @@ public class ADCMSCTest
                catch (Exception e) 
                {
              	   
-                   
                    Assert.assertFalse(false, "FAIL");
              	   Reporter.log("Something went wrong on confirmation page...");
              	   AssertJUnit.assertTrue("Something went wrong on confirmation page...", crspurchpge.isDisplayed());
