@@ -17,6 +17,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.logging.LogType;
@@ -72,7 +73,7 @@ public class ADCMSCTest
             if (browser.equalsIgnoreCase("Firefox"))
             {
              	 
-               //   driver = new FirefoxDriver();
+                  driver = new FirefoxDriver();
 	   
             } 
             else if (browser.equalsIgnoreCase("chrome")) 
@@ -82,7 +83,7 @@ public class ADCMSCTest
 	                      LoggingPreferences loggingprefs = new LoggingPreferences();
 	                      loggingprefs.enable(LogType.BROWSER, Level.ALL);
 	                      capabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingprefs);
-	                      driver = new ChromeDriver(capabilities);
+	              //        driver = new ChromeDriver(capabilities);
 	                   
             }  
             else if (browser.equalsIgnoreCase("IE")) 
