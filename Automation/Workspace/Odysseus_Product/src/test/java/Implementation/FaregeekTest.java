@@ -98,7 +98,7 @@ public class FaregeekTest
 	     {
 	            	              
 	     driver.manage().window().maximize();
-             driver.get("http://faregeek.com/");
+             driver.get("https://faregeek.com/");
              Thread.sleep(2000);
     
              //Save console
