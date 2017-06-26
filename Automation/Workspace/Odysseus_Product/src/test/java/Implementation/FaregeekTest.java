@@ -1,6 +1,5 @@
 package Implementation;
 
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -8,10 +7,7 @@ import java.io.PrintStream;
 import java.sql.Date;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
-import javax.imageio.ImageIO;
 import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
@@ -33,9 +29,6 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import Utility.FaregeekUtils;
-import ru.yandex.qatools.ashot.AShot;
-import ru.yandex.qatools.ashot.Screenshot;
-import ru.yandex.qatools.ashot.screentaker.ViewportPastingStrategy;
 
 
 public class FaregeekTest
@@ -73,12 +66,12 @@ public class FaregeekTest
 	             } 
 	             else if (browser.equalsIgnoreCase("chrome")) 
 	             {
-	            	        System.setProperty("webdriver.chrome.driver", "D:\\Ajit\\Driver\\chromedriver_win32\\chromedriver.exe");
+	            	            System.setProperty("webdriver.chrome.driver", "D:\\Ajit\\Driver\\chromedriver_win32\\chromedriver.exe");
 		                    DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 		                    LoggingPreferences loggingprefs = new LoggingPreferences();
 		                    loggingprefs.enable(LogType.BROWSER, Level.ALL);
 		                    capabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingprefs);
-		                    driver = new ChromeDriver();
+		                    driver = new ChromeDriver(capabilities);
 		                   
 	             }  
 	             else if (browser.equalsIgnoreCase("IE")) 
@@ -99,7 +92,7 @@ public class FaregeekTest
 	     public void baseClass() throws InterruptedException, IOException  
 	     {
 	            	              
-	    	 driver.manage().window().maximize();
+	     driver.manage().window().maximize();
              driver.get("http://faregeek.com/");
              Thread.sleep(2000);
     
@@ -112,8 +105,8 @@ public class FaregeekTest
                   
              Thread.sleep(1000);
    
-            
-             System.out.println("\n");
+             
+                System.out.println("\n");
 	         System.out.println("Searchpage Logs..");
 	         System.out.println("\n");
 	         ExtractJSLogs();
@@ -170,7 +163,7 @@ public class FaregeekTest
 	   	             System.out.println("\n");
 	   	             ExtractJSLogs();
 	    	 
-	 	           
+	 	             
 	    	         Assert.assertFalse(false, "FAIL");
 	    	         Reporter.log("Time out or Invalid search criteria on resultpage..");
 	    	         AssertJUnit.assertTrue("Time out or Invalid search criteria on resultpage...", airbkpge.isDisplayed());
@@ -190,8 +183,7 @@ public class FaregeekTest
 	    	        System.out.println("Resultpage Logs..");
 	    	        System.out.println("\n");
 	    	        ExtractJSLogs();
-	    	        
-	                
+	    	      
 	    	        Thread.sleep(4000);
 	    	        
 	    	        //For View Details 
@@ -199,7 +191,7 @@ public class FaregeekTest
 	    	        {
 	    	        	  driver.findElement(By.cssSelector("[id*='flight-summary_'] > div.col-md-12.links > a.details")).click();
 	    	        	  Thread.sleep(500);
-	  	    		  	                
+	  	                 
 	  	                  driver.navigate().refresh();
 	  	                  Thread.sleep(3000);
 	    	        }
@@ -241,8 +233,7 @@ public class FaregeekTest
 	             	System.out.println("Flight not available on resultpage Logs..");
 	             	System.out.println("\n");
 	            	ExtractJSLogs();
-	              	
-	             	  
+	               
 	                Assert.assertFalse(false, "FAIL");
 	    	        Reporter.log("Flights not available..");
 	    			AssertJUnit.assertTrue("Flight not available...", airbkpge.isDisplayed());
@@ -322,8 +313,7 @@ public class FaregeekTest
 	      	  System.out.println("Timeout on checkoutpage Logs..");
 	      	  System.out.println("\n");
 	      	  ExtractJSLogs();
-	      	 
-	             
+	           
 	          Assert.assertFalse(false, "FAIL");
 	          Reporter.log("Timeout error...");
 	     	  AssertJUnit.assertTrue("Timeout error...", faregkpurchse.isDisplayed());
@@ -339,9 +329,8 @@ public class FaregeekTest
 	        	driver.findElement(By.cssSelector("#MainForm > div.col-md-9.col-xs-12.col-sm-9.pull-right.pax-main-cont > div.row.booking-section.satisfaction.panel-box.pax-info-mo > div > div > div > label [id*='ex_gr_']")).click();
 	        	Thread.sleep(2000);
 	        	Reporter.log("Best Price Gaurantee Applied successfully..");
-	        	
-                Thread.sleep(1000);
-                
+	        	Thread.sleep(500);
+	        
                 //For Additional payment display in testng report
                 String additionalitems = driver.findElement(By.xpath("//*[@id='60']")).getText();
 	        	Reporter.log(" " +additionalitems);
@@ -355,7 +344,6 @@ public class FaregeekTest
 	        	// For remove Best Price Guarantee
 	        	driver.findElement(By.cssSelector("#MainForm > div.col-md-9.col-xs-12.col-sm-9.pull-right.pax-main-cont > div.row.booking-section.satisfaction.panel-box.pax-info-mo > div > div > div > label [id*='ex_gr_']")).click();
 	        	Thread.sleep(1000);
-	        	
 	        	
 	        	Reporter.log("Best Price Gaurantee Removed successfully..");
 	        	Thread.sleep(500);
@@ -385,7 +373,7 @@ public class FaregeekTest
 	      	  System.out.println("\n");
 	      	  ExtractJSLogs();
 	      	 
-	        
+	          
 	          Assert.assertFalse(false, "FAIL");
 	          Reporter.log("Invalid guest information on checkoutpage...");
 	     	  AssertJUnit.assertTrue("Invalid guest information on checkoutpage...", faregkpurchse.isDisplayed());
@@ -400,7 +388,6 @@ public class FaregeekTest
               Thread.sleep(1000);
 	 
               
-              
               //For Insurance
               try
               {
@@ -413,7 +400,7 @@ public class FaregeekTest
                         //For check insurance price
                         String insurprice = driver.findElement(By.cssSelector("#PricesGTotal")).getText();
                         Reporter.log("Prices of After applied insurance on the Payment page:- " +insurprice);
-                        
+                         
                         Thread.sleep(2000);
                         
                         // Applied insurance price
@@ -433,7 +420,7 @@ public class FaregeekTest
                         //For check insurance price
                         String insprice = driver.findElement(By.cssSelector("#PricesGTotal")).getText();
                         Reporter.log("Prices of After removed insurance on the Payment page:- " +insprice);
-                        
+                       
                         Thread.sleep(2000);
                         
               	 }     
@@ -446,7 +433,7 @@ public class FaregeekTest
        	           System.out.println("\n");
        	           ExtractJSLogs();
           
-                  
+              
                    Assert.assertFalse(false, "FAIL");
                    Reporter.log("Insurance not applied/removed...");
 		           AssertJUnit.assertTrue("Insurance not applied/removed....", faregkpurchse.isDisplayed());
