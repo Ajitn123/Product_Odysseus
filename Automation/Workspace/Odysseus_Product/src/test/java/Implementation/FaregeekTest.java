@@ -62,7 +62,7 @@ public class FaregeekTest
 	       {
 	             if (browser.equalsIgnoreCase("Firefox"))
 	             {
-			 DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+			             DesiredCapabilities capabilities = DesiredCapabilities.firefox();
                          LoggingPreferences loggingprefs = new LoggingPreferences();
                          loggingprefs.enable(LogType.BROWSER, Level.ALL);
                          capabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingprefs);
@@ -98,7 +98,7 @@ public class FaregeekTest
 	     {
 	            	              
 	     driver.manage().window().maximize();
-             driver.get("https://faregeek.com/");
+             driver.get("http://faregeek.com/");
              Thread.sleep(2000);
     
              //Save console
@@ -365,7 +365,7 @@ public class FaregeekTest
 	           //Click on Continue to Payment Button
 	           driver.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_ContinueLNK']")).click();
 	           long start1 = System.currentTimeMillis();
-	           Thread.sleep(5000);
+	           Thread.sleep(6000);
 	           long finish1 = System.currentTimeMillis();
 	           long totalTime1 = finish1 - start1; 
 	           Reporter.log("Total Time for checkout page to payment page load(Milisec) - "+totalTime1); 
