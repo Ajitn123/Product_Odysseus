@@ -325,7 +325,7 @@ public class FaregeekTest
 	     	  throw(e);
 	       }
 	       
-	           Thread.sleep(8000);
+	           Thread.sleep(6000);
 	           
 	           
 	        // For Apply Best Price Guarantee   
