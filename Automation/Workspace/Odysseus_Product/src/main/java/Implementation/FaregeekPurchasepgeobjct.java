@@ -101,7 +101,7 @@ public class FaregeekPurchasepgeobjct
 	    private WebElement pne;
 	    
 	    @FindBy(xpath="//*[@id='accordion3']/div[1]/div/h3/a")
-	    private WebElement zoomout;
+	    private WebElement zoomout; 
 	    
 	    @FindBy(xpath="//*[@id='accordion4']/div/div[1]/h3/a")
 	    private WebElement zmout;
@@ -264,11 +264,11 @@ public class FaregeekPurchasepgeobjct
 	    		pne.click();
 	    		Thread.sleep(1000);
 	    		pne.sendKeys(pn);
-	    		Thread.sleep(1000);
+	    		Thread.sleep(2000);
 	    		zoomout.click();
-	    		Thread.sleep(1000);
+	    		Thread.sleep(2000);
 	    		zmout.click();
-	  			Thread.sleep(1000);
+	  			Thread.sleep(2000);
 	  			zmout.sendKeys(Keys.TAB);
 	  			zmout.sendKeys(Keys.TAB);
 				
