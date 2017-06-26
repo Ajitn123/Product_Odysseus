@@ -290,7 +290,7 @@ public class FaregeekTest
 	  	          Thread.sleep(500);
 	  	          String officeid = expr.split("OdysseyGateway")[7].split(":")[3].trim();
 	  	          Reporter.log("Office Id :- " +officeid);
-	  	          Thread.sleep(2000);
+	  	          Thread.sleep(3000);
 	       
 	  	   //For Passenger details         
 	       try
@@ -325,7 +325,7 @@ public class FaregeekTest
 	     	  throw(e);
 	       }
 	       
-	           Thread.sleep(4000);
+	           Thread.sleep(6000);
 	           
 	           
 	        // For Apply Best Price Guarantee   
