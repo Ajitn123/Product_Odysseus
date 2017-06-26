@@ -66,7 +66,7 @@ public class FaregeekTest
                          LoggingPreferences loggingprefs = new LoggingPreferences();
                          loggingprefs.enable(LogType.BROWSER, Level.ALL);
                          capabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingprefs);
-                         driver = new FirefoxDriver(capabilities);
+                     //    driver = new FirefoxDriver(capabilities);
 	               		   
 	             } 
 	             else if (browser.equalsIgnoreCase("chrome")) 
@@ -76,7 +76,7 @@ public class FaregeekTest
 		                    LoggingPreferences loggingprefs = new LoggingPreferences();
 		                    loggingprefs.enable(LogType.BROWSER, Level.ALL);
 		                    capabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingprefs);
-		            //        driver = new ChromeDriver(capabilities);
+		                    driver = new ChromeDriver(capabilities);
 		                   
 	             }  
 	             else if (browser.equalsIgnoreCase("IE")) 
