@@ -365,7 +365,7 @@ public class FaregeekTest
 	           //Click on Continue to Payment Button
 	           driver.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_ContinueLNK']")).click();
 	           long start1 = System.currentTimeMillis();
-	           Thread.sleep(4000);
+	           Thread.sleep(5000);
 	           long finish1 = System.currentTimeMillis();
 	           long totalTime1 = finish1 - start1; 
 	           Reporter.log("Total Time for checkout page to payment page load(Milisec) - "+totalTime1); 
@@ -406,7 +406,7 @@ public class FaregeekTest
                         String insurprice = driver.findElement(By.cssSelector("#PricesGTotal")).getText();
                         Reporter.log("Prices of After applied insurance on the Payment page:- " +insurprice);
                          
-                        Thread.sleep(2000);
+                        Thread.sleep(3000);
                         
                         // Applied insurance price
                         String appliedinsurprice = driver.findElement(By.cssSelector("#FareDetails > div.total-price.no-padding > div:nth-child(3) > div > p")).getText();
