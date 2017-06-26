@@ -12,6 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.logging.LogType;
@@ -61,8 +62,12 @@ public class FaregeekTest
 	       {
 	             if (browser.equalsIgnoreCase("Firefox"))
 	             {
-	                //  driver = new FirefoxDriver();
-		   
+			 DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+                         LoggingPreferences loggingprefs = new LoggingPreferences();
+                         loggingprefs.enable(LogType.BROWSER, Level.ALL);
+                         capabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingprefs);
+                         driver = new FirefoxDriver(capabilities);
+	               		   
 	             } 
 	             else if (browser.equalsIgnoreCase("chrome")) 
 	             {
@@ -71,7 +76,7 @@ public class FaregeekTest
 		                    LoggingPreferences loggingprefs = new LoggingPreferences();
 		                    loggingprefs.enable(LogType.BROWSER, Level.ALL);
 		                    capabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingprefs);
-		                    driver = new ChromeDriver(capabilities);
+		            //        driver = new ChromeDriver(capabilities);
 		                   
 	             }  
 	             else if (browser.equalsIgnoreCase("IE")) 
