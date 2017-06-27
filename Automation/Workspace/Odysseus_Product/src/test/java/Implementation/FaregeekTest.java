@@ -255,19 +255,19 @@ public class FaregeekTest
 	                System.out.println("\n");
 	                ExtractJSLogs();              
 	                
-	                Thread.sleep(3000);
+	                Thread.sleep(5000);
 	                
 	              //For Trip details on checkout page
-		  	      String frmloc = driver.findElement(By.cssSelector("#Flights > div:nth-child(1) > div > div.col-md-10.col-sm-10")).getText();
+		  	      String frmloc = driver.findElement(By.cssSelector("#Flights > div:nth-child(1) > div")).getText();
 		  	      Reporter.log("Departure Trip: " +frmloc);
 		  	      Thread.sleep(500);
-		  	      String toloc = driver.findElement(By.cssSelector("#Flights > div:nth-child(2) > div > div.col-md-10.col-sm-10")).getText();
+		  	      String toloc = driver.findElement(By.cssSelector("#Flights > div:nth-child(2) > div")).getText();
 		  	      Reporter.log("Return Trip: " +toloc);
 		  	      Thread.sleep(500);
-		  	      String noofadult = driver.findElement(By.cssSelector("#FareDetails > div.panel-body.fare-details > div:nth-child(1) > div > p")).getText();
+		  	      String noofadult = driver.findElement(By.cssSelector("#FareDetails > div.panel-body.fare-details > div:nth-child(1) > div")).getText();
 		  	      Reporter.log(" " +noofadult);
 		  	      Thread.sleep(500);
-		  	      String noofchilds = driver.findElement(By.cssSelector("#FareDetails > div.panel-body.fare-details > div:nth-child(2) > div > p")).getText();
+		  	      String noofchilds = driver.findElement(By.cssSelector("#FareDetails > div.panel-body.fare-details > div:nth-child(2) > div")).getText();
 		  	      Reporter.log(" " +noofchilds);
 		  	      Thread.sleep(500);
 		  	      String taxes = driver.findElement(By.cssSelector("#FareDetails > div.total-price.no-padding > div:nth-child(1) > div")).getText();
