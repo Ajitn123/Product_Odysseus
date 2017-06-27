@@ -334,7 +334,7 @@ public class FaregeekTest
 	        	driver.findElement(By.cssSelector("#MainForm > div.col-md-9.col-xs-12.col-sm-9.pull-right.pax-main-cont > div.row.booking-section.satisfaction.panel-box.pax-info-mo > div > div > div > label [id*='ex_gr_']")).click();
 	        	Thread.sleep(3000);
 	        	Reporter.log("Best Price Gaurantee Applied successfully..");
-	        	Thread.sleep(800);
+	        	Thread.sleep(500);
 	        
                 //For Additional payment display in testng report
                 String additionalitems = driver.findElement(By.xpath("//*[@id='60']")).getText();
