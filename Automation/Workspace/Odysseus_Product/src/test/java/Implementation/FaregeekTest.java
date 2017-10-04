@@ -194,7 +194,7 @@ public class FaregeekTest
 	    	        //For View Details 
 	    	        if(driver.findElement(By.cssSelector("[id*='flight-summary_'] > div.col-md-12.links > a.details")).isDisplayed())
 	    	        {
-	    	        	  driver.findElement(By.cssSelector("[id*='flight-summary_'] > div.col-md-12.links > a.details")).click();
+	    	        	  driver.findElement(By.cssSelector("[id*='flight-summary_'] > div.col-md-12.links > a.details")).sendKeys(Keys.ENTER);
 	    	        	  Thread.sleep(500);
 	  	                 
 	  	                  driver.navigate().refresh();
@@ -347,7 +347,11 @@ public class FaregeekTest
 	        	Thread.sleep(1000);
 	        	
 	        	// For remove Best Price Guarantee
-	        	driver.findElement(By.cssSelector("#MainForm > div.col-md-9.col-xs-12.col-sm-9.pull-right.pax-main-cont > div.row.booking-section.satisfaction.panel-box.pax-info-mo > div > div > div > label [id*='ex_gr_']")).click();
+	       // 	driver.findElement(By.cssSelector("#MainForm > div.col-md-9.col-xs-12.col-sm-9.pull-right.pax-main-cont > div.row.booking-section.satisfaction.panel-box.pax-info-mo > div > div > div > label [id*='ex_gr_']")).click();
+		   
+		        WebElement element1 = driver.findElement(By.cssSelector("#MainForm > div.col-md-9.col-xs-12.col-sm-9.pull-right.pax-main-cont > div.row.booking-section.satisfaction.panel-box.pax-info-mo > div > div > div > label [id*='ex_gr_']"));
+	        	JavascriptExecutor executor1 = (JavascriptExecutor) driver;
+	            executor1.executeScript("arguments[0].click();", element1);
 	        	Thread.sleep(1000);
 	        	
 	        	Reporter.log("Best Price Gaurantee Removed successfully..");
@@ -363,7 +367,7 @@ public class FaregeekTest
 	      try
 	      {
 	           //Click on Continue to Payment Button
-	           driver.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_ContinueLNK']")).click();
+	           driver.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_ContinueLNK']")).sendKeys(Keys.ENTER);
 	           long start1 = System.currentTimeMillis();
 	           Thread.sleep(6000);
 	           long finish1 = System.currentTimeMillis();
@@ -398,7 +402,11 @@ public class FaregeekTest
               {
               	 if( driver.findElement(By.cssSelector("#travel-insurance > div > div.panel-body-outer > div > div > table > tbody > tr:nth-child(3) > td > label:nth-child(1) [id*='InsurranceCHK_']")).isDisplayed())
               	 {	
-                        driver.findElement(By.cssSelector("#travel-insurance > div > div.panel-body-outer > div > div > table > tbody > tr:nth-child(3) > td > label:nth-child(1) [id*='InsurranceCHK_']")).click();
+                    //    driver.findElement(By.cssSelector("#travel-insurance > div > div.panel-body-outer > div > div > table > tbody > tr:nth-child(3) > td > label:nth-child(1) [id*='InsurranceCHK_']")).click();
+					
+					    WebElement element = driver.findElement(By.cssSelector("#travel-insurance > div > div.panel-body-outer > div > div > table > tbody > tr:nth-child(3) > td > label:nth-child(1) [id*='InsurranceCHK_']"));
+   		        	    JavascriptExecutor executor = (JavascriptExecutor) driver;
+   		                executor.executeScript("arguments[0].click();", element);
                         Thread.sleep(1500);
                         Reporter.log("Insurance applied successfully..");
                         
@@ -414,8 +422,12 @@ public class FaregeekTest
                         Thread.sleep(1000);
                         
                         //For Remove insurance
-                        WebElement insurnc = driver.findElement(By.id("InsurranceCHK_NON"));
-                        insurnc.click();
+                     //   WebElement insurnc = driver.findElement(By.id("InsurranceCHK_NON"));
+                    //    insurnc.click();
+					
+					    WebElement element1 = driver.findElement(By.id("InsurranceCHK_NON"));
+   		        	    JavascriptExecutor executor1 = (JavascriptExecutor) driver;
+   		                executor1.executeScript("arguments[0].click();", element1);
                         Thread.sleep(1500);
                         driver.switchTo().alert().accept();
                         Thread.sleep(500);
