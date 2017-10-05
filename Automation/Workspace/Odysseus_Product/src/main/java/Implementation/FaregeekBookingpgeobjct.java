@@ -89,7 +89,5 @@ public class FaregeekBookingpgeobjct
 			// TODO Auto-generated method stub
 			return false;
 		}
-
-				
 	
 }
