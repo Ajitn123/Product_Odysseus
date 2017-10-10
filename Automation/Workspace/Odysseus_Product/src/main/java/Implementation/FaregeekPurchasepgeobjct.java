@@ -101,7 +101,7 @@ public class FaregeekPurchasepgeobjct
 	    private WebElement pne;
 	    
 	    @FindBy(xpath="//*[@id='accordion3']/div[1]/div/h3/a")
-	    private WebElement zoomout; 
+	    private WebElement zoomout;
 	    
 	    @FindBy(xpath="//*[@id='accordion4']/div/div[1]/h3/a")
 	    private WebElement zmout;
@@ -258,20 +258,19 @@ public class FaregeekPurchasepgeobjct
 	  			slctyar.click();
 	  			Thread.sleep(800);
 	  			slctyar.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_3_DateUC_Year']/option[6]")).click();
-	    		        Thread.sleep(1000);
-	    		        pne.clear();
-	    		        Thread.sleep(500);
-	    		        pne.click();
-	    		        Thread.sleep(1000);
-	    		        pne.sendKeys(pn);
-	    		        Thread.sleep(2000);
-	    		        zoomout.click();
-	    		        Thread.sleep(2000);
-	    		        zmout.click();
-	  			Thread.sleep(2000);
+	    		Thread.sleep(1000);
+	    		pne.clear();
+	    		Thread.sleep(500);
+	    		pne.click();
+	    		Thread.sleep(1000);
+	    		pne.sendKeys(pn);
+	    		Thread.sleep(1000);
+	    		zoomout.click();
+	    		Thread.sleep(1000);
+	    		zmout.click();
+	  			Thread.sleep(1000);
 	  			zmout.sendKeys(Keys.TAB);
 	  			zmout.sendKeys(Keys.TAB);
-			        Thread.sleep(2000);
 				
 	    	 }
 	    	 catch(Exception e)
