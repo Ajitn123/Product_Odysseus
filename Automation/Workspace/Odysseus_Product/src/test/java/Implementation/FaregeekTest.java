@@ -73,12 +73,7 @@ public class FaregeekTest
 	       {
 	             if (browser.equalsIgnoreCase("Firefox"))
 	             {
-	                  driver = new FirefoxDriver();
-			    
-                   DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-                   LoggingPreferences loggingprefs = new LoggingPreferences();
-                   loggingprefs.enable(LogType.BROWSER, Level.ALL);
-                   capabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingprefs);
+	             //     driver = new FirefoxDriver();
 		   
 	             } 
 	             else if (browser.equalsIgnoreCase("chrome")) 
@@ -88,7 +83,7 @@ public class FaregeekTest
 		                    LoggingPreferences loggingprefs = new LoggingPreferences();
 		                    loggingprefs.enable(LogType.BROWSER, Level.ALL);
 		                    capabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingprefs);
-		              //      driver = new ChromeDriver(capabilities);
+		                    driver = new ChromeDriver(capabilities);
 		                   
 	             }  
 	             else if (browser.equalsIgnoreCase("IE")) 
