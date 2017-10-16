@@ -18,6 +18,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.logging.LogType;
@@ -125,7 +126,7 @@ public class FaregeekTest
              final BufferedImage image1 = screenshot1.getImage();
              ImageIO.write(image1, "PNG", new File("D:\\Ajit\\Script_SS\\Faregeek\\1_Searchpage.png"));
              Thread.sleep(3000);
-     */       
+           
              String ActualImage = "D:\\Ajit\\Script_SS\\Faregeek\\1_Searchpage.png";
              String Referance = "D:\\Ajit\\Script_SS\\Daily Sanity\\Oct_2017\\11 Oct\\Faregeek\\Faregeek\\1_Searchpage.png";
              String myCommand = "D:\\Ajit\\Script_SS\\ImageCompConsole.exe";
@@ -136,7 +137,7 @@ public class FaregeekTest
              Process p = pb.start();
              
              System.out.println("" +p);
-             
+      */       
              System.out.println("\n");
 	         System.out.println("Searchpage Logs..");
 	         System.out.println("\n");
@@ -224,7 +225,7 @@ public class FaregeekTest
 	                final BufferedImage image4 = screenshot4.getImage();
 	                ImageIO.write(image4, "PNG", new File("D:\\Ajit\\Script_SS\\Faregeek\\2_Resultpage.png"));
 	                Thread.sleep(2000);
-	        */        
+	                
 	                String myArg1 = "D:\\Ajit\\Script_SS\\Faregeek\\2_Resultpage.png";
 	                String myArg2 = "D:\\Ajit\\Script_SS\\Daily Sanity\\Oct_2017\\11 Oct\\Faregeek\\Faregeek\\2_Resultpage.png";
 	                String myCommand = "D:\\Ajit\\Script_SS\\ImageCompConsole.exe";
@@ -235,7 +236,7 @@ public class FaregeekTest
 	                Process p = pb.start();
 	                
 	                System.out.println("" +p);
-	        
+	        */
 	    	        Thread.sleep(4000);
 	    	        
 	    	        //For View Details 
@@ -247,7 +248,7 @@ public class FaregeekTest
 	  	                  File scr02 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
        	                  org.codehaus.plexus.util.FileUtils.copyFile(scr02, new File("D:\\Ajit\\Script_SS\\Faregeek\\3_ViewDetails.png")); 
 	  	                  Thread.sleep(2000);
-	  	           */       
+	  	                  
 	  	                  String myArg3 = "D:\\Ajit\\Script_SS\\Faregeek\\3_ViewDetails.png";
 		                  String myArg4 = "D:\\Ajit\\Script_SS\\Daily Sanity\\Oct_2017\\11 Oct\\Faregeek\\Faregeek\\3_ViewDetails.png";
 		                  String myCommand1 = "D:\\Ajit\\Script_SS\\ImageCompConsole.exe";
@@ -258,7 +259,7 @@ public class FaregeekTest
 		                  Process p1 = pb1.start();
 		                
 		                  System.out.println("" +p1);
-	  	                
+	  	             */   
 	  	                  driver.navigate().refresh();
 	  	                  Thread.sleep(3000);
 	    	        }
@@ -326,7 +327,7 @@ public class FaregeekTest
 	                final BufferedImage image3 = screenshot3.getImage();
 	                ImageIO.write(image3, "PNG", new File("D:\\Ajit\\Script_SS\\Faregeek\\4_Checkoutpage.png"));
 	                Thread.sleep(2000);
-	           */     
+	                
 	                  String myArg3 = "D:\\Ajit\\Script_SS\\Faregeek\\4_Checkoutpage.png";
 	                  String myArg4 = "D:\\Ajit\\Script_SS\\Daily Sanity\\Oct_2017\\11 Oct\\Faregeek\\Faregeek\\4_Checkoutpage.png";
 	                  String myCommand1 = "D:\\Ajit\\Script_SS\\ImageCompConsole.exe";
@@ -337,7 +338,7 @@ public class FaregeekTest
 	                  Process p1 = pb1.start();
 	                
 	                  System.out.println("" +p1);
-	                
+	           */     
 	                 Thread.sleep(3000);
 	                
 	              //For Trip details on checkout page
@@ -427,7 +428,7 @@ public class FaregeekTest
                 final BufferedImage image37 = screenshot37.getImage();
                 ImageIO.write(image37, "PNG", new File("D:\\Ajit\\Script_SS\\Faregeek\\05_AppliedBestPriceGaurantee.png"));
                 Thread.sleep(1000);
-              */  
+                
                 String myArg5 = "D:\\Ajit\\Script_SS\\Faregeek\\05_AppliedBestPriceGaurantee.png";
                 String myArg6 = "D:\\Ajit\\Script_SS\\Daily Sanity\\Oct_2017\\11 Oct\\Faregeek\\Faregeek\\05_AppliedBestPriceGaurantee.png";
                 String myCommand2 = "D:\\Ajit\\Script_SS\\ImageCompConsole.exe";
@@ -438,7 +439,7 @@ public class FaregeekTest
                 Process p2 = pb2.start();
               
                 System.out.println("" +p2);
-                
+        */        
                 //For Additional payment display in testng report
                 String additionalitems = driver.findElement(By.xpath("//*[@id='60']")).getText();
 	        	Reporter.log(" " +additionalitems);
@@ -460,7 +461,7 @@ public class FaregeekTest
                 final BufferedImage image39 = screenshot39.getImage();
                 ImageIO.write(image39, "PNG", new File("D:\\Ajit\\Script_SS\\Faregeek\\5_RemovedBestPriceGaurantee.png"));
                 Thread.sleep(1500);
-           */     
+                
                 String myArg7 = "D:\\Ajit\\Script_SS\\Faregeek\\5_RemovedBestPriceGaurantee.png";
                 String myArg8 = "D:\\Ajit\\Script_SS\\Daily Sanity\\Oct_2017\\11 Oct\\Faregeek\\Faregeek\\5_RemovedBestPriceGaurantee.png";
                 String myCommand3 = "D:\\Ajit\\Script_SS\\ImageCompConsole.exe";
@@ -471,7 +472,7 @@ public class FaregeekTest
                 Process p3 = pb3.start();
               
                 System.out.println("" +p3);
-	        	
+	    */    	
 	        	Reporter.log("Best Price Gaurantee Removed successfully..");
 	        	Thread.sleep(500);
 	        	
@@ -521,7 +522,7 @@ public class FaregeekTest
               final BufferedImage image48 = screenshot48.getImage();
               ImageIO.write(image48, "PNG", new File("D:\\Ajit\\Script_SS\\Faregeek\\6_Paymentpage.png"));
               Thread.sleep(1000);
-        */      
+              
               String myArg7 = "D:\\Ajit\\Script_SS\\Faregeek\\6_Paymentpage.png";
               String myArg8 = "D:\\Ajit\\Script_SS\\Daily Sanity\\Oct_2017\\11 Oct\\Faregeek\\Faregeek\\6_Paymentpage.png";
               String myCommand3 = "D:\\Ajit\\Script_SS\\ImageCompConsole.exe";
@@ -532,7 +533,7 @@ public class FaregeekTest
               Process p3 = pb3.start();
             
               System.out.println("" +p3);
-              
+       */       
               //For Insurance
               try
               {
@@ -554,7 +555,7 @@ public class FaregeekTest
                         final BufferedImage image64 = screenshot64.getImage();
                         ImageIO.write(image64, "PNG", new File("D:\\Ajit\\Script_SS\\Faregeek\\7_AppliedInsurance.png"));
                         Thread.sleep(2000);
-                */        
+                       
                         String myArg9 = "D:\\Ajit\\Script_SS\\Faregeek\\7_AppliedInsurance.png";
                         String myArg10 = "D:\\Ajit\\Script_SS\\Daily Sanity\\Oct_2017\\11 Oct\\Faregeek\\Faregeek\\7_AppliedInsurance.png";
                         String myCommand4 = "D:\\Ajit\\Script_SS\\ImageCompConsole.exe";
@@ -565,7 +566,7 @@ public class FaregeekTest
                         Process p4 = pb4.start();
                       
                         System.out.println("" +p4);
-                        
+              */          
                         // Applied insurance price
                         String appliedinsurprice = driver.findElement(By.cssSelector("#FareDetails > div.total-price.no-padding > div:nth-child(3) > div > p")).getText();
                         Reporter.log(" " +appliedinsurprice);
@@ -593,7 +594,7 @@ public class FaregeekTest
                         final BufferedImage image66 = screenshot66.getImage();
                         ImageIO.write(image66, "PNG", new File("D:\\Ajit\\Script_SS\\Faregeek\\8_RemovedInsurance.png"));
                         Thread.sleep(2000);
-                */        
+                        
                         String myArg11 = "D:\\Ajit\\Script_SS\\Faregeek\\8_RemovedInsurance.png";
                         String myArg12 = "D:\\Ajit\\Script_SS\\Daily Sanity\\Oct_2017\\11 Oct\\Faregeek\\Faregeek\\8_RemovedInsurance.png";
                         String myCommand5 = "D:\\Ajit\\Script_SS\\ImageCompConsole.exe";
@@ -604,7 +605,7 @@ public class FaregeekTest
                         Process p5 = pb5.start();
                       
                         System.out.println("" +p5);
-                        
+              */          
               	 }     
               }
               catch(Exception e)
