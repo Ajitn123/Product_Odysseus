@@ -74,7 +74,7 @@ public class FaregeekTest
 	             if (browser.equalsIgnoreCase("Firefox"))
 	             {
 	                  driver = new FirefoxDriver();
-			     driver = new FirefoxDriver();
+			    
                    DesiredCapabilities capabilities = DesiredCapabilities.firefox();
                    LoggingPreferences loggingprefs = new LoggingPreferences();
                    loggingprefs.enable(LogType.BROWSER, Level.ALL);
