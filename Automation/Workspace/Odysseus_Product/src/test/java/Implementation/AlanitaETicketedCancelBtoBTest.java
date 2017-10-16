@@ -75,7 +75,7 @@ public class AlanitaETicketedCancelBtoBTest
 	                 } 
 	                 else if (browser.equalsIgnoreCase("chrome")) 
 	                 {
-		                    System.setProperty("webdriver.chrome.driver", "D:\\Ajit\\Driver\\chromedriver_win32\\chromedriver.exe");
+		                    System.setProperty("webdriver.chrome.driver", "D:\\Ajit\\Automation\\Workspace\\Odysseus_Product\\Driver\\chromedriver_win32\\chromedriver.exe");
 		                    DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 		                    LoggingPreferences loggingprefs = new LoggingPreferences();
 		                    loggingprefs.enable(LogType.BROWSER, Level.ALL);
@@ -85,7 +85,7 @@ public class AlanitaETicketedCancelBtoBTest
 	                 }  
 	                 else if (browser.equalsIgnoreCase("IE")) 
 	                 {
-		                   System.setProperty("webdriver.ie.driver", "D:\\Ajit\\Driver\\IEDriverServer_Win32_2.53.0\\IEDriverServer.exe");
+		                   System.setProperty("webdriver.ie.driver", "D:\\Ajit\\Automation\\Workspace\\Odysseus_Product\\Driver\\IEDriverServer_Win32_2.53.0\\IEDriverServer.exe");
 		                // driver = new InternetExplorerDriver();
 		                   
 	                 } 

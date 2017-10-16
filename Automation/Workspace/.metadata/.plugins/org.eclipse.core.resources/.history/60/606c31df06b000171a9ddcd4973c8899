@@ -1,0 +1,919 @@
+package Implementation;
+
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.sql.Date;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import javax.imageio.ImageIO;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.logging.LogEntries;
+import org.openqa.selenium.logging.LogEntry;
+import org.openqa.selenium.logging.LogType;
+import org.openqa.selenium.logging.LoggingPreferences;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.AssertJUnit;
+import org.testng.Reporter;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+import Utility.DPB2CUtils;
+import ru.yandex.qatools.ashot.AShot;
+import ru.yandex.qatools.ashot.Screenshot;
+import ru.yandex.qatools.ashot.screentaker.ViewportPastingStrategy;
+
+public class LocalOpenSegmentTest 
+{
+	   DPB2Ccheckoutpgeobjct crspurchpge;
+	   DPB2CPaymentpgeobjct crspymnt;
+	   LocalOpenSegmentLoginpgobjct crsbkng;
+       LocalCruisePaymentpgeobjct hldncnfrm;
+       public static WebDriver driver;
+       WebDriverWait wait;
+       Reporter report = new Reporter();
+       
+       String Log = "D:\\Ajit\\Script_SS\\Differences of Images\\Logs\\LocallyOpenSegment.txt";
+
+  public static boolean implicitwait(long time)
+  {
+     try 
+     {
+           driver.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
+           System.out.println("Waited for"+time+"sec implicitly.");
+
+     } catch (Exception e) 
+       {
+	             System.out.println(e.getMessage());
+       }
+             return true;
+  } 
+
+  @Parameters({ "browser" })
+  @BeforeTest
+  public void openBroswer(String browser) throws InterruptedException, IOException  
+  {
+     try 
+     {
+           if (browser.equalsIgnoreCase("Firefox"))
+           {
+              //  driver = new FirefoxDriver();
+	   
+           } 
+           else if (browser.equalsIgnoreCase("chrome")) 
+           {
+          	            System.setProperty("webdriver.chrome.driver", "D:\\Ajit\\Automation\\Workspace\\Odysseus_Product\\Driver\\chromedriver_win32\\chromedriver.exe");
+	                    DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+	                    LoggingPreferences loggingprefs = new LoggingPreferences();
+	                    loggingprefs.enable(LogType.BROWSER, Level.ALL);
+	                    capabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingprefs);
+	                    driver = new ChromeDriver(capabilities);
+	                    
+           }  
+           else if (browser.equalsIgnoreCase("IE")) 
+           {
+	                   System.setProperty("webdriver.ie.driver", "D:\\Ajit\\Automation\\Workspace\\Odysseus_Product\\Driver\\IEDriverServer_Win32_2.53.0\\IEDriverServer.exe");
+	                   //driver = new InternetExplorerDriver();
+	                   
+           } 
+
+     } catch (WebDriverException e) 
+       {
+             System.out.println(e.getMessage());
+       }
+     
+  }
+     
+   @BeforeClass
+   public void baseClass() throws InterruptedException, IOException  
+   {
+       	              
+   	   driver.manage().window().maximize();
+       driver.get("https://localhost/odyssey/admin/login.aspx");
+       
+		wait = new WebDriverWait(driver, 5);
+		wait.until(ExpectedConditions.presenceOfElementLocated(container));
+       Thread.sleep(2000);
+      
+ /*     
+       Dimension d = new Dimension(414,736);
+       //Resize current window to the set dimension
+       driver.manage().window().setSize(d);
+ */
+       //Save console
+       String testResultFile="D:\\Ajit\\Script_SS\\ConsoleError\\LocallyOpenSegmentBookingError.txt";
+       File file = new File(testResultFile);  
+       FileOutputStream fis = new FileOutputStream(file);  
+       PrintStream out = new PrintStream(fis);  
+       System.setOut(out); 
+            
+       Thread.sleep(1000);
+
+       final Screenshot screenshot1 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+       final BufferedImage image1 = screenshot1.getImage();
+       ImageIO.write(image1, "PNG", new File("D:\\Ajit\\Script_SS\\LocallyOpenSegment\\1_Loginpage.png"));
+       Thread.sleep(1000);
+       
+       String myArg1 = "D:\\Ajit\\Script_SS\\LocallyOpenSegment\\1_Searchpage.png";
+       String myArg2 = "D:\\Ajit\\Script_SS\\Daily Sanity\\Oct_2017\\12 Oct\\LocallyOpenSegment 1\\LocallyOpenSegment\\1_Searchpage.png";
+       String myCommand = "D:\\Ajit\\Script_SS\\ImageCompConsole.exe";
+       String Output = "D:\\Ajit\\Script_SS\\Differences of Images\\LocallyOpenSegment\\1_Searchpage.png";
+        
+       ProcessBuilder pb = new ProcessBuilder(myCommand, myArg1, myArg2, Output, Log);
+       pb.directory(new File("D:\\Ajit\\Script_SS"));
+       Process p = pb.start();
+       
+       System.out.println("" +p);
+       
+       System.out.println("\n");
+       System.out.println("Searchpage Logs..");
+       System.out.println("\n");
+       ExtractJSLogs();
+      
+       Thread.sleep(4000); 
+     
+         crsbkng = PageFactory.initElements(driver, LocalOpenSegmentLoginpgobjct.class);  
+         crspurchpge = PageFactory.initElements(driver, DPB2Ccheckoutpgeobjct.class);
+         crspymnt = PageFactory.initElements(driver, DPB2CPaymentpgeobjct.class);
+   
+  }
+
+  public void ExtractJSLogs()
+  {
+       LogEntries logEntries = driver.manage().logs().get(LogType.BROWSER);
+
+         for (LogEntry entry : logEntries) 
+         {
+              System.out.println(new Date(entry.getTimestamp()) + " " + entry.getLevel() + " " + entry.getMessage());
+         }
+  }
+  
+  @Test(dataProvider="Authentications")
+  public void DLC_data(String sUsername, String sPassword, String tolocatn, String Firstname_GuestOne, String Middlename_GuestOne, String Lastname_GuestOne, String Firstname_GuestTwo, String Middlename_GuestTwo, String Lastname_GuestTwo, String Email, String ConfirmEmail, String Phone, String DestinationPhone, String CardHolderName, String CardNo, String CardCvvNo, String Address, String City, String Zipcode, String Phone_Number, String Bank_Name) throws Exception
+  {
+	
+  	  try
+      {
+ 		     //For web site and booking details
+             Reporter.log("Website Name :- Parth Bhatt");
+             Thread.sleep(200);
+ 		 
+ 		     Reporter.log("Affiliate :- Odysseus-CAMH");
+ 		     Thread.sleep(1500);
+ 		     
+ 		     System.out.println("sUsername: " + sUsername);
+ 	         System.out.println("sPassword: " + sPassword);
+ 		 
+ 		     crsbkng.CruiseLoginToTittle(sUsername, sPassword);   
+ 		     
+ 		     final Screenshot screenshot4 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+             final BufferedImage image4 = screenshot4.getImage();
+             ImageIO.write(image4, "PNG", new File("D:\\Ajit\\Script_SS\\LocallyOpenSegment\\2_Searchpage.png"));
+             Thread.sleep(2000);
+             
+             try
+             {
+                      driver.findElement(By.xpath("//*[@id='CruiseSearchForm_tab2']/div[2]/div[3]/div/input")).sendKeys(Keys.ENTER);          	 
+             }
+             catch(Exception e)
+             {
+            	 e.getMessage();
+             }
+     	  
+     	     long start = System.currentTimeMillis();
+     	     
+     	     Thread.sleep(3982);
+     	     long finish = System.currentTimeMillis();
+             long totalTime = finish - start; 
+       //   int seconds = (int) (totalTime / 1000) % 60 ;
+             Reporter.log("Total Time for serch page to result page load(Milisec) - "+totalTime); 
+             Thread.sleep(1000);
+     	     System.out.println("\n");
+	         System.out.println("Resultpage Logs..");
+	         System.out.println("\n");
+	         ExtractJSLogs();
+         
+             Thread.sleep(4000);
+          
+      }
+      catch(Exception e)
+      {
+     	     System.out.println("\n");
+	         System.out.println("Time out or Invalid search criteria on resultpage Logs..");
+	         System.out.println("\n");
+	         ExtractJSLogs();
+ 	 
+	         final Screenshot screenshot33 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+	         final BufferedImage image33 = screenshot33.getImage();
+	         ImageIO.write(image33, "PNG", new File("D:\\Ajit\\Script_SS\\LocallyOpenSegmentError\\1_TimeoutORinvalidsearchdetails.png"));
+	          
+ 	         Assert.assertFalse(false, "FAIL");
+ 	         Reporter.log("Time out or Invalid search criteria on resultpage..");
+ 	         AssertJUnit.assertTrue("Time out or Invalid search criteria on resultpage...", crsbkng.isDisplayed());
+ 	         throw(e);
+      }
+  	  
+  	try
+    {
+   	 
+        // For select dynamic cruise from result page
+        for(int i = driver.getWindowHandles().size() -1 ; i > 0 ; i--)
+        {
+
+                            String winHandle = driver.getWindowHandles().toArray()[i].toString();
+
+                            driver.switchTo().window(winHandle);
+                           
+                            driver.navigate().refresh();
+                            
+                            Thread.sleep(3000);     
+  
+                         driver.get("https://localhost/odyssey/website/cruises/results.aspx?showtrace=true");
+
+	                     driver.manage().window().maximize();
+	       
+	                    System.out.println("\n");
+	                    System.out.println("Resultpage Logs..");
+	                    System.out.println("\n");
+	                    ExtractJSLogs();
+	       
+	                   Thread.sleep(3000);
+	       
+	                   final Screenshot screenshot003 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+		               final BufferedImage image003 = screenshot003.getImage();
+		               ImageIO.write(image003, "PNG", new File("D:\\Ajit\\Script_SS\\LocallyOpenSegment\\2_Resultpage.png"));
+
+	                   Thread.sleep(7000);
+	                   
+	                   String myArg1 = "D:\\Ajit\\Script_SS\\LocallyOpenSegment\\2_Resultpage.png";
+	                   String myArg2 = "D:\\Ajit\\Script_SS\\Daily Sanity\\Oct_2017\\12 Oct\\LocallyOpenSegment 1\\LocallyOpenSegment\\2_Resultpage.png";
+	                   String myCommand = "D:\\Ajit\\Script_SS\\ImageCompConsole.exe";
+	                   String Output = "D:\\Ajit\\Script_SS\\Differences of Images\\LocallyOpenSegment\\2_Resultpage.png";
+	                   
+	                   ProcessBuilder pb = new ProcessBuilder(myCommand, myArg1, myArg2, Output, Log);
+	                   pb.directory(new File("D:\\Ajit\\Script_SS"));
+	                   Process p = pb.start();
+	                   
+	                   System.out.println("" +p);
+	  
+               // For select cruise 
+	               driver.findElement(By.cssSelector("[id*='PriceList_'] > div > ul > li.grid-btn.btn-container [class*='booknow res_Cruise_detai_mo primary-btn']")).sendKeys(Keys.ENTER);
+	               long start = System.currentTimeMillis();
+	               Thread.sleep(6200);
+	               long finish = System.currentTimeMillis();
+                   long totalTime = finish - start; 
+                   Reporter.log("Total Time for result page to details page load(Milisec) - "+totalTime); 
+                   Thread.sleep(1000);
+        }        
+    }
+    catch(Exception e)
+    {
+   	       final Screenshot screenshot800 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+           final BufferedImage image800 = screenshot800.getImage();
+           ImageIO.write(image800, "PNG", new File("D:\\Ajit\\Script_SS\\LocallyOpenSegmentError\\03_Cruisenotselectedoravailable.png"));
+       
+	        Assert.assertFalse(false, "FAIL");
+	        Reporter.log("Cruise not selected or available...");
+	        AssertJUnit.assertTrue("Cruise not selected or available...", crsbkng.isDisplayed());
+	        throw(e);
+    }
+            System.out.println("\n");
+            System.out.println("Cruise detailspage Logs..");
+            System.out.println("\n");
+            ExtractJSLogs();              
+            Thread.sleep(1000);
+         
+            final Screenshot screenshot3 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+		    final BufferedImage image3 = screenshot3.getImage();
+		    ImageIO.write(image3, "PNG", new File("D:\\Ajit\\Script_SS\\LocallyOpenSegment\\4_Detailspage.png"));
+		    
+		    Thread.sleep(3000);
+		    
+		    String myArg1 = "D:\\Ajit\\Script_SS\\LocallyOpenSegment\\4_Detailspage.png";
+            String myArg2 = "D:\\Ajit\\Script_SS\\Daily Sanity\\Oct_2017\\12 Oct\\LocallyOpenSegment 1\\LocallyOpenSegment\\4_Detailspage.png";
+            String myCommand = "D:\\Ajit\\Script_SS\\ImageCompConsole.exe";
+            String Output = "D:\\Ajit\\Script_SS\\Differences of Images\\LocallyOpenSegment\\4_Detailspage.png";
+            
+            ProcessBuilder pb = new ProcessBuilder(myCommand, myArg1, myArg2, Output, Log);
+            pb.directory(new File("D:\\Ajit\\Script_SS"));
+            Process p = pb.start();
+            
+            System.out.println("" +p);
+		    
+		  //For the Cruise details page
+	        try
+	        {
+	                	
+	        	driver.findElement(By.id("_ctl0:MainContentsPH:_ctl0:_ctl0_GuestAge_1")).clear();
+                Thread.sleep(100);
+                driver.findElement(By.id("_ctl0:MainContentsPH:_ctl0:_ctl0_GuestAge_1")).click();
+                Thread.sleep(100);
+                driver.findElement(By.id("_ctl0:MainContentsPH:_ctl0:_ctl0_GuestAge_1")).sendKeys("24");
+                Thread.sleep(300);
+                driver.findElement(By.id("_ctl0:MainContentsPH:_ctl0:_ctl0_GuestAge_2")).clear();
+                Thread.sleep(100);
+                driver.findElement(By.id("_ctl0:MainContentsPH:_ctl0:_ctl0_GuestAge_2")).click();
+                Thread.sleep(100);
+                driver.findElement(By.id("_ctl0:MainContentsPH:_ctl0:_ctl0_GuestAge_2")).sendKeys("30");
+                Thread.sleep(300);
+                driver.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0__ctl0_ResidentState']")).click();
+                Thread.sleep(300);
+                driver.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0__ctl0_ResidentState']/option[3]")).click();
+                Thread.sleep(300);
+              	 
+                driver.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0__ctl0_TransportationMode']")).click();
+                Thread.sleep(600);
+                Select select = new Select(driver.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0__ctl0_TransportationMode']")));
+    			select.selectByVisibleText("Cruise with Air");
+    			Thread.sleep(1000);
+              
+    		//For Round Trip	
+    			driver.findElement(By.xpath("//*[@id='flight_options_search_form']/div/div[1]/label[1]/span")).click();
+    			Thread.sleep(1500);
+    			
+    			WebElement FROMloc = driver.findElement(By.id("from_airport_i"));
+    			FROMloc.clear();
+    			Thread.sleep(600);
+    			FROMloc.click();
+    			Thread.sleep(500);
+    			FROMloc.sendKeys(tolocatn);
+    			Thread.sleep(600);
+    			FROMloc.sendKeys(Keys.TAB);
+    			
+                driver.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0__ctl0_CategoryLNK']")).sendKeys(Keys.ENTER);
+                long start1 = System.currentTimeMillis();
+                Thread.sleep(7012);
+                
+                System.out.println("\n");
+      	        System.out.println("Categorypage Logs..");
+      	        System.out.println("\n");
+      	        ExtractJSLogs();
+                
+                Thread.sleep(700);
+                long finish1 = System.currentTimeMillis();
+                long totalTime1 = finish1 - start1; 
+                Reporter.log("Total Time for details page to category page load(Milisec) - "+totalTime1); 
+                Thread.sleep(10000);
+	        }
+	        catch(Exception e)
+	        {
+	                  	System.out.println("\n");
+	         	        System.out.println("Invalid guest information on cruise detailspage Logs..");
+	         	        System.out.println("\n");
+	         	        ExtractJSLogs();
+	          	 
+	     	            final Screenshot screenshot80 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+	     	            final BufferedImage image80 = screenshot80.getImage();
+	     	            ImageIO.write(image80, "PNG", new File("D:\\Ajit\\Script_SS\\LocallyOpenSegmentError\\3_InvalidGuestinformation.png"));
+	     	          
+	          	        Assert.assertFalse(false, "FAIL");
+	          	        Reporter.log("Invalid guest information's on detailspage...");
+	          	        AssertJUnit.assertTrue("Invalid guest information's on detailspage...", crsbkng.isDisplayed());
+	          	        throw(e);
+	         }
+	        
+	        
+	      // Verify error on category page
+	      try
+	      {
+	           if(driver.findElement(By.cssSelector("#_ctl0_PageHeadTD > div.content-area > div.top-error.error-box > div.top-error-bottom")).isDisplayed())
+	           {
+	        	   String err = driver.findElement(By.cssSelector("#_ctl0_PageHeadTD > div.content-area > div.top-error.error-box > div.top-error-bottom")).getText();
+	        	   Thread.sleep(1000);
+	        	   Reporter.log("Error message: " +err);
+	        	   Thread.sleep(500);
+	        	   
+	        	   final Screenshot screenshot82 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+	               final BufferedImage image82 = screenshot82.getImage();
+	               ImageIO.write(image82, "PNG", new File("D:\\Ajit\\Script_SS\\LocallyOpenSegmentError\\07_Error.png"));
+	               Thread.sleep(1000);
+	               AssertJUnit.assertTrue(" " +err, crsbkng.isDisplayed());
+	               return;
+	           }
+	      }
+	      catch(Exception e)
+	      {
+	    	  e.getMessage();
+	      }
+	      
+	                 //For verify Balcony category on category page
+	                 if(driver.findElement(By.cssSelector("#MainForm > div.cruise-detail-box > div.category-tab-content-box > div > ul > li:nth-child(3) > a > div > span:nth-child(2)")).isDisplayed())
+	                 {
+	                	 driver.findElement(By.cssSelector("#MainForm > div.cruise-detail-box > div.category-tab-content-box > div > ul > li:nth-child(3) > a > div > span:nth-child(2)")).click();
+	                	 Thread.sleep(1500);
+	                	 
+	                	 final Screenshot screenshot61 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+	                     final BufferedImage image61 = screenshot61.getImage();
+	                     ImageIO.write(image61, "PNG", new File("D:\\Ajit\\Script_SS\\LocallyOpenSegment\\5_Categorypage.png"));
+	                     Thread.sleep(4000);
+	                     
+	                     String myArg11 = "D:\\Ajit\\Script_SS\\LocallyOpenSegment\\5_Categorypage.png";
+	                     String myArg21 = "D:\\Ajit\\Script_SS\\Daily Sanity\\Oct_2017\\12 Oct\\LocallyOpenSegment 1\\LocallyOpenSegment\\5_Categorypage.png";
+	                     String myCommand1 = "D:\\Ajit\\Script_SS\\ImageCompConsole.exe";
+	                     String Output1 = "D:\\Ajit\\Script_SS\\Differences of Images\\LocallyOpenSegment\\5_Categorypage.png";
+	                     
+	                     ProcessBuilder pb1 = new ProcessBuilder(myCommand1, myArg11, myArg21, Output1, Log);
+	                     pb1.directory(new File("D:\\Ajit\\Script_SS"));
+	                     Process p1 = pb1.start();
+	                     
+	                     System.out.println("" +p1);
+	                     	                     
+	                  // For open price tab..
+	                  if(driver.findElement(By.cssSelector("[id*='category_'] > div:nth-child(1) > div.categoryview-price-gride > ul.categoryview-price-gride-even > li.btn-container > div.cat_price_container [class*='pricenow secondary-btn']")).isDisplayed())
+	                  {
+	                     //  driver.findElement(By.cssSelector("[id*='category_'] > div:nth-child(1) > div.categoryview-price-gride > ul.categoryview-price-gride-even > li.btn-container > div.cat_price_container [class*='pricenow secondary-btn']")).click();
+	                        WebElement element11 = driver.findElement(By.cssSelector("[id*='category_'] > div:nth-child(1) > div.categoryview-price-gride > ul.categoryview-price-gride-even > li.btn-container > div.cat_price_container [class*='pricenow secondary-btn']"));
+	     		            JavascriptExecutor executor11 = (JavascriptExecutor) driver;
+	     		            executor11.executeScript("arguments[0].click();", element11);
+	                        Thread.sleep(2000);
+	                     
+	                     // Switch to new window opened
+	                        String winHandleBefore = driver.getWindowHandle();
+	                     
+	                     for(String winHandle : driver.getWindowHandles())
+	                     {
+	                         driver.switchTo().window(winHandle);
+	                     }
+	                     
+	                         final Screenshot screenshot63 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+	                         final BufferedImage image63 = screenshot63.getImage();
+	                         ImageIO.write(image63, "PNG", new File("D:\\Ajit\\Script_SS\\LocallyOpenSegment\\6_PriceonCategorypage.png"));
+	                         Thread.sleep(2000); 
+	                       
+	                         String myArg111 = "D:\\Ajit\\Script_SS\\LocallyOpenSegment\\6_PriceonCategorypage.png";
+		                     String myArg211 = "D:\\Ajit\\Script_SS\\Daily Sanity\\Oct_2017\\12 Oct\\LocallyOpenSegment 1\\LocallyOpenSegment\\6_PriceonCategorypage.png";
+		                     String myCommand11 = "D:\\Ajit\\Script_SS\\ImageCompConsole.exe";
+		                     String Output11 = "D:\\Ajit\\Script_SS\\Differences of Images\\LocallyOpenSegment\\6_PriceonCategorypage.png";
+		                     
+		                     ProcessBuilder pb11 = new ProcessBuilder(myCommand11, myArg111, myArg211, Output11, Log);
+		                     pb11.directory(new File("D:\\Ajit\\Script_SS"));
+		                     Process p11 = pb11.start();
+		                     
+		                     System.out.println("" +p11);
+	                     
+	                       // For verify price on category price tab..
+	                          String priceoncategorypage = driver.findElement(By.cssSelector("#PricesGTotal")).getText();
+	                          Reporter.log("Price on category price tab:- " +priceoncategorypage);
+	                          Thread.sleep(800);
+	                        
+	                        String Graduatyoncategorypage = driver.findElement(By.cssSelector("#Res_PassengerPriceSummery > div.passenger-price-summary-bottom > ul:nth-child(2) > li:nth-child(2)")).getText();
+	                        Reporter.log("Pre-Paid Gratuities (for 2 guests) on category price tab:- " +Graduatyoncategorypage);
+	                        Thread.sleep(800);
+	                     
+	                     // Close the new window
+	                        driver.close();
+	                        
+	                        driver.switchTo().window(winHandleBefore);
+	                  }     
+	                     
+	                    // Select category..
+	                	 driver.findElement(By.cssSelector("#category_3 > div:nth-child(1) > div.categoryview-price-gride > ul.categoryview-price-gride-even > li:nth-child(5) [class*='booknow']")).sendKeys(Keys.ENTER);
+	                	 long start = System.currentTimeMillis();
+	                	 Thread.sleep(4500);
+	                	 long finish = System.currentTimeMillis();
+	                     long totalTime = finish - start; 
+	                     Reporter.log("Total Time for category page to cabin selection page load(Milisec) - "+totalTime); 
+	                     Thread.sleep(1000);
+	                 }
+	                 //For verify Suite category on category page
+	                 else if (driver.findElement(By.cssSelector("#MainForm > div > div.category-tab-content-box > div > ul > li:nth-child(4) > a > div > span.category-tab-content-img > img")).isDisplayed())
+	                 {
+	                 	 driver.findElement(By.cssSelector("#MainForm > div > div.category-tab-content-box > div > ul > li:nth-child(4) > a > div > span.category-tab-content-img > img")).click();
+	                	 Thread.sleep(1000);
+	                	 
+	                	 final Screenshot screenshot62 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+	                     final BufferedImage image62 = screenshot62.getImage();
+	                     ImageIO.write(image62, "PNG", new File("D:\\Ajit\\Script_SS\\LocallyOpenSegment\\6_Categorypage.png"));
+	                     Thread.sleep(2000);
+	                     
+	                  // For open price tab..
+	               if(driver.findElement(By.cssSelector("#category_3 > div:nth-child(1) > div.categoryview-price-gride > ul.categoryview-price-gride-even > ul:nth-child(7) > li:nth-child(5) [class*='pricenow']")).isDisplayed())
+	               {
+	                     driver.findElement(By.cssSelector("#category_3 > div:nth-child(1) > div.categoryview-price-gride > ul.categoryview-price-gride-even > ul:nth-child(7) > li:nth-child(5) [class*='pricenow']")).click();
+	                     Thread.sleep(2000);
+	                     
+	                     // Switch to new window opened
+	                     String winHandleBefore = driver.getWindowHandle();
+	                     
+	                     for(String winHandle : driver.getWindowHandles())
+	                     {
+	                         driver.switchTo().window(winHandle);
+	                     }
+	                     
+	                        final Screenshot screenshot63 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+	                        final BufferedImage image63 = screenshot63.getImage();
+	                        ImageIO.write(image63, "PNG", new File("D:\\Ajit\\Script_SS\\LocallyOpenSegment\\6_PriceonCategorypage.png"));
+	                        Thread.sleep(2000); 
+	                       
+	                         String myArg111 = "D:\\Ajit\\Script_SS\\LocallyOpenSegment\\6_PriceonCategorypage.png";
+		                     String myArg211 = "D:\\Ajit\\Script_SS\\Daily Sanity\\Oct_2017\\12 Oct\\LocallyOpenSegment 1\\LocallyOpenSegment\\6_PriceonCategorypage.png";
+		                     String myCommand11 = "D:\\Ajit\\Script_SS\\ImageCompConsole.exe";
+		                     String Output11 = "D:\\Ajit\\Script_SS\\Differences of Images\\LocallyOpenSegment\\6_PriceonCategorypage.png";
+		                     
+		                     ProcessBuilder pb11 = new ProcessBuilder(myCommand11, myArg111, myArg211, Output11, Log);
+		                     pb11.directory(new File("D:\\Ajit\\Script_SS"));
+		                     Process p11 = pb11.start();
+		                     
+		                     System.out.println("" +p11);
+	                     
+	                       // For verify price on category price tab..
+	                        String priceoncategorypage = driver.findElement(By.cssSelector("#PricesGTotal")).getText();
+	                        Reporter.log("Price on category price tab:- " +priceoncategorypage);
+	                        Thread.sleep(800);
+	                        
+	                        String Graduatyoncategorypage = driver.findElement(By.cssSelector("#Res_PassengerPriceSummery > div.passenger-price-summary-bottom > ul:nth-child(2) > li:nth-child(2)")).getText();
+	                        Reporter.log("Pre-Paid Gratuities (for 2 guests) on category price tab:- " +Graduatyoncategorypage);
+	                        Thread.sleep(800);
+	                     
+	                     // Close the new window
+	                        driver.close();
+	                        
+	                        driver.switchTo().window(winHandleBefore);
+	                 }       
+	                    // Select category
+	                	 driver.findElement(By.cssSelector("#category_4 > div:nth-child(1) > div.categoryview-price-gride > ul.categoryview-price-gride-even > li:nth-child(5) [class*='booknow']")).click();
+	                	 long start = System.currentTimeMillis();
+	                	 Thread.sleep(4300);
+	                	 long finish = System.currentTimeMillis();
+	                     long totalTime = finish - start; 
+	                     Reporter.log("Total Time for category page to cabin selection page load(Milisec) - "+totalTime); 
+	                     Thread.sleep(1000);
+					 }
+	                 
+	                 System.out.println("\n");
+	                 System.out.println("Cabin selection page Logs..");
+	                 System.out.println("\n");
+	                 ExtractJSLogs();              
+	                 Thread.sleep(1000);
+	     
+	                 final Screenshot screenshot62 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+	                 final BufferedImage image62 = screenshot62.getImage();
+	                 ImageIO.write(image62, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolCruise\\7_Cabinselectionpage.png"));
+
+	                 System.out.println("Category selected successfully..");
+	                  
+	                 Thread.sleep(5000);
+	                 
+	                 String myArg111 = "D:\\Ajit\\Script_SS\\LocallyOpenSegment\\7_Cabinselectionpage.png";
+                     String myArg211 = "D:\\Ajit\\Script_SS\\Daily Sanity\\Oct_2017\\12 Oct\\LocallyOpenSegment 1\\LocallyOpenSegment\\7_Cabinselectionpage.png";
+                     String myCommand11 = "D:\\Ajit\\Script_SS\\ImageCompConsole.exe";
+                     String Output11 = "D:\\Ajit\\Script_SS\\Differences of Images\\LocallyOpenSegment\\7_Cabinselectionpage.png";
+                     
+                     ProcessBuilder pb11 = new ProcessBuilder(myCommand11, myArg111, myArg211, Output11, Log);
+                     pb11.directory(new File("D:\\Ajit\\Script_SS"));
+                     Process p11 = pb11.start();
+                     
+                     System.out.println("" +p11);
+	                 
+	                //For the Cruise details print on test report
+	                 String departport = driver.findElement(By.cssSelector("#wrapper > div > div.content-area > div.content-left > div.cruise-details-outer.res_cruise_details > div > div:nth-child(3) > ul > li:nth-child(3)")).getText();
+	                 Reporter.log(" " +departport);
+	                 Thread.sleep(500);
+	                 String guest = driver.findElement(By.cssSelector("#wrapper > div > div.content-area > div.content-left > div.cruise-details-outer.res_cruise_details > div > div:nth-child(3) > ul > li:nth-child(6)")).getText();
+	                 Reporter.log(" " +guest);
+	                 Thread.sleep(800);
+	                 String shp = driver.findElement(By.cssSelector("#wrapper > div > div.content-area > div.content-left > div.cruise-details-outer.res_cruise_details > div > div:nth-child(3) > ul > li:nth-child(1)")).getText();
+	                 Reporter.log(" " +shp);
+	                 Thread.sleep(500);
+	                 String dstntn = driver.findElement(By.cssSelector("#wrapper > div > div.content-area > div.content-left > div.cruise-details-outer.res_cruise_details > div > div:nth-child(3) > ul > li:nth-child(2)")).getText();
+	                 Reporter.log(" " +dstntn);
+	                 Thread.sleep(400);
+	                 String depart = driver.findElement(By.cssSelector("#wrapper > div > div.content-area > div.content-left > div.cruise-details-outer.res_cruise_details > div > div:nth-child(3) > ul > li:nth-child(4)")).getText();
+	                 Reporter.log(" " + depart);
+	                 Thread.sleep(400);
+	                 String arrival = driver.findElement(By.cssSelector("#wrapper > div > div.content-area > div.content-left > div.cruise-details-outer.res_cruise_details > div > div:nth-child(3) > ul > li:nth-child(5)")).getText();
+	                 Reporter.log(" " + arrival);
+	                 Thread.sleep(400);
+	                 String ctgory = driver.findElement(By.cssSelector("#wrapper > div > div.content-area > div.content-left > div.cruise-details-outer.res_cruise_details > div > div:nth-child(3) > ul > li:nth-child(7)")).getText();
+	                 Reporter.log(" " + ctgory);
+	                 Thread.sleep(400);
+	      
+	               //For verify price's on cabin page
+	                 String priceoncabin= driver.findElement(By.cssSelector("#MainForm > div > div.guest-top-right > div > span.item-list-price > em")).getText();
+	                 System.out.println("Prices on cabin page is:- " +priceoncabin);
+	                 Reporter.log("Prices on cabin page is:- " +priceoncabin);
+	                 Thread.sleep(2000);
+	                 	                 
+	                //For check API, Office id And Test environment on cabin page
+	                 String expr = driver.findElement(By.id("TracerBlock")).getText();
+	                 String api = expr.split("OdysseyGateway")[7].split(":")[1].trim();
+	               //List<String> items = Arrays.asList(expr.split("$($('#TracerBlock')[0].innerHTML.split('OdysseyGateway')[2])[0].nodeValue.toString().split(':')[1]"));
+	                 Reporter.log("API :- " +api);
+	                 Thread.sleep(500);
+	                 String envrnmnt = expr.split("OdysseyGateway")[7].split(":")[2].trim();
+	                 Reporter.log("Environment :- " +envrnmnt);
+	                 Thread.sleep(500);
+	                 String officeid = expr.split("OdysseyGateway")[7].split(":")[3].trim();
+	                 Reporter.log("Office Id :- " +officeid);
+	                 Thread.sleep(3000);
+
+	         
+	         //For select cabin from the cabin selection page
+	         try
+	         {
+	        	       //     driver.findElement(By.cssSelector("#Stateroom-price > div > ul:nth-child(2) > li.btn-container [id*='CabinBook_']")).sendKeys(Keys.ENTER);
+	        	            
+	        	            WebElement element1 = driver.findElement(By.cssSelector("#Stateroom-price > div > ul:nth-child(2) > li.btn-container [id*='CabinBook_']"));
+	     		            JavascriptExecutor executor1 = (JavascriptExecutor) driver;
+	     		            executor1.executeScript("arguments[0].click();", element1);
+	        	            
+	        	            long start = System.currentTimeMillis();
+	        	            Thread.sleep(1000);
+	                        long finish = System.currentTimeMillis();
+	                        long totalTime = finish - start; 
+	                        Reporter.log("Total Time for cabin selection page to search customer page load(Milisec) - "+totalTime); 
+	                        Thread.sleep(1000);
+	         }
+	         catch(Exception e)
+	         {
+	                    	      System.out.println("Cabin not available..");
+	                    	      System.out.println("\n");
+	                    	      System.out.println("Cabin not available on select cabinpage Logs..");
+	                    	      System.out.println("\n");
+	                    	      ExtractJSLogs();
+	                       
+	                              final Screenshot screenshot13 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+	                              final BufferedImage image13 = screenshot13.getImage();
+	                              ImageIO.write(image13, "PNG", new File("D:\\Ajit\\Script_SS\\LocallyOpenSegmentError\\4_Cabinnotavailable.png"));
+	                       
+	                              Assert.assertFalse(false, "FAIL");
+	        	                  Reporter.log("Cabin not available..");
+	        			          AssertJUnit.assertTrue("Cabin not available...", crsbkng.isDisplayed());
+	        			          throw(e);
+	          }
+	                            
+	                             System.out.println("Cabin selected successfully..");
+	                             
+	                             System.out.println("\n");
+	                             System.out.println("Search Customer page Logs..");
+	                             System.out.println("\n");
+	                             ExtractJSLogs();              
+	                             Thread.sleep(1000);
+	                   
+	                             final Screenshot screenshot102 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+	                             final BufferedImage image102 = screenshot102.getImage();
+	                             ImageIO.write(image102, "PNG", new File("D:\\Ajit\\Script_SS\\LocallyOpenSegment\\8_SearchCustomerpage.png"));
+	           
+	                             Thread.sleep(4000);
+	                             
+	                             String myArg112 = "D:\\Ajit\\Script_SS\\LocallyOpenSegment\\8_SearchCustomerpage.png";
+	                             String myArg212 = "D:\\Ajit\\Script_SS\\Daily Sanity\\Oct_2017\\12 Oct\\LocallyOpenSegment 1\\LocallyOpenSegment\\8_SearchCustomerpage.png";
+	                             String myCommand12 = "D:\\Ajit\\Script_SS\\ImageCompConsole.exe";
+	                             String Output12 = "D:\\Ajit\\Script_SS\\Differences of Images\\LocallyOpenSegment\\8_SearchCustomerpage.png";
+	                             
+	                             ProcessBuilder pb12 = new ProcessBuilder(myCommand12, myArg112, myArg212, Output12, Log);
+	                             pb12.directory(new File("D:\\Ajit\\Script_SS"));
+	                             Process p12 = pb11.start();
+	                             
+	                             System.out.println("" +p12);
+	                             
+	                // For Search & Select customer
+	                try
+	                {
+	                	 driver.findElement(By.id("_ctl0_MainContent_fName")).sendKeys("monish");
+	                	 Thread.sleep(1000);
+	                	 driver.findElement(By.id("_ctl0_MainContent_SearchBTN")).sendKeys(Keys.ENTER);
+	                	 Thread.sleep(7000);
+	                	 
+	                	  driver.findElement(By.cssSelector("#_ctl0_MainContent_CustResults__ctl1_SelectLinkButton > img")).click();
+	         /*       	 
+	                	 WebElement element = driver.findElement(By.xpath("//*[@id='_ctl0_MainContent_CustResults__ctl1_SelectLinkButton']/img"));
+	                     JavascriptExecutor js =(JavascriptExecutor)driver;
+	                     js.executeScript("window.scrollTo(0,'element.getLocation().y+')");
+	                     element.click();
+	        */             
+	                	 long start = System.currentTimeMillis();
+	                	 Thread.sleep(3890);
+	                	 long finish = System.currentTimeMillis();
+	                     long totalTime = finish - start; 
+	                     Reporter.log("Total Time for search customer page to purchase page load(Milisec) - "+totalTime); 
+	                     Thread.sleep(1000);
+	                }
+	                catch(Exception e)
+	                {
+	                	e.getMessage();
+	                }
+	                
+	               System.out.println("\n");
+                   System.out.println("Purchase page Logs..");
+                   System.out.println("\n");
+                   ExtractJSLogs();              
+                   Thread.sleep(1000);
+	                
+	               final Screenshot screenshot1002 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+                   final BufferedImage image1002 = screenshot1002.getImage();
+                   ImageIO.write(image1002, "PNG", new File("D:\\Ajit\\Script_SS\\LocallyOpenSegment\\9_Purchasepage.png"));
+                   Thread.sleep(2000);
+                   
+                   String myArg1121 = "D:\\Ajit\\Script_SS\\LocallyOpenSegment\\9_Purchasepage.png";
+                   String myArg2121 = "D:\\Ajit\\Script_SS\\Daily Sanity\\Oct_2017\\12 Oct\\LocallyOpenSegment 1\\LocallyOpenSegment\\9_Purchasepage.png";
+                   String myCommand121 = "D:\\Ajit\\Script_SS\\ImageCompConsole.exe";
+                   String Output121 = "D:\\Ajit\\Script_SS\\Differences of Images\\LocallyOpenSegment\\9_Purchasepage.png";
+                   
+                   ProcessBuilder pb121 = new ProcessBuilder(myCommand121, myArg1121, myArg2121, Output121, Log);
+                   pb121.directory(new File("D:\\Ajit\\Script_SS"));
+                   Process p121 = pb11.start();
+                   
+                   System.out.println("" +p121);
+                   
+                 //Check price on purchase page
+                   String priceonpurchase= driver.findElement(By.cssSelector("#trip_summary_package_total")).getText();
+                   Reporter.log("Prices on purchase page is:- " +priceonpurchase);
+                   Thread.sleep(2000);
+                   
+                   driver.findElement(By.cssSelector("#st-accordion > ul > li:nth-child(2) [class*='spc-panel-title']")).click(); //Select details
+                   Thread.sleep(1000);
+	         
+	         //For Purchase page                 
+	          try
+	          {
+	        	  System.out.println("FirstName_Of_Guest1: " + Firstname_GuestOne);
+                  System.out.println("MiddleName_Of_Guest1: " + Middlename_GuestOne);
+                  System.out.println("LastName_Of_Guest1: " + Lastname_GuestOne);
+                  System.out.println("FirstName_Of_Guest2: " + Firstname_GuestTwo);
+                  System.out.println("MiddleName_Of_Guest2: " + Middlename_GuestTwo);
+                  System.out.println("Lastname_of_Guest2: " + Lastname_GuestTwo);
+                  System.out.println("Email: " + Email);
+                  System.out.println("ConfirmEmail: " + ConfirmEmail);
+                  System.out.println("Phone: " + Phone);
+                  System.out.println("DestinationPhone: " + DestinationPhone);
+                          	                                	 
+                  crspurchpge.DPB2CFlowToTitle(Firstname_GuestOne, Middlename_GuestOne, Lastname_GuestOne, Firstname_GuestTwo, Middlename_GuestTwo, Lastname_GuestTwo, Email, ConfirmEmail, Phone, DestinationPhone);
+                  
+                  
+}
+catch(Exception e)
+{
+                  System.out.println("Invalid guest information on purchase page, Please enter valid details for the required fields...");
+                  System.out.println("\n");
+                  System.out.println("Invalid guest information on purchasepage Logs..");
+                  System.out.println("\n");
+                  ExtractJSLogs();
+                           
+                  final Screenshot screenshot34 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+                  final BufferedImage image34 = screenshot34.getImage();
+                  ImageIO.write(image34, "PNG", new File("D:\\Ajit\\Script_SS\\LocallyOpenSegmentError\\5_InvalidGuestinfoonPurchasepage.png"));
+                           
+                    Assert.assertFalse(false, "FAIL");
+            	    Reporter.log("Invalid guest information on purchase page, Please enter valid details for the required fields...");
+            		AssertJUnit.assertTrue("Invalid guest information on purchase page, Please enter valid details for the required fields....", crspurchpge.isDisplayed());
+            		throw(e);
+}
+
+				    Thread.sleep(1500);
+				    
+				    driver.findElement(By.cssSelector("#st-accordion > ul > li.st-open > div > div.spc-conti-cont.btn-container > input")).click(); //Continue..
+				    Thread.sleep(1000);
+  				
+//For Payment Gateway
+	try
+	{
+	   System.out.println("CardHolderName: " + CardHolderName);
+       System.out.println("CardNo: " + CardNo);
+       System.out.println("CardCvvNo: " + CardCvvNo);
+       System.out.println("Address: " + Address);
+       System.out.println("City: " + City);
+       System.out.println("Zipcode: " + Zipcode);
+       System.out.println("Phone_Number: " + Phone_Number);						
+       System.out.println("Bank_Name: " + Bank_Name);
+		
+		crspymnt.DPB2CPaymentToTitle(CardHolderName, CardNo, CardCvvNo, Address, City, Zipcode, Phone_Number, Bank_Name);
+	}
+	catch(Exception e)
+	{
+		e.getMessage();
+		final Screenshot screenshot13 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+        final BufferedImage image13 = screenshot13.getImage();
+        ImageIO.write(image13, "PNG", new File("D:\\Ajit\\Script_SS\\LocallyOpenSegmentError\\5_InvalidPaymentdetails.png"));
+ 
+        Assert.assertFalse(false, "FAIL");
+        Reporter.log("Payment details are Invalid..");
+        AssertJUnit.assertTrue("Payment details are Invalid...", crspymnt.isDisplayed());
+        throw(e);
+	}
+	
+	try
+	{
+		if(envrnmnt.toLowerCase().trim().equals("test"))
+		{
+			driver.findElement(By.id("_ctl0_MainContentsPH__ctl0_ContinueBTN")).click();
+			Thread.sleep(6000);
+		}
+	}
+	catch(Exception e)
+	{
+		e.getMessage();
+		final Screenshot screenshot13 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+        final BufferedImage image13 = screenshot13.getImage();
+        ImageIO.write(image13, "PNG", new File("D:\\Ajit\\Script_SS\\LocallyOpenSegmentError\\6_ConfirmBookingButtonNotClick.png"));
+ 
+        Assert.assertFalse(false, "FAIL");
+        Reporter.log("Confirm booking button not click...");
+        AssertJUnit.assertTrue("Confirm booking button not click...", crspymnt.isDisplayed());
+        throw(e);
+	}
+				
+	    final Screenshot screenshot107 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+        final BufferedImage image107 = screenshot107.getImage();
+        ImageIO.write(image107, "PNG", new File("D:\\Ajit\\Script_SS\\LocallyOpenSegment\\8_Confirmationpage.png"));
+        Thread.sleep(2000);
+  
+        String myArg9 = "D:\\Ajit\\Script_SS\\LocallyOpenSegment\\8_Confirmationpage.png";
+        String myArg23 = "D:\\Ajit\\Script_SS\\Daily Sanity\\August_2017\\30 Aug 2017\\CDOR\\CDOR\\8_Confirmationpage.png";
+        String myCommand6 = "D:\\Ajit\\Script_SS\\ImageCompConsole.exe";
+        String Output5 = "D:\\Ajit\\Script_SS\\Differences of Images\\LocallyOpenSegment\\8_Confirmationpage.png";
+  
+        ProcessBuilder pb6 = new ProcessBuilder(myCommand6, myArg9, myArg23, Output5, Log);
+        pb6.directory(new File("D:\\Ajit\\Script_SS"));
+        Process p6 = pb6.start();
+  
+        System.out.println("" +p6);
+
+        System.out.println("Cabin selected successfully..");
+
+        Thread.sleep(4000);
+        
+        //Price on confirmation page
+         String priceoncon = driver.findElement(By.cssSelector("#PricesGTotal")).getText();
+         Reporter.log("Price on Confirmation page:- " +priceoncon);
+         
+         if(priceoncon.equals(priceonpurchase))
+         {
+      	     Reporter.log("Prices of Checkout page and Confirmation page are matched..");
+         }
+         else
+         {
+      	     Reporter.log("Prices of Checkout page and Confirmation page are Not matched..");
+         }
+         
+         //For Verify status
+         String Statusoncon = driver.findElement(By.cssSelector("#conf_details > div > div.flight-conf-status.marright45 > div")).getText();
+         
+         if(Statusoncon.toLowerCase().trim().equals("confirmed"))
+         {
+      	     Reporter.log("Status Confirmed..");
+         }
+         else
+         {
+      	     Reporter.log("Status not Confirmed..");
+         }
+   	  
+          //For the compare logs
+			String ConsleArgument = "D:\\Ajit\\Script_SS\\ConsoleError\\LocallyOpenSegmentBookingError.txt";
+            String ConsoleCommand = "D:\\Ajit\\Script_SS\\ConsoleApplication2.exe";
+            String ConsoleOutput = "D:\\Ajit\\Script_SS\\LocallyOpenSegment\\UncaughtOpenSegment.txt";
+            
+            ProcessBuilder pb05 = new ProcessBuilder(ConsoleCommand, ConsleArgument, ConsoleOutput);
+            pb05.directory(new File("D:\\Ajit\\Script_SS"));
+            Process p05 = pb05.start();
+            
+            System.out.println("" +p05);    
+              
+            Thread.sleep(1000);
+
+  }
+
+
+  @DataProvider
+  public String[][] Authentications() throws Exception
+  {
+  	 
+	     String[][] testObjArray = DPB2CUtils.getTableArray("D:\\Ajit\\Automation\\Workspace\\Odysseus_Product\\src\\main\\java\\testData\\DPB2CData.xlsx","Sheet1");
+	     return testObjArray;
+	     
+  }
+  
+  @AfterClass
+  public void closeBrowser() throws InterruptedException
+  {
+	 
+	//   driver.close();
+	  
+	    /*  
+	          if(driver!=null) 
+	          {
+		           System.out.println("Closing the browser");
+		           driver.quit();
+	          }   
+       */
+  }
+
+	
+}

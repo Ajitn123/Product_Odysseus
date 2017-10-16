@@ -44,11 +44,11 @@ public class FaregeekBookingpgeobjct
 			try
 			{
 				
-				Fromloc.click();
+				Fromloc.sendKeys(Keys.ENTER);
 		    	Fromloc.sendKeys(frmloc);
 		    	Fromloc.sendKeys(Keys.TAB);
 				Thread.sleep(3000);
-				Toloc.click(); 
+				Toloc.sendKeys(Keys.ENTER);
 				Toloc.sendKeys(tolc);
 				Toloc.sendKeys(Keys.TAB);
 				Thread.sleep(3000);

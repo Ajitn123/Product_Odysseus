@@ -2,20 +2,18 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="" key="selection"/>
+		<item value="Prices of After applied insurance on the confirmation page is" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="jetty"/>
-			<item value="ERROR"/>
-			<item value="_ctl0_MainContentsPH__ctl0_CruiseAdvancedSearch__ctl0_DateInput"/>
-			<item value="_ctl0_MainContentsPH__ctl0__ctl4_CreditCardInfo_cardType"/>
-			<item value="Authentication"/>
-			<item value="testObjArray"/>
-			<item value="_ctl0_MainContent_StatusSEL"/>
-			<item value="_ctl0_MainContent_CancelBookingBTN"/>
+			<item value="Prices of After applied insurance on the confirmation page is"/>
+			<item value="&quot;:&quot;#MainForm &gt; div &gt; div.step-block &gt; div &gt; div.step-6."/>
+			<item value="&quot;:&quot;#MainForm &gt; div &gt; div.step-block &gt; div &gt; div.step-6.booking-step.main.step-six-page &gt; div.step-5.booking-step &gt; div:nth-child(2) &gt; div.bg-blue.bonuses-summary &gt; div &gt; div.col-xs-4.col-sm-2.text-center.pad-fix &gt; p&quot;}"/>
+			<item value="&quot;:&quot;#MainForm &gt; div.booking-steps-body &gt; div.step-block &gt; div.step-content &gt; div &gt; div.step-5.booking-step &gt; div:nth-child(2) &gt; div.bg-blue.bonuses-summary &gt; div &gt; div.col-xs-4.col-sm-2.text-center.pad-fix &gt; p&quot;}"/>
+			<item value="Total Time for category page to cabin selection page load(Milisec)"/>
+			<item value="ConsoleApplication2"/>
 		</list>
 		<list key="replacehistory">
 		</list>

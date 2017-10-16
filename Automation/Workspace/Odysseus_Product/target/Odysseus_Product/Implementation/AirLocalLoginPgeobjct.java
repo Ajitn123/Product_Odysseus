@@ -17,7 +17,7 @@ public class AirLocalLoginPgeobjct
 	private WebElement loginbtn;
 	
 	//For Select Website
-	@FindBy(xpath="//*[@id='sb-site']/div[3]/div/div[1]/div[1]/div/div/div[2]/div/div/div/div/div[1]/div/div[2]/table/tbody/tr[5]/td[3]/a[1]")
+	@FindBy(xpath="//*[@id='content_wrapper']/div[1]/div/div/div[2]/div/div/div/div/div[1]/div/div[2]/table/tbody/tr[7]/td[3]/a[1]")
 	private WebElement Selectweb; 
 		
 	

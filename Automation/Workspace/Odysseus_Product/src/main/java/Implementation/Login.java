@@ -1,5 +1,6 @@
 package Implementation;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -18,7 +19,7 @@ public class Login
 	private WebElement loginbtn;
 	
 	//For Select Website
-	@FindBy(xpath="//*[@id='sb-site']/div[2]/div/div[1]/div[1]/div/div/div[2]/div/div/div/div/div[1]/div/div[2]/table/tbody/tr[70]/td[3]/a[1]")
+	@FindBy(xpath="//*[@id='content_wrapper']/div[1]/div/div/div[2]/div/div/div/div/div[1]/div/div[2]/table/tbody/tr[77]/td[3]/a[1]")
 	private WebElement Selectweb; 
 		
 	
@@ -39,7 +40,7 @@ public class Login
 			Thread.sleep(500);
 			loginbtn.click();
 			Thread.sleep(1500);
-			Selectweb.click();
+			Selectweb.sendKeys(Keys.ENTER);
 			Thread.sleep(12000);
 						
 		}

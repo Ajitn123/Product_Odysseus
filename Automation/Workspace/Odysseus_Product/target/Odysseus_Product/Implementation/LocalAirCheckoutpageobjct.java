@@ -1,6 +1,7 @@
 package Implementation;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
@@ -10,8 +11,11 @@ public class LocalAirCheckoutpageobjct
 
 
 	//For Checkout page (For passenger 1)
-    @FindBy(id="_ctl0_MainContentsPH__ctl0_BookingPassengers__ctl0_TravelerAccount_1_Title")
-    private WebElement selctitle;
+    @FindBy(xpath="//*[@id='_ctl0_MainContentsPH__ctl0_BookingPassengers__ctl0_TravelerAccount_1_Title']")
+    private WebElement selctitle; 
+    
+    @FindBy(xpath="//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_1_GenderSEL']")
+    private WebElement selctgnder;
     
     @FindBy(id="_ctl0_MainContentsPH__ctl0_BookingPassengers__ctl0_TravelerAccount_1_FirstName")
     private WebElement Firstnme;
@@ -32,7 +36,7 @@ public class LocalAirCheckoutpageobjct
     private WebElement selctyear;
     
     //For passenger 2
-    @FindBy(id="_ctl0_MainContentsPH__ctl0_BookingPassengers__ctl1_TravelerAccount_2_Title")
+    @FindBy(xpath="//*[@id='_ctl0_MainContentsPH__ctl0_BookingPassengers__ctl1_TravelerAccount_2_Title']")
     private WebElement selecttitle;
     
     @FindBy(id="_ctl0_MainContentsPH__ctl0_BookingPassengers__ctl1_TravelerAccount_2_FirstName")
@@ -54,7 +58,7 @@ public class LocalAirCheckoutpageobjct
     private WebElement slctyr;
     
     //For passenger 3 (Child)
-    @FindBy(id="_ctl0_MainContentsPH__ctl0_BookingPassengers__ctl2_TravelerAccount_3_Title")
+    @FindBy(xpath="//*[@id='_ctl0_MainContentsPH__ctl0_BookingPassengers__ctl2_TravelerAccount_3_Title']")
     private WebElement slctitle;
     
     @FindBy(id="_ctl0_MainContentsPH__ctl0_BookingPassengers__ctl2_TravelerAccount_3_FirstName")
@@ -162,9 +166,12 @@ public class LocalAirCheckoutpageobjct
 		try
 		{
 			
-			Select select = new Select(selctitle.findElement(By.id("_ctl0_MainContentsPH__ctl0_BookingPassengers__ctl0_TravelerAccount_1_Title")));
+			Select select = new Select(selctitle.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_BookingPassengers__ctl0_TravelerAccount_1_Title']")));
 			select.selectByVisibleText("Mr");
 			Thread.sleep(500);
+		//	Select select1 = new Select(selctgnder.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_1_GenderSEL']")));
+		//	select1.selectByVisibleText("Male");
+		//	Thread.sleep(500);
 			Firstnme.clear();
 			Thread.sleep(500);
 			Firstnme.click();
@@ -184,18 +191,18 @@ public class LocalAirCheckoutpageobjct
 			Thread.sleep(500);
 			selctmonth.click();
 			Thread.sleep(500);
-			selctmonth.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_BookingPassengers__ctl0_TravelerAccount_1_DateUC_Month']/option[8]")).click();
+			selctmonth.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_BookingPassengers__ctl0_TravelerAccount_1_DateUC_Month']/option[7]")).click();
 			Thread.sleep(500);
 			selctday.click();
 			Thread.sleep(500);
-			selctday.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_BookingPassengers__ctl0_TravelerAccount_1_DateUC_Day']/option[24]")).click();
+			selctday.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_BookingPassengers__ctl0_TravelerAccount_1_DateUC_Day']/option[11]")).click();
 			Thread.sleep(500);
 			selctyear.click();
 			Thread.sleep(500);
-			selctyear.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_BookingPassengers__ctl0_TravelerAccount_1_DateUC_Year']/option[74]")).click();
+			selctyear.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_BookingPassengers__ctl0_TravelerAccount_1_DateUC_Year']/option[7]")).click();
 			Thread.sleep(1000);
-			Select select1 = new Select(selecttitle.findElement(By.id("_ctl0_MainContentsPH__ctl0_BookingPassengers__ctl1_TravelerAccount_2_Title")));
-			select1.selectByVisibleText("Mr");
+			Select select2 = new Select(selecttitle.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_BookingPassengers__ctl1_TravelerAccount_2_Title']")));
+			select2.selectByVisibleText("Mr");
 			Thread.sleep(500);
 			frstnm.clear();
 			Thread.sleep(500);
@@ -216,20 +223,20 @@ public class LocalAirCheckoutpageobjct
 			Thread.sleep(500);
 			slctmnth.click();
 			Thread.sleep(300);
-			slctmnth.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_BookingPassengers__ctl1_TravelerAccount_2_DateUC_Month']/option[11]")).click();
+			slctmnth.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_BookingPassengers__ctl1_TravelerAccount_2_DateUC_Month']/option[6]")).click();
 			Thread.sleep(500);
 			slctday.click();
 			Thread.sleep(500);
-			slctday.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_BookingPassengers__ctl1_TravelerAccount_2_DateUC_Day']/option[14]")).click();
+			slctday.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_BookingPassengers__ctl1_TravelerAccount_2_DateUC_Day']/option[6]")).click();
 			Thread.sleep(500);
 			slctyr.click();
 			Thread.sleep(500);
-			slctyr.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_BookingPassengers__ctl1_TravelerAccount_2_DateUC_Year']/option[76]")).click();
+			slctyr.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_BookingPassengers__ctl1_TravelerAccount_2_DateUC_Year']/option[8]")).click();
 			Thread.sleep(1000);
 			slctitle.click();
 			Thread.sleep(200);
-			Select select2 = new Select(slctitle.findElement(By.id("_ctl0_MainContentsPH__ctl0_BookingPassengers__ctl2_TravelerAccount_3_Title")));
-			select2.selectByVisibleText("Master");
+			Select select3 = new Select(slctitle.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_BookingPassengers__ctl2_TravelerAccount_3_Title']")));
+			select3.selectByVisibleText("Master");
 			Thread.sleep(300);
 			slectfrstname.clear();
 			Thread.sleep(300);
@@ -247,31 +254,34 @@ public class LocalAirCheckoutpageobjct
 			slectlstnme.click();
 			Thread.sleep(300);
 			slectlstnme.sendKeys(lastnam);
-			Thread.sleep(500);
+			Thread.sleep(800);
 			slectmnth.click();
-			Thread.sleep(200);
+			Thread.sleep(800);
 			slectmnth.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_BookingPassengers__ctl2_TravelerAccount_3_DateUC_Month']/option[7]")).click();
-			Thread.sleep(500);
+			Thread.sleep(700);
 			slectday.click();
-			Thread.sleep(200);
+			Thread.sleep(1000);
 			slectday.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_BookingPassengers__ctl2_TravelerAccount_3_DateUC_Day']/option[11]")).click();
-			Thread.sleep(500);
+			Thread.sleep(1000);
 			slectmonth.click();
-			Thread.sleep(200);
+			Thread.sleep(900);
 			slectmonth.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_BookingPassengers__ctl2_TravelerAccount_3_DateUC_Year']/option[6]")).click();
-			Thread.sleep(500);
+			Thread.sleep(900);
+			slectmonth.sendKeys(Keys.TAB);
+			slectmonth.sendKeys(Keys.TAB);
+			slectmonth.sendKeys(Keys.TAB);
 			clickonContinue.click();
 			Thread.sleep(1000);
 			email.clear();
-			Thread.sleep(200);
+			Thread.sleep(800);
 			email.click();
-			Thread.sleep(300);
+			Thread.sleep(900);
 			email.sendKeys(eml);
-			Thread.sleep(500);
+			Thread.sleep(700);
 			phoneno.clear();
 			Thread.sleep(200);
 			phoneno.click();
-			Thread.sleep(300);
+			Thread.sleep(800);
 			phoneno.sendKeys(phone);
 			Thread.sleep(500);
 			continuebtn.click();
@@ -280,63 +290,68 @@ public class LocalAirCheckoutpageobjct
 			Thread.sleep(2000);
 			Additionalcontinuebtn.click();
 			Thread.sleep(2000);
+			cntnwithpayment.click();
+			Thread.sleep(7000);
+			
+		//	Additionalcontinuebtn.click();
+		//	Thread.sleep(2000);
 	//		cntnwithpayment.click();
 	//		Thread.sleep(2000);
 			slctcarttype.click();
 			Thread.sleep(500);
 			slctcarttype.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0__ctl4_CreditCardInfo_cardType']/option[6]")).click();
-			Thread.sleep(500);
+			Thread.sleep(900);
 			cardholdernme.click();
-			Thread.sleep(300);
+			Thread.sleep(800);
 			cardholdernme.sendKeys(crdhldrnme);
-			Thread.sleep(500);
+			Thread.sleep(700);
 			cardno.click();
-			Thread.sleep(300);
+			Thread.sleep(800);
 			cardno.sendKeys(crdno);
-			Thread.sleep(500);
+			Thread.sleep(800);
 			crdcvv.click();
 			Thread.sleep(300);
 			crdcvv.sendKeys(cardcvvno);
-			Thread.sleep(500);
+			Thread.sleep(900);
 			selectmonth.click();
-			Thread.sleep(300);
+			Thread.sleep(900);
 			selectmonth.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0__ctl4_CreditCardInfo_expireDate_Month']/option[11]")).click();
 			Thread.sleep(500);
 			selectyear.click();
-			Thread.sleep(300);
+			Thread.sleep(900);
 			selectyear.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0__ctl4_CreditCardInfo_expireDate_Year']/option[11]")).click();
-			Thread.sleep(500);
+			Thread.sleep(800);
 			address.click();
-			Thread.sleep(300);
+			Thread.sleep(900);
 			address.sendKeys(adrs);
-			Thread.sleep(500);
+			Thread.sleep(800);
 			slectstate.click();
-			Thread.sleep(300);
+			Thread.sleep(700);
 			slectstate.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0__ctl4_BillingAddress_StateSel']/option[13]")).click();
-			Thread.sleep(500);
+			Thread.sleep(800);
 			slectcity.click();
-			Thread.sleep(300);
+			Thread.sleep(700);
 			slectcity.sendKeys(cty);
-			Thread.sleep(500);
+			Thread.sleep(700);
 			zipcde.click();
-			Thread.sleep(300);
+			Thread.sleep(800);
 			zipcde.sendKeys(zpcd);
-			Thread.sleep(500);
+			Thread.sleep(800);
 			billingphone.clear();
-			Thread.sleep(300);
+			Thread.sleep(900);
 			billingphone.click();
-			Thread.sleep(300);
+			Thread.sleep(900);
 			billingphone.sendKeys(phne);
-			Thread.sleep(500);
-			banknme.clear();
-			Thread.sleep(300);
-			banknme.click();
-			Thread.sleep(300);
-			banknme.sendKeys(bnknme);
-			Thread.sleep(500);
+			Thread.sleep(800);
+	//		banknme.clear();
+	//		Thread.sleep(300);
+	//		banknme.click();
+	//		Thread.sleep(300);
+	//		banknme.sendKeys(bnknme);
+	//		Thread.sleep(500);
 			termsncndtn.click();
-	//		Thread.sleep(1000);
-	//		ClickonContinuebtn.click();
+			Thread.sleep(1000);
+			ClickonContinuebtn.click();
 			Thread.sleep(30000);
 			
 			
@@ -351,13 +366,16 @@ public class LocalAirCheckoutpageobjct
 	}
     
     
-    public void HoldToTitle(String frstnme, String mdlnme, String lstnme, String fstnm, String mdlnm, String lastnm, String firstnm, String middlnme, String lastnam, String eml, String phone)
+    public void HoldToTitle(String frstnme, String mdalnme, String lstnme, String fstnm, String mdlnm, String lastnm, String firstnm, String middlnme, String lastnam, String eml, String phone)
 	{
 		try
 		{
 			
-			Select select = new Select(selctitle.findElement(By.id("_ctl0_MainContentsPH__ctl0_BookingPassengers__ctl0_TravelerAccount_1_Title")));
+			Select select = new Select(selctitle.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_1_Title']")));
 			select.selectByVisibleText("Mr");
+			Thread.sleep(700);
+			Select select1 = new Select(selctgnder.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_1_GenderSEL']")));
+			select1.selectByVisibleText("Male");
 			Thread.sleep(500);
 			Firstnme.clear();
 			Thread.sleep(500);
@@ -368,7 +386,8 @@ public class LocalAirCheckoutpageobjct
 			Middlenme.clear();
 			Middlenme.click();
 			Thread.sleep(500);
-			Middlenme.sendKeys(mdlnme);
+			Middlenme.sendKeys(mdalnme);
+			Thread.sleep(500);
 			lastnme.clear();
 			Thread.sleep(500);
 			lastnme.click();
@@ -377,18 +396,18 @@ public class LocalAirCheckoutpageobjct
 			Thread.sleep(500);
 			selctmonth.click();
 			Thread.sleep(500);
-			selctmonth.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_BookingPassengers__ctl0_TravelerAccount_1_DateUC_Month']/option[8]")).click();
+			selctmonth.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_1_DateUC_Month']/option[9]")).click();
 			Thread.sleep(500);
 			selctday.click();
 			Thread.sleep(500);
-			selctday.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_BookingPassengers__ctl0_TravelerAccount_1_DateUC_Day']/option[24]")).click();
+			selctday.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_1_DateUC_Day']/option[14]")).click();
 			Thread.sleep(500);
 			selctyear.click();
 			Thread.sleep(500);
-			selctyear.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_BookingPassengers__ctl0_TravelerAccount_1_DateUC_Year']/option[74]")).click();
+			selctyear.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_1_DateUC_Year']/option[13]")).click();
 			Thread.sleep(1000);
-			Select select1 = new Select(selecttitle.findElement(By.id("_ctl0_MainContentsPH__ctl0_BookingPassengers__ctl1_TravelerAccount_2_Title")));
-			select1.selectByVisibleText("Mr");
+			Select select2 = new Select(selecttitle.findElement(By.id("_ctl0_MainContentsPH__ctl0_BookingPassengers__ctl1_TravelerAccount_2_Title")));
+			select2.selectByVisibleText("Mr");
 			Thread.sleep(500);
 			frstnm.clear();
 			Thread.sleep(500);
@@ -420,8 +439,8 @@ public class LocalAirCheckoutpageobjct
 			Thread.sleep(1000);
 			slctitle.click();
 			Thread.sleep(200);
-			Select select2 = new Select(slctitle.findElement(By.id("_ctl0_MainContentsPH__ctl0_BookingPassengers__ctl2_TravelerAccount_3_Title")));
-			select2.selectByVisibleText("Master");
+			Select select3 = new Select(slctitle.findElement(By.id("_ctl0_MainContentsPH__ctl0_BookingPassengers__ctl2_TravelerAccount_3_Title")));
+			select3.selectByVisibleText("Master");
 			Thread.sleep(300);
 			slectfrstname.clear();
 			Thread.sleep(300);

@@ -1,6 +1,7 @@
 package Implementation;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
@@ -171,7 +172,7 @@ public class VivaVoyagePurchasepageobjct
 				   Thread.sleep(500);
 				   contry.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_2_Nationality']/option[220]")).click();
 				   Thread.sleep(1000);
-				   clkonbtn.click();
+				   clkonbtn.sendKeys(Keys.ENTER);
 				   Thread.sleep(2000);
 				   
 			 }

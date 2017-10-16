@@ -15,7 +15,6 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogEntry;
@@ -46,6 +45,7 @@ public class LocalCruiseBookingTest
 	    LocalCruisebkngLoginpgobjct crsbkng;
 	    LocalCruisebkngpgeobjct crsbkngpge;
 	    LocalCruisePaymentpgeobjct hldncnfrm;
+	    DLCPurchasepgeobjct crspurchpge;
         public static WebDriver driver;
         Reporter report = new Reporter();
 
@@ -76,7 +76,7 @@ public class LocalCruiseBookingTest
           } 
           else if (browser.equalsIgnoreCase("chrome")) 
           {
-         	            System.setProperty("webdriver.chrome.driver", "D:\\Ajit\\Driver\\chromedriver_win32\\chromedriver.exe");
+         	            System.setProperty("webdriver.chrome.driver", "D:\\Ajit\\Automation\\Workspace\\Odysseus_Product\\Driver\\chromedriver_win32\\chromedriver.exe");
 	                    DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 	                    LoggingPreferences loggingprefs = new LoggingPreferences();
 	                    loggingprefs.enable(LogType.BROWSER, Level.ALL);
@@ -86,7 +86,7 @@ public class LocalCruiseBookingTest
           }  
           else if (browser.equalsIgnoreCase("IE")) 
           {
-	                   System.setProperty("webdriver.ie.driver", "D:\\Ajit\\Driver\\IEDriverServer_Win32_2.53.0\\IEDriverServer.exe");
+	                   System.setProperty("webdriver.ie.driver", "D:\\Ajit\\Automation\\Workspace\\Odysseus_Product\\Driver\\IEDriverServer_Win32_2.53.0\\IEDriverServer.exe");
 	                   //driver = new InternetExplorerDriver();
 	                   
           } 
@@ -128,7 +128,7 @@ public class LocalCruiseBookingTest
      crsbkngpge = PageFactory.initElements(driver, LocalCruisebkngpgeobjct.class);
      crsbkng = PageFactory.initElements(driver, LocalCruisebkngLoginpgobjct.class);
      hldncnfrm = PageFactory.initElements(driver, LocalCruisePaymentpgeobjct.class);
-        
+     crspurchpge = PageFactory.initElements(driver, DLCPurchasepgeobjct.class);  
  
  }
 
@@ -143,7 +143,7 @@ public class LocalCruiseBookingTest
  }
  
  @Test(dataProvider="Authentications")
- public void DLC_data(String sUsername, String sPassword, String CardNo, String CardCvvNo, String CardHolderName, String Address, String City, String Zipcode, String Phone_Number, String BankName) throws Exception
+ public void DLC_data(String sUsername, String sPassword, String Firstname_GuestOne, String Middlename_GuestOne, String Lastname_GuestOne, String Email, String Street_Address, String Cty, String Zpcode, String Phone, String Firstname_GuestTwo, String Middlename_GuestTwo, String Lastname_GuestTwo, String CardNo, String CardCvvNo, String CardHolderName, String Address, String City, String Zipcode, String Phone_Number, String BankName) throws Exception
  {
 	
  	   try
@@ -153,8 +153,8 @@ public class LocalCruiseBookingTest
  		    crsbkng.CruiseLoginToTittle(sUsername, sPassword);
  		    
 		     //For web site and booking details
-            Reporter.log("Website Name :- Ajit Website");
-            Thread.sleep(200);
+      //      Reporter.log("Website Name :- Ajit Website");
+      //      Thread.sleep(200);
             
             Reporter.log("Affiliate Name :- Odysseus Template");
             Thread.sleep(200);
@@ -183,6 +183,9 @@ public class LocalCruiseBookingTest
 	        final Screenshot screenshot4 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
             final BufferedImage image4 = screenshot4.getImage();
             ImageIO.write(image4, "PNG", new File("D:\\Ajit\\Script_SS\\LocalCruisebkng\\2_Resultpage.png"));
+            Thread.sleep(2000);
+            
+            driver.findElement(By.xpath("//*[@id='CruiseSearchForm_tab2']/div[2]/div[3]/div/input")).click();
         
             Thread.sleep(6000);
          
@@ -214,10 +217,10 @@ public class LocalCruiseBookingTest
                    Thread.sleep(4000);  
                           
                    // For the bonus offers
-                   if(driver.findElement(By.cssSelector("#PriceList_0 > div > ul:nth-child(5) > li.grid-bonus.res_grid_bonus > a.bonusOfferPopup > img")).isDisplayed())
+                   if(driver.findElement(By.cssSelector("#PriceList_0 > div > ul.item-list-grid-normal > li.grid-bonus.res_grid_bonus > a:nth-child(9) > img")).isDisplayed())
                    {
                    	    Reporter.log("Bonus Offers are available..");
-                   	    driver.findElement(By.cssSelector("#PriceList_0 > div > ul:nth-child(5) > li.grid-bonus.res_grid_bonus > a.bonusOfferPopup > img")).click();
+                   	    driver.findElement(By.cssSelector("#PriceList_0 > div > ul.item-list-grid-normal > li.grid-bonus.res_grid_bonus > a:nth-child(9) > img")).click();
                         Thread.sleep(1500);
                        
                           File scr22 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
@@ -230,7 +233,7 @@ public class LocalCruiseBookingTest
                    }
                    
                    
-                      driver.findElement(By.cssSelector("#PriceList_0 > div > ul:nth-child(7) > li.grid-btn [class*='booknow res_Cruise_detai_mo']")).click();  // Select cruise i.e 0,1,2,3...10                      
+                      driver.findElement(By.cssSelector("#PriceList_1 > div > ul.item-list-grid-normal > li.grid-btn [class*='booknow res_Cruise_detai_mo']")).click();  // Select cruise i.e 0,1,2,3...10                      
 	      }                                                
 	      catch(Exception e)
 	      {
@@ -292,7 +295,7 @@ public class LocalCruiseBookingTest
                  driver.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0__ctl0_ResidentState']/option[3]")).click();
                  Thread.sleep(500);
                  driver.findElement(By.id("_ctl0_MainContentsPH__ctl0__ctl0_CategoryLNK")).click();
-                 Thread.sleep(500);
+                 Thread.sleep(1500);
                  
                  
       }
@@ -350,18 +353,18 @@ public class LocalCruiseBookingTest
     }
     
                //For verify Balcony category on category page
-               if(driver.findElement(By.cssSelector("#MainForm > div > div.category-tab-content-box > div > ul > li:nth-child(2) > a > div > span:nth-child(2)")).isDisplayed())
+               if(driver.findElement(By.cssSelector("#MainForm > div > div.category-tab-content-box > div > ul > li:nth-child(3) > a > div > span:nth-child(2)")).isDisplayed())
                {
-              	 driver.findElement(By.cssSelector("#MainForm > div > div.category-tab-content-box > div > ul > li:nth-child(2) > a > div > span:nth-child(2)")).click();
+              	 driver.findElement(By.cssSelector("#MainForm > div > div.category-tab-content-box > div > ul > li:nth-child(3) > a > div > span:nth-child(2)")).click();
               	 Thread.sleep(1500);
               	 
               	   final Screenshot screenshot61 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
                    final BufferedImage image61 = screenshot61.getImage();
                    ImageIO.write(image61, "PNG", new File("D:\\Ajit\\Script_SS\\LocalCruisebkng\\5_Categorypage.png"));
-                   Thread.sleep(2000);
+                   Thread.sleep(3000);
                    
                 // For open price tab..
-                   driver.findElement(By.cssSelector("[id='category_'] > div:nth-child(1) > div.categoryview-price-gride > ul.categoryview-price-gride-even > ul:nth-child(7) > li:nth-child(5) [class*='pricenow']")).click();
+                   driver.findElement(By.cssSelector("#category_3 > div:nth-child(1) > div.categoryview-price-gride > ul.categoryview-price-gride-even > li.btn-container > div.cat_price_container [class*='pricenow secondary-btn']")).click(); 
                    Thread.sleep(3000);
                    
                    // Switch to new window opened
@@ -378,7 +381,7 @@ public class LocalCruiseBookingTest
                      Thread.sleep(2000); 
                    
                      // For verify price on category price tab..
-                      String priceoncategorypage = driver.findElement(By.cssSelector("#PricesGTotal")).getText();
+                      String priceoncategorypage = driver.findElement(By.cssSelector("#TotalDueWithoutPrepaidGrats")).getText();
                       Reporter.log("Price on category price tab:- " +priceoncategorypage);
                       Thread.sleep(800);
            try
@@ -504,10 +507,10 @@ public class LocalCruiseBookingTest
                System.out.println("Prices on cabin page is:- " +priceoncabin);
                Reporter.log("Prices on cabin page is:- " +priceoncabin);
                Thread.sleep(2000);
-          //     String taxoncabin= driver.findElement(By.cssSelector("#MainForm > div > div.guest-top-right > div > span.cat-taxamt")).getText();
-          //     System.out.println(" " +taxoncabin);
+           //    String taxoncabin= driver.findElement(By.cssSelector("#MainForm > div > div.guest-top-right > div > span.cat-taxamt")).getText();
+           //    System.out.println(" " +taxoncabin);
           //     Reporter.log(" " +taxoncabin);
-          //     Thread.sleep(2000);
+           //    Thread.sleep(2000);
                
                //For check API, Office id And Test environment on cabin page
                String expr = driver.findElement(By.id("TracerBlock")).getText();
@@ -520,13 +523,13 @@ public class LocalCruiseBookingTest
                Thread.sleep(500);
                String officeid = expr.split("OdysseyGateway")[7].split(":")[3].trim();
                Reporter.log("Office Id :- " +officeid);
-               Thread.sleep(3000);
+               Thread.sleep(4000);
 
        
        //For select cabin from the cabin selection page
        try
        {
-      	              driver.findElement(By.cssSelector("#Stateroom-price > div > ul.stateroom-price-odd > li:nth-child(3) [id*='CabinBook_']")).click();
+      	              driver.findElement(By.cssSelector("[id*='CabinBook_']")).click();
                       Thread.sleep(1000);
        }
        catch(Exception e)
@@ -555,7 +558,7 @@ public class LocalCruiseBookingTest
                  
                            final Screenshot screenshot102 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
                            final BufferedImage image102 = screenshot102.getImage();
-                           ImageIO.write(image102, "PNG", new File("D:\\Ajit\\Script_SS\\LocalCruisebkng\\8_Searchcustomerpage.png"));
+                           ImageIO.write(image102, "PNG", new File("D:\\Ajit\\Script_SS\\LocalCruisebkng\\8_Purchasepage.png"));
          
                            System.out.println("Cabin selected successfully..");
                  
@@ -564,13 +567,19 @@ public class LocalCruiseBookingTest
                            long totalTime111 = finish111 - start3; 
                            Reporter.log("Total Time for cabin selection page to search customer page load(Milisec) - "+totalTime111); 
                            Thread.sleep(1000);
-            
+             /*              
+                           //Check price on purchase page
+                           String priceonpurchase= driver.findElement(By.cssSelector("#PricesGTotal")).getText();
+                           System.out.println("Prices on purchase page is:- " +priceonpurchase);
+                           Reporter.log("Prices on purchase page is:- " +priceonpurchase);
+                           Thread.sleep(2000);
+          */  
              // For the search customer page               
              try
              {
-                  driver.findElement(By.id("_ctl0_MainContent_fName")).sendKeys("monish");
+                  driver.findElement(By.cssSelector("#_ctl0_MainContent_fName")).sendKeys("monish");
                   Thread.sleep(700);
-                  driver.findElement(By.id("_ctl0_MainContent_SearchBTN")).click();
+                  driver.findElement(By.cssSelector("#_ctl0_MainContent_SearchBTN")).click();
                   Thread.sleep(3000);
                   driver.findElement(By.cssSelector("#_ctl0_MainContent_CustResults__ctl1_SelectLinkButton > img")).click();
                   
@@ -579,6 +588,83 @@ public class LocalCruiseBookingTest
              {
             	 e.getMessage();
              }
+   
+             /*              
+                           try
+                           {
+                                                      System.out.println("FirstName_Of_Guest1: " + Firstname_GuestOne);
+                                                      System.out.println("MiddleName_Of_Guest1: " + Middlename_GuestOne);
+                                                      System.out.println("LastName_Of_Guest1: " + Lastname_GuestOne);
+                                                      System.out.println("Email: " + Email);
+                                                      System.out.println("Email: " + Street_Address);
+                                                      System.out.println("Email: " + Cty);
+                                                      System.out.println("Email: " + Zpcode);
+                                                      System.out.println("Phone: " + Phone);
+                                                      System.out.println("FirstName_Of_Guest2: " + Firstname_GuestTwo);
+                                                      System.out.println("MiddleName_Of_Guest2: " + Middlename_GuestTwo);
+                                                      System.out.println("Lastname_of_Guest2: " + Lastname_GuestTwo);
+                                                                 	                                	 
+                                                      crspurchpge.DLCPurchaseToTittle(Firstname_GuestOne, Middlename_GuestOne, Lastname_GuestOne, Email, Street_Address, Cty, Zpcode, Phone, Firstname_GuestTwo, Middlename_GuestTwo, Lastname_GuestTwo);
+                                                      
+                             }
+                             catch(Exception e)
+                             {
+                                                      System.out.println("Invalid guest information on purchase page, Please enter valid details for the required fields...");
+                                                      System.out.println("\n");
+                                                      System.out.println("Invalid guest information on purchasepage Logs..");
+                                                      System.out.println("\n");
+                                                      ExtractJSLogs();
+                                                               
+                                                      final Screenshot screenshot34 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+                                                      final BufferedImage image34 = screenshot34.getImage();
+                                                      ImageIO.write(image34, "PNG", new File("D:\\Ajit\\Script_SS\\LocalCruisebkngError\\5_InvalidGuestinfoonPurchasepage.png"));
+                                                               
+                                                        Assert.assertFalse(false, "FAIL");
+                                                	    Reporter.log("Invalid guest information on purchase page, Please enter valid details for the required fields...");
+                                                		AssertJUnit.assertTrue("Invalid guest information on purchase page, Please enter valid details for the required fields....", crspurchpge.isDisplayed());
+                                                		throw(e);
+                               } 
+               */
+             
+           //For Purchase page                 
+             try
+             {
+                          driver.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_GroupPassID_2']")).click();
+                          Thread.sleep(1000);
+                          driver.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_GroupPassID_2']/option[8]")).click();
+                          Thread.sleep(5000);
+                          
+                          final Screenshot screenshot1002 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+                          final BufferedImage image1002 = screenshot1002.getImage();
+                          ImageIO.write(image1002, "PNG", new File("D:\\Ajit\\Script_SS\\LocalCruisebkng\\08_Purchasepage.png"));
+        
+                          
+                          driver.findElement(By.cssSelector("#_ctl0_MainContentsPH__ctl0_ContinueLNK")).click();  // Click on Hold
+                          Thread.sleep(8000);
+                          
+                          if(envrnmnt.toLowerCase().trim().equals("test"))
+                          {
+                              driver.findElement(By.id("_ctl0_MainContentsPH__ctl0_HoldCruiseBTN")).click();  // Click on Hold
+                              Thread.sleep(8000);
+                          }            
+             }
+             catch(Exception e)
+             {
+                                      System.out.println("Invalid guest information on purchase page, Please enter valid details for the required fields...");
+                                      System.out.println("\n");
+                                      System.out.println("Invalid guest information on purchasepage Logs..");
+                                      System.out.println("\n");
+                                      ExtractJSLogs();
+                                               
+                                      final Screenshot screenshot34 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+                                      final BufferedImage image34 = screenshot34.getImage();
+                                      ImageIO.write(image34, "PNG", new File("D:\\Ajit\\Script_SS\\LocalCruisebkngError\\5_InvalidGuestinfoonPurchasepage.png"));
+                                               
+                                        Assert.assertFalse(false, "FAIL");
+                                	    Reporter.log("Invalid guest information on purchase page, Please enter valid details for the required fields...");
+                                		AssertJUnit.assertTrue("Invalid guest information on purchase page, Please enter valid details for the required fields....", crsbkng.isDisplayed());
+                                		throw(e);
+               }
              
                         long start04 = System.currentTimeMillis();
                         Thread.sleep(4000);
@@ -596,65 +682,12 @@ public class LocalCruiseBookingTest
    
                         final Screenshot screenshot103 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
                         final BufferedImage image103 = screenshot103.getImage();
-                        ImageIO.write(image103, "PNG", new File("D:\\Ajit\\Script_SS\\LocalCruisebkng\\8_Purchasepage.png"));
-                        Thread.sleep(2000);
+                        ImageIO.write(image103, "PNG", new File("D:\\Ajit\\Script_SS\\LocalCruisebkng\\8_Confirmationpage.png"));
+                        Thread.sleep(3000);
 
-                           //Check price on purchase page
-                           String priceonpurchase= driver.findElement(By.xpath("//*[@id='PricesGTotal']")).getText();
-                           System.out.println("Prices on purchase page is:- " +priceonpurchase);
-                           Reporter.log("Prices on purchase page is:- " +priceonpurchase);
-                           Thread.sleep(2000);
-   
-       
-        //For Purchase page                 
-         try
-         {
-                      driver.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_GroupPassID_2']")).click();
-                      Thread.sleep(1000);
-                      driver.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_GroupPassID_2']/option[4]")).click();
-                      Thread.sleep(2000);
-                      driver.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_ContinueLNK']")).click();
-                                  
-         }
-         catch(Exception e)
-         {
-                                  System.out.println("Invalid guest information on purchase page, Please enter valid details for the required fields...");
-                                  System.out.println("\n");
-                                  System.out.println("Invalid guest information on purchasepage Logs..");
-                                  System.out.println("\n");
-                                  ExtractJSLogs();
-                                           
-                                  final Screenshot screenshot34 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                                  final BufferedImage image34 = screenshot34.getImage();
-                                  ImageIO.write(image34, "PNG", new File("D:\\Ajit\\Script_SS\\LocalCruisebkngError\\5_InvalidGuestinfoonPurchasepage.png"));
-                                           
-                                    Assert.assertFalse(false, "FAIL");
-                            	    Reporter.log("Invalid guest information on purchase page, Please enter valid details for the required fields...");
-                            		AssertJUnit.assertTrue("Invalid guest information on purchase page, Please enter valid details for the required fields....", crsbkng.isDisplayed());
-                            		throw(e);
-           }
-                                  long start6 = System.currentTimeMillis();
-                                  Thread.sleep(4000);           
-                                  System.out.println("\n");
-                                  System.out.println("Confirmationpage Logs..");
-                                  System.out.println("\n");
-                                  ExtractJSLogs();              
-                                  Thread.sleep(1000);
-                                  
-                                  long finish1111 = System.currentTimeMillis();
-                                  long totalTime1111 = finish1111 - start6; 
-                                  Reporter.log("Total Time for purchase page to confirmation page load(Milisec) - "+totalTime1111); 
-                                  Thread.sleep(1000);
-                                                  
-                                  final Screenshot screenshot44 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                                  final BufferedImage image44 = screenshot44.getImage();
-                                  ImageIO.write(image44, "PNG", new File("D:\\Ajit\\Script_SS\\LocalCruisebkng\\9_Confirmationpage.png"));
-                                                  
-                                  Thread.sleep(2000);
-                                  
-                                   
+                                    
                                   //For Verify price on confirmation page
-                                  String priceoncon = driver.findElement(By.xpath("//*[@id='PricesGTotal']")).getText();
+                                  String priceoncon = driver.findElement(By.cssSelector("#PricesGTotal")).getText();
                                   Reporter.log("Price on confirmationpage is:- "+ priceoncon);
                                   Thread.sleep(1000);
                 try{
@@ -698,7 +731,9 @@ public class LocalCruiseBookingTest
                 {
                 	e.getMessage();
                 }
-                                  // For click on Held booking button
+                      
+                /*
+                             // For click on Held booking button
                              if(envrnmnt.toLowerCase().trim().equals("test"))
                              {	 
                                   driver.findElement(By.id("_ctl0_MainContentsPH__ctl0_HoldCruiseBTN")).click();
@@ -712,6 +747,8 @@ public class LocalCruiseBookingTest
                                   Thread.sleep(1000);
                              }   
                              
+                   */          
+       /*                     
                      //For the verify held condition
                      try
                      {
@@ -754,20 +791,24 @@ public class LocalCruiseBookingTest
                                   ExtractJSLogs();              
                                   Thread.sleep(1000);
                                   
-                                  final Screenshot screenshot74 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-                                  final BufferedImage image74 = screenshot74.getImage();
-                                  ImageIO.write(image74, "PNG", new File("D:\\Ajit\\Script_SS\\LocalCruisebkng\\14_HeldConfirmationpage.png"));
-                                  Thread.sleep(4000);
+                                  
                      }       
                       catch (Exception e) {
 						// TODO: handle exception
                     	  e.getMessage();
-					}            
+					}    
+		*/			     
+                             
+                             final Screenshot screenshot704 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+                             final BufferedImage image704 = screenshot704.getImage();
+                             ImageIO.write(image704, "PNG", new File("D:\\Ajit\\Script_SS\\LocalCruisebkng\\14_HeldConfirmationpage.png"));
+                             Thread.sleep(4000);
+                             
                         try
                         {
                         	
                         	// Click on Full payment
-                        	driver.findElement(By.id("_ctl0_MainContentsPH__ctl0_ConfirmBkgBTN")).click();
+                        	driver.findElement(By.cssSelector("#_ctl0_MainContentsPH__ctl0_ConfirmBkgBTN")).click();
                         	long start77 = System.currentTimeMillis();  
                         	Thread.sleep(7000);
                         	
@@ -789,9 +830,9 @@ public class LocalCruiseBookingTest
                         	
                         	// For Payment details
                         	
-                            String priceonpaymnt = driver.findElement(By.xpath("//*[@id='PaymentAmountToPay']")).getText();
+                            String priceonpaymnt = driver.findElement(By.cssSelector("#PricesGTotal")).getText();
                             Reporter.log("Price on paymentpage is:- "+ priceonpaymnt);
-                                            
+                /*                            
                               if(priceonpaymnt.equals(priceonpurchase))
                               {
                                            	
@@ -809,7 +850,8 @@ public class LocalCruiseBookingTest
            							  Reporter.log("Actual price is:- " +priceonpurchase);
            					   }
             							         
-           							 Thread.sleep(1500);
+           			*/
+                            Thread.sleep(1500);
            							 
            							 if(priceonpaymnt.equals(priceoncon))
                                      {
@@ -853,9 +895,9 @@ public class LocalCruiseBookingTest
                        //     System.out.println("City: " + City);
                        //     System.out.println("Zipcode: " + Zipcode);
                        //     System.out.println("Phone_Number: " + Phone_Number);
-                       //   System.out.println("BankName: " + BankName);
+                             System.out.println("BankName: " + BankName);
                            
-                            hldncnfrm.PaymentToTitle(CardNo, CardCvvNo, CardHolderName, Address, City, Zipcode, Phone_Number);
+                            hldncnfrm.PaymentToTitle(CardNo, CardCvvNo, CardHolderName, Address, City, Zipcode, Phone_Number, BankName);
                             long start78 = System.currentTimeMillis();  
                                 
                             Thread.sleep(18000);
@@ -871,6 +913,11 @@ public class LocalCruiseBookingTest
                                 ExtractJSLogs();              
                                 Thread.sleep(1000);
                                 
+                                driver.findElement(By.id("AgreeTermsCHK")).click();
+                                Thread.sleep(2000);
+                                driver.findElement(By.cssSelector("#_ctl0_MainContentsPH__ctl0_ContinueLNK")).click();
+                                Thread.sleep(3000);
+               /*                 
                              // For the verify confirm condition
                                 String status1 = driver.findElement(By.xpath("//*[@id='MainForm']/div[2]/div/div[2]/div[2]/ul/li[3]/text()")).getText(); 
                                                   
@@ -898,7 +945,7 @@ public class LocalCruiseBookingTest
                                
                                   System.out.println("Actual status is:- "+ status1);
                                   Reporter.log("Actual status is:- " + status1);
-                                
+                      */          
                                   final Screenshot screenshot76 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
                                   final BufferedImage image76 = screenshot76.getImage();
                                   ImageIO.write(image76, "PNG", new File("D:\\Ajit\\Script_SS\\LocalCruisebkng\\16_ConfirmBooking.png"));
@@ -928,7 +975,7 @@ public class LocalCruiseBookingTest
           	            throw(e);
 			      }   
                   
-                      driver.get("https://localhost/odyssey/admin/default.aspx");
+    /*                  driver.get("https://localhost/odyssey/admin/default.aspx");
                       driver.navigate().refresh();
                       driver.manage().window().maximize();
                       
@@ -1036,7 +1083,7 @@ public class LocalCruiseBookingTest
                          Reporter.log("Booking cancelled successfully..");
                       
                          Thread.sleep(4000);
-                      
+        */              
                                   
 
  }

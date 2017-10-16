@@ -8,14 +8,14 @@
   <test name="ChromeTest(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="Implementation.LocalAlanitaConfirmTest">
+      <class name="Implementation.LocalOpenSegmentTest">
         <methods>
-          <include name="closeBrowser"/>
-          <include name="openBroswer"/>
-          <include name="Confirmlogin_data" invocation-numbers="0"/>
           <include name="baseClass"/>
+          <include name="DLC_data" invocation-numbers="0"/>
+          <include name="openBroswer"/>
+          <include name="closeBrowser"/>
         </methods>
-      </class> <!-- Implementation.LocalAlanitaConfirmTest -->
+      </class> <!-- Implementation.LocalOpenSegmentTest -->
     </classes>
   </test> <!-- ChromeTest(failed) -->
 </suite> <!-- Failed suite [Suite] -->

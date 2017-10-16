@@ -41,7 +41,7 @@ public class LocalAirBookingUtils
 
 		   // you can write a function as well to get Column count
 
-		   int totalCols = 23;
+		   int totalCols = 27;
 
 		   tabArray=new String[totalRows][totalCols];
 

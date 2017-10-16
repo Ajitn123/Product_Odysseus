@@ -66,7 +66,7 @@ public class LocalAirBookingpgeobjct
 			Thread.sleep(3000);         
 		//	selectfrmdte.clear();
 		//	selectfrmdte.click();
-			selectfrmdte.findElement(By.xpath("//*[@id='ui-datepicker-div']/div[2]/table/tbody/tr[1]/td[7]/a")).click(); // 01 July 2017   
+			selectfrmdte.findElement(By.xpath("//*[@id='ui-datepicker-div']/div[2]/table/tbody/tr[1]/td[7]/a")).click(); // 04 Nov 2017   
 			Thread.sleep(3000);              
 			Toloc.click(); 
 			Toloc.sendKeys(tolc);
@@ -75,7 +75,7 @@ public class LocalAirBookingpgeobjct
 		//	selecttodte.clear();
 		//	selecttodte.click();
 			selecttodte.findElement(By.xpath("//*[@id='ui-datepicker-div']/div[2]/div/a/span")).click();
-			selecttodte.findElement(By.xpath("//*[@id='ui-datepicker-div']/div[2]/table/tbody/tr[5]/td[6]/a")).click();  // 29 Sept 2017
+			selecttodte.findElement(By.xpath("//*[@id='ui-datepicker-div']/div[2]/table/tbody/tr[5]/td[3]/a")).click();  // 30 Jan 2018
 			Thread.sleep(3000);         
 			selectadlt.click();        
 			selectadlt.findElement(By.xpath("//*[@id='DDListPopUp']/div[2]")).click();

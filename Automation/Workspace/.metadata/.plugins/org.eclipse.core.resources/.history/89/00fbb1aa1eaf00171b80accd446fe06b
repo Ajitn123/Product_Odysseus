@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite" parallel="false">
+       <listeners>
+              <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+       </listeners>   
+          
+       <test name="ChromeTest">
+                    <parameter name="browser" value="chrome"/>
+                      <classes>
+                            <class name="Implementation.CDORTest"/>
+                            <class name="Implementation.VivaVoyageTest"/>
+                            <class name="Implementation.FaregeekTest"/>
+                            <class name="Implementation.FaredepotTest"/>
+                            <class name="Implementation.BPCCruiseBookingTest"/>
+                            <class name="Implementation.DLCTest"/>
+                            <class name="Implementation.DLCPackageTwoTest"/>
+                            <class name="Implementation.DLCPackageOneTest"/>
+                            <class name="Implementation.CruiseQuickTest"/>
+                            <class name="Implementation.iCruiseTest"/>
+                            <class name="Implementation.Click2CruiseTest"/>
+                            
+                      </classes>
+       </test> <!-- Test -->
+              
+</suite> <!-- Suite -->

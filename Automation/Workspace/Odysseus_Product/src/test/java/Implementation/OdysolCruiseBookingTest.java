@@ -9,9 +9,14 @@ import java.sql.Date;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import javax.imageio.ImageIO;
+
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogEntry;
@@ -73,7 +78,7 @@ public class OdysolCruiseBookingTest
 	                 } 
 	                 else if (browser.equalsIgnoreCase("chrome")) 
 	                 {
-		                    System.setProperty("webdriver.chrome.driver", "D:\\Ajit\\Driver\\chromedriver_win32\\chromedriver.exe");
+		                    System.setProperty("webdriver.chrome.driver", "D:\\Ajit\\Automation\\Workspace\\Odysseus_Product\\Driver\\chromedriver_win32\\chromedriver.exe");
 		                    DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 		                    LoggingPreferences loggingprefs = new LoggingPreferences();
 		                    loggingprefs.enable(LogType.BROWSER, Level.ALL);
@@ -83,7 +88,7 @@ public class OdysolCruiseBookingTest
 	                 }  
 	                 else if (browser.equalsIgnoreCase("IE")) 
 	                 {
-		                   System.setProperty("webdriver.ie.driver", "D:\\Ajit\\Driver\\IEDriverServer_Win32_2.53.0\\IEDriverServer.exe");
+		                   System.setProperty("webdriver.ie.driver", "D:\\Ajit\\Automation\\Workspace\\Odysseus_Product\\Driver\\IEDriverServer_Win32_2.53.0\\IEDriverServer.exe");
 		                // driver = new InternetExplorerDriver();
 		                   
 	                 } 
@@ -154,17 +159,17 @@ public class OdysolCruiseBookingTest
                     
          lgnpge.LoginToTittle(sUsername, sPassword);
          long start = System.currentTimeMillis();
-         Thread.sleep(2000);
+         Thread.sleep(2100);
+         long finish = System.currentTimeMillis();
+         long totalTime = finish - start; 
+         Reporter.log("Total Time for login page to search page load(Milisec) - "+totalTime); 
+         Thread.sleep(1000);
          
          System.out.println("\n");
          System.out.println("Loginpage Logs..");
          System.out.println("\n");
          ExtractJSLogs();
-         Thread.sleep(3000);
-         long finish = System.currentTimeMillis();
-         long totalTime = finish - start; 
-         Reporter.log("Total Time for login page to search page load(Milisec) - "+totalTime); 
-         Thread.sleep(1000);
+         Thread.sleep(2200);
    
     }     
     catch(Exception e)
@@ -188,17 +193,17 @@ public class OdysolCruiseBookingTest
     try
     {
          airbk.CruiseBookingToTitle();
-         long start = System.currentTimeMillis();
-         
+          
          final Screenshot screenshot = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
          final BufferedImage image = screenshot.getImage();
          ImageIO.write(image, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolCruise\\2_Searchpage.png"));
          Thread.sleep(2000);
          
-         driver.findElement(By.id("CruiseSearchForm_OpenTarget")).click();
+         driver.findElement(By.xpath("//*[@id='CruiseSearchForm_OpenTarget']")).sendKeys(Keys.ENTER);
          Thread.sleep(1000);
          
-         driver.findElement(By.cssSelector("#CruiseSearchForm_tab2 > div.row.no-margin.cruise-form-footer > div.col-md-4.col-xs-3.pull-right.no-padding > div [class*='btn-search pull-right btn-block no-margin']")).click();
+         driver.findElement(By.cssSelector("#CruiseSearchForm_tab2 > div.row.no-margin.cruise-form-footer > div.col-md-4.col-xs-3.pull-right.no-padding > div [class*='btn-search pull-right btn-block no-margin']")).sendKeys(Keys.ENTER);
+         long start = System.currentTimeMillis();
          Thread.sleep(7000);
          
          System.out.println("\n");
@@ -236,35 +241,45 @@ public class OdysolCruiseBookingTest
      try
      {
     	 
-    // For select dynamic cruise from result page
-     
-           driver.navigate().refresh();
-   
-           driver.get("https://ui.odysol.com/web/cruises/results.aspx?showtrace=true");
+         // For select dynamic cruise from result page
+         for(int i = driver.getWindowHandles().size() -1 ; i > 0 ; i--)
+         {
 
-	       driver.manage().window().maximize();
+                             String winHandle = driver.getWindowHandles().toArray()[i].toString();
+
+                             driver.switchTo().window(winHandle);
+                            
+                             driver.navigate().refresh();
+                             
+                             Thread.sleep(3000);     
+           
+   
+                         driver.get("https://ui.odysol.com/web/cruises/results.aspx?showtrace=true");
+
+	                     driver.manage().window().maximize();
 	       
-	       System.out.println("\n");
-	       System.out.println("Resultpage Logs..");
-	       System.out.println("\n");
-	       ExtractJSLogs();
+	                    System.out.println("\n");
+	                    System.out.println("Resultpage Logs..");
+	                    System.out.println("\n");
+	                    ExtractJSLogs();
 	       
-	       Thread.sleep(3000);
+	                   Thread.sleep(3000);
 	       
-	       final Screenshot screenshot003 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
-		   final BufferedImage image003 = screenshot003.getImage();
-		   ImageIO.write(image003, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolCruise\\3_Resultpage.png"));
+	                   final Screenshot screenshot003 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+		               final BufferedImage image003 = screenshot003.getImage();
+		               ImageIO.write(image003, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolCruise\\3_Resultpage.png"));
  
-	       Thread.sleep(7000);
+	                   Thread.sleep(7000);
 	  
-          // For select cruise 
-	      driver.findElement(By.cssSelector("#PriceList_0 > div > ul > li.grid-btn [class*='booknow res_Cruise_detai_mo']")).click();
-	      long start = System.currentTimeMillis();
-	      Thread.sleep(6000);
-	      long finish = System.currentTimeMillis();
-          long totalTime = finish - start; 
-          Reporter.log("Total Time for result page to details page load(Milisec) - "+totalTime); 
-          Thread.sleep(1000);
+                // For select cruise 
+	               driver.findElement(By.cssSelector("#PriceList_1 > div > ul > li.grid-btn [class*='booknow res_Cruise_detai_mo']")).sendKeys(Keys.ENTER);
+	               long start = System.currentTimeMillis();
+	               Thread.sleep(6200);
+	               long finish = System.currentTimeMillis();
+                   long totalTime = finish - start; 
+                   Reporter.log("Total Time for result page to details page load(Milisec) - "+totalTime); 
+                   Thread.sleep(1000);
+         }        
      }
      catch(Exception e)
      {
@@ -309,7 +324,7 @@ public class OdysolCruiseBookingTest
 	                   Thread.sleep(500);
 	                   driver.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0__ctl0_ResidentState']/option[3]")).click();
 	                   Thread.sleep(500);
-	                   driver.findElement(By.id("_ctl0_MainContentsPH__ctl0__ctl0_CategoryLNK")).click();
+	                   driver.findElement(By.id("_ctl0_MainContentsPH__ctl0__ctl0_CategoryLNK")).sendKeys(Keys.ENTER);
 	                   Thread.sleep(500);
 	                   
 	                   long start = System.currentTimeMillis();
@@ -318,7 +333,7 @@ public class OdysolCruiseBookingTest
 	         	       System.out.println("\n");
 	         	       ExtractJSLogs();
 	                   
-	                   Thread.sleep(8000);
+	                   Thread.sleep(7900);
 	                   long finish = System.currentTimeMillis();
 	                   long totalTime = finish - start; 
 	                   Reporter.log("Total Time for details page to category page load(Milisec) - "+totalTime); 
@@ -366,19 +381,24 @@ public class OdysolCruiseBookingTest
 	      }
 	      
 	                 //For verify Balcony category on category page
-	                 if(driver.findElement(By.cssSelector("#MainForm > div > div.category-tab-content-box > div > ul > li:nth-child(3) > a > div > span.category-tab-content-img > img")).isDisplayed())
+	                 if(driver.findElement(By.cssSelector("#MainForm > div.cruise-detail-box > div.category-tab-content-box > div > ul > li:nth-child(3) > a > div > span:nth-child(2)")).isDisplayed())
 	                 {
-	                	 driver.findElement(By.cssSelector("#MainForm > div > div.category-tab-content-box > div > ul > li:nth-child(3) > a > div > span.category-tab-content-img > img")).click();
+	                	 driver.findElement(By.cssSelector("#MainForm > div.cruise-detail-box > div.category-tab-content-box > div > ul > li:nth-child(3) > a > div > span:nth-child(2)")).click();
 	                	 Thread.sleep(1500);
 	                	 
 	                	 final Screenshot screenshot61 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
 	                     final BufferedImage image61 = screenshot61.getImage();
 	                     ImageIO.write(image61, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolCruise\\5_Categorypage.png"));
-	                     Thread.sleep(2000);
+	                     Thread.sleep(4000);
 	                     	                     
-	                     // For open price tab..
-	                     driver.findElement(By.cssSelector("#category_3 > div:nth-child(1) > div.categoryview-price-gride > ul.categoryview-price-gride-even > ul:nth-child(7) > li:nth-child(5) [class*='pricenow']")).click();
-	                     Thread.sleep(2000);
+	                  // For open price tab..
+	                  if(driver.findElement(By.cssSelector("[id*='category_'] > div:nth-child(1) > div.categoryview-price-gride > ul.categoryview-price-gride-even > li.btn-container > div.cat_price_container [class*='pricenow secondary-btn']")).isDisplayed())
+	                  {
+	                     //  driver.findElement(By.cssSelector("[id*='category_'] > div:nth-child(1) > div.categoryview-price-gride > ul.categoryview-price-gride-even > li.btn-container > div.cat_price_container [class*='pricenow secondary-btn']")).click();
+	                        WebElement element11 = driver.findElement(By.cssSelector("[id*='category_'] > div:nth-child(1) > div.categoryview-price-gride > ul.categoryview-price-gride-even > li.btn-container > div.cat_price_container [class*='pricenow secondary-btn']"));
+	     		            JavascriptExecutor executor11 = (JavascriptExecutor) driver;
+	     		            executor11.executeScript("arguments[0].click();", element11);
+	                        Thread.sleep(2000);
 	                     
 	                     // Switch to new window opened
 	                     String winHandleBefore = driver.getWindowHandle();
@@ -406,10 +426,10 @@ public class OdysolCruiseBookingTest
 	                        driver.close();
 	                        
 	                        driver.switchTo().window(winHandleBefore);
-	                        
+	                  }     
 	                     
 	                     // Select category..
-	                	 driver.findElement(By.cssSelector("#category_3 > div:nth-child(1) > div.categoryview-price-gride > ul.categoryview-price-gride-even > li:nth-child(5) [class*='booknow']")).click();
+	                	 driver.findElement(By.cssSelector("#category_3 > div:nth-child(1) > div.categoryview-price-gride > ul.categoryview-price-gride-even > li:nth-child(5) [class*='booknow']")).sendKeys(Keys.ENTER);
 	                	 long start = System.currentTimeMillis();
 	                	 Thread.sleep(4500);
 	                	 long finish = System.currentTimeMillis();
@@ -429,6 +449,8 @@ public class OdysolCruiseBookingTest
 	                     Thread.sleep(2000);
 	                     
 	                  // For open price tab..
+	               if(driver.findElement(By.cssSelector("#category_3 > div:nth-child(1) > div.categoryview-price-gride > ul.categoryview-price-gride-even > ul:nth-child(7) > li:nth-child(5) [class*='pricenow']")).isDisplayed())
+	               {
 	                     driver.findElement(By.cssSelector("#category_3 > div:nth-child(1) > div.categoryview-price-gride > ul.categoryview-price-gride-even > ul:nth-child(7) > li:nth-child(5) [class*='pricenow']")).click();
 	                     Thread.sleep(2000);
 	                     
@@ -458,11 +480,11 @@ public class OdysolCruiseBookingTest
 	                        driver.close();
 	                        
 	                        driver.switchTo().window(winHandleBefore);
-	                        
+	                 }       
 	                     // Select category
 	                	 driver.findElement(By.cssSelector("#category_4 > div:nth-child(1) > div.categoryview-price-gride > ul.categoryview-price-gride-even > li:nth-child(5) [class*='booknow']")).click();
 	                	 long start = System.currentTimeMillis();
-	                	 Thread.sleep(4000);
+	                	 Thread.sleep(4300);
 	                	 long finish = System.currentTimeMillis();
 	                     long totalTime = finish - start; 
 	                     Reporter.log("Total Time for category page to cabin selection page load(Milisec) - "+totalTime); 
@@ -529,7 +551,12 @@ public class OdysolCruiseBookingTest
 	         //For select cabin from the cabin selection page
 	         try
 	         {
-	        	            driver.findElement(By.cssSelector("#Stateroom-price > div > ul:nth-child(2) > li:nth-child(3) [id*='CabinBook_']")).click();
+	        	       //     driver.findElement(By.cssSelector("#Stateroom-price > div > ul:nth-child(2) > li.btn-container [id*='CabinBook_']")).sendKeys(Keys.ENTER);
+	        	            
+	        	            WebElement element1 = driver.findElement(By.cssSelector("#Stateroom-price > div > ul:nth-child(2) > li.btn-container [id*='CabinBook_']"));
+	     		            JavascriptExecutor executor1 = (JavascriptExecutor) driver;
+	     		            executor1.executeScript("arguments[0].click();", element1);
+	        	            
 	        	            long start = System.currentTimeMillis();
 	        	            Thread.sleep(1000);
 	                        long finish = System.currentTimeMillis();
@@ -572,16 +599,20 @@ public class OdysolCruiseBookingTest
 	                // For Search & Select customer
 	                try
 	                {
-	                	 driver.findElement(By.id("_ctl0_MainContent_fName")).click();
-	                	 Thread.sleep(700);
 	                	 driver.findElement(By.id("_ctl0_MainContent_fName")).sendKeys("monish");
-	                	 Thread.sleep(800);
-	                	 driver.findElement(By.id("_ctl0_MainContent_SearchBTN")).click();
-	                	 Thread.sleep(3000);
+	                	 Thread.sleep(1000);
+	                	 driver.findElement(By.id("_ctl0_MainContent_SearchBTN")).sendKeys(Keys.ENTER);
+	                	 Thread.sleep(7000);
 	                	 
-	                	 driver.findElement(By.cssSelector("#_ctl0_MainContent_CustResults__ctl1_SelectLinkButton > img")).click();
+	                	  driver.findElement(By.cssSelector("#_ctl0_MainContent_CustResults__ctl1_SelectLinkButton > img")).click();
+	               /* 	 
+	                	 WebElement element = driver.findElement(By.xpath("//*[@id='_ctl0_MainContent_CustResults__ctl1_SelectLinkButton']/img"));
+	                     JavascriptExecutor js =(JavascriptExecutor)driver;
+	                     js.executeScript("window.scrollTo(0,'element.getLocation().y+')");
+	                     element.click();
+	               */      
 	                	 long start = System.currentTimeMillis();
-	                	 Thread.sleep(4000);
+	                	 Thread.sleep(3890);
 	                	 long finish = System.currentTimeMillis();
 	                     long totalTime = finish - start; 
 	                     Reporter.log("Total Time for search customer page to purchase page load(Milisec) - "+totalTime); 
@@ -615,10 +646,10 @@ public class OdysolCruiseBookingTest
 	          {
 	                driver.findElement(By.cssSelector("#_ctl0_MainContentsPH__ctl0_GroupPassID_2")).click();
 	                Thread.sleep(1000);
-	                driver.findElement(By.cssSelector("#_ctl0_MainContentsPH__ctl0_GroupPassID_2 > option:nth-child(3)")).click();
+	                driver.findElement(By.cssSelector("#_ctl0_MainContentsPH__ctl0_GroupPassID_2 > option:nth-child(3)")).sendKeys(Keys.ENTER);
 	                Thread.sleep(3000);
 	                
-	                driver.findElement(By.cssSelector("#_ctl0_MainContentsPH__ctl0_ContinueLNK")).click();
+	                driver.findElement(By.cssSelector("#_ctl0_MainContentsPH__ctl0_ContinueLNK")).sendKeys(Keys.ENTER);
 	                long start = System.currentTimeMillis();
 	                Thread.sleep(5000);
 	                long finish = System.currentTimeMillis();
@@ -671,7 +702,9 @@ public class OdysolCruiseBookingTest
 	                            	  {
 	                                    driver.findElement(By.id("InsurranceCHK_NON")).click();
 	                                    Thread.sleep(2000);
-	                                    driver.findElement(By.cssSelector("#DivTravlGuardPopup > div.inscontent > div.inscontentbox > div.button2 > a")).click();
+	                                    
+	                                    Alert alert=driver.switchTo().alert();
+	                            	    alert.accept();
 	                                    Thread.sleep(2000);
 	                            	  }  
 	                               }
@@ -679,16 +712,34 @@ public class OdysolCruiseBookingTest
 	                               {
 	                            	   e.getMessage();
 	                               }
-	                                    
-	                                    // For click on Full payment button
-	                                    driver.findElement(By.id("_ctl0_MainContentsPH__ctl0_ContinueBTN")).click();
+	                               
+	                           try
+	                           {
+	                               // For click on Full payment button
+	                        	   if(driver.findElement(By.id("_ctl0_MainContentsPH__ctl0_ContinueBTN")).isDisplayed())
+	                        	   {
+	                                    driver.findElement(By.id("_ctl0_MainContentsPH__ctl0_ContinueBTN")).sendKeys(Keys.ENTER);
 	                                    long start = System.currentTimeMillis();
-	                                    Thread.sleep(4000);
+	                                    Thread.sleep(3700);
 	                                    long finish = System.currentTimeMillis();
 	                                    long totalTime = finish - start; 
 	                                    Reporter.log("Total Time for confirmation page to payment page load(Milisec) - "+totalTime); 
 	                                    Thread.sleep(1000);
-	                                    
+	                        	   }
+	                           }	   
+	                           catch (Exception e) {
+								// TODO: handle exception
+	                        	   e.getMessage();
+	                        	   
+	                        	  final Screenshot screenshot94 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+	         	                  final BufferedImage image94 = screenshot94.getImage();
+	         	                  ImageIO.write(image94, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolCruiseError\\15_FullPaymentbuttonmissing.png"));
+	         	                  
+	         	                  Assert.assertFalse(false, "FAIL");
+	         	            	  Reporter.log("Full payment button missing...");
+	         	            	  AssertJUnit.assertTrue("Full payment button missing...", lgnpge.isDisplayed());
+	         	            	  throw(e);
+							   }	   
 	                                    System.out.println("\n");
 	                                    System.out.println("Paymentpage Logs..");
 	                                    System.out.println("\n");
@@ -753,7 +804,7 @@ public class OdysolCruiseBookingTest
 	            	  AssertJUnit.assertTrue("Something went wrong...", lgnpge.isDisplayed());
 	            	  throw(e);
 				  }                        
-          
+	            
       }
     
  
@@ -771,14 +822,14 @@ public class OdysolCruiseBookingTest
  @AfterClass
  public void closeBrowser() throws InterruptedException
  {
-	 
-	   /*
+	 /*
+	   
 	        if(driver!=null) 
 	        {
 		         System.out.println("Closing the browser");
 		         driver.quit();
 	        }   
-   */
+    */
  }
 	
 	

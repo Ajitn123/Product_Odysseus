@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import javax.imageio.ImageIO;
-
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -75,7 +74,7 @@ public class LocalAlanitaConfirmTest
 	                 } 
 	                 else if (browser.equalsIgnoreCase("chrome")) 
 	                 {
-	                	    System.setProperty("webdriver.chrome.driver", "D:\\Ajit\\Driver\\chromedriver_win32\\chromedriver.exe");
+	                	    System.setProperty("webdriver.chrome.driver", "D:\\Ajit\\Automation\\Workspace\\Odysseus_Product\\Driver\\chromedriver_win32\\chromedriver.exe");
 		                    DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 		                    LoggingPreferences loggingprefs = new LoggingPreferences();
 		                    loggingprefs.enable(LogType.BROWSER, Level.ALL);
@@ -85,7 +84,7 @@ public class LocalAlanitaConfirmTest
 	                 }  
 	                 else if (browser.equalsIgnoreCase("IE")) 
 	                 {
-		                   System.setProperty("webdriver.ie.driver", "D:\\Ajit\\Driver\\IEDriverServer_Win32_2.53.0\\IEDriverServer.exe");
+		                   System.setProperty("webdriver.ie.driver", "D:\\Ajit\\Automation\\Workspace\\Odysseus_Product\\Driver\\IEDriverServer_Win32_2.53.0\\IEDriverServer.exe");
 		               //  driver = new InternetExplorerDriver();
 		                   
 	                 } 
@@ -267,7 +266,7 @@ public class LocalAlanitaConfirmTest
               Thread.sleep(500);
               String officeid = expr.split("OdysseyGateway")[7].split(":")[3].trim();
               Reporter.log("Office Id :- " +officeid);
-              Thread.sleep(3000);
+              Thread.sleep(5000);
               
     try   
     {

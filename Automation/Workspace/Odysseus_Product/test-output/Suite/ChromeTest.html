@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Mon Jun 19 19:52:58 IST 2017</td>
+<td>Started on:</td><td>Mon Oct 16 15:47:41 IST 2017</td>
 </tr>
-<tr><td>Total time:</td><td>289 seconds (289296 ms)</td>
+<tr><td>Total time:</td><td>181 seconds (181842 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,26 +75,53 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='Implementation.LocalAlanitaConfirmTest.Confirmlogin_data()'><b>Confirmlogin_data</b><br>Test class: Implementation.LocalAlanitaConfirmTest<br>Parameters: ajithn@odysol.com, odysseus, nyc, bost, Ajit, B, Nakum, Aakash, M, Paliwal, Eric, C, Methews, ajit_nakum@odysseussolutions.com, 8952634785, Ajit Nakum, 4111111111111111, 123, 305 White House, New York, 10245, 8952634785, State Bank Of India<br/>
+<td title='Implementation.LocalOpenSegmentTest.DLC_data()'><b>DLC_data</b><br>Test class: Implementation.LocalOpenSegmentTest<br>Parameters: ajithn@odysol.com, odysseus, Maputo, Monish, N, Luthra, Anna, M, Luthra, ajit_nakum@odysseussolutions.com, ajit_nakum@odysseussolutions.com, 7847596325, 5412653289, Ajit Nakum, 4111111111111111, 123, 305 White House, New York, 10245, 8952634785, City Bank<br/>
 <a href="#Output-1493042329" onClick='toggleBox("Output-1493042329", this, "Show output", "Hide output");'>Show output</a>
 
 <a href="#Output-1493042329" onClick="toggleAllBoxes();">Show all outputs</a>
 <div class='log' id="Output-1493042329">
-Website Name:- Ajit<br/>
-Affiliate Name:- Alanita-spc<br/>
-API :- Sabre<br/>
-Environment :- Test<br/>
-Office Id :- I4GB<br/>
-Time out..<br/>
+Website Name :- Parth Bhatt<br/>
+Affiliate :- Odysseus-CAMH<br/>
+Total Time for serch page to result page load(Milisec) - 3982<br/>
+Total Time for result page to details page load(Milisec) - 6200<br/>
+Total Time for details page to category page load(Milisec) - 7723<br/>
 </div>
 </td>
-<td><div><pre>java.lang.AssertionError: Time out...
-	at Implementation.LocalAlanitaConfirmTest.Confirmlogin_data(LocalAlanitaConfirmTest.java:387)
-... Removed 26 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1493042329", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1493042329'><pre>java.lang.AssertionError: Time out...
-	at org.testng.AssertJUnit.fail(AssertJUnit.java:59)
-	at org.testng.AssertJUnit.assertTrue(AssertJUnit.java:24)
-	at Implementation.LocalAlanitaConfirmTest.Confirmlogin_data(LocalAlanitaConfirmTest.java:387)
+<td><div><pre>org.openqa.selenium.WebDriverException: unknown error: Element &lt;span&gt;...&lt;/span&gt; is not clickable at point (1039, 523). Other element would receive the click: &lt;div class=&quot;ui-widget-overlay ui-front&quot;&gt;&lt;/div&gt;
+  (Session info: chrome=61.0.3163.100)
+  (Driver info: chromedriver=2.29.461591 (62ebf098771772160f391d75e589dc567915b233),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 59 milliseconds
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b&apos;, time: &apos;2016-03-15 16:57:40&apos;
+System info: host: &apos;OdySol-DTP-027&apos;, ip: &apos;192.168.1.138&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_101&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Users\AJITNA~1\AppData\Local\Temp\scoped_dir5156_30381}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=61.0.3163.100, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: c2dc08ef2894bdb3dda7b78ed4c4e04a
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:327)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:85)
+	at Implementation.LocalOpenSegmentTest.DLC_data(LocalOpenSegmentTest.java:413)
+... Removed 28 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1493042329", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1493042329'><pre>org.openqa.selenium.WebDriverException: unknown error: Element &lt;span&gt;...&lt;/span&gt; is not clickable at point (1039, 523). Other element would receive the click: &lt;div class=&quot;ui-widget-overlay ui-front&quot;&gt;&lt;/div&gt;
+  (Session info: chrome=61.0.3163.100)
+  (Driver info: chromedriver=2.29.461591 (62ebf098771772160f391d75e589dc567915b233),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 59 milliseconds
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b&apos;, time: &apos;2016-03-15 16:57:40&apos;
+System info: host: &apos;OdySol-DTP-027&apos;, ip: &apos;192.168.1.138&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_101&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Users\AJITNA~1\AppData\Local\Temp\scoped_dir5156_30381}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=61.0.3163.100, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: c2dc08ef2894bdb3dda7b78ed4c4e04a
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:327)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:85)
+	at Implementation.LocalOpenSegmentTest.DLC_data(LocalOpenSegmentTest.java:413)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -120,8 +147,8 @@ Time out..<br/>
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
 </pre></div></td>
-<td>254</td>
-<td>Implementation.LocalAlanitaConfirmTest@74ad1f1f</td></tr>
+<td>166</td>
+<td>Implementation.LocalOpenSegmentTest@74ad1f1f</td></tr>
 </table><p>
 </body>
 </html>

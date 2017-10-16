@@ -447,12 +447,22 @@ public class OdysolAirCheckoutpageobjct
 			Thread.sleep(300);
 			email.sendKeys(eml);
 			Thread.sleep(500);
-			cnfmemail.clear();
-			Thread.sleep(500);
-			cnfmemail.click();
-			Thread.sleep(500);
-			cnfmemail.sendKeys(cnfmeml);
-			Thread.sleep(500);
+	try
+	{
+			  if(cnfmemail.isDisplayed())
+			  {
+				    cnfmemail.clear();
+					Thread.sleep(500);
+					cnfmemail.click();
+					Thread.sleep(500);
+					cnfmemail.sendKeys(cnfmeml);
+					Thread.sleep(500);
+			  }
+	}
+	catch(Exception e)
+	{
+		e.getMessage();
+	}
 			phoneno.clear();
 			Thread.sleep(200);
 			phoneno.click();

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.testng.eclipse.launchconfig">
+<stringAttribute key="org.eclipse.jdt.launching.CLASSPATH_PROVIDER" value="org.eclipse.m2e.launchconfig.classpathProvider"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="org.testng.remote.RemoteTestNG"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Odysseus_Product"/>
+<stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.m2e.launchconfig.sourcepathProvider"/>
+<mapAttribute key="org.testng.eclipse.ALL_CLASS_METHODS"/>
+<listAttribute key="org.testng.eclipse.CLASS_TEST_LIST">
+<listEntry value="Implementation.BPCCruiseBookingTest"/>
+<listEntry value="Implementation.LocalCruiseBookingTest"/>
+<listEntry value="Implementation.OdysolCruiseBookingTest"/>
+<listEntry value="Implementation.AirAlanitaHeldBtoBTest"/>
+<listEntry value="Implementation.FaregeekTest"/>
+<listEntry value="Implementation.LocalAlanitaConfirmTest"/>
+<listEntry value="Implementation.LocalDynamicPackagingTest"/>
+<listEntry value="Implementation.ADCRCCLTest"/>
+<listEntry value="Implementation.LocalDynamicPackagingAirTest"/>
+<listEntry value="Implementation.LocalBPCTest"/>
+<listEntry value="Implementation.LoginTest"/>
+<listEntry value="Implementation.AdmindefaultpageTest"/>
+<listEntry value="Implementation.OdysolAirHeldBookingTest"/>
+<listEntry value="Implementation.AlanitaConfirmBtoBTest"/>
+<listEntry value="Implementation.CDORTest"/>
+<listEntry value="Implementation.OdysseusTicketLocalTest"/>
+<listEntry value="Implementation.OdysolHotelBookingTest"/>
+<listEntry value="Implementation.OdysolAirHeldConfirmAndTicketedTest"/>
+<listEntry value="Implementation.DatadrivenTest"/>
+<listEntry value="Implementation.LocalOdysolDemoTest"/>
+<listEntry value="Implementation.DLCTest"/>
+<listEntry value="Implementation.OdysolAirConfirmBookingTest"/>
+<listEntry value="Implementation.VivaVoyageTest"/>
+<listEntry value="Implementation.AlanitaETicketedCancelBtoBTest"/>
+<listEntry value="Implementation.ADCMSCTest"/>
+<listEntry value="Implementation.FaredepotTest"/>
+<listEntry value="Implementation.LocalTravelportTest"/>
+<listEntry value="Implementation.LocalAirBookingTest"/>
+</listAttribute>
+<listAttribute key="org.testng.eclipse.METHOD_TEST_LIST"/>
+<listAttribute key="org.testng.eclipse.PACKAGE_TEST_LIST"/>
+<stringAttribute key="org.testng.eclipse.PRE_DEFINED_LISTENERS" value=""/>
+<intAttribute key="org.testng.eclipse.TYPE" value="1"/>
+</launchConfiguration>

@@ -1,46 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" total="1" passed="0">
+<testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
     <line>
-      <![CDATA[Website Name :- CDOR]]>
+      <![CDATA[Website Name :- Faregeek]]>
     </line>
     <line>
-      <![CDATA[Cruise line :- Viking Ocean Cruises]]>
+      <![CDATA[Total Time for search page to result page load(Milisec) - 4000]]>
     </line>
     <line>
-      <![CDATA[Total Time for serch page to result page load(Milisec) - 4000]]>
+      <![CDATA[Price per person on result page: $432.97]]>
     </line>
     <line>
-      <![CDATA[Bonus Offers are available..]]>
+      <![CDATA[Total Price on result page: $1,298.92]]>
     </line>
     <line>
-      <![CDATA[Total Time for result page to details page load(Milisec) - 3017]]>
+      <![CDATA[Total Time for result page to checkout page load(Milisec) - 2500]]>
     </line>
     <line>
-      <![CDATA[Departure Port:- Bergen]]>
+      <![CDATA[Departure Trip: Sat,04 Nov
+EWR
+16:10
+SIN
+06:20]]>
     </line>
     <line>
-      <![CDATA[Sailing Dates:- Sep 17, 2017]]>
+      <![CDATA[Return Trip: Tue,26 Dec
+SIN
+06:35
+EWR
+16:45]]>
     </line>
     <line>
-      <![CDATA[Ship:- Viking Sea]]>
+      <![CDATA[ Adults x 2
+$732.00]]>
     </line>
     <line>
-      <![CDATA[Destination:- Transatlantic]]>
+      <![CDATA[ Children x 1
+$275.00]]>
     </line>
     <line>
-      <![CDATA[Duration:- 14 night]]>
+      <![CDATA[ Taxes & Airline Fees
+$291.92]]>
     </line>
     <line>
-      <![CDATA[Total Time for details page to category page load(Milisec) - 8509]]>
+      <![CDATA[Price on checkout page: $1,298.92]]>
+    </line>
+    <line>
+      <![CDATA[API :- AmadeusWS]]>
+    </line>
+    <line>
+      <![CDATA[Environment :- Production]]>
+    </line>
+    <line>
+      <![CDATA[Office Id :- LGA1S211A]]>
+    </line>
+    <line>
+      <![CDATA[Best Price Gaurantee Applied successfully..]]>
+    </line>
+    <line>
+      <![CDATA[ Additional Items : Customer Satisfaction & Best Price Guarantee
+$44.97]]>
+    </line>
+    <line>
+      <![CDATA[After applied Best Price Guarantee: $1,343.89]]>
+    </line>
+    <line>
+      <![CDATA[Best Price Gaurantee Removed successfully..]]>
+    </line>
+    <line>
+      <![CDATA[After Removed Best Price Guarantee: $1,298.92]]>
+    </line>
+    <line>
+      <![CDATA[Total Time for checkout page to payment page load(Milisec) - 4000]]>
+    </line>
+    <line>
+      <![CDATA[Insurance applied successfully..]]>
+    </line>
+    <line>
+      <![CDATA[Prices of After applied insurance on the Payment page:- $1,370.35]]>
+    </line>
+    <line>
+      <![CDATA[ Travel Insurance
+$71.43]]>
+    </line>
+    <line>
+      <![CDATA[Insurance Removed successfully..]]>
+    </line>
+    <line>
+      <![CDATA[Prices of After removed insurance on the Payment page:- $1,298.92]]>
+    </line>
+    <line>
+      <![CDATA[Price on payment page: $1,298.92]]>
+    </line>
+    <line>
+      <![CDATA[Checkout page and Payment page's Price matched..]]>
+    </line>
+    <line>
+      <![CDATA[Actual price is:- $1,298.92]]>
+    </line>
+    <line>
+      <![CDATA[Result page and Checkout page's Price matched..]]>
+    </line>
+    <line>
+      <![CDATA[Actual price is:- $1,298.92]]>
     </line>
   </reporter-output>
-  <suite name="Suite" duration-ms="177216" started-at="2017-06-19T09:35:53Z" finished-at="2017-06-19T09:38:50Z">
+  <suite name="Suite" duration-ms="226533" started-at="2017-10-10T12:45:53Z" finished-at="2017-10-10T12:49:39Z">
     <groups>
     </groups>
-    <test name="ChromeTest" duration-ms="177216" started-at="2017-06-19T09:35:53Z" finished-at="2017-06-19T09:38:50Z">
-      <class name="Implementation.CDORTest">
-        <test-method status="PASS" signature="openBroswer(java.lang.String)[pri:0, instance:Implementation.CDORTest@370736d9]" name="openBroswer" is-config="true" duration-ms="2803" started-at="2017-06-19T15:05:53Z" finished-at="2017-06-19T15:05:56Z">
+    <test name="ChromeTest" duration-ms="226533" started-at="2017-10-10T12:45:53Z" finished-at="2017-10-10T12:49:39Z">
+      <class name="Implementation.FaregeekTest">
+        <test-method status="PASS" signature="openBroswer(java.lang.String)[pri:0, instance:Implementation.FaregeekTest@2ac273d3]" name="openBroswer" is-config="true" duration-ms="2260" started-at="2017-10-10T18:15:53Z" finished-at="2017-10-10T18:15:55Z">
           <params>
             <param index="0">
               <value>
@@ -51,203 +121,199 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openBroswer -->
-        <test-method status="PASS" signature="baseClass()[pri:0, instance:Implementation.CDORTest@370736d9]" name="baseClass" is-config="true" duration-ms="30669" started-at="2017-06-19T15:05:56Z" finished-at="2017-06-19T15:06:27Z">
+        <test-method status="PASS" signature="baseClass()[pri:0, instance:Implementation.FaregeekTest@2ac273d3]" name="baseClass" is-config="true" duration-ms="24338" started-at="2017-10-10T18:15:55Z" finished-at="2017-10-10T18:16:19Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- baseClass -->
-        <test-method status="FAIL" signature="CDOR_data(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:Implementation.CDORTest@370736d9]" name="CDOR_data" duration-ms="143306" started-at="2017-06-19T15:06:27Z" data-provider="Authentications" finished-at="2017-06-19T15:08:50Z">
+        <test-method status="PASS" signature="Fregeek_Data(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:Implementation.FaregeekTest@2ac273d3]" name="Fregeek_Data" duration-ms="197414" started-at="2017-10-10T18:16:20Z" data-provider="Authentication" finished-at="2017-10-10T18:19:37Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[Monish]]>
+                <![CDATA[nyc]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[N]]>
+                <![CDATA[singap]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[Luthra]]>
+                <![CDATA[Monish]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[ajit_nakum@odysseussolutions.com]]>
+                <![CDATA[N]]>
               </value>
             </param>
             <param index="4">
               <value>
-                <![CDATA[7847596325]]>
+                <![CDATA[Luthra]]>
               </value>
             </param>
             <param index="5">
               <value>
-                <![CDATA[Anna]]>
+                <![CDATA[5487896532]]>
               </value>
             </param>
             <param index="6">
               <value>
-                <![CDATA[M]]>
+                <![CDATA[ajit_nakum@odysseussolutions.com]]>
               </value>
             </param>
             <param index="7">
               <value>
+                <![CDATA[ajit_nakum@odysseussolutions.com]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[Anna]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[M]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
                 <![CDATA[Luthra]]>
               </value>
             </param>
+            <param index="11">
+              <value>
+                <![CDATA[Arya]]>
+              </value>
+            </param>
+            <param index="12">
+              <value>
+                <![CDATA[M]]>
+              </value>
+            </param>
+            <param index="13">
+              <value>
+                <![CDATA[Luthra]]>
+              </value>
+            </param>
+            <param index="14">
+              <value>
+                <![CDATA[9856247895]]>
+              </value>
+            </param>
           </params>
-          <exception class="net.sf.cglib.core.CodeGenerationException">
-            <message>
-              <![CDATA[org.openqa.selenium.WebDriverException-->unknown error: cannot parse capability: chromeOptions
-from unknown error: must be a dictionary
-  (Driver info: chromedriver=2.29.461591 (62ebf098771772160f391d75e589dc567915b233),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 40 milliseconds
-Build info: version: '2.37.1', revision: 'a7c61cbd68657e133ae96672cf995890bad2ee42', time: '2013-10-21 09:08:07'
-System info: host: 'OdySol-DTP-027', ip: '192.168.1.138', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_101'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Users\AJITNA~1\AppData\Local\Temp\scoped_dir1732_16318}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.110, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
-Session ID: 9e94ba4a6d6c98adc1deb05584e2249b]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[net.sf.cglib.core.CodeGenerationException: org.openqa.selenium.WebDriverException-->unknown error: cannot parse capability: chromeOptions
-from unknown error: must be a dictionary
-  (Driver info: chromedriver=2.29.461591 (62ebf098771772160f391d75e589dc567915b233),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 40 milliseconds
-Build info: version: '2.37.1', revision: 'a7c61cbd68657e133ae96672cf995890bad2ee42', time: '2013-10-21 09:08:07'
-System info: host: 'OdySol-DTP-027', ip: '192.168.1.138', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_101'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Users\AJITNA~1\AppData\Local\Temp\scoped_dir1732_16318}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.110, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
-Session ID: 9e94ba4a6d6c98adc1deb05584e2249b
-	at net.sf.cglib.core.ReflectUtils.newInstance(ReflectUtils.java:235)
-	at net.sf.cglib.core.ReflectUtils.newInstance(ReflectUtils.java:220)
-	at net.sf.cglib.core.ReflectUtils.newInstance(ReflectUtils.java:216)
-	at net.sf.cglib.proxy.Enhancer.createUsingReflection(Enhancer.java:640)
-	at net.sf.cglib.proxy.Enhancer.firstInstance(Enhancer.java:538)
-	at net.sf.cglib.core.AbstractClassGenerator.create(AbstractClassGenerator.java:225)
-	at net.sf.cglib.proxy.Enhancer.createHelper(Enhancer.java:377)
-	at net.sf.cglib.proxy.Enhancer.create(Enhancer.java:285)
-	at org.openqa.selenium.remote.Augmenter.create(Augmenter.java:237)
-	at org.openqa.selenium.remote.Augmenter.augment(Augmenter.java:130)
-	at ru.yandex.qatools.ashot.screentaker.ShootingStrategy$1.getScreenshot(ShootingStrategy.java:25)
-	at ru.yandex.qatools.ashot.screentaker.HeadCuttingShootingStrategy.getScreenshot(HeadCuttingShootingStrategy.java:21)
-	at ru.yandex.qatools.ashot.screentaker.VerticalPastingShootingStrategy.getScreenshot(VerticalPastingShootingStrategy.java:46)
-	at ru.yandex.qatools.ashot.screentaker.ScreenTaker.take(ScreenTaker.java:23)
-	at ru.yandex.qatools.ashot.AShot.takeScreenshot(AShot.java:166)
-	at Implementation.CDORTest.CDOR_data(CDORTest.java:345)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:821)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1131)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
-	at org.testng.TestRunner.privateRun(TestRunner.java:773)
-	at org.testng.TestRunner.run(TestRunner.java:623)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1185)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1110)
-	at org.testng.TestNG.run(TestNG.java:1018)
-	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:177)
-	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:92)
-	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:105)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
-	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
-	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:103)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:74)
-Caused by: org.openqa.selenium.WebDriverException: unknown error: cannot parse capability: chromeOptions
-from unknown error: must be a dictionary
-  (Driver info: chromedriver=2.29.461591 (62ebf098771772160f391d75e589dc567915b233),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 40 milliseconds
-Build info: version: '2.37.1', revision: 'a7c61cbd68657e133ae96672cf995890bad2ee42', time: '2013-10-21 09:08:07'
-System info: host: 'OdySol-DTP-027', ip: '192.168.1.138', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_101'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Users\AJITNA~1\AppData\Local\Temp\scoped_dir1732_16318}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.110, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
-Session ID: 9e94ba4a6d6c98adc1deb05584e2249b
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:193)
-	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:145)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:554)
-	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:216)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.openqa.selenium.remote.Augmenter$CompoundHandler.intercept(Augmenter.java:280)
-	at org.openqa.selenium.chrome.ChromeDriver$$EnhancerByCGLIB$$babaab78.startSession(<generated>)
-	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:111)
-	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:115)
-	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:171)
-	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:160)
-	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:117)
-	at org.openqa.selenium.chrome.ChromeDriver$$EnhancerByCGLIB$$babaab78.<init>(<generated>)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-	at net.sf.cglib.core.ReflectUtils.newInstance(ReflectUtils.java:228)
-	... 48 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- net.sf.cglib.core.CodeGenerationException -->
           <reporter-output>
             <line>
-              <![CDATA[Website Name :- CDOR]]>
+              <![CDATA[Website Name :- Faregeek]]>
             </line>
             <line>
-              <![CDATA[Cruise line :- Viking Ocean Cruises]]>
+              <![CDATA[Total Time for search page to result page load(Milisec) - 4000]]>
             </line>
             <line>
-              <![CDATA[Total Time for serch page to result page load(Milisec) - 4000]]>
+              <![CDATA[Price per person on result page: $432.97]]>
             </line>
             <line>
-              <![CDATA[Bonus Offers are available..]]>
+              <![CDATA[Total Price on result page: $1,298.92]]>
             </line>
             <line>
-              <![CDATA[Total Time for result page to details page load(Milisec) - 3017]]>
+              <![CDATA[Total Time for result page to checkout page load(Milisec) - 2500]]>
             </line>
             <line>
-              <![CDATA[Departure Port:- Bergen]]>
+              <![CDATA[Departure Trip: Sat,04 Nov
+EWR
+16:10
+SIN
+06:20]]>
             </line>
             <line>
-              <![CDATA[Sailing Dates:- Sep 17, 2017]]>
+              <![CDATA[Return Trip: Tue,26 Dec
+SIN
+06:35
+EWR
+16:45]]>
             </line>
             <line>
-              <![CDATA[Ship:- Viking Sea]]>
+              <![CDATA[ Adults x 2
+$732.00]]>
             </line>
             <line>
-              <![CDATA[Destination:- Transatlantic]]>
+              <![CDATA[ Children x 1
+$275.00]]>
             </line>
             <line>
-              <![CDATA[Duration:- 14 night]]>
+              <![CDATA[ Taxes & Airline Fees
+$291.92]]>
             </line>
             <line>
-              <![CDATA[Total Time for details page to category page load(Milisec) - 8509]]>
+              <![CDATA[Price on checkout page: $1,298.92]]>
+            </line>
+            <line>
+              <![CDATA[API :- AmadeusWS]]>
+            </line>
+            <line>
+              <![CDATA[Environment :- Production]]>
+            </line>
+            <line>
+              <![CDATA[Office Id :- LGA1S211A]]>
+            </line>
+            <line>
+              <![CDATA[Best Price Gaurantee Applied successfully..]]>
+            </line>
+            <line>
+              <![CDATA[ Additional Items : Customer Satisfaction & Best Price Guarantee
+$44.97]]>
+            </line>
+            <line>
+              <![CDATA[After applied Best Price Guarantee: $1,343.89]]>
+            </line>
+            <line>
+              <![CDATA[Best Price Gaurantee Removed successfully..]]>
+            </line>
+            <line>
+              <![CDATA[After Removed Best Price Guarantee: $1,298.92]]>
+            </line>
+            <line>
+              <![CDATA[Total Time for checkout page to payment page load(Milisec) - 4000]]>
+            </line>
+            <line>
+              <![CDATA[Insurance applied successfully..]]>
+            </line>
+            <line>
+              <![CDATA[Prices of After applied insurance on the Payment page:- $1,370.35]]>
+            </line>
+            <line>
+              <![CDATA[ Travel Insurance
+$71.43]]>
+            </line>
+            <line>
+              <![CDATA[Insurance Removed successfully..]]>
+            </line>
+            <line>
+              <![CDATA[Prices of After removed insurance on the Payment page:- $1,298.92]]>
+            </line>
+            <line>
+              <![CDATA[Price on payment page: $1,298.92]]>
+            </line>
+            <line>
+              <![CDATA[Checkout page and Payment page's Price matched..]]>
+            </line>
+            <line>
+              <![CDATA[Actual price is:- $1,298.92]]>
+            </line>
+            <line>
+              <![CDATA[Result page and Checkout page's Price matched..]]>
+            </line>
+            <line>
+              <![CDATA[Actual price is:- $1,298.92]]>
             </line>
           </reporter-output>
-        </test-method> <!-- CDOR_data -->
-        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:Implementation.CDORTest@370736d9]" name="closeBrowser" is-config="true" duration-ms="0" started-at="2017-06-19T15:08:50Z" finished-at="2017-06-19T15:08:50Z">
+        </test-method> <!-- Fregeek_Data -->
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:Implementation.FaregeekTest@2ac273d3]" name="closeBrowser" is-config="true" duration-ms="2066" started-at="2017-10-10T18:19:37Z" finished-at="2017-10-10T18:19:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->
-      </class> <!-- Implementation.CDORTest -->
+      </class> <!-- Implementation.FaregeekTest -->
     </test> <!-- ChromeTest -->
   </suite> <!-- Suite -->
 </testng-results>

@@ -1,6 +1,7 @@
 package Implementation;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
@@ -11,7 +12,7 @@ public class DLCPurchasepgeobjct
 
 	    //For Purchase page(Passenger details)
 	    @FindBy(id="_ctl0_MainContentsPH__ctl0_TravelerAccount_1_Title")
-	    private WebElement selecttitle;
+	    private WebElement selecttitle; 
 	
 		@FindBy(id="_ctl0_MainContentsPH__ctl0_TravelerAccount_1_GenderSEL")
 		private WebElement selectgender;
@@ -46,7 +47,7 @@ public class DLCPurchasepgeobjct
 		@FindBy(id="_ctl0_MainContentsPH__ctl0_TravelerAccount_1_AddressUC_CityInput")
 		private WebElement cty;
 		
-		@FindBy(id="_ctl0_MainContentsPH__ctl0_TravelerAccount_1_AddressUC_StateSel")
+		@FindBy(xpath="//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_1_AddressUC_StateSel']")
 		private WebElement stte;
 		
 		@FindBy(id="_ctl0_MainContentsPH__ctl0_TravelerAccount_1_AddressUC_ZipCodeInput")
@@ -80,11 +81,11 @@ public class DLCPurchasepgeobjct
 		@FindBy(id="_ctl0_MainContentsPH__ctl0_TravelerAccount_2_DateUC_Year")
 		private WebElement yrsofgustwo;
 		
-		@FindBy(id="_ctl0_MainContentsPH__ctl0_TravelerAccount_2_Nationality")
+		@FindBy(xpath="//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_2_Nationality']")
 		private WebElement contry;
 		
 		//Click on Book Your Cabin button
-		@FindBy(id="_ctl0_MainContentsPH__ctl0_ContinueLNK")
+		@FindBy(xpath="//*[@id='_ctl0_MainContentsPH__ctl0_ContinueLNK']")
 		private WebElement clkonbtn;
 		
 		
@@ -150,12 +151,11 @@ public class DLCPurchasepgeobjct
 					   cty.clear();
 					   Thread.sleep(400);
 					   cty.click();
-					   Thread.sleep(400);
+					   Thread.sleep(700);
 					   cty.sendKeys(cti);
-					   Thread.sleep(500);
-					   stte.click();
-					   Thread.sleep(400);
-					   stte.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_1_AddressUC_StateSel']/option[3]")).click();
+					   Thread.sleep(800);
+					   Select select02 = new Select(stte.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_1_AddressUC_StateSel']")));
+				       select02.selectByVisibleText("Alaska");  
 					   Thread.sleep(500);
 					   zpecde.clear();
 					   Thread.sleep(400);
@@ -195,20 +195,19 @@ public class DLCPurchasepgeobjct
 					   monthofgustwo.click();
 					   Thread.sleep(500);
 					   monthofgustwo.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_2_DateUC_Month']/option[10]")).click();
-					   Thread.sleep(500);
+					   Thread.sleep(800);
 					   dayofgustwo.click();
-					   Thread.sleep(500);
+					   Thread.sleep(900);
 					   dayofgustwo.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_2_DateUC_Day']/option[20]")).click();
-					   Thread.sleep(500);
+					   Thread.sleep(900);
 					   yrsofgustwo.click();
-					   Thread.sleep(500);
-					   yrsofgustwo.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_2_DateUC_Year']/option[75]")).click();
-					   Thread.sleep(500);
-					   contry.click();
-					   Thread.sleep(500);
-					   contry.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_2_Nationality']/option[220]")).click();
+					   Thread.sleep(700);
+					   yrsofgustwo.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_2_DateUC_Year']/option[8]")).click();
+					   Thread.sleep(800);
+					   Select select03 = new Select(contry.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_2_Nationality']")));
+					   select03.selectByVisibleText("United States");
 					   Thread.sleep(1000);
-					   clkonbtn.click();
+					   clkonbtn.sendKeys(Keys.ENTER);
 					   Thread.sleep(2000);
 
 			  }

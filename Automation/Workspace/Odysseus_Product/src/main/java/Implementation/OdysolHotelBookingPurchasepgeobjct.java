@@ -1,6 +1,7 @@
 package Implementation;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
@@ -120,7 +121,7 @@ public class OdysolHotelBookingPurchasepgeobjct
 				Thread.sleep(700);
 				phntwo.sendKeys(phonetwo);
 				Thread.sleep(900);
-				clickonPaynow.click();
+				clickonPaynow.sendKeys(Keys.ENTER);
 				Thread.sleep(4000);
 			}
 			catch(Exception e)

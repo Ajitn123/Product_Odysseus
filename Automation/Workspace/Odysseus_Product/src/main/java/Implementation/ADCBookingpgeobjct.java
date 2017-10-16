@@ -1,6 +1,7 @@
 package Implementation;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
@@ -28,13 +29,13 @@ public class ADCBookingpgeobjct
 	{
 		try
 		{
-			Selectfrmdte.click();
+			Selectfrmdte.sendKeys(Keys.ENTER);
 			Thread.sleep(1000);
 			Selectfrmdte.findElement(By.xpath("//*[@id='Calendar_StartDate_nextArrow']")).click();
 			Thread.sleep(500);
 			Selectfrmdte.findElement(By.xpath("//*[@id='Calendar_StartDate_day_0_6']")).click(); //For 01 July 2017
 			Thread.sleep(500);
-			selecttodte.click();
+			selecttodte.sendKeys(Keys.ENTER);
 			Thread.sleep(1000);
 			selecttodte.findElement(By.xpath("//*[@id='Calendar_EndDate_nextArrow']")).click();
 			Thread.sleep(500);

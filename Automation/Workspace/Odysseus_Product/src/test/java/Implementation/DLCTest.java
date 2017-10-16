@@ -10,10 +10,11 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import javax.imageio.ImageIO;
 import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogEntry;
@@ -41,9 +42,13 @@ public class DLCTest
 {
 
 	    DLCPurchasepgeobjct crspurchpge;
-	    DLCBookingpgeobjct crsbkngpge;
+	 //   DLCBookingpgeobjct crsbkngpge;  // For DLC Package 1
+	 //   DLCPackageTwopgeobjct crsbkngpge;     // For DLC Package 2
+	    DLCCruiseBookingpgeobjct crsbkngpge;  // For Normal Disney
         public static WebDriver driver;
         Reporter report = new Reporter();
+        
+        String Log = "D:\\Ajit\\Script_SS\\Differences of Images\\Logs\\DLC.txt";
 
    public static boolean implicitwait(long time)
    {
@@ -72,17 +77,17 @@ public class DLCTest
             } 
             else if (browser.equalsIgnoreCase("chrome")) 
             {
-           	            System.setProperty("webdriver.chrome.driver", "D:\\Ajit\\Driver\\chromedriver_win32\\chromedriver.exe");
+           	            System.setProperty("webdriver.chrome.driver", "D:\\Ajit\\Automation\\Workspace\\Odysseus_Product\\Driver\\chromedriver_win32\\chromedriver.exe");
 	                    DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 	                    LoggingPreferences loggingprefs = new LoggingPreferences();
 	                    loggingprefs.enable(LogType.BROWSER, Level.ALL);
 	                    capabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingprefs);
 	                    driver = new ChromeDriver(capabilities);
-	                   
+	                    
             }  
             else if (browser.equalsIgnoreCase("IE")) 
             {
-	                   System.setProperty("webdriver.ie.driver", "D:\\Ajit\\Driver\\IEDriverServer_Win32_2.53.0\\IEDriverServer.exe");
+	                   System.setProperty("webdriver.ie.driver", "D:\\Ajit\\Automation\\Workspace\\Odysseus_Product\\Driver\\IEDriverServer_Win32_2.53.0\\IEDriverServer.exe");
 	                   //driver = new InternetExplorerDriver();
 	                   
             } 
@@ -101,7 +106,12 @@ public class DLCTest
     	driver.manage().window().maximize();
         driver.get("https://book.dlcagencymenu.net/web/cruises/search.aspx?");
         Thread.sleep(2000);
-
+       
+  /*     
+        Dimension d = new Dimension(414,736);
+        //Resize current window to the set dimension
+        driver.manage().window().setSize(d);
+  */
         //Save console
         String testResultFile="D:\\Ajit\\Script_SS\\ConsoleError\\DLCBookingError.txt";
         File file = new File(testResultFile);  
@@ -111,15 +121,33 @@ public class DLCTest
              
         Thread.sleep(1000);
 
+        final Screenshot screenshot1 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+        final BufferedImage image1 = screenshot1.getImage();
+        ImageIO.write(image1, "PNG", new File("D:\\Ajit\\Script_SS\\DLC\\1_Searchpage.png"));
+        Thread.sleep(1000);
+        
+        String myArg1 = "D:\\Ajit\\Script_SS\\DLC\\1_Searchpage.png";
+        String myArg2 = "D:\\Ajit\\Script_SS\\Daily Sanity\\Oct_2017\\11 Oct\\DLC\\DLC\\1_Searchpage.png";
+        String myCommand = "D:\\Ajit\\Script_SS\\ImageCompConsole.exe";
+        String Output = "D:\\Ajit\\Script_SS\\Differences of Images\\DLC\\1_Searchpage.png";
+         
+        ProcessBuilder pb = new ProcessBuilder(myCommand, myArg1, myArg2, Output, Log);
+        pb.directory(new File("D:\\Ajit\\Script_SS"));
+        Process p = pb.start();
+        
+        System.out.println("" +p);
         
         System.out.println("\n");
         System.out.println("Searchpage Logs..");
         System.out.println("\n");
         ExtractJSLogs();
        
-        Thread.sleep(4000);
-        crsbkngpge = PageFactory.initElements(driver, DLCBookingpgeobjct.class);
-        crspurchpge = PageFactory.initElements(driver, DLCPurchasepgeobjct.class);
+        Thread.sleep(4000); 
+        
+       //   crsbkngpge = PageFactory.initElements(driver, DLCPackageTwopgeobjct.class);  // For DLC Package Two
+          crsbkngpge = PageFactory.initElements(driver, DLCCruiseBookingpgeobjct.class);  // For Normal Disney
+       //  crsbkngpge = PageFactory.initElements(driver, DLCBookingpgeobjct.class);    // For DLC Package One
+          crspurchpge = PageFactory.initElements(driver, DLCPurchasepgeobjct.class);
     
    }
 
@@ -146,12 +174,15 @@ public class DLCTest
   		     Reporter.log("Cruise line :- Disney");
   		     Thread.sleep(1500);
   		 
-      	     crsbkngpge.BookingToTittle();
+      	  //   crsbkngpge.BookingToTittle();          // For DLC Package One
+      	  //   crsbkngpge.Bookingpackage2ToTittle();  // For DLC Package Two
+      	     crsbkngpge.DLCBookingToTittle();         // For DLC Normal Disney
       	     long start = System.currentTimeMillis();
       	     
-      	     Thread.sleep(4000);
+      	     Thread.sleep(3982);
       	     long finish = System.currentTimeMillis();
              long totalTime = finish - start; 
+        //   int seconds = (int) (totalTime / 1000) % 60 ;
              Reporter.log("Total Time for serch page to result page load(Milisec) - "+totalTime); 
              Thread.sleep(1000);
       	     System.out.println("\n");
@@ -159,7 +190,25 @@ public class DLCTest
  	         System.out.println("\n");
  	         ExtractJSLogs();
  	        
-             
+             Thread.sleep(1000);
+              
+ 	          final Screenshot screenshot4 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+              final BufferedImage image4 = screenshot4.getImage();
+              ImageIO.write(image4, "PNG", new File("D:\\Ajit\\Script_SS\\DLC\\2_Resultpage.png"));
+              Thread.sleep(2000);
+              
+              String myArg1 = "D:\\Ajit\\Script_SS\\DLC\\2_Resultpage.png";
+              String myArg2 = "D:\\Ajit\\Script_SS\\Daily Sanity\\Oct_2017\\11 Oct\\DLC\\DLC\\2_Resultpage.png";
+              String myCommand = "D:\\Ajit\\Script_SS\\ImageCompConsole.exe";
+              String Output = "D:\\Ajit\\Script_SS\\Differences of Images\\DLC\\2_Resultpage.png";
+              
+              
+              ProcessBuilder pb = new ProcessBuilder(myCommand, myArg1, myArg2, Output, Log);
+              pb.directory(new File("D:\\Ajit\\Script_SS"));
+              Process p = pb.start();
+              
+              System.out.println("" +p);
+          
               Thread.sleep(6000);
            
        }
@@ -170,7 +219,10 @@ public class DLCTest
  	         System.out.println("\n");
  	         ExtractJSLogs();
   	 
-	        
+	         final Screenshot screenshot33 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+	         final BufferedImage image33 = screenshot33.getImage();
+	         ImageIO.write(image33, "PNG", new File("D:\\Ajit\\Script_SS\\DLCError\\1_TimeoutORinvalidsearchdetails.png"));
+	          
   	         Assert.assertFalse(false, "FAIL");
   	         Reporter.log("Time out or Invalid search criteria on resultpage..");
   	         AssertJUnit.assertTrue("Time out or Invalid search criteria on resultpage...", crsbkngpge.isDisplayed());
@@ -185,22 +237,27 @@ public class DLCTest
                      driver.get("https://book.dlcagencymenu.net/web/cruises/results.aspx?showtrace=true");
                       
                      Thread.sleep(3000);  
-                            
+          /*                  
                      // For the bonus offers
-                     if(driver.findElement(By.cssSelector("#PriceList_0 > div > ul:nth-child(1) > li.grid-bonus.res_grid_bonus > a > img")).isDisplayed())
+                     if(driver.findElement(By.cssSelector("#PriceList_1 > div > ul:nth-child(1) > li.grid-bonus.res_grid_bonus > a > img")).isDisplayed())
                      {
                      	  Reporter.log("Bonus Offers are available..");
-                     	  driver.findElement(By.cssSelector("#PriceList_0 > div > ul:nth-child(1) > li.grid-bonus.res_grid_bonus > a > img")).click();
+                     	  driver.findElement(By.cssSelector("#PriceList_1 > div > ul:nth-child(1) > li.grid-bonus.res_grid_bonus > a > img")).click();
+                          Thread.sleep(1500);
+                         
+                          File scr22 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+           	              org.codehaus.plexus.util.FileUtils.copyFile(scr22, new File("D:\\Ajit\\Script_SS\\DLC\\3_Bonusoffers.png")); 
                          
                           Thread.sleep(3000);
                          
                      	  driver.navigate().refresh();
                      	  Thread.sleep(3000);
                      }
+            */         
                      
-                     
-                        driver.findElement(By.cssSelector("#PriceList_5 > div > ul > li.grid-btn [class*='booknow res_Cruise_detai_mo']")).click();  // Select cruise i.e 0,1,2,3...10
-                        
+                 //       driver.findElement(By.cssSelector("[id*='PriceList_'] > div > ul.item-list-grid-alter > li.grid-btn.btn-container [class*='booknow res_Cruise_detai_mo primary-btn']")).click();  // Select cruise i.e 0,1,2,3...10 For Normal Disney
+                 //       driver.findElement(By.cssSelector("[id*='PriceList_'] > div > ul > li.grid-btn.btn-container [class*='booknow res_Cruise_detai_mo primary-btn']")).click();  // For package 1 & 2
+                          driver.findElement(By.cssSelector("[id*='PriceList_'] > div > ul:nth-child(1) > li.grid-btn.btn-container [class*='booknow res_Cruise_detai_mo primary-btn']")).click();
 	      }                                                
 	      catch(Exception e)
 	      {
@@ -210,26 +267,45 @@ public class DLCTest
       	         System.out.println("\n");
       	         ExtractJSLogs();
          
-               
+                final Screenshot screenshot5 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+                final BufferedImage image5 = screenshot5.getImage();
+                ImageIO.write(image5, "PNG", new File("D:\\Ajit\\Script_SS\\DLCError\\2_Cruisenotavailable.png"));
+         
                 Assert.assertFalse(false, "FAIL");
                 Reporter.log("Cruise not available..");
 		        AssertJUnit.assertTrue("Cruise not available...", crsbkngpge.isDisplayed());
 		        throw(e);
 	       }
                long start = System.currentTimeMillis();  
-               Thread.sleep(2000); 
+               Thread.sleep(2200); 
+               
+               long finish = System.currentTimeMillis();
+               long totalTime = finish - start; 
+               Reporter.log("Total Time for result page to details page load(Milisec) - "+totalTime); 
+               Thread.sleep(1000);
       
                System.out.println("\n");
                System.out.println("Cruise detailspage Logs..");
                System.out.println("\n");
                ExtractJSLogs();              
                Thread.sleep(1000);
-               long finish = System.currentTimeMillis();
-               long totalTime = finish - start; 
-               Reporter.log("Total Time for result page to details page load(Milisec) - "+totalTime); 
-               Thread.sleep(1000);
+              
+               final Screenshot screenshot60 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+               final BufferedImage image60 = screenshot60.getImage();
+               ImageIO.write(image60, "PNG", new File("D:\\Ajit\\Script_SS\\DLC\\4_Cruisedetailspage.png"));
+               Thread.sleep(2000);
                
-             
+               String myArg1 = "D:\\Ajit\\Script_SS\\DLC\\4_Cruisedetailspage.png";
+               String myArg2 = "D:\\Ajit\\Script_SS\\Daily Sanity\\Oct_2017\\11 Oct\\DLC\\DLC\\4_Cruisedetailspage.png";
+               String myCommand = "D:\\Ajit\\Script_SS\\ImageCompConsole.exe";
+               String Output = "D:\\Ajit\\Script_SS\\Differences of Images\\DLC\\3_Cruisedetailspage.png";
+               
+               ProcessBuilder pb = new ProcessBuilder(myCommand, myArg1, myArg2, Output, Log);
+               pb.directory(new File("D:\\Ajit\\Script_SS"));
+               Process p = pb.start();
+               
+               System.out.println("" +p);
+
                System.out.println("Cruise selected successfully..");
                 
                Thread.sleep(4000);
@@ -267,7 +343,10 @@ public class DLCTest
          	        System.out.println("\n");
          	        ExtractJSLogs();
           	 
-     	         
+     	            final Screenshot screenshot80 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+     	            final BufferedImage image80 = screenshot80.getImage();
+     	            ImageIO.write(image80, "PNG", new File("D:\\Ajit\\Script_SS\\DLCError\\3_InvalidGuestinformation.png"));
+     	          
           	        Assert.assertFalse(false, "FAIL");
           	        Reporter.log("Invalid guest information's on detailspage...");
           	        AssertJUnit.assertTrue("Invalid guest information's on detailspage...", crsbkngpge.isDisplayed());
@@ -279,7 +358,7 @@ public class DLCTest
          	       System.out.println("\n");
          	       ExtractJSLogs();
                    
-                   Thread.sleep(8000);
+                   Thread.sleep(9890);
                    
                    long finish1 = System.currentTimeMillis();
                    long totalTime1 = finish1 - start1; 
@@ -297,7 +376,10 @@ public class DLCTest
         	   Reporter.log("Error message: " +err);
         	   Thread.sleep(500);
         	   
-        	  
+        	   final Screenshot screenshot82 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+               final BufferedImage image82 = screenshot82.getImage();
+               ImageIO.write(image82, "PNG", new File("D:\\Ajit\\Script_SS\\DLCError\\07_Error.png"));
+               Thread.sleep(1000);
                AssertJUnit.assertTrue(" " +err, crsbkngpge.isDisplayed());
                return;
            }
@@ -313,34 +395,197 @@ public class DLCTest
                 	 driver.findElement(By.cssSelector("#MainForm > div > div.category-tab-content-box > div > ul > li:nth-child(3) > a > div > span:nth-child(2)")).click();
                 	 Thread.sleep(1500);
                 	 
-                	 
+                	 final Screenshot screenshot61 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+                     final BufferedImage image61 = screenshot61.getImage();
+                     ImageIO.write(image61, "PNG", new File("D:\\Ajit\\Script_SS\\DLC\\5_Categorypage.png"));
+                     Thread.sleep(3000);
                      
-                	 driver.findElement(By.cssSelector("#category_3 > div:nth-child(1) > div.categoryview-price-gride > ul.categoryview-price-gride-even > li:nth-child(5) > a")).click();
-                	 Thread.sleep(4000);
+                     String myArg3 = "D:\\Ajit\\Script_SS\\DLC\\5_Categorypage.png";
+                     String myArg4 = "D:\\Ajit\\Script_SS\\Daily Sanity\\Oct_2017\\11 Oct\\DLC\\DLC\\5_Categorypage.png";
+                     String myCommand1 = "D:\\Ajit\\Script_SS\\ImageCompConsole.exe";
+                     String Output1 = "D:\\Ajit\\Script_SS\\Differences of Images\\DLC\\4_Categorypage.png";
+                     
+                     ProcessBuilder pb1 = new ProcessBuilder(myCommand1, myArg3, myArg4, Output1, Log);
+                     pb1.directory(new File("D:\\Ajit\\Script_SS"));
+                     Process p1 = pb1.start();
+                     
+                     System.out.println("" +p1);
+                     
+                     Thread.sleep(3000);
+   /*             
+                  try
+                  {
+                	if(driver.findElement(By.xpath("//*[contains(text(), 'Processing finished')]")).isDisplayed())
+                	{
+                		   
+                		   String expr1 = driver.findElement(By.id("TracerBlock")).getText();
+                		   expr1.toLowerCase().trim().equals("processing finished");
+                      //     String proccessingloops = expr1.split("WEB-93")[95].split(":")[2].trim();
+                           
+                             String proccessingloop = expr1.split(":")[3].trim();
+                                                          
+                      //     String a ;
+                      //       expr1.split(":")[1].trim();
+                             
+                             Reporter.log("Category processing loop :- " +proccessingloop);
+                             Thread.sleep(500);
+                	}
+                	
+                     for (String str : proccessingloop) 
+                     {
+                         if (str.split(":")[2].trim() != null)
+                         {
+                             a = str;
+                             
+                             a.split(":")[2].trim();
+                             
+                             Reporter.log("Category processing loop :- " +str);
+                             Thread.sleep(500);
+                         }
+                     }
+                    		 
+                     
+                	} 
+                  
+                  catch(Exception e)
+                  {
+                	  e.getMessage();
+                  }
+                  
+                  try
+                  {
+                	if(driver.findElement(By.id("TracerBlock")).isDisplayed())
+                	{
+                		String expr1 = driver.findElement(By.id("TracerBlock")).getText();
+                        String totalprocesstime = expr1.split("WEB-93")[2987].split(":")[2].trim();
+                        Reporter.log("TotalProcessing Time on category page:- " +totalprocesstime);
+                        Thread.sleep(3000);
+                	} 
+                  }
+                  catch(Exception e)
+                  {
+                	  e.getMessage();
+                  } 
+        */     
+                     
+                 //For Package One : xpath("//*[@id='BX']/div/div[4]/ul[2]/li[5]/a")	
+                 //For Disney: xpath("//*[@id='07A']/div/div[4]/ul[2]/li[5]/a")   
+                 //For Package Two : xpath("//*[@id='2E']/div/div[4]/ul[2]/li[5]/a")    
+                	 WebElement element = driver.findElement(By.cssSelector("#category_3 > div:nth-child(1) > div.categoryview-price-gride > ul.categoryview-price-gride-even > li:nth-child(5) [class*='booknow']"));
+               	     JavascriptExecutor executor = (JavascriptExecutor) driver;
+                     executor.executeScript("arguments[0].click();", element);
+                	 Thread.sleep(4000); 
+                  	 
+                	try
+                	{
+                    	 if(driver.findElement(By.xpath("//*[@id='Fare_0f2ICpRFCdUZMVdNFHpHvLbp6cY=_PopUP']/div[3]/div/a[2]")).isDisplayed())
+                    	 {
+                    		 
+                    		 WebElement elll = driver.findElement(By.xpath("//*[@id='Fare_0f2ICpRFCdUZMVdNFHpHvLbp6cY=_PopUP']/div[3]/div/a[2]"));
+                    		 elll.click();
+                    		 Thread.sleep(1000);
+                     		
+                    	 }
+                	}
+                	catch(Exception e)
+                	{
+                		e.getMessage();
+                	}
+                	
+                	try
+                	{
+                    	 if(driver.findElement(By.xpath("//*[@id='Fare_W6ZENoTasWeQEfIuAuhK9PbwiUo=_PopUP']/div[3]/div/a[2]")).isDisplayed())
+                    	 {
+                    		 
+                    		 WebElement ell2 = driver.findElement(By.xpath("//*[@id='Fare_W6ZENoTasWeQEfIuAuhK9PbwiUo=_PopUP']/div[3]/div/a[2]"));
+                    		 ell2.click();
+                    		 Thread.sleep(1000);
+                     		
+                    	 }
+                	}
+                	catch(Exception e)
+                	{
+                		e.getMessage();
+                	}
+                  	 
                  }
                  //For verify Suite category on category page
                  else if (driver.findElement(By.cssSelector("#MainForm > div > div.category-tab-content-box > div > ul > li:nth-child(4) > a > div > span:nth-child(2)")).isDisplayed())
                  {
                  	 driver.findElement(By.cssSelector("#MainForm > div > div.category-tab-content-box > div > ul > li:nth-child(4) > a > div > span:nth-child(2)")).click();
+                	 Thread.sleep(1000);
                 	 
+                	 final Screenshot screenshot62 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+                     final BufferedImage image62 = screenshot62.getImage();
+                     ImageIO.write(image62, "PNG", new File("D:\\Ajit\\Script_SS\\DLC\\6_Categorypage.png"));
                      Thread.sleep(2000);
+                     
+                     String myArg3 = "D:\\Ajit\\Script_SS\\DLC\\6_Categorypage.png";
+                     String myArg4 = "D:\\Ajit\\Script_SS\\Daily Sanity\\Oct_2017\\11 Oct\\DLC\\DLC\\6_Categorypage.png";
+                     String myCommand1 = "D:\\Ajit\\Script_SS\\ImageCompConsole.exe";
+                     String Output1 = "D:\\Ajit\\Script_SS\\Differences of Images\\DLC\\4_Categorypage.png";
+                     
+                     ProcessBuilder pb1 = new ProcessBuilder(myCommand1, myArg3, myArg4, Output1, Log);
+                     pb1.directory(new File("D:\\Ajit\\Script_SS"));
+                     Process p1 = pb1.start();
+                     
+                     System.out.println("" +p1);
+                     
+                     String expr1 = driver.findElement(By.id("TracerBlock")).getText();
+                     String proccessingloops = expr1.split("WEB-93")[58].split(":")[1].trim();
+                     Reporter.log("Category processing loop :- " +proccessingloops);
+                     Thread.sleep(500);
+                     String totalprocesstime = expr1.split("WEB-93")[69].split(":")[1].trim();
+                     Reporter.log("TotalProcessing Time on category page:- " +totalprocesstime);
+                     Thread.sleep(3000);
                      
                 	 driver.findElement(By.cssSelector("#category_4 > div.categoryview-container > div.categoryview-price-gride > ul.categoryview-price-gride-even > li:nth-child(5) > a")).click();
                 	 Thread.sleep(4000);
 				 }
+                 
+                 try
+            	 {
+            		 if(driver.findElement(By.cssSelector("#Fare_W6ZENoTasWeQEfIuAuhK9PbwiUo\3d _PopUP > div.popup-ratecode-footer > div > a:nth-child(2)")).isDisplayed())
+            		 {
+            			 driver.switchTo().frame(driver.findElement(By.tagName("iframe")));
+            			 WebElement elmt = driver.findElement(By.cssSelector("#Fare_W6ZENoTasWeQEfIuAuhK9PbwiUo\3d _PopUP > div.popup-ratecode-footer > div > a:nth-child(2)"));
+            		     elmt.click();
+            		     Thread.sleep(5000);
+            		     driver.switchTo().defaultContent();
+            		 }
+            	 }
+            	 catch(Exception e)
+            	 {
+            		 e.getMessage();
+            	 }
                  
                  long start2 = System.currentTimeMillis();
                  System.out.println("\n");
                  System.out.println("Cabin selection page Logs..");
                  System.out.println("\n");
                  ExtractJSLogs();              
-                 Thread.sleep(1000);
+                 Thread.sleep(1100);
                  long finish11 = System.currentTimeMillis();
                  long totalTime11 = finish11 - start2; 
                  Reporter.log("Total Time for category page to cabin selection page load(Milisec) - "+totalTime11); 
                  Thread.sleep(1000);
      
+                 final Screenshot screenshot62 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+                 final BufferedImage image62 = screenshot62.getImage();
+                 ImageIO.write(image62, "PNG", new File("D:\\Ajit\\Script_SS\\DLC\\7_Cabinselectionpage.png"));
+                 Thread.sleep(1000);
                  
+                 String myArg3 = "D:\\Ajit\\Script_SS\\DLC\\7_Cabinselectionpage.png";
+                 String myArg4 = "D:\\Ajit\\Script_SS\\Daily Sanity\\Oct_2017\\11 Oct\\DLC\\DLC\\7_Cabinselectionpage.png";
+                 String myCommand1 = "D:\\Ajit\\Script_SS\\ImageCompConsole.exe";
+                 String Output1 = "D:\\Ajit\\Script_SS\\Differences of Images\\DLC\\5_Cabinselectionpage.png";
+                 
+                 ProcessBuilder pb1 = new ProcessBuilder(myCommand1, myArg3, myArg4, Output1, Log);
+                 pb1.directory(new File("D:\\Ajit\\Script_SS"));
+                 Process p1 = pb1.start();
+                 
+                 System.out.println("" +p1);
+
                  System.out.println("Category selected successfully..");
                   
                  Thread.sleep(5000);
@@ -395,8 +640,10 @@ public class DLCTest
          //For select cabin from the cabin selection page
          try
          {
-        	            driver.findElement(By.cssSelector("#Stateroom-price > div > ul.stateroom-price-odd > li:nth-child(3) [id*='CabinBook_']")).click();
+        	            driver.findElement(By.cssSelector("#Stateroom-price > div > ul.stateroom-price-odd > li:nth-child(3) [id*='CabinBook_']")).sendKeys(Keys.ENTER);
                         Thread.sleep(1000);
+                 //       Alert alert = driver.switchTo().alert();
+                 //       alert.accept();	
          }
          catch(Exception e)
          {
@@ -406,7 +653,10 @@ public class DLCTest
                     	      System.out.println("\n");
                     	      ExtractJSLogs();
                        
-                             
+                              final Screenshot screenshot13 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+                              final BufferedImage image13 = screenshot13.getImage();
+                              ImageIO.write(image13, "PNG", new File("D:\\Ajit\\Script_SS\\DLCError\\4_Cabinnotavailable.png"));
+                       
                               Assert.assertFalse(false, "FAIL");
         	                  Reporter.log("Cabin not available..");
         			          AssertJUnit.assertTrue("Cabin not available...", crsbkngpge.isDisplayed());
@@ -418,15 +668,31 @@ public class DLCTest
                              System.out.println("\n");
                              ExtractJSLogs();              
                              Thread.sleep(1000);
-                   
-                            
-                             System.out.println("Cabin selected successfully..");
-                   
-                             Thread.sleep(4000);
+                             
                              long finish111 = System.currentTimeMillis();
                              long totalTime111 = finish111 - start3; 
                              Reporter.log("Total Time for cabin selection page to purchase page load(Milisec) - "+totalTime111); 
                              Thread.sleep(1000);
+                   
+                             final Screenshot screenshot102 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+                             final BufferedImage image102 = screenshot102.getImage();
+                             ImageIO.write(image102, "PNG", new File("D:\\Ajit\\Script_SS\\DLC\\8_Purchasepage.png"));
+                             Thread.sleep(2000);
+                             
+                             String myArg5 = "D:\\Ajit\\Script_SS\\DLC\\8_Purchasepage.png";
+                             String myArg6 = "D:\\Ajit\\Script_SS\\Daily Sanity\\Oct_2017\\11 Oct\\DLC\\DLC\\8_Purchasepage.png";
+                             String myCommand2 = "D:\\Ajit\\Script_SS\\ImageCompConsole.exe";
+                             String Output2 = "D:\\Ajit\\Script_SS\\Differences of Images\\DLC\\6_Purchasepage.png";
+                             
+                             ProcessBuilder pb2 = new ProcessBuilder(myCommand2, myArg5, myArg6, Output2, Log);
+                             pb2.directory(new File("D:\\Ajit\\Script_SS"));
+                             Process p2 = pb2.start();
+                             
+                             System.out.println("" +p2);
+           
+                             System.out.println("Cabin selected successfully..");
+                   
+                             Thread.sleep(4000);
                              
                              //Check price on purchase page
                              String priceonpurchase= driver.findElement(By.xpath("//*[@id='PricesGTotal']")).getText();
@@ -461,7 +727,10 @@ public class DLCTest
                                     System.out.println("\n");
                                     ExtractJSLogs();
                                              
-                                            
+                                    final Screenshot screenshot34 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+                                    final BufferedImage image34 = screenshot34.getImage();
+                                    ImageIO.write(image34, "PNG", new File("D:\\Ajit\\Script_SS\\DLCError\\5_InvalidGuestinfoonPurchasepage.png"));
+                                             
                                     Assert.assertFalse(false, "FAIL");
                               	    Reporter.log("Invalid guest information on purchase page, Please enter valid details for the required fields...");
                               		AssertJUnit.assertTrue("Invalid guest information on purchase page, Please enter valid details for the required fields....", crspurchpge.isDisplayed());
@@ -478,6 +747,23 @@ public class DLCTest
                                     long finish1111 = System.currentTimeMillis();
                                     long totalTime1111 = finish1111 - start6; 
                                     Reporter.log("Total Time for purchase page to confirmation page load(Milisec) - "+totalTime1111); 
+                                    Thread.sleep(1000);
+                                                    
+                                    final Screenshot screenshot44 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+                                    final BufferedImage image44 = screenshot44.getImage();
+                                    ImageIO.write(image44, "PNG", new File("D:\\Ajit\\Script_SS\\DLC\\9_Confirmationpage.png"));
+                                    Thread.sleep(2000);
+                                    
+                                    String myArg7 = "D:\\Ajit\\Script_SS\\DLC\\9_Confirmationpage.png";
+                                    String myArg8 = "D:\\Ajit\\Script_SS\\Daily Sanity\\Oct_2017\\11 Oct\\DLC\\DLC\\9_Confirmationpage.png";
+                                    String myCommand3 = "D:\\Ajit\\Script_SS\\ImageCompConsole.exe";
+                                    String Output3 = "D:\\Ajit\\Script_SS\\Differences of Images\\DLC\\7_Confirmationpage.png";
+                                    
+                                    ProcessBuilder pb3 = new ProcessBuilder(myCommand3, myArg7, myArg8, Output3, Log);
+                                    pb3.directory(new File("D:\\Ajit\\Script_SS"));
+                                    Process p3 = pb3.start();
+                                    
+                                    System.out.println("" +p3);
                                                     
                                     Thread.sleep(2000);
                                     
@@ -490,7 +776,7 @@ public class DLCTest
                                     Thread.sleep(1000);
                                     
                                     // For click on Full payment button
-                                    driver.findElement(By.id("_ctl0_MainContentsPH__ctl0_ContinueBTN")).click();
+                                    driver.findElement(By.id("_ctl0_MainContentsPH__ctl0_ContinueBTN")).sendKeys(Keys.ENTER);
                                     
                                     Thread.sleep(4000);
                                     
@@ -500,7 +786,22 @@ public class DLCTest
                                     ExtractJSLogs();              
                                     Thread.sleep(1000);
                                     
-                                             
+                                    final Screenshot screenshot74 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+                                    final BufferedImage image74 = screenshot74.getImage();
+                                    ImageIO.write(image74, "PNG", new File("D:\\Ajit\\Script_SS\\DLC\\9_Paymentpage.png"));
+                                    Thread.sleep(1000);
+                                    
+                                    String myArg9 = "D:\\Ajit\\Script_SS\\DLC\\9_Paymentpage.png";
+                                    String myArg10 = "D:\\Ajit\\Script_SS\\Daily Sanity\\Oct_2017\\11 Oct\\DLC\\DLC\\9_Paymentpage.png";
+                                    String myCommand4 = "D:\\Ajit\\Script_SS\\ImageCompConsole.exe";
+                                    String Output4 = "D:\\Ajit\\Script_SS\\Differences of Images\\DLC\\8_Paymentpage.png";
+                                    
+                                    ProcessBuilder pb4 = new ProcessBuilder(myCommand4, myArg9, myArg10, Output4, Log);
+                                    pb4.directory(new File("D:\\Ajit\\Script_SS"));
+                                    Process p4 = pb4.start();
+                                    
+                                    System.out.println("" +p4);
+                                                    
                                     String priceonpaymnt = driver.findElement(By.xpath("//*[@id='PaymentAmountToPay']")).getText();
                                     Reporter.log("Price on paymentpage is:- "+ priceonpaymnt);
                                                     
@@ -544,15 +845,32 @@ public class DLCTest
               }     							 
               catch (Exception e) 
               {
-            	  
+            	  final Screenshot screenshot94 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+                  final BufferedImage image94 = screenshot94.getImage();
+                  ImageIO.write(image94, "PNG", new File("D:\\Ajit\\Script_SS\\DLCError\\10_Paymentpage.png"));
+                  
                   Assert.assertFalse(false, "FAIL");
             	  Reporter.log("Something went wrong...");
             	  AssertJUnit.assertTrue("Something went wrong...", crspurchpge.isDisplayed());
             	  throw(e);
-			  }                        
+			  }        
+             
+           //For the compare logs
+			 String ConsleArgument = "D:\\Ajit\\Script_SS\\ConsoleError\\DLCBookingError.txt";
+             String ConsoleCommand = "D:\\Ajit\\Script_SS\\ConsoleApplication2.exe";
+             String ConsoleOutput = "D:\\Ajit\\Script_SS\\DLCError\\UncaughtDLC.txt";
+             
+             ProcessBuilder pb05 = new ProcessBuilder(ConsoleCommand, ConsleArgument, ConsoleOutput);
+             pb05.directory(new File("D:\\Ajit\\Script_SS"));
+             Process p05 = pb05.start();
+             
+             System.out.println("" +p05);    
+               
+             Thread.sleep(1000);
 
    }
-   
+
+
    @DataProvider
    public String[][] Authentications() throws Exception
    {
@@ -566,13 +884,14 @@ public class DLCTest
    public void closeBrowser() throws InterruptedException
    {
 	 
-	     /*
+	   driver.close();
+	   /*  
 	          if(driver!=null) 
 	          {
 		           System.out.println("Closing the browser");
 		           driver.quit();
 	          }   
-      */
+       */
    }
 
 	

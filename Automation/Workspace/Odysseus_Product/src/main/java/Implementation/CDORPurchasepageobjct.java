@@ -65,14 +65,14 @@ public class CDORPurchasepageobjct
 	@FindBy(id="_ctl0_MainContentsPH__ctl0_TravelerAccount_2_DateUC_Day")
 	private WebElement dayofgustwo;
 	
-	@FindBy(id="_ctl0_MainContentsPH__ctl0_TravelerAccount_2_DateUC_Year")
+	@FindBy(xpath="//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_2_DateUC_Year']")
 	private WebElement yrsofgustwo;
 	
-	@FindBy(id="_ctl0_MainContentsPH__ctl0_TravelerAccount_2_Nationality")
+	@FindBy(xpath="//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_2_Nationality']")
 	private WebElement contry;
 	
 	//Click on Book Your Cabin button
-	@FindBy(id="_ctl0_MainContentsPH__ctl0_FastBookLNK")
+	@FindBy(xpath="//a[id*='_ctl0_MainContentsPH__ctl0_FastBookLNK']")
 	private WebElement clkonbtn;
 	
 
@@ -156,24 +156,21 @@ public class CDORPurchasepageobjct
 		   Thread.sleep(500);
 		   lstnmeofgustwo.sendKeys(lstnmofgstwo);
 		   Thread.sleep(500);
-		   monthofgustwo.click();
-		   Thread.sleep(500);
-		   monthofgustwo.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_2_DateUC_Month']/option[10]")).click();
-		   Thread.sleep(500);
-		   dayofgustwo.click();
-		   Thread.sleep(500);
-		   dayofgustwo.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_2_DateUC_Day']/option[20]")).click();
-		   Thread.sleep(500);
-		   yrsofgustwo.click();
-		   Thread.sleep(500);
-		   yrsofgustwo.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_2_DateUC_Year']/option[75]")).click();
-		   Thread.sleep(500);
-		   contry.click();
-		   Thread.sleep(500);
-		   contry.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_2_Nationality']/option[220]")).click();
+		   Select select0003 = new Select(monthofgustwo.findElement(By.id("_ctl0_MainContentsPH__ctl0_TravelerAccount_2_DateUC_Month")));
+		   select0003.selectByVisibleText("Sep");
+		   Thread.sleep(800);
+		   Select select0002 = new Select(dayofgustwo.findElement(By.id("_ctl0_MainContentsPH__ctl0_TravelerAccount_2_DateUC_Day")));
+		   select0002.selectByVisibleText("12");
+		   Thread.sleep(800);
+		   Select select002 = new Select(yrsofgustwo.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_2_DateUC_Year']")));
+		   select002.selectByVisibleText("1921");
 		   Thread.sleep(1000);
-		   clkonbtn.click();
-		   Thread.sleep(2000);
+	//	   yrsofgustwo.sendKeys(Keys.TAB);
+	//	   Select select02 = new Select(contry.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_2_Nationality']")));
+	//	   select02.selectByVisibleText("United States");
+	//	   Thread.sleep(1000);
+	//	   clkonbtn.click();
+	//	   Thread.sleep(2000);
 		   
 	 }
 	 catch(Exception e)

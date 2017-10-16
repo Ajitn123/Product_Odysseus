@@ -44,6 +44,8 @@
 	</section>
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="D:\Ajit\Automation\Workspace\Odysseus_Product\pom.xml"/>
+			<item value="D:\Ajit\Automation\Workspace\dipak-test"/>
 			<item value="D:\Ajit\Automation\Workspace"/>
 		</list>
 		<list key="projectNameTemplate">
@@ -57,12 +59,18 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="Testing"/>
+			<item value="org.test.bookTicket"/>
 			<item value="Implementation"/>
 		</list>
 		<list key="groupId">
+			<item value="Testing"/>
+			<item value="org.test"/>
 			<item value="Implementation"/>
 		</list>
 		<list key="artifactId">
+			<item value="impl"/>
+			<item value="bookTicket"/>
 			<item value="Cruiseline_Product"/>
 			<item value="Odysseus_Product"/>
 		</list>

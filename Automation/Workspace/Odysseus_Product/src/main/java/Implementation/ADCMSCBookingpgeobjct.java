@@ -1,6 +1,7 @@
 package Implementation;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
@@ -28,17 +29,17 @@ public class ADCMSCBookingpgeobjct
 	{
 		try
 		{
-			Selectfrmdte.click();
+			Selectfrmdte.sendKeys(Keys.ENTER);
 			Thread.sleep(1000);
 			Selectfrmdte.findElement(By.xpath("//*[@id='Calendar_StartDate_nextArrow']")).click();
 			Thread.sleep(500);
-			Selectfrmdte.findElement(By.xpath("//*[@id='Calendar_StartDate_day_0_6']")).click(); //For 01 July 2017
+			Selectfrmdte.findElement(By.xpath("//*[@id='Calendar_StartDate_day_0_5']")).click(); //For 01 Dec 2017
 			Thread.sleep(500);
-			selecttodte.click();
+			selecttodte.sendKeys(Keys.ENTER);
 			Thread.sleep(1000);
 			selecttodte.findElement(By.xpath("//*[@id='Calendar_EndDate_nextArrow']")).click();
 			Thread.sleep(500);
-			selecttodte.findElement(By.xpath("//*[@id='Calendar_EndDate_day_4_3']")).click(); //For 30 August 2017
+			selecttodte.findElement(By.xpath("//*[@id='Calendar_EndDate_day_4_2']")).click(); //For 30 Jan 2018
 			Thread.sleep(1000);
 			Select select = new Select(selectcruiseline.findElement(By.id("_ctl0_MainContentsPH__ctl0_CruiseAdvancedSearch_Suppliers")));
 			select.selectByVisibleText("MSC Cruises"); //MSC Cruises : MSC , Azamara Club Cruises : RCCL

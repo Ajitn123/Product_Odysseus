@@ -3,11 +3,154 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
+      <class name="Implementation.ADCMSCTest">
+        <methods>
+          <include name="ADCMSC_data"/>
+        </methods>
+      </class> <!-- Implementation.ADCMSCTest -->
+      <class name="Implementation.AlanitaETicketedCancelBtoBTest">
+        <methods>
+          <include name="Heldlogin_data"/>
+        </methods>
+      </class> <!-- Implementation.AlanitaETicketedCancelBtoBTest -->
+      <class name="Implementation.OdysolAirHeldConfirmAndTicketedTest">
+        <methods>
+          <include name="Heldlogin_data"/>
+        </methods>
+      </class> <!-- Implementation.OdysolAirHeldConfirmAndTicketedTest -->
+      <class name="Implementation.LocalAlanitaConfirmTest">
+        <methods>
+          <include name="Confirmlogin_data"/>
+        </methods>
+      </class> <!-- Implementation.LocalAlanitaConfirmTest -->
+      <class name="Implementation.AdmindefaultpageTest">
+        <methods>
+          <include name="login_data1"/>
+        </methods>
+      </class> <!-- Implementation.AdmindefaultpageTest -->
+      <class name="Implementation.LocalAirBookingTest">
+        <methods>
+          <include name="Confirmlogin_data"/>
+        </methods>
+      </class> <!-- Implementation.LocalAirBookingTest -->
+      <class name="Implementation.LocalCruiseBookingTest">
+        <methods>
+          <include name="DLC_data"/>
+        </methods>
+      </class> <!-- Implementation.LocalCruiseBookingTest -->
+      <class name="Implementation.FaredepotTest">
+        <methods>
+          <include name="Faredepot_data"/>
+        </methods>
+      </class> <!-- Implementation.FaredepotTest -->
+      <class name="Implementation.FaregeekTest">
+        <methods>
+          <include name="Fregeek_Data"/>
+        </methods>
+      </class> <!-- Implementation.FaregeekTest -->
+      <class name="Implementation.LocalTravelportTest">
+        <methods>
+          <include name="Confirmlogin_data"/>
+        </methods>
+      </class> <!-- Implementation.LocalTravelportTest -->
+      <class name="Implementation.OdysolCruiseBookingTest">
+        <methods>
+          <include name="CruiseBooking_data"/>
+        </methods>
+      </class> <!-- Implementation.OdysolCruiseBookingTest -->
+      <class name="Implementation.AirAlanitaHeldBtoBTest">
+        <methods>
+          <include name="Heldlogin_data"/>
+        </methods>
+      </class> <!-- Implementation.AirAlanitaHeldBtoBTest -->
+      <class name="Implementation.OdysolHotelBookingTest">
+        <methods>
+          <include name="HotelBooking_data"/>
+        </methods>
+      </class> <!-- Implementation.OdysolHotelBookingTest -->
+      <class name="Implementation.DatadrivenTest">
+        <methods>
+          <include name="Bookingcontactinfo"/>
+          <include name="Markup"/>
+          <include name="Selectflight"/>
+          <include name="Holdbooking"/>
+          <include name="Pagenavigation"/>
+          <include name="Passengerdetails"/>
+          <include name="Additionalinfo"/>
+          <include name="Authentication"/>
+          <include name="Searchflight"/>
+        </methods>
+      </class> <!-- Implementation.DatadrivenTest -->
+      <class name="Implementation.BPCCruiseBookingTest">
+        <methods>
+          <include name="BPC_data"/>
+        </methods>
+      </class> <!-- Implementation.BPCCruiseBookingTest -->
+      <class name="Implementation.CDORTest">
+        <methods>
+          <include name="CDOR_data"/>
+        </methods>
+      </class> <!-- Implementation.CDORTest -->
+      <class name="Implementation.LocalDynamicPackagingTest">
+        <methods>
+          <include name="Confirmlogin_data"/>
+        </methods>
+      </class> <!-- Implementation.LocalDynamicPackagingTest -->
+      <class name="Implementation.LocalOdysolDemoTest">
+        <methods>
+          <include name="Confirmlogin_data"/>
+        </methods>
+      </class> <!-- Implementation.LocalOdysolDemoTest -->
+      <class name="Implementation.LocalBPCTest">
+        <methods>
+          <include name="DLC_data"/>
+        </methods>
+      </class> <!-- Implementation.LocalBPCTest -->
+      <class name="Implementation.DLCTest">
+        <methods>
+          <include name="DLC_data"/>
+        </methods>
+      </class> <!-- Implementation.DLCTest -->
       <class name="Implementation.VivaVoyageTest">
         <methods>
-          <include name="Vivavoyage_date"/>
+          <include name="Vivavoyage_data"/>
         </methods>
       </class> <!-- Implementation.VivaVoyageTest -->
+      <class name="Implementation.LoginTest">
+        <methods>
+          <include name="login_data"/>
+        </methods>
+      </class> <!-- Implementation.LoginTest -->
+      <class name="Implementation.ADCRCCLTest">
+        <methods>
+          <include name="ADCRCCL_data"/>
+        </methods>
+      </class> <!-- Implementation.ADCRCCLTest -->
+      <class name="Implementation.OdysseusTicketLocalTest">
+        <methods>
+          <include name="Local_data"/>
+        </methods>
+      </class> <!-- Implementation.OdysseusTicketLocalTest -->
+      <class name="Implementation.OdysolAirConfirmBookingTest">
+        <methods>
+          <include name="Confirmlogin_data"/>
+        </methods>
+      </class> <!-- Implementation.OdysolAirConfirmBookingTest -->
+      <class name="Implementation.AlanitaConfirmBtoBTest">
+        <methods>
+          <include name="Heldlogin_data"/>
+        </methods>
+      </class> <!-- Implementation.AlanitaConfirmBtoBTest -->
+      <class name="Implementation.LocalDynamicPackagingAirTest">
+        <methods>
+          <include name="Confirmlogin_data"/>
+        </methods>
+      </class> <!-- Implementation.LocalDynamicPackagingAirTest -->
+      <class name="Implementation.OdysolAirHeldBookingTest">
+        <methods>
+          <include name="Heldlogin_data"/>
+        </methods>
+      </class> <!-- Implementation.OdysolAirHeldBookingTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

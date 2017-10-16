@@ -28,12 +28,12 @@ public class OdysolHotelBookingpgeobjct
 				try
 				{
 					
-					ClickonHotel.click();
+					ClickonHotel.sendKeys(Keys.ENTER);
 					Thread.sleep(2000);
-					selectcity.click();
+					selectcity.sendKeys(Keys.ENTER);
 					Thread.sleep(800);
 					selectcity.sendKeys("new york");
-					Thread.sleep(3500);
+					Thread.sleep(4500);
 					selectcity.sendKeys(Keys.ENTER);
 					Thread.sleep(1500);
 					selectroom.click(); 

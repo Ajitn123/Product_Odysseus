@@ -1,0 +1,86 @@
+package Implementation;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
+
+public class LocalOpenSegmentLoginpgobjct 
+{
+	    
+	    @FindBy(id="UserName")
+		private WebElement username;
+		
+		@FindBy(id="UserPassword")
+		private WebElement password;
+		
+		@FindBy(id="SubmitBTN")
+		private WebElement loginbtn;
+		
+		//For Select Website
+		@FindBy(xpath="//*[@id='content_wrapper']/div[1]/div/div/div[2]/div/div/div/div/div[1]/div/div[2]/table/tbody/tr[125]/td[3]/a[1]")
+		private WebElement Selectweb; 
+		
+		//For select cruise on default page
+		@FindBy(xpath="//*[@id='content_wrapper']/div[1]/div[3]/div/div/div/div[1]/ul[2]/li[2]/a")
+		private WebElement selectcruise;
+		
+		//For select Affiliate on search page
+		@FindBy(xpath="//*[@id='select2-AffiliateDropDownList-container']")
+		private WebElement selectaffliate;
+		
+		@FindBy(xpath="/html/body/span[2]/span/span[1]/input")
+		private WebElement searchaffliate;
+		
+	   //For cruise details
+		@FindBy(xpath="//*[@id='CruiseSearchForm_CruiseLine']")
+		private WebElement slctcruiseline;
+			
+		
+		public void CruiseLoginToTittle(String usrnme, String paswrd)
+		{
+			try
+			{
+				
+				username.clear();
+				Thread.sleep(300);
+				username.click();
+				username.sendKeys(usrnme);
+				Thread.sleep(500);
+				password.clear();
+				Thread.sleep(300);
+				password.click();
+				password.sendKeys(paswrd);
+				Thread.sleep(500);
+				loginbtn.click();
+				Thread.sleep(3000);
+				Selectweb.sendKeys(Keys.ENTER);
+				Thread.sleep(12000);
+				selectcruise.click();
+				Thread.sleep(1000);
+				selectaffliate.click();
+				Thread.sleep(1000);
+				searchaffliate.sendKeys("odysss");
+				searchaffliate.sendKeys(Keys.TAB);
+				Thread.sleep(2000);
+				Select select = new Select(slctcruiseline.findElement(By.xpath("//*[@id='CruiseSearchForm_CruiseLine']")));
+				select.selectByVisibleText("");
+							
+			}
+			catch(Exception e)
+			{
+					
+					     e.printStackTrace();
+				
+			}
+			
+			
+		}
+
+		public boolean isDisplayed() {
+			// TODO Auto-generated method stub
+			return false;
+		}
+
+}

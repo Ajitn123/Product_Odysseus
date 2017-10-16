@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.testng.eclipse.launchconfig">
+<stringAttribute key="org.eclipse.jdt.launching.CLASSPATH_PROVIDER" value="org.eclipse.m2e.launchconfig.classpathProvider"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="org.testng.remote.RemoteTestNG"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Odysseus_Product"/>
+<stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.m2e.launchconfig.sourcepathProvider"/>
+<mapAttribute key="org.testng.eclipse.ALL_CLASS_METHODS"/>
+<listAttribute key="org.testng.eclipse.CLASS_TEST_LIST">
+<listEntry value="Implementation.Login"/>
+<listEntry value="Implementation.BPCCruiseBookingTest"/>
+<listEntry value="Implementation.LocalTravelportPurchasepgeobjct"/>
+<listEntry value="Implementation.LocalCruiseBookingTest"/>
+<listEntry value="Implementation.AirLocalLoginPgeobjct"/>
+<listEntry value="Implementation.LocalDynamicPackagingLoginpgeobjct"/>
+<listEntry value="Utility.OdysolCruiseUtils"/>
+<listEntry value="Implementation.OdysolAirConfirmpgeobjct"/>
+<listEntry value="Utility.FaredepotUtils"/>
+<listEntry value="Implementation.FaregeekTest"/>
+<listEntry value="Implementation.LocalDynamicPackagingPaymentpgobjct"/>
+<listEntry value="Utility.OdysolAirUtils"/>
+<listEntry value="Implementation.LocalAlanitaConfirmTest"/>
+<listEntry value="Utility.DataUtils"/>
+<listEntry value="Implementation.LocalDynamicPackagingTest"/>
+<listEntry value="Implementation.OdysolHotelBookingPurchasepgeobjct"/>
+<listEntry value="Implementation.OdysolAirBookingpgeobjct"/>
+<listEntry value="Utility.OdysolHotelUtils"/>
+<listEntry value="Implementation.LocalBPCTest"/>
+<listEntry value="Implementation.VivaVoyagePurchasepageobjct"/>
+<listEntry value="Utility.BPCUtils"/>
+<listEntry value="Implementation.AlanitaBookingpgeobjct"/>
+<listEntry value="Implementation.OdysolAirHeldBookingTest"/>
+<listEntry value="Implementation.CDORBookingpgeobjct"/>
+<listEntry value="Implementation.FaredepotBookingpgeobjct"/>
+<listEntry value="Implementation.CDORTest"/>
+<listEntry value="Implementation.LocalDynamicPackagingAirPurchasepgobjct"/>
+<listEntry value="Implementation.OdysseusTicketLocalTest"/>
+<listEntry value="Implementation.OdysolHotelBookingTest"/>
+<listEntry value="Implementation.OdysolAirHeldConfirmAndTicketedTest"/>
+<listEntry value="Implementation.FaregeekBookingpgeobjct"/>
+<listEntry value="Utility.LocalAirBookingUtils"/>
+<listEntry value="Implementation.BPCCruiseBookingpgeobjct"/>
+<listEntry value="Implementation.DLCPurchasepgeobjct"/>
+<listEntry value="Implementation.DatadrivenTest"/>
+<listEntry value="Implementation.LocalOdysolDemoTest"/>
+<listEntry value="Implementation.LocalCruisePaymentpgeobjct"/>
+<listEntry value="Utility.CDORUtils"/>
+<listEntry value="Implementation.ADCMSCPurchasepgeobjct"/>
+<listEntry value="Implementation.LocalAirPurchasepgeobjct"/>
+<listEntry value="Implementation.FaregeekPurchasepgeobjct"/>
+<listEntry value="Implementation.LocalCruisebkngpgeobjct"/>
+<listEntry value="Implementation.VivaVoyageTest"/>
+<listEntry value="Implementation.AlanitaETicketedCancelBtoBTest"/>
+<listEntry value="Implementation.LocalTravelportLoginpgeobjct"/>
+<listEntry value="Implementation.ADCBookingpgeobjct"/>
+<listEntry value="Implementation.ADCMSCTest"/>
+<listEntry value="Implementation.LocalDynamicPackagingAirPayment"/>
+<listEntry value="Utility.LocalDynamicPackagingUtils"/>
+<listEntry value="Implementation.LocalTravelportTest"/>
+<listEntry value="Utility.ADCUtils"/>
+<listEntry value="Implementation.LocalCruisebkngLoginpgobjct"/>
+<listEntry value="Implementation.OdysolCruiseBookingTest"/>
+<listEntry value="Implementation.AirAlanitaHeldBtoBTest"/>
+<listEntry value="Implementation.CDORPurchasepageobjct"/>
+<listEntry value="Implementation.BPCCruisePurchasepageobjct"/>
+<listEntry value="Implementation.LocalDynamicPackagingAirpgobjct"/>
+<listEntry value="Implementation.LocalAirCheckoutpageobjct"/>
+<listEntry value="Utility.FaregeekUtils"/>
+<listEntry value="Implementation.FaredepotPurchasepgeobjct"/>
+<listEntry value="Implementation.OdysolHotelBookingpgeobjct"/>
+<listEntry value="Implementation.ADCRCCLTest"/>
+<listEntry value="Implementation.LocalDynamicPackagingAirTest"/>
+<listEntry value="Implementation.OdysolCruiseBookingpgeobjct"/>
+<listEntry value="Implementation.AlanitLoginapgeobjct"/>
+<listEntry value="Utility.VivaVoyageUtils"/>
+<listEntry value="Utility.LocalTravelportUtils"/>
+<listEntry value="Implementation.LoginTest"/>
+<listEntry value="Implementation.DLCBookingpgeobjct"/>
+<listEntry value="Implementation.OdysolAirCheckoutpageobjct"/>
+<listEntry value="Implementation.AdmindefaultpageTest"/>
+<listEntry value="Implementation.LocalDynamicPackagingBookingpgeobjct"/>
+<listEntry value="Implementation.ADCRCCLPurchasepgeobjct"/>
+<listEntry value="Implementation.AlanitaConfirmBtoBTest"/>
+<listEntry value="Utility.DLCUtils"/>
+<listEntry value="Implementation.OdysolAirHoldAndConfirmPgeobjct"/>
+<listEntry value="Utility.LocalCruiseUtils"/>
+<listEntry value="Implementation.LocalHoldAndConfirmPgeobjct"/>
+<listEntry value="Implementation.LocalDynamicPackagingPurchasepgobjct"/>
+<listEntry value="Implementation.DLCTest"/>
+<listEntry value="Implementation.LocalAirBookingpgeobjectforOdysseus"/>
+<listEntry value="Implementation.LocalAirBookingpgeobjct"/>
+<listEntry value="Implementation.LocalTravelportPaymentpgeobjct"/>
+<listEntry value="Implementation.OdysolAirConfirmBookingTest"/>
+<listEntry value="Implementation.VivaVoyageBookingpgeobjct"/>
+<listEntry value="Implementation.LocalOdysolDemoBookingpgeobjct"/>
+<listEntry value="Implementation.LocalBPCBookingpgeobjct"/>
+<listEntry value="Utility.LocalAirUtils"/>
+<listEntry value="Implementation.FaredepotTest"/>
+<listEntry value="Implementation.LocalTravelportBookingpgeobjct"/>
+<listEntry value="Implementation.LocalAirBookingTest"/>
+<listEntry value="Implementation.ADCMSCBookingpgeobjct"/>
+</listAttribute>
+<listAttribute key="org.testng.eclipse.METHOD_TEST_LIST"/>
+<listAttribute key="org.testng.eclipse.PACKAGE_TEST_LIST"/>
+<stringAttribute key="org.testng.eclipse.PRE_DEFINED_LISTENERS" value=""/>
+<intAttribute key="org.testng.eclipse.TYPE" value="1"/>
+</launchConfiguration>

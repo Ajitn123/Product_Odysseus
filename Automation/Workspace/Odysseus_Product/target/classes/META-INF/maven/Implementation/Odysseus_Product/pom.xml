@@ -79,7 +79,6 @@
                             <artifactId>guice</artifactId>
                             <version>3.0</version>
                     </dependency>
-                      
                     <dependency>
                            <groupId>org.apache.maven.plugins</groupId>
                            <artifactId>maven-deploy-plugin</artifactId>
@@ -183,6 +182,13 @@
                                                            <exclude>Implementation.LocalBPCTest</exclude>
                                                            <exclude>Implementation.LocalCruiseBookingTest</exclude>
                                                            <exclude>Implementation.LocalAirBookingTest</exclude>
+                                                           <exclude>Implementation.iCruiseTest</exclude>
+                                                           <exclude>Implementation.Click2CruiseTest</exclude>
+                                                           <exclude>Implementation.DLCPackageOneTest</exclude>
+                                                           <exclude>Implementation.DLCPackageTwoTest</exclude>
+                                                           <exclude>Implementation.CruiseQuickTest</exclude>
+                                                           <exclude>Implementation.FaredepotCustomerBookingTest</exclude>
+                                                           <exclude>Implementation.VivaVoyageCustomerBookingTest</exclude>
                                                         </excludes>
                                                         <filtering>true</filtering>
                                                   </resource>
@@ -213,6 +219,13 @@
                                                           <include>Implementation.LocalBPCTest</include>
                                                           <include>Implementation.LocalCruiseBookingTest</include>
                                                           <include>Implementation.LocalAirBookingTest</include>
+                                                          <include>Implementation.iCruiseTest</include>
+                                                          <include>Implementation.Click2CruiseTest</include>
+                                                          <include>Implementation.DLCPackageOneTest</include>
+                                                          <include>Implementation.DLCPackageTwoTest</include>
+                                                          <include>Implementation.CruiseQuickTest</include>
+                                                          <include>Implementation.FaredepotCustomerBookingTest</include>
+                                                          <include>Implementation.VivaVoyageCustomerBookingTest</include>
                                                        </includes>
                                                   </resource>
                                              </resources>
@@ -244,6 +257,13 @@
                                                        <exclude>Implementation.LocalBPCTest</exclude>
                                                        <exclude>Implementation.LocalCruiseBookingTest</exclude>
                                                        <exclude>Implementation.LocalAirBookingTest</exclude>
+                                                       <exclude>Implementation.iCruiseTest</exclude>
+                                                       <exclude>Implementation.Click2CruiseTest</exclude>
+                                                       <exclude>Implementation.DLCPackageOneTest</exclude>
+                                                       <exclude>Implementation.DLCPackageTwoTest</exclude>
+                                                       <exclude>Implementation.CruiseQuickTest</exclude>
+                                                       <exclude>Implementation.FaredepotCustomerBookingTest</exclude>
+                                                       <exclude>Implementation.VivaVoyageCustomerBookingTest</exclude>
                                                      </excludes>
                                                        <filtering>true</filtering>
                                                 </testResource>
@@ -330,6 +350,13 @@
                                                                         <include>LocalBPCTest.java</include>
                                                                         <include>LocalCruiseBookingTest.java</include>
                                                                         <include>LocalAirBookingTest.java</include>
+                                                                        <include>iCruiseTest.java</include>
+                                                                        <include>Click2CruiseTest.java</include>
+                                                                        <include>DLCPackageOneTest.java</include>
+                                                                        <include>DLCPackageTwoTest.java</include>
+                                                                        <include>CruiseQuickTest.java</include>
+                                                                        <include>FaredepotCustomerBookingTest.java</include>
+                                                                        <include>VivaVoyageCustomerBookingTest.java</include>
                                                                      </includes>
                                                               </filSet>
                                                           </fileSets>
@@ -425,6 +452,13 @@
                                                               <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\Implementation\\LocalCruisebkngLoginpgobjct.java</include>
                                                               <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\Implementation\\LocalCruisebkngpgeobjct.java</include>
                                                               <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\main\java\\Implementation\\LocalCruisePaymentpgeobjct.java</include>
+                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\test\java\Implementation\iCruiseTest.java</include>
+                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\test\java\Implementation\Click2CruiseTest.java</include>
+                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\test\java\Implementation\DLCPackageOneTest.java</include>
+                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\test\java\Implementation\DLCPackageTwoTest.java</include>
+                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\test\java\Implementation\CruiseQuickTest.java</include>
+                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\test\java\Implementation\FaredepotCustomerBookingTest.java</include>
+                                                              <include>D:\Ajit\Automation\Workspace\Odysseus_Product\src\test\java\Implementation\VivaVoyageCustomerBookingTest.java</include>
                                                        </includes>
                                                       
                                                   <mainClass>Implementation.Login</mainClass>  

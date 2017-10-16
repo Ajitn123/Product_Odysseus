@@ -229,12 +229,12 @@ public class FaredepotPurchasepgeobjct
 				Thread.sleep(300);
 				phoneno.sendKeys(phone);
 				Thread.sleep(500);
-				phoneatdestination.clear();
-				Thread.sleep(200);
-				phoneatdestination.click();
-				Thread.sleep(400);
-				phoneatdestination.sendKeys(phn);
-				Thread.sleep(500);
+		//		phoneatdestination.clear();
+		//		Thread.sleep(200);
+		//		phoneatdestination.click();
+		//		Thread.sleep(400);
+		//		phoneatdestination.sendKeys(phn);
+		//		Thread.sleep(500);
 				continuebtn.click();
 				Thread.sleep(2000);
 				

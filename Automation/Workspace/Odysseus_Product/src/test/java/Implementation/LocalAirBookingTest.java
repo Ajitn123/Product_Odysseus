@@ -43,7 +43,7 @@ public class LocalAirBookingTest
 	  
 	   AirLocalLoginPgeobjct lgnpge;
 	   LocalAirBookingpgeobjectforOdysseus airbk;
-	   LocalAirPurchasepgeobjct chckout;
+	   LocalAirCheckoutpageobjct chckout;
 	   LocalCruisePaymentpgeobjct hldncnfrm;
 	   public static WebDriver driver;
        Reporter report = new Reporter();
@@ -75,7 +75,7 @@ public void openBroswer(String browser) throws InterruptedException, IOException
 	                 } 
 	                 else if (browser.equalsIgnoreCase("chrome")) 
 	                 {
-	                	    System.setProperty("webdriver.chrome.driver", "D:\\Ajit\\Driver\\chromedriver_win32\\chromedriver.exe");
+	                	    System.setProperty("webdriver.chrome.driver", "D:\\Ajit\\Automation\\Workspace\\Odysseus_Product\\Driver\\chromedriver_win32\\chromedriver.exe");
 		                    DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 		                    LoggingPreferences loggingprefs = new LoggingPreferences();
 		                    loggingprefs.enable(LogType.BROWSER, Level.ALL);
@@ -85,7 +85,7 @@ public void openBroswer(String browser) throws InterruptedException, IOException
 	                 }  
 	                 else if (browser.equalsIgnoreCase("IE")) 
 	                 {
-		                   System.setProperty("webdriver.ie.driver", "D:\\Ajit\\Driver\\IEDriverServer_Win32_2.53.0\\IEDriverServer.exe");
+		                   System.setProperty("webdriver.ie.driver", "D:\\Ajit\\Automation\\Workspace\\Odysseus_Product\\Driver\\IEDriverServer_Win32_2.53.0\\IEDriverServer.exe");
 		               //  driver = new InternetExplorerDriver();
 		                   
 	                 } 
@@ -121,7 +121,7 @@ public void openBroswer(String browser) throws InterruptedException, IOException
         Thread.sleep(4000);
         lgnpge = PageFactory.initElements(driver, AirLocalLoginPgeobjct.class);
         airbk = PageFactory.initElements(driver, LocalAirBookingpgeobjectforOdysseus.class);
-        chckout = PageFactory.initElements(driver, LocalAirPurchasepgeobjct.class);
+        chckout = PageFactory.initElements(driver, LocalAirCheckoutpageobjct.class);
         hldncnfrm = PageFactory.initElements(driver, LocalCruisePaymentpgeobjct.class);
    
    }
@@ -138,7 +138,7 @@ public void ExtractJSLogs()
 
 
 @Test(dataProvider="Authentication")
-public void Confirmlogin_data(String sUsername, String sPassword, String FromLocation, String ToLocation, String Firstname_Of_Adult1, String Middlename_of_Adult1, String Lastname_Of_Adult1, String Email, String Phone_No, String DestinationPhone_No, String Firstname_Of_Adult2, String Middlename_of_Adult2, String Lastname_Of_Adult2, String Firstname_Of_Adult3, String Middlename_of_Adult3, String Lastname_Of_Adult3, String CardNo, String CardCvvNo, String CardHolderName, String Address, String City, String Zipcode, String Phone_Number) throws Exception
+public void Confirmlogin_data(String sUsername, String sPassword, String FromLocation, String ToLocation, String Firstname_Of_Adult1, String Middlename_of_Adult1, String Lastname_Of_Adult1, String Firstname_Of_Adult2, String Middlename_of_Adult2, String Lastname_Of_Adult2, String Firstname_Of_Adult3, String Middlename_of_Adult3, String Lastname_Of_Adult3, String Email, String Phone_No, String CardHolderName, String CardNo, String CardCvvNo,  String Address, String City, String Zipcode, String Phone_Number, String Bank_Name) throws Exception
 {
    try
    {  
@@ -163,11 +163,11 @@ public void Confirmlogin_data(String sUsername, String sPassword, String FromLoc
         System.out.println("Searchpage Logs..");
         System.out.println("\n");
         ExtractJSLogs();
-  
+ /* 
         final Screenshot screenshot = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
         final BufferedImage image = screenshot.getImage();
         ImageIO.write(image, "PNG", new File("D:\\Ajit\\Script_SS\\LocalAirBooking\\2_Searchpage.png"));
-     
+  */   
         System.out.println("Page title verified:- User login successfully");
      }
      catch(Exception e)
@@ -269,8 +269,11 @@ public void Confirmlogin_data(String sUsername, String sPassword, String FromLoc
              Reporter.log("Office Id :- " +officeid);
              Thread.sleep(3000);
              
-             String priceonpurchase = driver.findElement(By.cssSelector("#PricesGTotal")).getText();
-             Reporter.log("Price on paymentpage is:- "+ priceonpurchase);
+             // Price on checkout page
+             String priceonpurchase = driver.findElement(By.cssSelector("")).getText();
+             Reporter.log("Price on purchase page :- " +priceonpurchase);
+             Thread.sleep(3000);
+             
              
    try   
    {
@@ -279,17 +282,26 @@ public void Confirmlogin_data(String sUsername, String sPassword, String FromLoc
 	     System.out.println("Firstname_Of_Adult1: " + Firstname_Of_Adult1);
          System.out.println("Middlename_of_Adult1:" + Middlename_of_Adult1);
          System.out.println("Lastname_Of_Adult1: " + Lastname_Of_Adult1);
-         System.out.println("Email: " + Email);
-         System.out.println("Phone_No: " + Phone_No);
-         System.out.println("Phone_No: " + DestinationPhone_No);
+     //    System.out.println("Phone_No: " + DestinationPhone_No);
          System.out.println("Firstname_Of_Adult2: " + Firstname_Of_Adult2);
          System.out.println("Middlename_of_Adult2:" + Middlename_of_Adult2);
          System.out.println("Lastname_Of_Adult2: " + Lastname_Of_Adult2);
          System.out.println("Firstname_Of_Adult3: " + Firstname_Of_Adult3);
          System.out.println("Middlename_of_Adult3:" + Middlename_of_Adult3);
          System.out.println("Lastname_Of_Adult3: " + Lastname_Of_Adult3);
-             
-         chckout.AirpurchaseToTitle(Firstname_Of_Adult1,Middlename_of_Adult1, Lastname_Of_Adult1, Email, Phone_No, DestinationPhone_No, Firstname_Of_Adult2,Middlename_of_Adult2, Lastname_Of_Adult2, Firstname_Of_Adult3,Middlename_of_Adult3, Lastname_Of_Adult3);
+         System.out.println("Email: " + Email);
+         System.out.println("Phone_No: " + Phone_No);
+  //       System.out.println("Email: " + CardHolderName);
+   //      System.out.println("Phone_No: " + CardNo);
+   //      System.out.println("Email: " + CardCvvNo);
+    //     System.out.println("Phone_No: " + Address);
+    //     System.out.println("Email: " + City);
+     //    System.out.println("Phone_No: " + Zipcode);
+    //     System.out.println("Email: " + Phone_Number);
+    //     System.out.println("Email: " + Bank_Name);
+        
+           
+         chckout.ConfirmToTitle(Firstname_Of_Adult1, Middlename_of_Adult1, Lastname_Of_Adult1, Firstname_Of_Adult2, Middlename_of_Adult2, Lastname_Of_Adult2, Firstname_Of_Adult3,Middlename_of_Adult3, Lastname_Of_Adult3, Email, Phone_No, CardHolderName, CardNo, CardCvvNo, Address, City, Zipcode, Phone_Number, Bank_Name);
          Thread.sleep(1000);
    }
    catch(Exception e)
@@ -310,6 +322,8 @@ public void Confirmlogin_data(String sUsername, String sPassword, String FromLoc
     	 AssertJUnit.assertTrue("Time out...", chckout.isDisplayed());
     	 throw(e); 	
    }
+
+ 
    
    try
    {
@@ -385,7 +399,7 @@ public void Confirmlogin_data(String sUsername, String sPassword, String FromLoc
        
     }
    
-      
+     
       try
       {
       	
@@ -446,6 +460,8 @@ public void Confirmlogin_data(String sUsername, String sPassword, String FromLoc
             AssertJUnit.assertTrue("Something went wrong...", chckout.isDisplayed());
             throw(e);
       }	
+     
+      
       
     try
     {
@@ -457,9 +473,9 @@ public void Confirmlogin_data(String sUsername, String sPassword, String FromLoc
           System.out.println("City: " + City);
           System.out.println("Zipcode: " + Zipcode);
           System.out.println("Phone_Number: " + Phone_Number);
-     //   System.out.println("BankName: " + BankName);
+          System.out.println("BankName: " + Bank_Name);
          
-          hldncnfrm.PaymentToTitle(CardNo, CardCvvNo, CardHolderName, Address, City, Zipcode, Phone_Number);
+          hldncnfrm.PaymentToTitle(CardNo, CardCvvNo, CardHolderName, Address, City, Zipcode, Phone_Number, Bank_Name);
           long start78 = System.currentTimeMillis();  
               
           Thread.sleep(18000);
@@ -684,6 +700,8 @@ try
      return;
      
 }
+
+
      Thread.sleep(7000);
      
      // For the verify cancel condition
@@ -739,7 +757,6 @@ try
       return (testObjArray);
 
  }
-
 
 
  @AfterClass

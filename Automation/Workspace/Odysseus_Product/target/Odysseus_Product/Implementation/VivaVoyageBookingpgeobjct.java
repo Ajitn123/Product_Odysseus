@@ -1,6 +1,7 @@
 package Implementation;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
@@ -45,17 +46,16 @@ public class VivaVoyageBookingpgeobjct
 		{
 			try
 			{
-				Selectfrmdte.click();
+				Selectfrmdte.sendKeys(Keys.ENTER);
 				Thread.sleep(1000);
-				Selectfrmdte.findElement(By.xpath("//*[@id='ui-datepicker-div']/div/a[2]/span")).click();
-				Thread.sleep(500);
-				Selectfrmdte.findElement(By.xpath("//*[@id='ui-datepicker-div']/table/tbody/tr[1]/td[6]/a")).click(); //For 01 April
-				Thread.sleep(500);
-				selecttodte.click();
-				Thread.sleep(1000);
-				selecttodte.findElement(By.xpath("//*[@id='ui-datepicker-div']/div/a[2]/span")).click();
-				Thread.sleep(500);
-				selecttodte.findElement(By.xpath("//*[@id='ui-datepicker-div']/table/tbody/tr[5]/td[2]/a")).click(); //For 30 May
+		//		Selectfrmdte.findElement(By.xpath("//*[@id='ui-datepicker-div']/div/a[2]/span")).click();
+		//		Thread.sleep(500);
+		//		Selectfrmdte.findElement(By.xpath("//*[@id='ui-datepicker-div']/table/tbody/tr[1]/td[4]/a")).click(); //For 02 Nov
+		//		Thread.sleep(500);
+				Selectfrmdte.sendKeys(Keys.TAB);
+		//		selecttodte.findElement(By.xpath("//*[@id='ui-datepicker-div']/div/a[2]/span")).click();
+		//		Thread.sleep(500);
+				selecttodte.findElement(By.xpath("//*[@id='ui-datepicker-div']/table/tbody/tr[5]/td[4]/a")).click(); //For 30 Nov
 				Thread.sleep(1000);
 				Select select = new Select(selectcruiseline.findElement(By.id("_ctl0_MainContentsPH__ctl0_CruiseAdvancedSearch_Suppliers")));
 				select.selectByVisibleText("Norwegian Cruise Line"); // Viva Voyage: Norwegian Cruise Line 

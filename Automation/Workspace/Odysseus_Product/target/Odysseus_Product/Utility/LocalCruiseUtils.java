@@ -41,7 +41,7 @@ public class LocalCruiseUtils
 
 		   // you can write a function as well to get Column count
 
-		   int totalCols = 10;
+		   int totalCols = 21;
 
 		   tabArray=new String[totalRows][totalCols];
 

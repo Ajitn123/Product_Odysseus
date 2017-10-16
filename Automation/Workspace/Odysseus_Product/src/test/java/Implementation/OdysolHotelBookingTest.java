@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import javax.imageio.ImageIO;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -73,7 +74,7 @@ public void openBroswer(String browser) throws InterruptedException, IOException
                  } 
                  else if (browser.equalsIgnoreCase("chrome")) 
                  {
-	                    System.setProperty("webdriver.chrome.driver", "D:\\Ajit\\Driver\\chromedriver_win32\\chromedriver.exe");
+	                    System.setProperty("webdriver.chrome.driver", "D:\\Ajit\\Automation\\Workspace\\Odysseus_Product\\Driver\\chromedriver_win32\\chromedriver.exe");
 	                    DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 	                    LoggingPreferences loggingprefs = new LoggingPreferences();
 	                    loggingprefs.enable(LogType.BROWSER, Level.ALL);
@@ -83,7 +84,7 @@ public void openBroswer(String browser) throws InterruptedException, IOException
                  }  
                  else if (browser.equalsIgnoreCase("IE")) 
                  {
-	                   System.setProperty("webdriver.ie.driver", "D:\\Ajit\\Driver\\IEDriverServer_Win32_2.53.0\\IEDriverServer.exe");
+	                   System.setProperty("webdriver.ie.driver", "D:\\Ajit\\Automation\\Workspace\\Odysseus_Product\\Driver\\IEDriverServer_Win32_2.53.0\\IEDriverServer.exe");
 	                // driver = new InternetExplorerDriver();
 	                   
                  } 
@@ -110,7 +111,12 @@ public void baseClass() throws InterruptedException, IOException
     PrintStream out = new PrintStream(fis);  
     System.setOut(out); 
                   
-   
+    Thread.sleep(1000);
+    
+    final Screenshot screenshot01 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+    final BufferedImage image01 = screenshot01.getImage();
+    ImageIO.write(image01, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolHotel\\1_Loginpage.png"));
+    
     //driver.navigate().to("https://localhost/odyssey/website/air/results.aspx?");
     Thread.sleep(4000);
     lgnpge = PageFactory.initElements(driver, Login.class);
@@ -148,18 +154,18 @@ public void ExtractJSLogs()
                 
         lgnpge.LoginToTittle(sUsername, sPassword);
         long start = System.currentTimeMillis();
-        Thread.sleep(2000);
+        Thread.sleep(2200);
+        long finish = System.currentTimeMillis();
+        long totalTime = finish - start; 
+        Reporter.log("Total Time for login page to search page load(Milisec) - "+totalTime); 
+        Thread.sleep(1000);
      
         System.out.println("\n");
         System.out.println("Loginpage Logs..");
         System.out.println("\n");
         ExtractJSLogs();
-        Thread.sleep(3000);
-        long finish = System.currentTimeMillis();
-        long totalTime = finish - start; 
-        Reporter.log("Total Time for login page to search page load(Milisec) - "+totalTime); 
-        Thread.sleep(1000);
-
+        Thread.sleep(2000);
+ 
      }     
      catch(Exception e)
      {
@@ -168,7 +174,10 @@ public void ExtractJSLogs()
  	         System.out.println("\n");
  	         ExtractJSLogs();
  	      
-	         
+	          final Screenshot screenshot1 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+	          final BufferedImage image1 = screenshot1.getImage();
+	          ImageIO.write(image1, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolHotelError\\0_Invalidcredentials.png"));
+	          
 	          Assert.assertFalse(false, "FAIL");
 	          Reporter.log("Username and Password are invalid..");
      	      AssertJUnit.assertTrue("Username Or Password are invalid...", lgnpge.isDisplayed());
@@ -178,22 +187,24 @@ public void ExtractJSLogs()
      
   try
   {
-	     
+	     final Screenshot screenshot = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+	     final BufferedImage image = screenshot.getImage();
+	     ImageIO.write(image, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolHotel\\2_Searchpage.png"));
+	     Thread.sleep(2000);
 	  
         airbk.HotelBookingToTitle();
         long start = System.currentTimeMillis();
-        Thread.sleep(6000);     
+        Thread.sleep(5890);  
+        long finish = System.currentTimeMillis();
+        long totalTime = finish - start; 
+        Reporter.log("Total Time for search page to result page load(Milisec) - "+totalTime); 
+        Thread.sleep(1000);
           
         System.out.println("\n");
         System.out.println("Searchpage Logs..");
         System.out.println("\n");
         ExtractJSLogs();
         Thread.sleep(400);
-        long finish = System.currentTimeMillis();
-        long totalTime = finish - start; 
-        Reporter.log("Total Time for search page to result page load(Milisec) - "+totalTime); 
-        Thread.sleep(1000);
-
       
  }    
  catch(Exception e)
@@ -203,7 +214,10 @@ public void ExtractJSLogs()
        System.out.println("\n");
        ExtractJSLogs();
       
-      
+       final Screenshot screenshot1 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+       final BufferedImage image1 = screenshot1.getImage();
+       ImageIO.write(image1, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolHotelError\\1_InvaliddetailsorError.png"));
+          
        Assert.assertFalse(false, "FAIL");
        Reporter.log("Invalid search details or displaying error message..");
 	   AssertJUnit.assertTrue("Invalid search details or displaying error message...", lgnpge.isDisplayed());
@@ -233,13 +247,18 @@ public void ExtractJSLogs()
           System.out.println("\n");
           ExtractJSLogs();
        
-          
+          Thread.sleep(3000);
+       
+         final Screenshot screenshot003 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+	     final BufferedImage image003 = screenshot003.getImage();
+	     ImageIO.write(image003, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolHotel\\3_Resultpage.png"));
+
          Thread.sleep(8000);
   
      // For select Hotel 
      if(driver.findElement(By.cssSelector("[id*='hotel_summary_'] > div > div.Hrightblock > div.booknow-btn [id*='HotelBtnlbl']")).isDisplayed())
      {	  
-        driver.findElement(By.cssSelector("[id*='hotel_summary_'] > div > div.Hrightblock > div.booknow-btn [id*='HotelBtnlbl']")).click();
+        driver.findElement(By.cssSelector("[id*='hotel_summary_'] > div > div.Hrightblock > div.booknow-btn [id*='HotelBtnlbl']")).sendKeys(Keys.ENTER);
         long start = System.currentTimeMillis();
         Thread.sleep(4000);
         long finish = System.currentTimeMillis();
@@ -249,7 +268,11 @@ public void ExtractJSLogs()
      }   
      else
      {
-    	        
+    	final Screenshot screenshot800 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+        final BufferedImage image800 = screenshot800.getImage();
+        ImageIO.write(image800, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolHotelError\\03_Hotelnotselectedoravailable.png"));
+        Thread.sleep(2000);
+        
     	Assert.assertFalse(false, "FAIL");
         Reporter.log("Cruise not selected or available...");
         AssertJUnit.assertTrue("Cruise not selected or available...", lgnpge.isDisplayed());
@@ -262,25 +285,30 @@ public void ExtractJSLogs()
        ExtractJSLogs();              
        Thread.sleep(1000);
       
-        
+        final Screenshot screenshot3 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+	    final BufferedImage image3 = screenshot3.getImage();
+	    ImageIO.write(image3, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolHotel\\4_Detailspage.png"));
+	    
+	    Thread.sleep(2000);
 	    
 	  //For the Hotel details page
         try
         {
                 	
-                   driver.findElement(By.cssSelector("#room_types > div:nth-child(2) > div.hcatprice > div [id*='_ctl0_MainContentsPH__ctl0__ctl0_Categories__ctl1_HotelFares__ctl0_SelectButton']")).click();
+                   driver.findElement(By.cssSelector("#room_types > div:nth-child(2) > div.hcatprice > div [id*='_ctl0_MainContentsPH__ctl0__ctl0_Categories__ctl1_HotelFares__ctl0_SelectButton']")).sendKeys(Keys.ENTER);
                    long start = System.currentTimeMillis();
-                   Thread.sleep(4000);
+                   Thread.sleep(4027);
+                   long finish = System.currentTimeMillis();
+                   long totalTime = finish - start; 
+                   Reporter.log("Total Time for details page to checkout page load(Milisec) - "+totalTime); 
+                   Thread.sleep(1000);
                                       
                    System.out.println("\n");
          	       System.out.println("Checkout page Logs..");
          	       System.out.println("\n");
          	       ExtractJSLogs();
                    Thread.sleep(1000);
-                   long finish = System.currentTimeMillis();
-                   long totalTime = finish - start; 
-                   Reporter.log("Total Time for details page to checkout page load(Milisec) - "+totalTime); 
-                   Thread.sleep(1000);
+                  
         }
         catch(Exception e)
         {
@@ -289,6 +317,10 @@ public void ExtractJSLogs()
          	        System.out.println("\n");
          	        ExtractJSLogs();
           	 
+     	            final Screenshot screenshot80 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+     	            final BufferedImage image80 = screenshot80.getImage();
+     	            ImageIO.write(image80, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolHotelError\\3_InvalidGuestinformation.png"));
+     	          
           	        Assert.assertFalse(false, "FAIL");
           	        Reporter.log("Hotels not available on detailspage...");
           	        AssertJUnit.assertTrue("Hotels not available on detailspage...", lgnpge.isDisplayed());
@@ -363,7 +395,12 @@ public void ExtractJSLogs()
           
            try
            {
-        	    
+        	   
+        	    final Screenshot screenshot80 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+	            final BufferedImage image80 = screenshot80.getImage();
+	            ImageIO.write(image80, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolHotel\\6_Purchasepage.png"));
+	            Thread.sleep(2000);
+        	   
         	   System.out.println("FirstName: " + FirstName);
                System.out.println("MidleName: " + MidleName);
                System.out.println("LastName: " + LastName);
@@ -386,14 +423,17 @@ public void ExtractJSLogs()
                                     System.out.println("\n");
                                     ExtractJSLogs();
                                              
-                                        
+                                    final Screenshot screenshot34 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+                                    final BufferedImage image34 = screenshot34.getImage();
+                                    ImageIO.write(image34, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolHotelError\\5_InvalidGuestinfoonPurchasepage.png"));
+                                             
                                     Assert.assertFalse(false, "FAIL");
                               	    Reporter.log("Invalid guest information on purchase page, Please enter valid details for the required fields...");
                               		AssertJUnit.assertTrue("Invalid guest information on purchase page, Please enter valid details for the required fields....", lgnpge.isDisplayed());
                               		throw(e);
              }
                                     long start = System.currentTimeMillis();   
-                                    Thread.sleep(7000);
+                                    Thread.sleep(7103);
                                     long finish = System.currentTimeMillis();
              	                    long totalTime = finish - start; 
              	                    Reporter.log("Total Time for checkout page to confirmation page load(Milisec) - "+totalTime); 
@@ -402,14 +442,19 @@ public void ExtractJSLogs()
                                     System.out.println("Confirmationpage Logs..");
                                     System.out.println("\n");
                                     ExtractJSLogs();              
-                                               
-                                    Thread.sleep(2000);
+                                    Thread.sleep(1000);
+                                                    
+                                    final Screenshot screenshot44 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+                                    final BufferedImage image44 = screenshot44.getImage();
+                                    ImageIO.write(image44, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolHotel\\10_Confirmationpage.png"));
+                                                    
+                                    Thread.sleep(3500);
                                     
              try
              {
                                     
                                     //For Verify price on confirmation page
-                                    String pricedetailsoncon = driver.findElement(By.cssSelector("#_ctl0__ctl10_HotelCTN > div > div.p-booking-price")).getText();
+                                    String pricedetailsoncon = driver.findElement(By.cssSelector("#_ctl0__ctl11_HotelCTN > div > div.p-booking-price")).getText();
                                     Reporter.log(" " +pricedetailsoncon);
                                                                         
    							        Thread.sleep(1500);
@@ -417,7 +462,10 @@ public void ExtractJSLogs()
               }     							 
               catch (Exception e) 
               {
-            	  
+            	  final Screenshot screenshot94 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
+                  final BufferedImage image94 = screenshot94.getImage();
+                  ImageIO.write(image94, "PNG", new File("D:\\Ajit\\Script_SS\\OdysolHotelError\\10_Paymentpage.png"));
+                  
                   Assert.assertFalse(false, "FAIL");
             	  Reporter.log("Something went wrong...");
             	  AssertJUnit.assertTrue("Something went wrong...", lgnpge.isDisplayed());
@@ -448,7 +496,7 @@ public void closeBrowser() throws InterruptedException
 	         System.out.println("Closing the browser");
 	         driver.quit();
         }   
-*/
+   */
 }
 	
 }
