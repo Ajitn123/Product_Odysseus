@@ -49,7 +49,7 @@ public class FaregeekTest
 	        public static WebDriver driver;
 	        Reporter report = new Reporter();
 	        
-	//        String Log = "D:\\Ajit\\Script_SS\\Differences of Images\\Logs\\Faregeek.txt";
+	       String Log = "D:\\Ajit\\Script_SS\\Differences of Images\\Logs\\Faregeek.txt";
 
 	    public static boolean implicitwait(long time)
 	    {
@@ -73,17 +73,17 @@ public class FaregeekTest
 	       {
 	             if (browser.equalsIgnoreCase("Firefox"))
 	             {
-	             //     driver = new FirefoxDriver();
-		   
-	             } 
+	              //    driver = new FirefoxDriver();
+			     
+                 } 
 	             else if (browser.equalsIgnoreCase("chrome")) 
 	             {
 	            	        System.setProperty("webdriver.chrome.driver", "D:\\Ajit\\Automation\\Workspace\\Odysseus_Product\\Driver\\chromedriver_win32\\chromedriver.exe");
 		                    DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-		                    LoggingPreferences loggingprefs = new LoggingPreferences();
-		                    loggingprefs.enable(LogType.BROWSER, Level.ALL);
-		                    capabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingprefs);
-		                    driver = new ChromeDriver(capabilities);
+		                //    LoggingPreferences loggingprefs = new LoggingPreferences();
+		                 //   loggingprefs.enable(LogType.BROWSER, Level.ALL);
+		                //    capabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingprefs);
+		                    driver = new ChromeDriver();
 		                   
 	             }  
 	             else if (browser.equalsIgnoreCase("IE")) 
@@ -107,7 +107,7 @@ public class FaregeekTest
 	    	 driver.manage().window().maximize();
              driver.get("http://faregeek.com/");
              Thread.sleep(6000);
-    
+    /*
              //Save console
              String testResultFile="D:\\Ajit\\Script_SS\\ConsoleError\\FaregeekError.txt";
              File file = new File(testResultFile);  
@@ -116,7 +116,7 @@ public class FaregeekTest
              System.setOut(out); 
                   
              Thread.sleep(1000);
-     /*       
+            
              final Screenshot screenshot1 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
              final BufferedImage image1 = screenshot1.getImage();
              ImageIO.write(image1, "PNG", new File("D:\\Ajit\\Script_SS\\Faregeek\\1_Searchpage.png"));
@@ -132,12 +132,12 @@ public class FaregeekTest
              Process p = pb.start();
              
              System.out.println("" +p);
-      */       
+            
              System.out.println("\n");
 	         System.out.println("Searchpage Logs..");
 	         System.out.println("\n");
 	         ExtractJSLogs();
-
+    */
             //driver.navigate().to("https://localhost/odyssey/website/air/results.aspx?");
             Thread.sleep(4000);
             airbkpge = PageFactory.initElements(driver, FaregeekBookingpgeobjct.class);
@@ -178,7 +178,7 @@ public class FaregeekTest
 	         	     System.out.println("\n");
 	    	         System.out.println("Resultpage Logs..");
 	    	         System.out.println("\n");
-	    	         ExtractJSLogs();
+	    	     //    ExtractJSLogs();
 	            
 	                 Thread.sleep(10000);
 	             
@@ -188,7 +188,7 @@ public class FaregeekTest
 	        	     System.out.println("\n");
 	   	             System.out.println("Time out or Invalid search criteria on resultpage Logs..");
 	   	             System.out.println("\n");
-	   	             ExtractJSLogs();
+	   	         //    ExtractJSLogs();
 	    	      /*
 	 	             final Screenshot screenshot33 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
 	 	             final BufferedImage image33 = screenshot33.getImage();
@@ -212,7 +212,7 @@ public class FaregeekTest
 	    	        System.out.println("\n");
 	    	        System.out.println("Resultpage Logs..");
 	    	        System.out.println("\n");
-	    	        ExtractJSLogs();
+	    	   //     ExtractJSLogs();
 	    	        
 	                Thread.sleep(1000);
 	    	 /*
@@ -295,7 +295,7 @@ public class FaregeekTest
 	             	System.out.println("\n");
 	             	System.out.println("Flight not available on resultpage Logs..");
 	             	System.out.println("\n");
-	            	ExtractJSLogs();
+	          //  	ExtractJSLogs();
 	          /*    	
 	             	final Screenshot screenshot2 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
 	                final BufferedImage image2 = screenshot2.getImage();
@@ -315,7 +315,7 @@ public class FaregeekTest
 	                System.out.println("\n");
 	                System.out.println("Checkoutpage Logs..");
 	                System.out.println("\n");
-	                ExtractJSLogs();              
+	          //      ExtractJSLogs();              
 	                Thread.sleep(1000);
 	           /*     
 	                final Screenshot screenshot3 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
@@ -396,7 +396,7 @@ public class FaregeekTest
 	      	  System.out.println("\n");
 	      	  System.out.println("Timeout on checkoutpage Logs..");
 	      	  System.out.println("\n");
-	      	  ExtractJSLogs();
+	      	//  ExtractJSLogs();
 	      /*	 
 	          final Screenshot screenshot44 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
 	  		  final BufferedImage image44 = screenshot44.getImage();
@@ -494,7 +494,7 @@ public class FaregeekTest
 	    	  System.out.println("\n");
 	      	  System.out.println("Invalid guest information on checkoutpage Logs..");
 	      	  System.out.println("\n");
-	      	  ExtractJSLogs();
+	    //  	  ExtractJSLogs();
 	   /*   	 
 	          final Screenshot screenshot44 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
 	  		  final BufferedImage image44 = screenshot44.getImage();
@@ -509,7 +509,7 @@ public class FaregeekTest
 	          System.out.println("\n");
 	          System.out.println("Paymentpage Logs..");
 	          System.out.println("\n");
-	          ExtractJSLogs();
+	   //       ExtractJSLogs();
 	        
               Thread.sleep(1000);
 	/* 
@@ -609,7 +609,7 @@ public class FaregeekTest
        	           System.out.println("\n");
        	           System.out.println("Insurance not applied/removed on confirmation page...");
        	           System.out.println("\n");
-       	           ExtractJSLogs();
+       	     //      ExtractJSLogs();
              /*          
                    final Screenshot screenshot72 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
                    final BufferedImage image72 = screenshot72.getImage();
