@@ -79,7 +79,7 @@ public class FaregeekTest
 	             else if (browser.equalsIgnoreCase("chrome")) 
 	             {
 	            	        System.setProperty("webdriver.chrome.driver", "D:\\Ajit\\Automation\\Workspace\\Odysseus_Product\\Driver\\chromedriver_win32\\chromedriver.exe");
-		                    DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+		                //    DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 		                //    LoggingPreferences loggingprefs = new LoggingPreferences();
 		                 //   loggingprefs.enable(LogType.BROWSER, Level.ALL);
 		                //    capabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingprefs);
