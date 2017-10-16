@@ -48,7 +48,7 @@ public class FaregeekTest
 	        public static WebDriver driver;
 	        Reporter report = new Reporter();
 	        
-	        String Log = "D:\\Ajit\\Script_SS\\Differences of Images\\Logs\\Faregeek.txt";
+	//        String Log = "D:\\Ajit\\Script_SS\\Differences of Images\\Logs\\Faregeek.txt";
 
 	    public static boolean implicitwait(long time)
 	    {
@@ -660,7 +660,7 @@ public class FaregeekTest
      		  }
               
                          Thread.sleep(1500);
-                         
+               /*          
                        //For the compare logs
             		     String ConsleArgument = "D:\\Ajit\\Script_SS\\ConsoleError\\FaregeekError.txt";
                          String ConsoleCommand = "D:\\Ajit\\Script_SS\\ConsoleApplication2.exe";
@@ -671,7 +671,7 @@ public class FaregeekTest
                          Process p05 = pb05.start();
                          
                          System.out.println("" +p05);    
-                           
+               */            
                          Thread.sleep(1000);
 	    	
 	    }
