@@ -689,7 +689,7 @@ public class FaregeekTest
 	    @AfterClass
 	    public void closeBrowser() throws InterruptedException
 	    {
-	    	 driver.close();
+	    	// driver.close();
 	   	 
 	   	   /*
 	   	        if(driver!=null) 
