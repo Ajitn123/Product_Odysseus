@@ -144,7 +144,7 @@ public class FaregeekTest
             faregkpurchse = PageFactory.initElements(driver, FaregeekPurchasepgeobjct.class);
 	    
 	    }
-
+/*
 	    public void ExtractJSLogs()
 	    {
 	         LogEntries logEntries = driver.manage().logs().get(LogType.BROWSER);
@@ -154,7 +154,7 @@ public class FaregeekTest
 	                System.out.println(new Date(entry.getTimestamp()) + " " + entry.getLevel() + " " + entry.getMessage());
 	           }
 	    }
-
+*/
 	    @Test(dataProvider="Authentication")
 	    public void Fregeek_Data(String FromLocation, String ToLocation, String Firstname_Of_Adult1, String Middlename_of_Adult1, String Lastname_Of_Adult1, String Phone_Adult1, String Email, String Confirm_Email, String Firstname_Of_Adult2, String Middlename_of_Adult2, String Lastname_Of_Adult2, String Firstname_Of_Adult3, String Middlename_of_Adult3, String Lastname_Of_Adult3, String Phone_Adult3) throws Exception
 	    {
