@@ -18,6 +18,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.logging.LogType;
@@ -73,7 +74,8 @@ public class CDORTest
        {
              if (browser.equalsIgnoreCase("Firefox"))
              {
-                //  driver = new FirefoxDriver();
+            	
+               //  driver = new FirefoxDriver();
 	   
              } 
              else if (browser.equalsIgnoreCase("chrome")) 
@@ -119,7 +121,7 @@ public class CDORTest
      {
     	 e.getMessage();
      }
-
+/*
           //Save console
           String testResultFile="D:\\Ajit\\Script_SS\\ConsoleError\\CDORBookingError.txt";
           File file = new File(testResultFile);  
@@ -128,7 +130,7 @@ public class CDORTest
           System.setOut(out); 
                
           Thread.sleep(1000);
- /*
+ 
           final Screenshot screenshot1 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
           final BufferedImage image1 = screenshot1.getImage();
           ImageIO.write(image1, "PNG", new File("D:\\Ajit\\Script_SS\\CDOR\\1_Searchpage.png"));
@@ -144,12 +146,12 @@ public class CDORTest
           Process p = pb.start();
           
           System.out.println("" +p);
-       */      
+             
           System.out.println("\n");
 	      System.out.println("Searchpage Logs..");
 	      System.out.println("\n");
 	      ExtractJSLogs();
-	      	      
+	*/      	      
          //driver.navigate().to("https://localhost/odyssey/website/air/results.aspx?");
          Thread.sleep(4000);
          crsbkngpge = PageFactory.initElements(driver, CDORBookingpgeobjct.class);
@@ -158,7 +160,7 @@ public class CDORTest
      } 
       
       
- 
+ /*
     public void ExtractJSLogs()
     {
          LogEntries logEntries = driver.manage().logs().get(LogType.BROWSER);
@@ -168,7 +170,7 @@ public class CDORTest
                 System.out.println(new Date(entry.getTimestamp()) + " " + entry.getLevel() + " " + entry.getMessage());
            }
     }
-
+*/
     @Test(dataProvider="Authentications")
     public void CDOR_data(String Firstname_GuestOne, String Middlename_GuestOne, String Lastname_GuestOne, String Email, String Phone, String Firstname_GuestTwo, String Middlename_GuestTwo, String Lastname_GuestTwo) throws Exception
     {
@@ -194,7 +196,7 @@ public class CDORTest
        	     System.out.println("\n");
   	         System.out.println("Resultpage Logs..");
   	         System.out.println("\n");
-  	         ExtractJSLogs();
+  	     //    ExtractJSLogs();
   	        
              Thread.sleep(1000);
        
@@ -250,7 +252,7 @@ public class CDORTest
        	     System.out.println("\n");
   	         System.out.println("Time out or Invalid search criteria on resultpage Logs..");
   	         System.out.println("\n");
-  	         ExtractJSLogs();
+  	   //      ExtractJSLogs();
    	 /*
 	         final Screenshot screenshot33 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
 	         final BufferedImage image33 = screenshot33.getImage();
@@ -314,7 +316,7 @@ public class CDORTest
        	         System.out.println("\n");
        	         System.out.println("Cruise not available on resultpage Logs..");
        	         System.out.println("\n");
-       	         ExtractJSLogs();
+       	    //     ExtractJSLogs();
           /*
                  final Screenshot screenshot5 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
                  final BufferedImage image5 = screenshot5.getImage();
@@ -332,7 +334,7 @@ public class CDORTest
                 System.out.println("\n");
                 System.out.println("Cruise detailspage Logs..");
                 System.out.println("\n");
-                ExtractJSLogs();              
+           //     ExtractJSLogs();              
                 Thread.sleep(700);
                 
                 long finish = System.currentTimeMillis();
@@ -412,7 +414,7 @@ public class CDORTest
                     System.out.println("\n");
           	        System.out.println("Categorypage Logs..");
           	        System.out.println("\n");
-          	        ExtractJSLogs();
+          	  //      ExtractJSLogs();
                     
                     Thread.sleep(700);
                     long finish1 = System.currentTimeMillis();
@@ -425,7 +427,7 @@ public class CDORTest
                    	System.out.println("\n");
           	        System.out.println("Invalid guest information on cruise detailspage Logs..");
           	        System.out.println("\n");
-          	        ExtractJSLogs();
+          	   //     ExtractJSLogs();
            	 /*
       	            final Screenshot screenshot80 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
       	            final BufferedImage image80 = screenshot80.getImage();
@@ -537,7 +539,7 @@ public class CDORTest
                System.out.println("\n");
                System.out.println("Cabin selection page Logs..");
                System.out.println("\n");
-               ExtractJSLogs();              
+          //     ExtractJSLogs();              
                Thread.sleep(750);
                
                long finish1 = System.currentTimeMillis();
@@ -606,7 +608,7 @@ public class CDORTest
                           	      System.out.println("\n");
                           	      System.out.println("Cabin not available on select cabinpage Logs..");
                           	      System.out.println("\n");
-                          	      ExtractJSLogs();
+                          	 //     ExtractJSLogs();
                           /*   
                                   final Screenshot screenshot13 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
                                   final BufferedImage image13 = screenshot13.getImage();
@@ -622,7 +624,7 @@ public class CDORTest
                                    System.out.println("\n");
                                    System.out.println("Purchase page Logs..");
                                    System.out.println("\n");
-                                   ExtractJSLogs();              
+                            //       ExtractJSLogs();              
                                    Thread.sleep(1000);
                                    
                                    long finish11 = System.currentTimeMillis();
@@ -681,7 +683,7 @@ public class CDORTest
                                         System.out.println("\n");
                                         System.out.println("Invalid guest information on purchasepage Logs..");
                                         System.out.println("\n");
-                                        ExtractJSLogs();
+                                   //     ExtractJSLogs();
                               /*                   
                                         final Screenshot screenshot34 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
                                         final BufferedImage image34 = screenshot34.getImage();
@@ -709,7 +711,7 @@ public class CDORTest
                                         System.out.println("\n");
                                         System.out.println("Paymentpage Logs..");
                                         System.out.println("\n");
-                                        ExtractJSLogs();              
+                                  //      ExtractJSLogs();              
                                         Thread.sleep(870);
                                         
                                         long finish12 = System.currentTimeMillis();
@@ -806,7 +808,7 @@ public class CDORTest
                        				{
                        					e.getMessage();
                        				}
-                        				
+                    /*   				
                        			//For the compare logs
                        				String ConsleArgument = "D:\\Ajit\\Script_SS\\ConsoleError\\CDORBookingError.txt";
                                     String ConsoleCommand = "D:\\Ajit\\Script_SS\\ConsoleApplication2.exe";
@@ -817,7 +819,7 @@ public class CDORTest
                                     Process p05 = pb05.start();
                                     
                                     System.out.println("" +p05);    
-                                      
+                     */                 
                                     Thread.sleep(1000);
     	
     }
@@ -835,7 +837,7 @@ public class CDORTest
     public void closeBrowser() throws InterruptedException
     {
     	
-    	 driver.close();
+    //	 driver.close();
 	 
 	   /*  
 	         if(driver!=null) 
