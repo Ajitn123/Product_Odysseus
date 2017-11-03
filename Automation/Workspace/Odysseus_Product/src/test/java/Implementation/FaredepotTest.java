@@ -85,11 +85,11 @@ public class FaredepotTest
       {
             if (browser.equalsIgnoreCase("Firefox"))
             {
-            	 DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-                 LoggingPreferences loggingprefs = new LoggingPreferences();
-                 loggingprefs.enable(LogType.BROWSER, Level.ALL);
-                 capabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingprefs);
-          //       driver = new FirefoxDriver(capabilities);
+            	// DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+                // LoggingPreferences loggingprefs = new LoggingPreferences();
+                // loggingprefs.enable(LogType.BROWSER, Level.ALL);
+                // capabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingprefs);
+                // driver = new FirefoxDriver(capabilities);
 	   
             } 
             else if (browser.equalsIgnoreCase("chrome")) 
