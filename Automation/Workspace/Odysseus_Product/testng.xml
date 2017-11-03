@@ -7,7 +7,7 @@
        <test name="chromeTest">
                     <parameter name="browser" value="chrome"/>
                       <classes>
-                            <class name="Implementation.FaregeekTest"/>
+                            <class name="Implementation.CDORTest"/>
                       </classes>
        </test> <!-- Test -->
               
