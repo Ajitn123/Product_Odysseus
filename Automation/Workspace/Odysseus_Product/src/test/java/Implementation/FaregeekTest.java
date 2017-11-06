@@ -428,7 +428,7 @@ public class FaregeekTest
                 {
 	                    testresultdata.put("5", new Object[] {"Checkout", priceoncheckout});
                     
-                   //     Thread.sleep(2000);
+                        Thread.sleep(4000);
                  }   
                  catch(Exception e)
                  {
