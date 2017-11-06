@@ -286,7 +286,7 @@ public class FaregeekTest
 		                  Process p1 = pb1.start();
 		                
 		                  System.out.println("" +p1);
-	  	               
+	  	                
 	  	                  driver.navigate().refresh();
 	  	                  Thread.sleep(3000);
 	    	        }
@@ -362,7 +362,7 @@ public class FaregeekTest
 	             	System.out.println("Flight not available on resultpage Logs..");
 	             	System.out.println("\n");
 	            	ExtractJSLogs();
-	              	
+	             	
 	             	final Screenshot screenshot2 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
 	                final BufferedImage image2 = screenshot2.getImage();
 	                ImageIO.write(image2, "PNG", new File("D:\\Ajit\\Script_SS\\FaregeekError\\2_Flightnotavailable.png"));
@@ -399,7 +399,7 @@ public class FaregeekTest
 	                  Process p1 = pb1.start();
 	                
 	                  System.out.println("" +p1);
-	                
+	               
 	                 Thread.sleep(3000);
 	                
 	              //For Trip details on checkout page
@@ -428,7 +428,7 @@ public class FaregeekTest
                 {
 	                    testresultdata.put("5", new Object[] {"Checkout", priceoncheckout});
                     
-                        Thread.sleep(4000);
+                        Thread.sleep(2000);
                  }   
                  catch(Exception e)
                  {
@@ -485,11 +485,11 @@ public class FaregeekTest
 	      	  System.out.println("Timeout on checkoutpage Logs..");
 	      	  System.out.println("\n");
 	      	  ExtractJSLogs();
-	      	 
+	     	 
 	          final Screenshot screenshot44 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
 	  		  final BufferedImage image44 = screenshot44.getImage();
 	  		  ImageIO.write(image44, "PNG", new File("D:\\Ajit\\Script_SS\\FaregeekError\\3_Timeouterror.png"));
-	           
+	          
 	          Assert.assertFalse(false, "FAIL");
 	          Reporter.log("Timeout error...");
 	     	  AssertJUnit.assertTrue("Timeout error...", faregkpurchse.isDisplayed());
@@ -587,7 +587,7 @@ public class FaregeekTest
                 Process p3 = pb3.start();
               
                 System.out.println("" +p3);
-	       	
+	        	
 	        	Reporter.log("Best Price Gaurantee Removed successfully..");
 	        	Thread.sleep(500);
 	        	
@@ -764,7 +764,7 @@ public class FaregeekTest
                 	        Reporter.log("Insurance not Removed..");
                 	        e.getMessage();
                          }
-                        
+                       
                         final Screenshot screenshot66 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
                         final BufferedImage image66 = screenshot66.getImage();
                         ImageIO.write(image66, "PNG", new File("D:\\Ajit\\Script_SS\\Faregeek\\8_RemovedInsurance.png"));
@@ -780,7 +780,7 @@ public class FaregeekTest
                         Process p5 = pb5.start();
                       
                         System.out.println("" +p5);
-                        
+                       
               	 }     
               }
               catch(Exception e)
@@ -936,4 +936,5 @@ public class FaregeekTest
 	      */
 	    	
 	    }
+	   
 }
