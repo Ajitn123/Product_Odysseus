@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 public class FaregeekPurchasepgeobjct 
 {
 	    	   
-	    	    //For Checkout page (For passenger 1)
+	    	     //For Checkout page (For passenger 1)
 	    	    @FindBy(xpath="//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_1_Title']")
 	    	    private WebElement selctitle;
 	    	    
@@ -125,11 +125,11 @@ public class FaregeekPurchasepgeobjct
 	    	    {
 	    	    	 try
 	    	    	 {
-	    	    		selctitle.click();
+	    	    		selctitle.sendKeys(Keys.ENTER);
 	    	    		Thread.sleep(400);
 	    	    	    selctitle.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_1_Title']/option[2]")).click();
 	    	  			Thread.sleep(500);
-	    	  			selctgndr.click();
+	    	  			selctgndr.sendKeys(Keys.ENTER);
 	    	  			Thread.sleep(400);
 	    	  			selctgndr.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_1_GenderSEL']/option[2]")).click();
 	    	  			Thread.sleep(500);
@@ -181,11 +181,11 @@ public class FaregeekPurchasepgeobjct
 	    				Thread.sleep(300);
 	    				cnfmemail.sendKeys(coneml);
 	    				Thread.sleep(500);
-	    				selcttle.click();
+	    				selcttle.sendKeys(Keys.ENTER);
 	    				Thread.sleep(400);
 	                    selcttle.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_2_Title']/option[3]")).click();
 	    	  			Thread.sleep(500);
-	    	  			selctgendr.click();
+	    	  			selctgendr.sendKeys(Keys.ENTER);
 	    	  			Thread.sleep(400);
 	    	  			selctgendr.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_2_GenderSEL']/option[3]")).click();
 	    	  			Thread.sleep(500);
@@ -225,11 +225,11 @@ public class FaregeekPurchasepgeobjct
 	    	  	//		Thread.sleep(800);
 	    	  	//		phone.sendKeys(phon);
 	    	  	//		Thread.sleep(500);
-	    	  			slcttle.click();
+	    	  			slcttle.sendKeys(Keys.ENTER);
 	    	  			Thread.sleep(400);
 	    	  			slcttle.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_3_Title']/option[3]")).click();
 	    	  			Thread.sleep(500);
-	    	  			slctgendr.click();
+	    	  			slctgendr.sendKeys(Keys.ENTER);
 	    	  			Thread.sleep(400);
 	    	  			slctgendr.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_3_GenderSEL']/option[3]")).click();
 	    	  			Thread.sleep(500);
@@ -289,6 +289,7 @@ public class FaregeekPurchasepgeobjct
 	    			// TODO Auto-generated method stub
 	    			return false;
 	    		}
+	    
 	    
 
 }
