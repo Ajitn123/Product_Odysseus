@@ -451,13 +451,6 @@ public class FaregeekTest
 	  	          String officeid = expr.split("OdysseyGateway")[7].split(":")[3].trim();
 	  	          Reporter.log("Office Id :- " +officeid);
 	  	          Thread.sleep(4000);
-	  	          
-	  	          driver.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_1_Title']")).sendKeys(Keys.ENTER);
-	  	          Thread.sleep(400);
-	  	          driver.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_1_Title']/option[2]")).click();
-	  			  Thread.sleep(500);
-	  			  
-	  			 Reporter.log("Checkout page..");
 	       
 	  	   //For Passenger details         
 	       try
