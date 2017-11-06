@@ -125,12 +125,13 @@ public class FaregeekPurchasepgeobjct
 	    	    {
 	    	    	 try
 	    	    	 {
-	    	    		  
-	    	    	    Select select = new Select(selctitle.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_1_Title']")));
-	    	  			select.selectByVisibleText("Mr");
+	    	    		selctitle.click();
+	    	    		Thread.sleep(400);
+	    	    	    selctitle.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_1_Title']/option[2]")).click();
 	    	  			Thread.sleep(500);
-	    	  			Select select1 = new Select(selctgndr.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_1_GenderSEL']")));
-	    	  			select1.selectByVisibleText("Male");
+	    	  			selctgndr.click();
+	    	  			Thread.sleep(400);
+	    	  			selctgndr.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_1_GenderSEL']/option[2]")).click();
 	    	  			Thread.sleep(500);
 	    	  			Firstnme.clear();
 	    	  			Thread.sleep(500);
@@ -180,11 +181,13 @@ public class FaregeekPurchasepgeobjct
 	    				Thread.sleep(300);
 	    				cnfmemail.sendKeys(coneml);
 	    				Thread.sleep(500);
-	                    Select select2 = new Select(selcttle.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_2_Title']")));
-	    	  			select2.selectByVisibleText("Mrs");
+	    				selcttle.click();
+	    				Thread.sleep(400);
+	                    selcttle.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_2_Title']/option[3]")).click();
 	    	  			Thread.sleep(500);
-	    	  			Select select3 = new Select(selctgendr.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_2_GenderSEL']")));
-	    	  			select3.selectByVisibleText("Female");
+	    	  			selctgendr.click();
+	    	  			Thread.sleep(400);
+	    	  			selctgendr.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_2_GenderSEL']/option[3]")).click();
 	    	  			Thread.sleep(500);
 	    	  			Frstnme.clear();
 	    	  			Thread.sleep(500);
@@ -222,11 +225,13 @@ public class FaregeekPurchasepgeobjct
 	    	  	//		Thread.sleep(800);
 	    	  	//		phone.sendKeys(phon);
 	    	  	//		Thread.sleep(500);
-	    	  			Select select4 = new Select(slcttle.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_3_Title']")));
-	    	  			select4.selectByVisibleText("Miss");
+	    	  			slcttle.click();
+	    	  			Thread.sleep(400);
+	    	  			slcttle.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_3_Title']/option[3]")).click();
 	    	  			Thread.sleep(500);
-	    	  			Select select5 = new Select(slctgendr.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_3_GenderSEL']")));
-	    	  			select5.selectByVisibleText("Female");
+	    	  			slctgendr.click();
+	    	  			Thread.sleep(400);
+	    	  			slctgendr.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_3_GenderSEL']/option[3]")).click();
 	    	  			Thread.sleep(500);
 	    	  			Frstname.clear();
 	    	  			Thread.sleep(500);
@@ -264,12 +269,12 @@ public class FaregeekPurchasepgeobjct
 	    	    		Thread.sleep(1000);
 	    	    		pne.sendKeys(pn);
 	    	    		Thread.sleep(1000);
-	    	    //		zoomout.click();
-	    	    //		Thread.sleep(1000);
-	    	    //		zmout.click();
-	    	  	//		Thread.sleep(1000);
-	    	  	//		zmout.sendKeys(Keys.TAB);
-	    	  	//		zmout.sendKeys(Keys.TAB);
+	    	  //  		zoomout.click();
+	    	  //  		Thread.sleep(1000);
+	    	  //  		zmout.click();
+	    	  //			Thread.sleep(1000);
+	    	  //			zmout.sendKeys(Keys.TAB);
+	    	  //			zmout.sendKeys(Keys.TAB);
 	    				
 	    	    	 }
 	    	    	 catch(Exception e)
