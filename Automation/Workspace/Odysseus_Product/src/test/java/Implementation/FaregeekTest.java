@@ -451,6 +451,13 @@ public class FaregeekTest
 	  	          String officeid = expr.split("OdysseyGateway")[7].split(":")[3].trim();
 	  	          Reporter.log("Office Id :- " +officeid);
 	  	          Thread.sleep(4000);
+	  	          
+	  	          driver.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_1_Title']")).click();
+	  	          Thread.sleep(400);
+	  	          driver.findElement(By.xpath("//*[@id='_ctl0_MainContentsPH__ctl0_TravelerAccount_1_Title']/option[2]")).click();
+	  			  Thread.sleep(500);
+	  			  
+	  			 Reporter.log("Checkout page..");
 	       
 	  	   //For Passenger details         
 	       try
@@ -490,7 +497,9 @@ public class FaregeekTest
 	       }
 	       
 	           Thread.sleep(4000);
-	           Reporter.log("Checkout page..");
+	           
+	          
+	           
 	           
 	        // For Apply Best Price Guarantee   
 	        if(driver.findElement(By.cssSelector("#MainForm > div.col-md-9.col-xs-12.col-sm-9.pull-right.pax-main-cont > div.row.booking-section.satisfaction.panel-box.pax-info-mo > div > div > div > label [id*='ex_gr_']")).isDisplayed())
@@ -927,5 +936,4 @@ public class FaregeekTest
 	      */
 	    	
 	    }
-	   
 }
