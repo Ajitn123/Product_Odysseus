@@ -490,7 +490,7 @@ public class FaregeekTest
 	       }
 	       
 	           Thread.sleep(4000);
-	           
+	           Reporter.log("Checkout page..");
 	           
 	        // For Apply Best Price Guarantee   
 	        if(driver.findElement(By.cssSelector("#MainForm > div.col-md-9.col-xs-12.col-sm-9.pull-right.pax-main-cont > div.row.booking-section.satisfaction.panel-box.pax-info-mo > div > div > div > label [id*='ex_gr_']")).isDisplayed())
