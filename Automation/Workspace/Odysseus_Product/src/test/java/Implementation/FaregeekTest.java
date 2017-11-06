@@ -148,7 +148,7 @@ public class FaregeekTest
              System.setOut(out); 
                   
              Thread.sleep(1000);
-       /*     
+            
              final Screenshot screenshot1 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
              final BufferedImage image1 = screenshot1.getImage();
              ImageIO.write(image1, "PNG", new File("D:\\Ajit\\Script_SS\\Faregeek\\1_Searchpage.png"));
@@ -164,7 +164,7 @@ public class FaregeekTest
              Process p = pb.start();
              
              System.out.println("" +p);
-       */      
+             
              System.out.println("\n");
 	         System.out.println("Searchpage Logs..");
 	         System.out.println("\n");
