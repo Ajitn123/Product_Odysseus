@@ -265,12 +265,12 @@ public class FaregeekPurchasepgeobjct
 	    		Thread.sleep(1000);
 	    		pne.sendKeys(pn);
 	    		Thread.sleep(1000);
-	    		zoomout.click();
-	    		Thread.sleep(1000);
-	    		zmout.click();
-	  			Thread.sleep(1000);
-	  			zmout.sendKeys(Keys.TAB);
-	  			zmout.sendKeys(Keys.TAB);
+	    	//	zoomout.click();
+	    	//	Thread.sleep(1000);
+	    	//	zmout.click();
+	  	//		Thread.sleep(1000);
+	  	//		zmout.sendKeys(Keys.TAB);
+	  	//		zmout.sendKeys(Keys.TAB);
 				
 	    	 }
 	    	 catch(Exception e)
