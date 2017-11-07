@@ -438,6 +438,8 @@ public class FaregeekTest
         	        Reporter.log("Checkout page Total price not available..");
         	        System.out.println(e.getMessage());
                  }
+				 
+				 Reporter.log("Test dataaaaa..");
 	  	      	 
 	  	      	  //For check API, Office id And Environment on checkout page
 	  	      	  String expr = driver.findElement(By.id("TracerBlock")).getText();
