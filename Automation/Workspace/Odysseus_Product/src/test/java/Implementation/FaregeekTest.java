@@ -52,7 +52,7 @@ public class FaregeekTest
 {
 
 	        FaregeekBookingpgeobjct airbkpge;
-	        FaregeekPurchasepgeobjct faregkpurchse;
+	        testpgeobjct faregkpurchse;
 	        public static WebDriver driver;
 	        Reporter report = new Reporter();
 	        HSSFWorkbook workbook;
@@ -173,7 +173,7 @@ public class FaregeekTest
             //driver.navigate().to("https://localhost/odyssey/website/air/results.aspx?");
             Thread.sleep(4000);
             airbkpge = PageFactory.initElements(driver, FaregeekBookingpgeobjct.class);
-            faregkpurchse = PageFactory.initElements(driver, FaregeekPurchasepgeobjct.class);
+            faregkpurchse = PageFactory.initElements(driver, testpgeobjct.class);
 	    
 	    }
 
@@ -492,7 +492,7 @@ public class FaregeekTest
 	           Thread.sleep(4000);
 	           
 	          
-/*	           
+	 /*          
 	           
 	        // For Apply Best Price Guarantee   
 	        if(driver.findElement(By.cssSelector("#MainForm > div.col-md-9.col-xs-12.col-sm-9.pull-right.pax-main-cont > div.row.booking-section.satisfaction.panel-box.pax-info-mo > div > div > div > label [id*='ex_gr_']")).isDisplayed())
@@ -605,7 +605,8 @@ public class FaregeekTest
                  }
 	        	
 	        }
-*/	    
+	    */
+	           Reporter.log("purchase page pass..");
 	      try
 	      {
 	           //Click on Continue to Payment Button
