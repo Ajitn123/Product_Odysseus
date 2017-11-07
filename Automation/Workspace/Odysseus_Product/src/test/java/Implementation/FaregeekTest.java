@@ -118,7 +118,7 @@ public class FaregeekTest
 	            	              
 	    	 driver.manage().window().maximize();
              driver.get("http://faregeek.com/");
-             Thread.sleep(6000);
+             Thread.sleep(8000);
       /*       
              workbook = new HSSFWorkbook();
              //create a new work sheet
@@ -497,7 +497,10 @@ public class FaregeekTest
 	        // For Apply Best Price Guarantee   
 	        if(driver.findElement(By.cssSelector("#MainForm > div.col-md-9.col-xs-12.col-sm-9.pull-right.pax-main-cont > div.row.booking-section.satisfaction.panel-box.pax-info-mo > div > div > div > label [id*='ex_gr_']")).isDisplayed())
 	        {                                     
-	        	driver.findElement(By.cssSelector("#MainForm > div.col-md-9.col-xs-12.col-sm-9.pull-right.pax-main-cont > div.row.booking-section.satisfaction.panel-box.pax-info-mo > div > div > div > label [id*='ex_gr_']")).click();
+	        	// driver.findElement(By.cssSelector("#MainForm > div.col-md-9.col-xs-12.col-sm-9.pull-right.pax-main-cont > div.row.booking-section.satisfaction.panel-box.pax-info-mo > div > div > div > label [id*='ex_gr_']")).click();
+	        	 WebElement element1 = driver.findElement(By.cssSelector("#MainForm > div.col-md-9.col-xs-12.col-sm-9.pull-right.pax-main-cont > div.row.booking-section.satisfaction.panel-box.pax-info-mo > div > div > div > label [id*='ex_gr_']"));
+	        	 JavascriptExecutor executor1 = (JavascriptExecutor) driver;
+	             executor1.executeScript("arguments[0].click();", element1);
 	        	Thread.sleep(2000);
 	        	Reporter.log("Best Price Gaurantee Applied successfully..");
 	        	Thread.sleep(500);
@@ -560,9 +563,9 @@ public class FaregeekTest
 	        */	
 	        	// For remove Best Price Guarantee
 	    //    	driver.findElement(By.cssSelector("#MainForm > div.col-md-9.col-xs-12.col-sm-9.pull-right.pax-main-cont > div.row.booking-section.satisfaction.panel-box.pax-info-mo > div > div > div > label [id*='ex_gr_']")).click();
-	        	WebElement element1 = driver.findElement(By.cssSelector("#MainForm > div.col-md-9.col-xs-12.col-sm-9.pull-right.pax-main-cont > div.row.booking-section.satisfaction.panel-box.pax-info-mo > div > div > div > label [id*='ex_gr_']"));
-	        	JavascriptExecutor executor1 = (JavascriptExecutor) driver;
-	            executor1.executeScript("arguments[0].click();", element1);
+	        	WebElement element11 = driver.findElement(By.cssSelector("#MainForm > div.col-md-9.col-xs-12.col-sm-9.pull-right.pax-main-cont > div.row.booking-section.satisfaction.panel-box.pax-info-mo > div > div > div > label [id*='ex_gr_']"));
+	        	JavascriptExecutor executor11 = (JavascriptExecutor) driver;
+	            executor11.executeScript("arguments[0].click();", element11);
 	        	Thread.sleep(1000);
 	       /* 	
 	        	final Screenshot screenshot39 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
@@ -851,7 +854,7 @@ public class FaregeekTest
      		  }
               
                          Thread.sleep(1500);
-                         
+               /*          
                        //For the compare logs
             		     String ConsleArgument = "D:\\Ajit\\Script_SS\\ConsoleError\\FaregeekError.txt";
                          String ConsoleCommand = "D:\\Ajit\\Script_SS\\ConsoleApplication2.exe";
@@ -864,7 +867,7 @@ public class FaregeekTest
                          System.out.println("" +p05);    
                            
                          Thread.sleep(1000);
-	    	
+	    	*/
 	    }
 	    
 	    @DataProvider
