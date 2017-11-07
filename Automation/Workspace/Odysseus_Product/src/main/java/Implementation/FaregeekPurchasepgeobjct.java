@@ -8,7 +8,6 @@ import org.openqa.selenium.support.ui.Select;
 
 public class FaregeekPurchasepgeobjct
 {
-
 	   
 	    //For Checkout page (For passenger 1)
 	    @FindBy(id="_ctl0_MainContentsPH__ctl0_TravelerAccount_1_Title")
@@ -265,12 +264,12 @@ public class FaregeekPurchasepgeobjct
 	    		Thread.sleep(1000);
 	    		pne.sendKeys(pn);
 	    		Thread.sleep(1000);
-	    	//	zoomout.click();
-	    	//	Thread.sleep(1000);
-	    	//	zmout.click();
-	  	//		Thread.sleep(1000);
-	  	//		zmout.sendKeys(Keys.TAB);
-	  	//		zmout.sendKeys(Keys.TAB);
+	    		zoomout.click();
+	    		Thread.sleep(1000);
+	    		zmout.click();
+	  			Thread.sleep(1000);
+	  			zmout.sendKeys(Keys.TAB);
+	  			zmout.sendKeys(Keys.TAB);
 				
 	    	 }
 	    	 catch(Exception e)
