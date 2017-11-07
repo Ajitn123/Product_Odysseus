@@ -48,7 +48,7 @@ import ru.yandex.qatools.ashot.Screenshot;
 import ru.yandex.qatools.ashot.screentaker.ViewportPastingStrategy;
 
 
-public class FaregeekTest
+public class testt
 {
 
 	        FaregeekBookingpgeobjct airbkpge;
@@ -119,7 +119,7 @@ public class FaregeekTest
 	    	 driver.manage().window().maximize();
              driver.get("http://faregeek.com/");
              Thread.sleep(6000);
-             
+      /*       
              workbook = new HSSFWorkbook();
              //create a new work sheet
              sheet = workbook.createSheet("Test Result");
@@ -139,7 +139,7 @@ public class FaregeekTest
              testresultdata.put("11", new Object[] {"Insurance Removed"});
              testresultdata.put("12", new Object[] {"Payment"});
              Thread.sleep(3000);
-    
+    */
              //Save console
              String testResultFile="D:\\Ajit\\Script_SS\\ConsoleError\\FaregeekError.txt";
              File file = new File(testResultFile);  
@@ -148,7 +148,7 @@ public class FaregeekTest
              System.setOut(out); 
                   
              Thread.sleep(1000);
-            
+      /*      
              final Screenshot screenshot1 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
              final BufferedImage image1 = screenshot1.getImage();
              ImageIO.write(image1, "PNG", new File("D:\\Ajit\\Script_SS\\Faregeek\\1_Searchpage.png"));
@@ -164,7 +164,7 @@ public class FaregeekTest
              Process p = pb.start();
              
              System.out.println("" +p);
-             
+      */       
              System.out.println("\n");
 	         System.out.println("Searchpage Logs..");
 	         System.out.println("\n");
@@ -247,7 +247,7 @@ public class FaregeekTest
 	    	        ExtractJSLogs();
 	    	        
 	                Thread.sleep(1000);
-	    	 
+	    	/* 
 	                final Screenshot screenshot4 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
 	                final BufferedImage image4 = screenshot4.getImage();
 	                ImageIO.write(image4, "PNG", new File("D:\\Ajit\\Script_SS\\Faregeek\\2_Resultpage.png"));
@@ -263,7 +263,7 @@ public class FaregeekTest
 	                Process p = pb.start();
 	                
 	                System.out.println("" +p);
-	        
+	        */
 	    	        Thread.sleep(4000);
 	    	        
 	    	        //For View Details 
@@ -271,7 +271,7 @@ public class FaregeekTest
 	    	        {
 	    	        	  driver.findElement(By.cssSelector("[id*='flight-summary_'] > div.col-md-12.links > a.details")).sendKeys(Keys.ENTER);
 	    	        	  Thread.sleep(500);
-	  	    	        
+	  	    	   /*     
 	  	                  File scr02 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
        	                  org.codehaus.plexus.util.FileUtils.copyFile(scr02, new File("D:\\Ajit\\Script_SS\\Faregeek\\3_ViewDetails.png")); 
 	  	                  Thread.sleep(2000);
@@ -286,7 +286,7 @@ public class FaregeekTest
 		                  Process p1 = pb1.start();
 		                
 		                  System.out.println("" +p1);
-	  	                
+	  	           */     
 	  	                  driver.navigate().refresh();
 	  	                  Thread.sleep(3000);
 	    	        }
@@ -295,7 +295,7 @@ public class FaregeekTest
 	    	        String perperson = driver.findElement(By.cssSelector("[id*='flight-summary_'] > div.col-md-2.no-padding.pull-right.fix-price > div > h4:nth-child(1)")).getText();
 	    	        Reporter.log("Price per person on result page: " +perperson);
 	    	        Thread.sleep(1000);
-	    	        
+	    /*	        
 	    	        try
 	                {
 		                    testresultdata.put("3", new Object[] {"Results", perperson});
@@ -312,11 +312,11 @@ public class FaregeekTest
 	        	        System.out.println(e.getMessage());
 	        	   
 	                 }
-	    	        
+	    */	        
 	    	        String totalpriceonresult = driver.findElement(By.cssSelector("#tootltipdetails")).getText();
 	    	        Reporter.log("Total Price on result page: " +totalpriceonresult);
 	    	        Thread.sleep(2000);
-	    	        
+	    /*	        
 	    	        try
 	                {
 		                    testresultdata.put("4", new Object[] {"", totalpriceonresult});
@@ -333,7 +333,7 @@ public class FaregeekTest
 	        	        System.out.println(e.getMessage());
 	        	   
 	                 }
-	    	  
+	    	*/  
 	             // For select flight on result page
 	             if(driver.findElement(By.cssSelector("[id*='flight-summary_'] > div.col-md-2.no-padding.pull-right.fix-price > div > a")).isDisplayed())
 	             {
@@ -383,7 +383,7 @@ public class FaregeekTest
 	                System.out.println("\n");
 	                ExtractJSLogs();              
 	                Thread.sleep(1000);
-	                
+	          /*      
 	                final Screenshot screenshot3 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
 	                final BufferedImage image3 = screenshot3.getImage();
 	                ImageIO.write(image3, "PNG", new File("D:\\Ajit\\Script_SS\\Faregeek\\4_Checkoutpage.png"));
@@ -399,7 +399,7 @@ public class FaregeekTest
 	                  Process p1 = pb1.start();
 	                
 	                  System.out.println("" +p1);
-	               
+	            */   
 	                 Thread.sleep(3000);
 	                
 	              //For Trip details on checkout page
@@ -493,8 +493,6 @@ public class FaregeekTest
 	       
 	           Thread.sleep(4000);
 	           
-	          
-	 /*          
 	           
 	        // For Apply Best Price Guarantee   
 	        if(driver.findElement(By.cssSelector("#MainForm > div.col-md-9.col-xs-12.col-sm-9.pull-right.pax-main-cont > div.row.booking-section.satisfaction.panel-box.pax-info-mo > div > div > div > label [id*='ex_gr_']")).isDisplayed())
@@ -503,7 +501,7 @@ public class FaregeekTest
 	        	Thread.sleep(2000);
 	        	Reporter.log("Best Price Gaurantee Applied successfully..");
 	        	Thread.sleep(500);
-				
+			/*	
 	        	final Screenshot screenshot37 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
                 final BufferedImage image37 = screenshot37.getImage();
                 ImageIO.write(image37, "PNG", new File("D:\\Ajit\\Script_SS\\Faregeek\\05_AppliedBestPriceGaurantee.png"));
@@ -519,12 +517,12 @@ public class FaregeekTest
                 Process p2 = pb2.start();
               
                 System.out.println("" +p2);
-                
+           */     
                 //For Additional payment display in testng report
                 String additionalitems = driver.findElement(By.xpath("//*[@id='60']")).getText();
 	        	Reporter.log(" " +additionalitems);
 	        	Thread.sleep(1000);
-	        	
+	      /*  	
 	        	try
                 {
 	                    testresultdata.put("6", new Object[] {"Best Price Gaurantee", additionalitems});
@@ -539,12 +537,12 @@ public class FaregeekTest
         	        Reporter.log("Best Price Gaurantee's price not available..");
         	        System.out.println(e.getMessage());
                  }
-	        	
+	        */	
 	        	// Verify price After Applied Best Price Guarantee
 	        	String afteradditional = driver.findElement(By.xpath("//*[@id='PricesGTotal']")).getText();
 	        	Reporter.log("After applied Best Price Guarantee: " +afteradditional);
 	        	Thread.sleep(1000);
-	        	
+	       /* 	
 	        	try
                 {
 	                    testresultdata.put("7", new Object[] {"Best Price Gaurantee Applied", afteradditional});
@@ -559,14 +557,14 @@ public class FaregeekTest
         	        Reporter.log("Best Price Gaurantee not applied..");
         	        System.out.println(e.getMessage());
                  }
-	        	
+	        */	
 	        	// For remove Best Price Guarantee
 	    //    	driver.findElement(By.cssSelector("#MainForm > div.col-md-9.col-xs-12.col-sm-9.pull-right.pax-main-cont > div.row.booking-section.satisfaction.panel-box.pax-info-mo > div > div > div > label [id*='ex_gr_']")).click();
 	        	WebElement element1 = driver.findElement(By.cssSelector("#MainForm > div.col-md-9.col-xs-12.col-sm-9.pull-right.pax-main-cont > div.row.booking-section.satisfaction.panel-box.pax-info-mo > div > div > div > label [id*='ex_gr_']"));
 	        	JavascriptExecutor executor1 = (JavascriptExecutor) driver;
 	            executor1.executeScript("arguments[0].click();", element1);
 	        	Thread.sleep(1000);
-	        	
+	       /* 	
 	        	final Screenshot screenshot39 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
                 final BufferedImage image39 = screenshot39.getImage();
                 ImageIO.write(image39, "PNG", new File("D:\\Ajit\\Script_SS\\Faregeek\\5_RemovedBestPriceGaurantee.png"));
@@ -582,7 +580,7 @@ public class FaregeekTest
                 Process p3 = pb3.start();
               
                 System.out.println("" +p3);
-	        	
+	       */ 	
 	        	Reporter.log("Best Price Gaurantee Removed successfully..");
 	        	Thread.sleep(500);
 	        	
@@ -590,7 +588,7 @@ public class FaregeekTest
 	        	String Removedadditional = driver.findElement(By.xpath("//*[@id='PricesGTotal']")).getText();
 	        	Reporter.log("After Removed Best Price Guarantee: " +Removedadditional);
 	        	Thread.sleep(1000);
-	        	
+	      /*  	
 	        	try
                 {
 	                    testresultdata.put("8", new Object[] {"Best Price Gaurantee Removed", Removedadditional});
@@ -605,10 +603,10 @@ public class FaregeekTest
         	        Reporter.log("Best Price Gaurantee not removed..");
         	        System.out.println(e.getMessage());
                  }
-	        	
+	       */ 	
 	        }
-	    */
-	           Reporter.log("purchase page pass..");
+	    
+	           
 	      try
 	      {
 	           //Click on Continue to Payment Button
@@ -643,7 +641,7 @@ public class FaregeekTest
 	          ExtractJSLogs();
 	        
               Thread.sleep(1000);
-	 
+	 /*
               final Screenshot screenshot48 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
               final BufferedImage image48 = screenshot48.getImage();
               ImageIO.write(image48, "PNG", new File("D:\\Ajit\\Script_SS\\Faregeek\\6_Paymentpage.png"));
@@ -659,7 +657,7 @@ public class FaregeekTest
               Process p3 = pb3.start();
             
               System.out.println("" +p3);
-              
+       */       
               //For Insurance
               try
               {
@@ -676,7 +674,7 @@ public class FaregeekTest
                         String insurprice = driver.findElement(By.cssSelector("#PricesGTotal")).getText();
                         Reporter.log("Prices of After applied insurance on the Payment page:- " +insurprice);
                         Thread.sleep(1000); 
-                        
+              /*         
                         try
                         {
         	                    testresultdata.put("10", new Object[] {"Insurance Applied", insurprice});
@@ -707,12 +705,12 @@ public class FaregeekTest
                         Process p4 = pb4.start();
                       
                         System.out.println("" +p4);
-                        
+             */           
                         // Applied insurance price
                         String appliedinsurprice = driver.findElement(By.cssSelector("#FareDetails > div.total-price.no-padding > div:nth-child(3) > div > p")).getText();
                         Reporter.log(" " +appliedinsurprice);
                         Thread.sleep(1000);
-                        
+             /*           
                         try
                         {
         	                    testresultdata.put("9", new Object[] {"Insurance Price", appliedinsurprice});
@@ -727,7 +725,7 @@ public class FaregeekTest
                 	        Reporter.log("Insurance Price not available..");
                 	        System.out.println(e.getMessage());
                          }
-                        
+                */        
                         //For Remove insurance
                   //      WebElement insurnc = driver.findElement(By.id("InsurranceCHK_NON"));
                   //      insurnc.click();
@@ -745,7 +743,7 @@ public class FaregeekTest
                         String insprice = driver.findElement(By.cssSelector("#PricesGTotal")).getText();
                         Reporter.log("Prices of After removed insurance on the Payment page:- " +insprice);
                         Thread.sleep(1000);  
-                        
+              /*          
                         try
                         {
         	                    testresultdata.put("11", new Object[] {"Insurance Removed", insprice});
@@ -776,7 +774,7 @@ public class FaregeekTest
                         Process p5 = pb5.start();
                       
                         System.out.println("" +p5);
-                       
+                   */    
               	 }     
               }
               catch(Exception e)
@@ -802,7 +800,7 @@ public class FaregeekTest
               String priceonpaymnt = driver.findElement(By.xpath("//*[@id='PricesGTotal']")).getText();
               Reporter.log("Price on payment page: " +priceonpaymnt);
               Thread.sleep(500);
-              
+        /*      
                try
                {
 	                    testresultdata.put("12", new Object[] {"Payment", priceonpaymnt});
@@ -817,7 +815,7 @@ public class FaregeekTest
       	         Reporter.log("Price not Available on Payment page..");
       	         e.getMessage();
               }
-              
+        */      
               if(priceonpaymnt.equals(priceoncheckout))
               {
                   System.out.println("Checkout page and Payment page's Price matched");
@@ -882,7 +880,7 @@ public class FaregeekTest
 	    @AfterClass
 	    public void closeBrowser() throws InterruptedException
 	    {
-	    	
+	    /*	
 	    	//write excel file and file name is TestResult.xls 
 	        Set<String> keyset = testresultdata.keySet();
 	        int rownum = 0;
@@ -920,7 +918,7 @@ public class FaregeekTest
 	                   e.printStackTrace();
 	                }
 	        }
-	    	
+	    */	
 	    	  driver.close();
 	   	 
 	   	   /*
