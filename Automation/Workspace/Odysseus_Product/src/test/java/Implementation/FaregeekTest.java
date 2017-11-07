@@ -447,13 +447,14 @@ public class FaregeekTest
 	  	          //List<String> items = Arrays.asList(expr.split("$($('#TracerBlock')[0].innerHTML.split('OdysseyGateway')[2])[0].nodeValue.toString().split(':')[1]"));
 	  	          Reporter.log("API :- " +api);
 	  	          Thread.sleep(900);
-	  	   //       String envrnmnt = expr.split("OdysseyGateway")[7].split(":")[2].trim();
-	  	   //       Reporter.log("Environment :- " +envrnmnt);
-	  	    //      Thread.sleep(1000);
-	  	    //      String officeid = expr.split("OdysseyGateway")[7].split(":")[3].trim();
-	  	    //      Reporter.log("Office Id :- " +officeid);
-	  	    //      Thread.sleep(4000);
-	       
+	  	  /*        
+	  	          String envrnmnt = expr.split("OdysseyGateway")[7].split(":")[2].trim();
+	  	          Reporter.log("Environment :- " +envrnmnt);
+	  	          Thread.sleep(1000);
+	  	          String officeid = expr.split("OdysseyGateway")[7].split(":")[3].trim();
+	  	          Reporter.log("Office Id :- " +officeid);
+	  	         Thread.sleep(4000);
+	       */
 	  	   //For Passenger details         
 	       try
 	       {
