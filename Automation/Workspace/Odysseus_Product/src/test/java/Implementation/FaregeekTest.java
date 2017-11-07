@@ -48,7 +48,7 @@ import ru.yandex.qatools.ashot.Screenshot;
 import ru.yandex.qatools.ashot.screentaker.ViewportPastingStrategy;
 
 
-public class testt
+public class FaregeekTest
 {
 
 	        FaregeekBookingpgeobjct airbkpge;
