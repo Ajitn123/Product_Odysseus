@@ -11,16 +11,16 @@ public class BPCCruiseBookingpgeobjct
 {
 
 	// Cruise Search
-	@FindBy(id="_ctl0_MainContentsPH__ctl0_CruiseAdvancedSearch__ctl0_DatePicker")
+	@FindBy(id="StartDate")
 	private WebElement Selectfrmdte; 
 	
-    @FindBy(id="_ctl0_MainContentsPH__ctl0_CruiseAdvancedSearch__ctl1_DatePicker")
+    @FindBy(id="EndDate")
 	private WebElement selecttodte;   
 		
-	@FindBy(id="_ctl0_MainContentsPH__ctl0_CruiseAdvancedSearch_Suppliers")  
+	@FindBy(xpath="//select[@id='Suppliers']")  
 	private WebElement selectcruiseline;    
 		
-	@FindBy(id="_ctl0_MainContentsPH__ctl0_CruiseAdvancedSearch_go")
+	@FindBy(id="btnSearch")
 	private WebElement Clicksearchbtn;   
 	
 	//For cruises/results.aspx?
@@ -58,10 +58,13 @@ public class BPCCruiseBookingpgeobjct
 			Thread.sleep(1000);
 	//		selecttodte.findElement(By.xpath("//*[@id='ui-datepicker-div']/div/a[2]/span")).click();
 	//		Thread.sleep(500);
-			selecttodte.findElement(By.xpath("//*[@id='ui-datepicker-div']/table/tbody/tr[5]/td[5]/a")).click(); //For 30 Nov
+			selecttodte.findElement(By.xpath("//*[@id='ui-datepicker-div']/div[2]/table/tbody/tr[5]/td[3]/a")).click(); //For 30 Jan
 			Thread.sleep(1000);
-			Select select = new Select(selectcruiseline.findElement(By.id("_ctl0_MainContentsPH__ctl0_CruiseAdvancedSearch_Suppliers")));
-			select.selectByVisibleText("Seabourn"); // Viva Voyage: Norwegian Cruise Line, BPC: Seabourn, 
+			Select select = new Select(selectcruiseline.findElement(By.xpath("//select[@id='Suppliers']")));
+   		    select.deselectAll();
+			Thread.sleep(400);
+			Select select1 = new Select(selectcruiseline.findElement(By.xpath("//select[@id='Suppliers']")));
+			select1.selectByVisibleText("Seabourn"); // Viva Voyage: Norwegian Cruise Line, BPC: Seabourn, 
 			Thread.sleep(1000);
 			Clicksearchbtn.sendKeys(Keys.ENTER);
 			Thread.sleep(5000);
