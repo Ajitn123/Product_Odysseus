@@ -119,17 +119,28 @@ public class FaregeekPurchasepgeobjct
 	    private WebElement prgmnothree;
 	
 	    
-	    
+	    public void FaregeekToTitles()
+	    {
+	    	 try
+	    	 {
+				Select select = new Select(selctitle.findElement(By.id("_ctl0_MainContentsPH__ctl0_TravelerAccount_1_Title")));
+	  			select.selectByVisibleText("Mr");
+	  			Thread.sleep(900);
+				
+				Reporter.log("mister selected..");
+             }
+			 catch(Exception e)
+	    	 {
+	    		  e.getMessage();
+	    	 }
+        }			 
 	    
 	    
 	    public void FaregeekToTitle(String frstnme, String mdlnme, String lstnme, String phn, String eml, String coneml, String frstnam, String mdalnme, String lstnam, String frstnm, String mdalnm, String ltnm, String pn)
 	    {
 	    	 try
 	    	 {
-	    		  
-	    	    Select select = new Select(selctitle.findElement(By.id("_ctl0_MainContentsPH__ctl0_TravelerAccount_1_Title")));
-	  			select.selectByVisibleText("Mr");
-	  			Thread.sleep(900);
+	    	    
 	  			Select select1 = new Select(selctgndr.findElement(By.id("_ctl0_MainContentsPH__ctl0_TravelerAccount_1_GenderSEL")));
 	  			select1.selectByVisibleText("Male");
 	  			Thread.sleep(1000);
