@@ -254,7 +254,7 @@ public class BPCCruiseBookingTest
                //For Select cruise from result page
           	   try
           	   {
-         	       driver.findElement(By.xpath("//*[@id='sr0']/div[2]/div[3]/div[2]/button[2]")).sendKeys(Keys.ENTER);
+         	       driver.findElement(By.xpath("//*[@id='sr23']/div[2]/div[3]/div[2]/button[2]")).sendKeys(Keys.ENTER);
          	       
           	   }
           	   catch(Exception e)
@@ -1054,7 +1054,7 @@ public class BPCCruiseBookingTest
      public void closeBrowser() throws InterruptedException
      {
     	 
-    	//  driver.close();
+    	  driver.close();
 	 
 	   /*  
 	          if(driver!=null) 
