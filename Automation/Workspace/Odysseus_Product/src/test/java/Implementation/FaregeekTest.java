@@ -451,6 +451,10 @@ public class FaregeekTest
 	  	          String officeid = expr.split("OdysseyGateway")[7].split(":")[3].trim();
 	  	          Reporter.log("Office Id :- " +officeid);
 	  	          Thread.sleep(2000);
+				  
+				  faregkpurchse.FaregeekToTitles();
+				  
+				  Reporter.log("issue resolved..");
 	       
 	  	   //For Passenger details         
 	       try
