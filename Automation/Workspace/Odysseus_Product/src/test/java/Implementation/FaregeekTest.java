@@ -338,7 +338,7 @@ public class FaregeekTest
 	             if(driver.findElement(By.cssSelector("[id*='flight-summary_'] > div.col-md-2.no-padding.pull-right.fix-price > div > a")).isDisplayed())
 	             {
 	            	   driver.findElement(By.cssSelector("[id*='flight-summary_'] > div.col-md-2.no-padding.pull-right.fix-price > div > a")).sendKeys(Keys.ENTER);
-	            	   Thread.sleep(7000);
+	            	   Thread.sleep(8000);
 	             }
 	             else if(driver.findElement(By.cssSelector("#mainBody > div.error-box.priceErr")).isDisplayed()) // For error handling
           	     {
@@ -382,7 +382,7 @@ public class FaregeekTest
 	                System.out.println("Checkoutpage Logs..");
 	                System.out.println("\n");
 	                ExtractJSLogs();              
-	                Thread.sleep(1000);
+	                Thread.sleep(3000);
 	                
 	                final Screenshot screenshot3 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
 	                final BufferedImage image3 = screenshot3.getImage();
@@ -405,30 +405,30 @@ public class FaregeekTest
 	              //For Trip details on checkout page
 		  	      String frmloc = driver.findElement(By.cssSelector("#Flights > div:nth-child(1) > div > div.col-md-10.col-sm-10")).getText();
 		  	      Reporter.log("Departure Trip: " +frmloc);
-		  	      Thread.sleep(500);
+		  	      Thread.sleep(800);
 		  	      String toloc = driver.findElement(By.cssSelector("#Flights > div:nth-child(2) > div > div.col-md-10.col-sm-10")).getText();
 		  	      Reporter.log("Return Trip: " +toloc);
-		  	      Thread.sleep(500);
+		  	      Thread.sleep(900);
 		  	      String noofadult = driver.findElement(By.cssSelector("#FareDetails > div.panel-body.fare-details > div:nth-child(1) > div > p")).getText();
 		  	      Reporter.log(" " +noofadult);
-		  	      Thread.sleep(500);
+		  	      Thread.sleep(1000);
 		  	      String noofchilds = driver.findElement(By.cssSelector("#FareDetails > div.panel-body.fare-details > div:nth-child(2) > div > p")).getText();
 		  	      Reporter.log(" " +noofchilds);
-		  	      Thread.sleep(500);
+		  	      Thread.sleep(1000);
 		  	      String taxes = driver.findElement(By.cssSelector("#FareDetails > div.total-price.no-padding > div:nth-child(1) > div")).getText();
 		  	      Reporter.log(" " +taxes);
-		  	      Thread.sleep(500);
+		  	      Thread.sleep(1000);
 	                
 	              //Price verify on checkout page
 	  	      	  String priceoncheckout = driver.findElement(By.xpath("//*[@id='PricesGTotal']")).getText();
 	  	      	  Reporter.log("Price on checkout page: " +priceoncheckout);
-	  	      	  Thread.sleep(1000);
-	  	      	  
+	  	      	  Thread.sleep(2000);
+	  	   /*   	  
 	  	      	try
                 {
 	                    testresultdata.put("5", new Object[] {"Checkout", priceoncheckout});
                     
-                        Thread.sleep(1000);
+                        Thread.sleep(3000);
                  }   
                  catch(Exception e)
                  {
@@ -438,16 +438,16 @@ public class FaregeekTest
         	        Reporter.log("Checkout page Total price not available..");
         	        System.out.println(e.getMessage());
                  }
-	  	      	 
+	  	    */  	 
 	  	      	  //For check API, Office id And Environment on checkout page
 	  	      	  String expr = driver.findElement(By.id("TracerBlock")).getText();
 	  	          String api = expr.split("OdysseyGateway")[7].split(":")[1].trim();
 	  	          //List<String> items = Arrays.asList(expr.split("$($('#TracerBlock')[0].innerHTML.split('OdysseyGateway')[2])[0].nodeValue.toString().split(':')[1]"));
 	  	          Reporter.log("API :- " +api);
-	  	          Thread.sleep(500);
+	  	          Thread.sleep(900);
 	  	          String envrnmnt = expr.split("OdysseyGateway")[7].split(":")[2].trim();
 	  	          Reporter.log("Environment :- " +envrnmnt);
-	  	          Thread.sleep(500);
+	  	          Thread.sleep(800);
 	  	          String officeid = expr.split("OdysseyGateway")[7].split(":")[3].trim();
 	  	          Reporter.log("Office Id :- " +officeid);
 	  	          Thread.sleep(2000);
