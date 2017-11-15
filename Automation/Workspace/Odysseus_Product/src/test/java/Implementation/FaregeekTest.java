@@ -122,7 +122,7 @@ public class FaregeekTest
              driver.get("http://faregeek.com/");
              Thread.sleep(6000);
              
-       /*      
+             
              File fl=new File("D:\\Ajit\\Automation\\Workspace\\Odysseus_Product\\src\\main\\java\\testData\\AirSanityPrices.xlsx");
              
              try
@@ -181,7 +181,7 @@ public class FaregeekTest
              testresultdata.put("11", new Object[] {"Insurance Removed"});
              testresultdata.put("12", new Object[] {"Payment"});
              Thread.sleep(3000);
-      */
+    
              //Save console
              String testResultFile="D:\\Ajit\\Script_SS\\ConsoleError\\FaregeekError.txt";
              File file = new File(testResultFile);  
@@ -190,7 +190,7 @@ public class FaregeekTest
              System.setOut(out); 
                   
              Thread.sleep(1000);
-     /*      
+            
              final Screenshot screenshot1 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
              final BufferedImage image1 = screenshot1.getImage();
              ImageIO.write(image1, "PNG", new File("D:\\Ajit\\Script_SS\\Faregeek\\1_Searchpage.png"));
@@ -206,12 +206,12 @@ public class FaregeekTest
              Process p = pb.start();
              
              System.out.println("" +p);
-     */      
+             
              System.out.println("\n");
 	         System.out.println("Searchpage Logs..");
 	         System.out.println("\n");
 	         ExtractJSLogs();
-    
+
             //driver.navigate().to("https://localhost/odyssey/website/air/results.aspx?");
             Thread.sleep(4000);
             airbkpge = PageFactory.initElements(driver, FaregeekBookingpgeobjct.class);
@@ -252,7 +252,7 @@ public class FaregeekTest
 	         	     System.out.println("\n");
 	    	         System.out.println("Resultpage Logs..");
 	    	         System.out.println("\n");
-	    	     //    ExtractJSLogs();
+	    	         ExtractJSLogs();
 	            
 	                 Thread.sleep(10000);
 	             
@@ -262,7 +262,7 @@ public class FaregeekTest
 	        	     System.out.println("\n");
 	   	             System.out.println("Time out or Invalid search criteria on resultpage Logs..");
 	   	             System.out.println("\n");
-	   	        //     ExtractJSLogs();
+	   	             ExtractJSLogs();
 	    	 
 	 	             final Screenshot screenshot33 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
 	 	             final BufferedImage image33 = screenshot33.getImage();
@@ -286,7 +286,7 @@ public class FaregeekTest
 	    	        System.out.println("\n");
 	    	        System.out.println("Resultpage Logs..");
 	    	        System.out.println("\n");
-	    	    //    ExtractJSLogs();
+	    	        ExtractJSLogs();
 	    	        
 	                Thread.sleep(1000);
 	    	 
@@ -403,7 +403,7 @@ public class FaregeekTest
 	             	System.out.println("\n");
 	             	System.out.println("Flight not available on resultpage Logs..");
 	             	System.out.println("\n");
-	           // 	ExtractJSLogs();
+	            	ExtractJSLogs();
 	              	
 	             	final Screenshot screenshot2 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
 	                final BufferedImage image2 = screenshot2.getImage();
@@ -423,7 +423,7 @@ public class FaregeekTest
 	                System.out.println("\n");
 	                System.out.println("Checkoutpage Logs..");
 	                System.out.println("\n");
-	           //     ExtractJSLogs();              
+	                ExtractJSLogs();              
 	                Thread.sleep(1000);
 	                
 	                final Screenshot screenshot3 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
@@ -519,7 +519,7 @@ public class FaregeekTest
 	      	  System.out.println("\n");
 	      	  System.out.println("Timeout on checkoutpage Logs..");
 	      	  System.out.println("\n");
-	     // 	  ExtractJSLogs();
+	      	  ExtractJSLogs();
 	      	 
 	          final Screenshot screenshot44 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
 	  		  final BufferedImage image44 = screenshot44.getImage();
@@ -661,7 +661,7 @@ public class FaregeekTest
 	    	  System.out.println("\n");
 	      	  System.out.println("Invalid guest information on checkoutpage Logs..");
 	      	  System.out.println("\n");
-	     // 	  ExtractJSLogs();
+	      	  ExtractJSLogs();
 	      	 
 	          final Screenshot screenshot44 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
 	  		  final BufferedImage image44 = screenshot44.getImage();
@@ -676,7 +676,7 @@ public class FaregeekTest
 	          System.out.println("\n");
 	          System.out.println("Paymentpage Logs..");
 	          System.out.println("\n");
-	      //    ExtractJSLogs();
+	          ExtractJSLogs();
 	        
               Thread.sleep(1000);
 	 
@@ -821,7 +821,7 @@ public class FaregeekTest
        	           System.out.println("\n");
        	           System.out.println("Insurance not applied/removed on confirmation page...");
        	           System.out.println("\n");
-       	      //     ExtractJSLogs();
+       	           ExtractJSLogs();
           
                    final Screenshot screenshot72 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
                    final BufferedImage image72 = screenshot72.getImage();
@@ -909,7 +909,7 @@ public class FaregeekTest
 	    public String[][] Authentication() throws Exception
 	    {
 	    	 
-	   	     String[][] testObjArray = FaregeekUtils.getTableArray("E:\\Product_Odysseus\\Automation\\Workspace\\Odysseus_Product\\src\\main\\java\\testData\\FaregeekData.xlsx","Sheet1");
+	   	     String[][] testObjArray = FaregeekUtils.getTableArray("D:\\Ajit\\Automation\\Workspace\\Odysseus_Product\\src\\main\\java\\testData\\FaregeekData.xlsx","Sheet1");
 	   	     return testObjArray;
 	   	     
 	    }
@@ -918,7 +918,7 @@ public class FaregeekTest
 	    @AfterClass
 	    public void closeBrowser() throws InterruptedException
 	    {
-	      /*	
+	    	
 	    	//write excel file and file name is TestResult.xls 
 	        Set<String> keyset = testresultdata.keySet();
 	        int rownum = 0;
@@ -959,7 +959,7 @@ public class FaregeekTest
 	    	
 	    	  driver.close();
 	   	 
-	   	   
+	   	   /*
 	   	        if(driver!=null) 
 	   	        {
 	   		         System.out.println("Closing the browser");
