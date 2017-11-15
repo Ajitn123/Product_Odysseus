@@ -122,7 +122,7 @@ public class FaregeekTest
              driver.get("http://faregeek.com/");
              Thread.sleep(6000);
              
-             
+       /*      
              File fl=new File("D:\\Ajit\\Automation\\Workspace\\Odysseus_Product\\src\\main\\java\\testData\\AirSanityPrices.xlsx");
              
              try
@@ -181,7 +181,7 @@ public class FaregeekTest
              testresultdata.put("11", new Object[] {"Insurance Removed"});
              testresultdata.put("12", new Object[] {"Payment"});
              Thread.sleep(3000);
-    
+      */
              //Save console
              String testResultFile="D:\\Ajit\\Script_SS\\ConsoleError\\FaregeekError.txt";
              File file = new File(testResultFile);  
@@ -918,7 +918,7 @@ public class FaregeekTest
 	    @AfterClass
 	    public void closeBrowser() throws InterruptedException
 	    {
-	    	
+	      /*	
 	    	//write excel file and file name is TestResult.xls 
 	        Set<String> keyset = testresultdata.keySet();
 	        int rownum = 0;
@@ -959,7 +959,7 @@ public class FaregeekTest
 	    	
 	    	  driver.close();
 	   	 
-	   	   /*
+	   	   
 	   	        if(driver!=null) 
 	   	        {
 	   		         System.out.println("Closing the browser");
