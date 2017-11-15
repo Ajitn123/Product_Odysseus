@@ -2,9 +2,11 @@ package Implementation;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintStream;
 import java.sql.Date;
 import java.util.LinkedHashMap;
@@ -13,10 +15,10 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import javax.imageio.ImageIO;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -55,9 +57,9 @@ public class FaregeekTest
 	        FaregeekPurchasepgeobjct faregkpurchse;
 	        public static WebDriver driver;
 	        Reporter report = new Reporter();
-	        HSSFWorkbook workbook;
+	        XSSFWorkbook workbook;
 	  	   //define an Excel Work sheet
-	  	    HSSFSheet sheet;
+	  	    XSSFSheet sheet;
 	  	   //define a test result data object
 	  	    Map<String, Object[]> testresultdata;
 	  	   	        
@@ -120,14 +122,54 @@ public class FaregeekTest
              driver.get("http://faregeek.com/");
              Thread.sleep(6000);
              
-             workbook = new HSSFWorkbook();
-             //create a new work sheet
-             sheet = workbook.createSheet("Test Result");
+             
+             File fl=new File("D:\\Ajit\\Automation\\Workspace\\Odysseus_Product\\src\\main\\java\\testData\\AirSanityPrices.xlsx");
+             
+             try
+             {
+            
+               if (fl.exists())
+               {
+     	          FileInputStream fsIP= new FileInputStream(fl);  
+     	       //   Access the workbook           
+     	          InputStream inputStream = new java.io.BufferedInputStream(fsIP); 
+
+     	       //   POIFSFileSystem fs = new POIFSFileSystem(new FileInputStream(fl)); 
+     	          
+     	          workbook = new XSSFWorkbook(inputStream);
+     	         
+               }
+              
+               else
+               {
+             	  workbook=new XSSFWorkbook();
+               }
+              
+            
+               //sheet =
+               if(workbook.getSheet("Test Result")!=null)
+               {
+             	  sheet = workbook.getSheet("Test Result");
+               }
+               else
+               {
+             	  sheet = workbook.createSheet("Test Result");
+               }
+               
+             }
+             catch(Exception e) 
+             {
+       			// TODO: handle exception
+               	e.getCause();
+               	System.out.println("" +e);
+               	Reporter.log("" +e);
+       		}
+             
              testresultdata = new LinkedHashMap<String, Object[]>();
              //add test result excel file column header
              //write the header in the first row
-             testresultdata.put("1", new Object[] {"", "Faregeek", "Faredepot"});
-             testresultdata.put("2", new Object[] {"", "Price", "Price"});
+             testresultdata.put("1", new Object[] {"", "Faregeek"});
+             testresultdata.put("2", new Object[] {"", "Price"});
              testresultdata.put("3", new Object[] {"Results"});
              testresultdata.put("4", new Object[] {""});
              testresultdata.put("5", new Object[] {"Checkout"});
@@ -148,7 +190,7 @@ public class FaregeekTest
              System.setOut(out); 
                   
              Thread.sleep(1000);
-            
+        /*    
              final Screenshot screenshot1 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
              final BufferedImage image1 = screenshot1.getImage();
              ImageIO.write(image1, "PNG", new File("D:\\Ajit\\Script_SS\\Faregeek\\1_Searchpage.png"));
@@ -164,7 +206,7 @@ public class FaregeekTest
              Process p = pb.start();
              
              System.out.println("" +p);
-             
+        */     
              System.out.println("\n");
 	         System.out.println("Searchpage Logs..");
 	         System.out.println("\n");
@@ -338,7 +380,7 @@ public class FaregeekTest
 	             if(driver.findElement(By.cssSelector("[id*='flight-summary_'] > div.col-md-2.no-padding.pull-right.fix-price > div > a")).isDisplayed())
 	             {
 	            	   driver.findElement(By.cssSelector("[id*='flight-summary_'] > div.col-md-2.no-padding.pull-right.fix-price > div > a")).sendKeys(Keys.ENTER);
-	            	   Thread.sleep(8000);
+	            	   Thread.sleep(7000);
 	             }
 	             else if(driver.findElement(By.cssSelector("#mainBody > div.error-box.priceErr")).isDisplayed()) // For error handling
           	     {
@@ -382,7 +424,7 @@ public class FaregeekTest
 	                System.out.println("Checkoutpage Logs..");
 	                System.out.println("\n");
 	                ExtractJSLogs();              
-	                Thread.sleep(3000);
+	                Thread.sleep(1000);
 	                
 	                final Screenshot screenshot3 = new AShot().shootingStrategy(new ViewportPastingStrategy(500)).takeScreenshot(driver);
 	                final BufferedImage image3 = screenshot3.getImage();
@@ -402,33 +444,33 @@ public class FaregeekTest
 	                
 	                 Thread.sleep(3000);
 	                
-	              //For Trip details on checkout page
+	              //For Trip details on Purchase page
 		  	      String frmloc = driver.findElement(By.cssSelector("#Flights > div:nth-child(1) > div > div.col-md-10.col-sm-10")).getText();
 		  	      Reporter.log("Departure Trip: " +frmloc);
-		  	      Thread.sleep(800);
+		  	      Thread.sleep(500);
 		  	      String toloc = driver.findElement(By.cssSelector("#Flights > div:nth-child(2) > div > div.col-md-10.col-sm-10")).getText();
 		  	      Reporter.log("Return Trip: " +toloc);
-		  	      Thread.sleep(900);
+		  	      Thread.sleep(500);
 		  	      String noofadult = driver.findElement(By.cssSelector("#FareDetails > div.panel-body.fare-details > div:nth-child(1) > div > p")).getText();
 		  	      Reporter.log(" " +noofadult);
-		  	      Thread.sleep(1000);
+		  	      Thread.sleep(500);
 		  	      String noofchilds = driver.findElement(By.cssSelector("#FareDetails > div.panel-body.fare-details > div:nth-child(2) > div > p")).getText();
 		  	      Reporter.log(" " +noofchilds);
-		  	      Thread.sleep(1000);
+		  	      Thread.sleep(500);
 		  	      String taxes = driver.findElement(By.cssSelector("#FareDetails > div.total-price.no-padding > div:nth-child(1) > div")).getText();
 		  	      Reporter.log(" " +taxes);
-		  	      Thread.sleep(1000);
+		  	      Thread.sleep(500);
 	                
-	              //Price verify on checkout page
+	              //Price verify on Purchase page
 	  	      	  String priceoncheckout = driver.findElement(By.xpath("//*[@id='PricesGTotal']")).getText();
 	  	      	  Reporter.log("Price on checkout page: " +priceoncheckout);
-	  	      	  Thread.sleep(2000);
-	  	   /*   	  
+	  	      	  Thread.sleep(1000);
+	  	      	  
 	  	      	try
                 {
 	                    testresultdata.put("5", new Object[] {"Checkout", priceoncheckout});
                     
-                        Thread.sleep(3000);
+                        Thread.sleep(1000);
                  }   
                  catch(Exception e)
                  {
@@ -438,23 +480,19 @@ public class FaregeekTest
         	        Reporter.log("Checkout page Total price not available..");
         	        System.out.println(e.getMessage());
                  }
-	  	    */  	 
+	  	      	 
 	  	      	  //For check API, Office id And Environment on checkout page
 	  	      	  String expr = driver.findElement(By.id("TracerBlock")).getText();
 	  	          String api = expr.split("OdysseyGateway")[7].split(":")[1].trim();
 	  	          //List<String> items = Arrays.asList(expr.split("$($('#TracerBlock')[0].innerHTML.split('OdysseyGateway')[2])[0].nodeValue.toString().split(':')[1]"));
 	  	          Reporter.log("API :- " +api);
-	  	          Thread.sleep(900);
+	  	          Thread.sleep(500);
 	  	          String envrnmnt = expr.split("OdysseyGateway")[7].split(":")[2].trim();
 	  	          Reporter.log("Environment :- " +envrnmnt);
-	  	          Thread.sleep(800);
+	  	          Thread.sleep(500);
 	  	          String officeid = expr.split("OdysseyGateway")[7].split(":")[3].trim();
 	  	          Reporter.log("Office Id :- " +officeid);
 	  	          Thread.sleep(2000);
-				  
-				  faregkpurchse.FaregeekToTitles();
-				  
-				  Reporter.log("issue resolved..");
 	       
 	  	   //For Passenger details         
 	       try
