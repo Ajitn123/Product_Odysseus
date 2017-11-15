@@ -97,7 +97,7 @@ public class FaregeekTest
 		                    LoggingPreferences loggingprefs = new LoggingPreferences();
 		                    loggingprefs.enable(LogType.BROWSER, Level.ALL);
 		                    capabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingprefs);
-		                    driver = new ChromeDriver();
+		                    driver = new ChromeDriver(capabilities);
 		                   
 	             }  
 	             else if (browser.equalsIgnoreCase("IE")) 
