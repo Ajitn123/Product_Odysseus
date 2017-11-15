@@ -100,7 +100,7 @@ public class FaregeekTest
 	     @BeforeClass
 	     public void baseClass() throws InterruptedException, IOException  
 	     {
-	            	              
+	           Reporter.log("Insurance Removed successfully.."); 	              
 	    	 driver.manage().window().maximize();
              driver.get("http://faregeek.com/");
              Thread.sleep(2000);
